@@ -348,11 +348,18 @@ So the same rate-limit event produces a different token count, a different step 
 
 Mandatory mitigation if this tier is used: the proxy must log HTTP status per request, and any run containing a non-2xx upstream response must be **discarded, not repaired**.
 
+**Necessary but not sufficient, per `11-second-free-model.md`.** An upstream `ResourceExhausted 32/32` error from NVIDIA was observed arriving with **`HTTP 200`**, so a status-code check alone lets a failed request through as a successful one. The body must also be inspected for an upstream error payload, and the run discarded on that basis too.
+
 ---
 
 ## Section 6 — Model identity, routing and version pinning
 
 ### 6.1 No evidence of silent routing or fallback
+
+**Corrected by `11-second-free-model.md`: this holds for the primary model and is false of the gateway as a whole.**
+Four requests for `ling-3.0-flash-free` came back echoing `"model":"ling-3.0-tiny-free"`, and the token accounting matched the smaller model too, so it is a real substitution rather than an echo bug.
+The mitigation is mandatory on every request, not merely advisable: **assert `response.model == requested_model` and discard the run otherwise.**
+The three probes below stand as written for `deepseek-v4-flash-free` specifically.
 
 Three probes, all clean:
 
