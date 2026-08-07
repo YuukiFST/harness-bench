@@ -45,9 +45,24 @@ A run whose *measurement* is untrustworthy, per the faults enumerated in `docs/s
 It is never repaired into a valid sample and never silently dropped: the dataset records that it happened.
 The distinction from a failed run is load-bearing — one is a result, the other is the absence of one.
 
+## Tampered run
+
+A run in which the agent modified something it was shipped and told not to touch.
+It is agent behaviour rather than a measurement fault, so unlike a discarded run it stays in the dataset and is reported.
+
 ## Task
 
 One unit of work handed to an arm, in its own workspace, independent of every other task.
+
+## Task manifest
+
+The machine-readable declaration of what a task is: its goals, the mechanism checking each one, what ships with it, and what is withheld.
+It is the contract between the design of a task and the runner that executes it.
+
+## Reference envelope
+
+The step count and wall clock a task was designed to fit, measured on harness zero.
+It exists so that a run cut short by an enforced timeout is distinguishable from a run that genuinely failed — without it the two are the same row in the dataset.
 
 ## Goal
 
@@ -63,6 +78,16 @@ A family is the unit of retirement: a family that stops discriminating after cal
 
 What decides whether a goal was met.
 It is authored by this project, executed by the runner, and is never the agent's own test suite — a model that hallucinates an API also writes tests that mock the hallucination, so a green suite can sit over code that crashes.
+
+## Visible test
+
+A test shipped inside the workspace, which the agent may read and run.
+It exists so that a harness which runs tests and iterates is credited for doing so, and it is never what decides a goal.
+
+## Held-out test
+
+A test the oracle owns, which never enters the workspace.
+The agent cannot read it, run it, or write against it, and it is one of the mechanisms by which a goal is decided.
 
 ## Synthetic library
 
