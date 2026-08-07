@@ -761,10 +761,16 @@ Using a preview model's price in a published comparison is defensible but should
 ## Summary of what could not be established
 
 - **PI is essentially unresearched.** Its reporting surface, session artifacts, step semantics, provider configuration and `include_usage` behaviour are all unverified. The assigned agent did not report before this document was due. The only PI facts recorded here are its install path, its data directory, and the second-hand ticket-#6 finding about exit codes.
-- **OpenCode's step-to-round-trip mapping** is unverified, as is its subagent token attribution and its session-table `tokens_*` column names. The `step_finish.part.tokens` field list was closed by the second pass (§1.10). Retry token handling remains source-derived rather than reproduced, but is now known to sit behind an *unbounded* retry policy, which raises its severity.
+- **OpenCode is now largely established.** Its step-to-round-trip mapping is settled (§1.5, one `step_finish` per LLM call, verified empirically), and the `step_finish.part.tokens` field list was closed by the second pass (§1.10). What remains open: subagent/child-session token attribution, and whether `--print-logs` writes only to stderr. Retry token loss remains source-derived rather than reproduced, but is now known to sit behind an *unbounded* retry policy, which raises its severity considerably.
 - **Ollama's per-request prompt-cache hit count** is not merely unverified but unobtainable from any HTTP surface.
 - **LiteLLM's SSE buffering behaviour and Postgres requirement** were not confirmed, which is why it is a fallback rather than the recommendation.
 - **Cline's hub-backend `run_result` reliability** was not executed, though forcing the local backend makes the question moot.
 
 Every one of these is recorded as a gap rather than filled by inference.
-The two that block the experiment are PI's entire measurement surface and OpenCode's step semantics; both need a follow-up before the arms can be considered comparable on native numbers — though the recommendation in Section 7 is specifically designed so that the comparison does not depend on them.
+
+The one that blocks the experiment is **PI's entire measurement surface**, which needs a dedicated follow-up ticket before PI can be treated as a comparable arm at all.
+OpenCode and Cline are both established well enough to proceed.
+
+It is worth stating plainly that the recommendation in Section 7 is deliberately designed so that the comparison does **not** depend on closing any of these gaps.
+That is the point of the proxy: PI's unknown reporting surface, OpenCode's unbounded unrecorded retries, and Cline's invisible summarizer calls are all measured identically from outside, whatever their internals turn out to be.
+The native numbers remain worth collecting, but as a *subject* of the study — how much does each harness under-report? — rather than as its instrument.
