@@ -339,6 +339,9 @@ Usage is reported **per assistant message**, on `message_end` and on `message_up
 ```
 
 `duration` and `ttft` per message are a bonus pi's stream also carries.
+
+**Correction (from `10-pi-measurement-surface.md`, which established pi directly):** pi 0.80.10 does **not** emit per-message `duration` or `ttft`.
+They are an oh-my-pi addition, which makes them a fork difference rather than shared behaviour — and one more thing the benchmark must not read from pi.
 `agent_end.messages` repeats the full message array, so per-run totals can be summed from a single event.
 There is no run-level aggregate object equivalent to Cline's `run_result.aggregateUsage`.
 
