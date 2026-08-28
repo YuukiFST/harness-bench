@@ -5,12 +5,16 @@ which is the binding specification. The spine (tema, problema, H1/H2, objetivos)
 quoted verbatim from the resolution comment of issue #9 and is never rewritten here.
 
 Every quantitative figure in this file traces to a run or to a closed ticket:
-Layer 1 numbers come from docs/spec/41-layer1-request-shape.md (measured 2026-08-28),
-protocol numbers from docs/spec/11-experimental-protocol.md, control scope from
-docs/spec/12-harness-zero-scope.md. Numbers that do not exist yet are emitted as
-``[A MEDIR — #NN]`` markers rather than guessed, and the build prints what is left.
+Layer 1 numbers come from `41-layer1-request-shape.md` (measured 2026-08-28),
+protocol numbers from `11-experimental-protocol.md`, control scope from
+`12-harness-zero-scope.md`. Those four specs live on their own branches until
+PRs #42, #45, #46 and #47 land, so they are not under `docs/spec/` here yet; the
+script reads none of them at runtime. Numbers that do not exist yet are emitted
+as ``[A MEDIR — #NN]`` markers rather than guessed, and the build prints what is
+left, including any bare ticket reference that leaked into the body text.
 
 Usage:
+    python -m pip install -r tools/requirements.txt
     python tools/build_pcc.py
 """
 
@@ -45,8 +49,14 @@ _SECTION_LINES: dict[str, float] = {}
 _current_section = "capa"
 
 # Text-area geometry for the estimate: A4 minus the 3/2/3/2 cm margins.
-CHARS_PER_LINE = 92          # 12 pt Times New Roman justified over 16 cm
+# 12 pt Times New Roman averages ~5.8 pt per character, so a 16 cm (453 pt)
+# measure holds ~79 characters, not the ~92 an em-width estimate suggests.
+CHARS_PER_LINE = 79
 LINES_PER_PAGE = 39          # 24.7 cm of text height at 1.5 line spacing
+
+# The template caps the justificativa at 12 lines and doc 14 §3.1 calls it the
+# hardest constraint in the document, so the build asserts it rather than hoping.
+JUSTIFICATIVA_MAX_LINES = 12
 
 
 # --------------------------------------------------------------------------
@@ -168,11 +178,35 @@ def caption(doc, text, *, above=True):
     return p
 
 
+TEXT_WIDTH_CM = 16.0         # A4 minus the 3 cm and 2 cm side margins
+CM_PER_CHAR_AT_12PT = 0.2045  # ~5.8 pt per character
+
+
+def _table_lines(rows, size, widths):
+    """Lines a table really occupies, wrapping each cell against its column."""
+    cols = len(rows[0])
+    col_cm = ([w.cm for w in widths] if widths
+              else [TEXT_WIDTH_CM / cols] * cols)
+    cm_per_char = CM_PER_CHAR_AT_12PT * size / BODY_PT
+    total = 0.0
+    for row in rows:
+        wrapped = 1
+        for value, cm in zip(row, col_cm):
+            text = re.sub(r"\*\*|\*", "", value)
+            capacity = max(1, int((cm - 0.2) / cm_per_char))
+            wrapped = max(wrapped, math.ceil(len(text) / capacity))
+        # single-spaced rows at `size`, plus the 1 pt of cell padding each side
+        total += wrapped * 0.67 * size / BODY_PT + 0.12
+    return total
+
+
 def table(doc, rows, *, size=10, header=True, widths=None):
     t = doc.add_table(rows=len(rows), cols=len(rows[0]))
     t.style = "Table Grid"
     t.alignment = WD_TABLE_ALIGNMENT.CENTER
-    t.autofit = True
+    # Fixed layout, or Word recomputes column widths from content and the
+    # explicit `widths` below become advisory only.
+    t.autofit = widths is None
     for r, row in enumerate(rows):
         for c, value in enumerate(row):
             cell = t.cell(r, c)
@@ -189,7 +223,7 @@ def table(doc, rows, *, size=10, header=True, widths=None):
         for row in t.rows:
             for cell, w in zip(row.cells, widths):
                 cell.width = w
-    _account("", lines=0.85 * len(rows))
+    _account("", lines=_table_lines(rows, size, widths))
     return t
 
 
@@ -199,7 +233,8 @@ def table(doc, rows, *, size=10, header=True, widths=None):
 
 FOOTNOTE_ID = 2
 FOOTNOTE_TEXT = (
-    "Os exemplos de referência do template departamental precedem as edições vigentes "
+    "Os exemplos de referência do template departamental (Instituto Federal de Mato "
+    "Grosso, 2022) precedem as edições vigentes "
     "da NBR 6023 e da NBR 10520, e o template diverge de si mesmo ao alternar entre "
     "“Acesso em:” e “Acessado em:” e ao envolver endereços eletrônicos em colchetes "
     "angulares. Onde há contradição interna, seguiu-se a edição vigente: NBR 6023:2025 "
@@ -222,9 +257,12 @@ FOOTNOTES_XML = f"""<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
   </w:footnote>
   <w:footnote w:id="{FOOTNOTE_ID}">
     <w:p>
-      <w:pPr><w:jc w:val="both"/><w:spacing w:after="0" w:line="240" w:lineRule="auto"/></w:pPr>
+      <!-- CT_PPrBase is an xsd:sequence: w:spacing (21) precedes w:jc (26).
+           This part is hand-built, so python-docx's ordered inserters never run
+           and a wrong order reaches Word as "unreadable content". -->
+      <w:pPr><w:spacing w:after="0" w:line="240" w:lineRule="auto"/><w:jc w:val="both"/></w:pPr>
       <w:r><w:rPr><w:rFonts w:ascii="{FONT}" w:hAnsi="{FONT}" w:cs="{FONT}"/>
-        <w:vertAlign w:val="superscript"/><w:sz w:val="20"/></w:rPr><w:footnoteRef/></w:r>
+        <w:sz w:val="20"/><w:vertAlign w:val="superscript"/></w:rPr><w:footnoteRef/></w:r>
       <w:r><w:rPr><w:rFonts w:ascii="{FONT}" w:hAnsi="{FONT}" w:cs="{FONT}"/>
         <w:sz w:val="20"/></w:rPr><w:t xml:space="preserve"> {FOOTNOTE_TEXT}</w:t></w:r>
     </w:p>
@@ -264,6 +302,9 @@ def attach_footnotes(doc):
 # --------------------------------------------------------------------------
 
 def setup_section(section, *, numbered_from=None):
+    # python-docx defaults to US Letter; NBR 14724 and the template require A4.
+    section.page_width = Cm(21)
+    section.page_height = Cm(29.7)
     section.top_margin = Cm(3)
     section.bottom_margin = Cm(2)
     section.left_margin = Cm(3)
@@ -278,9 +319,14 @@ def setup_section(section, *, numbered_from=None):
         p.alignment = WD_ALIGN_PARAGRAPH.RIGHT
         run = p.add_run()
         _style_run(run)
+        # `separate` plus a cached result: Word recomputes the field on layout,
+        # but LibreOffice and headless docx->pdf converters render whatever is
+        # cached, and an empty header loses the page numbering the template wants.
         for tag, attrs, text in (
             ("w:fldChar", {"w:fldCharType": "begin"}, None),
             ("w:instrText", {"xml:space": "preserve"}, " PAGE "),
+            ("w:fldChar", {"w:fldCharType": "separate"}, None),
+            ("w:t", {}, "1"),
             ("w:fldChar", {"w:fldCharType": "end"}, None),
         ):
             el = OxmlElement(tag)
@@ -306,6 +352,24 @@ TITULO = (
     "HARNESSES DE AGENTES DE CODIFICAÇÃO: O IMPACTO DO PROJETO DO HARNESS "
     "SOBRE O CUSTO E O DESEMPENHO DE UM MODELO DE LINGUAGEM MANTIDO FIXO"
 )
+
+# Kept as data, not inline prose, because the template caps this at 12 lines and
+# the build has to be able to count them. Order fixed by doc 14 §3.1: the
+# published magnitude, then this project's own measurement, then the stake.
+JUSTIFICATIVA = [
+    "A escolha do modelo domina a discussão sobre agentes de codificação, mas não é o "
+    "único fator sob controle de quem os usa. Na Tabela 1 de Lin et al. (2026)[[FN]], "
+    "três *harnesses* humanos sobre o mesmo modelo congelado obtêm 47,2%, 62,9% e 71,9% "
+    "de pass@1 — 24,7 pontos percentuais de dispersão atribuíveis só ao *harness*. O "
+    "estudo da Databricks relatado por Earendil (2026) registra variação superior a 2x "
+    "no custo por tarefa, com qualidade igual ou melhor.",
+
+    "Este projeto já mediu o efeito com a linhagem do *harness* fixa: na primeira "
+    "requisição da mesma tarefa, o oh-my-pi — *fork* direto do pi — envia 11,4x os bytes "
+    "do próprio ascendente, 64.945 contra 5.676, antes que o modelo gere um token. Daí a "
+    "pergunta prática: você está mesmo extraindo o máximo do modelo que está pagando "
+    "para usar?",
+]
 
 LAYER1_TABLE = [
     ["Braço", "Esquemas de ferramenta", "Bytes de ferramentas", "Bytes de system",
@@ -479,21 +543,8 @@ def build_introducao(doc):
     heading(doc, "1 INTRODUÇÃO")
 
     label(doc, "Justificativa")
-    body(doc,
-         "A escolha do modelo de linguagem domina a discussão sobre agentes de codificação, "
-         "mas não é o único fator sob controle de quem os usa. Na Tabela 1 de Lin et al. "
-         "(2026)[[FN]], três *harnesses* construídos por equipes humanas sobre o mesmo modelo, "
-         "congelado e no mesmo *benchmark*, obtêm 47,2%, 62,9% e 71,9% de pass@1 — uma "
-         "dispersão de 24,7 pontos percentuais atribuível exclusivamente ao *harness*, faixa "
-         "comparável à que se obtém trocando o próprio modelo sob um *harness* fixo. O estudo "
-         "da Databricks relatado por Earendil (2026) registra variação superior a 2x no custo "
-         "por tarefa entre *harnesses*, com qualidade igual ou melhor.")
-    body(doc,
-         "Este projeto já mediu o mesmo efeito com a linhagem do *harness* mantida fixa: na "
-         "primeira requisição de uma mesma tarefa, o oh-my-pi — *fork* direto do pi — envia "
-         "11,4x os bytes do seu próprio ascendente, 64.945 contra 5.676, antes que o modelo "
-         "gere um único token. A pergunta prática que daí decorre é direta: você está mesmo "
-         "extraindo o máximo do modelo que está pagando para usar?")
+    for paragraph in JUSTIFICATIVA:
+        body(doc, paragraph)
 
     label(doc, "Tema")
     body(doc,
@@ -570,49 +621,44 @@ def build_referencial(doc):
          "software que envolve um modelo de linguagem com ferramentas, APIs, *sandboxes*, "
          "memória, validadores, fronteiras de permissão, laços de execução e canais de "
          "realimentação, convertendo um modelo sem estado em um agente capaz de executar "
-         "tarefas de longo horizonte (tradução nossa). Os mesmos autores separam as "
-         "capacidades internas do modelo, a infraestrutura de *harness* provida pelo sistema e "
-         "os artefatos de código criados pelo agente; o recorte deste trabalho é o do meio, "
-         "com as capacidades internas mantidas constantes. Os braços vão de um laço ReAct "
-         "mínimo (Yao et al., 2022) a implementações com planejamento, compactação de contexto "
-         "e subagentes.")
+         "tarefas de longo horizonte (tradução nossa). Os mesmos autores separam capacidades "
+         "internas do modelo, infraestrutura de *harness* e artefatos de código criados pelo "
+         "agente; o recorte aqui é o do meio, com as capacidades internas constantes. Os "
+         "braços vão de um laço ReAct mínimo (Yao et al., 2022) a implementações com "
+         "planejamento, compactação e subagentes.")
 
     body(doc,
-         "A afirmação genérica de que o *harness* importa já está estabelecida, e este "
-         "trabalho se posiciona em relação a ela em vez de redescobri-la. Quatro fontes a "
-         "sustentam, duas delas de prática profissional. Lin et al. (2026) medem 24,7 pontos "
+         "Que o *harness* importa já está estabelecido, e este trabalho se posiciona em "
+         "relação a isso em vez de redescobri-lo. Lin et al. (2026) medem 24,7 pontos "
          "percentuais de dispersão entre *harnesses* humanos sobre um modelo congelado, contra "
-         "linhas de base de 36,5% a 56,2% obtidas trocando o modelo sob *harness* fixo — "
-         "dispersões da mesma ordem de grandeza. Zhang et al. (2026) enunciam a *Binding "
-         "Constraint Thesis*: em tarefas de longo horizonte, o *harness* determina o "
-         "desempenho mais que o modelo que ele encapsula. Somam-se o HarnessRank (2026), "
-         "placar com método de medição documentado, e o estudo da Databricks relatado por "
-         "Earendil (2026), com variação de custo por tarefa superior a 2x a qualidade igual ou "
-         "melhor.")
+         "linhas de base de 36,5% a 56,2% obtidas trocando o modelo — dispersões da mesma "
+         "ordem. Zhang et al. (2026) enunciam a *Binding Constraint Thesis*: em longo "
+         "horizonte, o *harness* determina o desempenho mais que o modelo que encapsula. "
+         "Somam-se duas fontes de prática: o HarnessRank (2026) e o estudo da Databricks "
+         "relatado por Earendil (2026), com custo por tarefa variando mais de 2x a qualidade "
+         "igual ou melhor.")
 
     body(doc,
          "A primeira pendência é de atribuição: toda comparação publicada contrasta "
          "*harnesses* de equipes diferentes sobre fundações diferentes, e a dispersão medida "
-         "agrega, sem separá-los, o projeto do prompt, o das ferramentas, a gestão de contexto "
-         "e o desenho do laço. Ning et al. (2026) nomeiam a lacuna em §5.2.3 e pedem, em "
-         "§5.2.7, métricas que isolem componentes do *harness*. O par pi / oh-my-pi responde a "
-         "§5.2.7: o oh-my-pi é um *fork* direto do pi, o que mantém a linhagem fixa e faz "
-         "variar apenas as modificações.")
+         "agrega prompt, ferramentas, gestão de contexto e desenho do laço sem separá-los. "
+         "Ning et al. (2026) nomeiam a lacuna em §5.2.3 e pedem, em §5.2.7, métricas que "
+         "isolem componentes. O par pi / oh-my-pi responde a §5.2.7: um *fork* direto mantém a "
+         "linhagem fixa e faz variar apenas as modificações.")
 
     body(doc,
-         "A segunda pendência é de instrumentação: o que um *harness* relata sobre o próprio "
-         "custo diverge do que ele gasta. Cada implementação omite do relatório um conjunto "
-         "diferente de chamadas reais ao modelo, e um *benchmark* de produção subestimou custo "
-         "em 40 a 90 vezes durante meses por essa classe de erro (Akita, 2026). Daí a medição "
-         "ficar em um proxy externo; quantificar a divergência é o objetivo específico (f).")
+         "A segunda é de instrumentação: o que um *harness* relata sobre o próprio custo "
+         "diverge do que ele gasta. Cada um omite do relatório um conjunto diferente de "
+         "chamadas reais ao modelo, e um *benchmark* de produção subestimou custo em 40 a 90 "
+         "vezes durante meses assim (Akita, 2026). Daí medir em proxy externo; quantificar a "
+         "divergência é o objetivo (f).")
 
     body(doc,
-         "A métrica primária é Succ/Mtok — sucesso por milhão de tokens —, adotada de Lin et "
-         "al. (2026). Sobre ela pesa uma ressalva permanente: o efeito de um *harness* é "
-         "específico do modelo e pode inverter de sinal — uma única mudança de *scaffolding* "
-         "moveu escores em +67, −39, −22 e +1 pontos em quatro modelos (Akita, 2026). Por isso "
-         "o desenho carrega dois níveis de modelo e enuncia as conclusões por nível, nunca de "
-         "forma global.")
+         "A métrica primária é Succ/Mtok — sucesso por milhão de tokens —, de Lin et al. "
+         "(2026). Sobre ela pesa uma ressalva permanente: o efeito é específico do modelo e "
+         "pode inverter de sinal — uma única mudança de *scaffolding* moveu escores em +67, "
+         "−39, −22 e +1 pontos em quatro modelos (Akita, 2026). Por isso o desenho carrega "
+         "dois níveis e enuncia as conclusões por nível, nunca de forma global.")
 
 
 def build_material(doc):
@@ -639,7 +685,7 @@ def build_material(doc):
 
     body(doc,
          "O conjunto de braços é provisório até o fechamento das verificações de "
-         "confiabilidade (#23) e é citado aqui como tal: o *harness* zero, o conjunto de "
+         "confiabilidade e é citado aqui como tal: o *harness* zero, o conjunto de "
          "implementações de terceiros e o par de destaque pi / oh-my-pi. O *harness* zero é o "
          "controle científico e o único braço que este projeto escreve — um laço observar/agir "
          "com três ferramentas (leitura de arquivo, escrita de arquivo e execução de "
@@ -660,8 +706,8 @@ def build_material(doc):
          "nenhum.")
 
     body(doc,
-         "São dois níveis de modelo, ambos gratuitos e no mesmo gateway, reportados "
-         "separadamente e jamais promediados: um primário e um de robustez. O segundo existe "
+         "São dois níveis de modelo, ambos gratuitos e no mesmo gateway (Opencode, 2026), "
+         "reportados separadamente e jamais promediados: um primário e um de robustez. Existe "
          "porque o efeito do *harness* é específico do modelo; se a ordenação entre braços se "
          "inverter entre os níveis, a inversão é o resultado, e não ruído a suavizar.")
 
@@ -734,7 +780,8 @@ def build_material(doc):
 
     caption(doc, "Tabela 1 – Primeira requisição por braço, perfil isolado, tarefa probe "
                  "(28 ago. 2026)")
-    table(doc, LAYER1_TABLE, size=9)
+    table(doc, LAYER1_TABLE, size=9,
+          widths=[Cm(3.2), Cm(2.7), Cm(2.6), Cm(2.5), Cm(2.5), Cm(2.5)])
     caption(doc, "Fonte: elaborado pelo autor (2026).", above=False)
 
     label(doc, "Limitações e ameaças à validade")
@@ -765,11 +812,11 @@ def build_orcamento(doc):
 
     body(doc,
          "O total em dinheiro é zero, e o limite que restringe o experimento não é financeiro: "
-         "é a cota — cerca de 10 requisições a cada 6 minutos no nível gratuito (Opencode, "
-         "2026) contra 60 a 270 requisições ao modelo por tarefa do DeepSWE (Huang et al., "
-         "2026) —, razão pela qual a matriz é executada em lotes distribuídos ao longo de dias "
-         "e o custo monetário aparece apenas como contrafactual de ordem de grandeza sobre as "
-         "tarifas pagas publicadas. O Docker é obrigatório, porque o executor falha sem ele "
+         "é a cota — cerca de 10 requisições a cada 6 minutos, medidas neste projeto, contra "
+         "60 a 270 requisições ao modelo por tarefa do DeepSWE (Huang et al., 2026) —, razão "
+         "pela qual a matriz é executada em lotes distribuídos ao longo de dias e o custo "
+         "monetário aparece apenas como contrafactual de ordem de grandeza sobre as tarifas "
+         "pagas publicadas. O Docker é obrigatório, porque o executor falha sem ele "
          "(Datacurve, 2026), e a GPU da estação é irrelevante para todo resultado reportado.")
 
 
@@ -801,10 +848,11 @@ def build_referencias(doc):
         pf.alignment = WD_ALIGN_PARAGRAPH.LEFT
         pf.line_spacing_rule = WD_LINE_SPACING.SINGLE
         pf.space_before = Pt(0)
-        pf.space_after = Pt(6)
+        # NBR 6023:2025 separates entries by one blank single-spaced line.
+        pf.space_after = Pt(12)
         pf.first_line_indent = Cm(0)
         _add_marked_runs(p, entry)
-        _account(re.sub(r"\*\*|\*", "", entry), factor=0.67, extra=0.34)
+        _account(re.sub(r"\*\*|\*", "", entry), factor=0.67, extra=0.67)
 
 
 # --------------------------------------------------------------------------
@@ -837,8 +885,13 @@ def start_pages(pages: dict[str, float]) -> dict[str, int]:
 
 
 def collect_markers(doc) -> list[str]:
+    """Anything left in the body that a reader outside this repo cannot resolve.
+
+    Square-bracketed placeholders, plus bare `(#NN)` ticket references, which
+    are repo-internal and must not survive into a submitted document.
+    """
     found, seen = [], set()
-    pattern = re.compile(r"\[[^\[\]]{2,60}\]")
+    pattern = re.compile(r"\[[^\[\]]{2,60}\]|\(#\d+\)")
     texts = [p.text for p in doc.paragraphs]
     for t in doc.tables:
         for row in t.rows:
@@ -899,6 +952,15 @@ def main() -> None:
     total = sum(pages.values())
 
     print(f"Gerado: {OUT}")
+    print()
+
+    justificativa_lines = sum(
+        math.ceil(len(re.sub(r"\*\*|\*|\[\[FN\]\]", "", p)) / CHARS_PER_LINE)
+        for p in JUSTIFICATIVA
+    )
+    status = "ok" if justificativa_lines <= JUSTIFICATIVA_MAX_LINES else "ACIMA DO LIMITE"
+    print(f"Justificativa: {len(JUSTIFICATIVA)} parágrafos, "
+          f"{justificativa_lines} linhas (máx. {JUSTIFICATIVA_MAX_LINES}) — {status}")
     print()
     print("Páginas estimadas por seção (capa e sumário fora da contagem):")
     for name in SECTION_ORDER:
