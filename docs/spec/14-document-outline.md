@@ -67,7 +67,7 @@ It goes in the *introdução* immediately after the *problema*, as a labelled pa
 |---|---|---|---|---|
 | — | Capa, sumário | — | — | template |
 | 1 | **Introdução** | 1.7 | 10 | #9 |
-| 2 | **Referencial Teórico** | 1.0 | 5 | #2, #3, #30 |
+| 2 | **Referencial Teórico** | 1.0 | 5 | #2, #3 |
 | 3 | **Material e Método** | 2.2 | 12 + 1 table | #11, #12, #36, #37, #41 |
 | 4 | **Orçamento** | 0.3 | 1 + 1 table | #11, #33, #34 |
 | 5 | **Cronograma** | 0.5 | 1 + 1 table | #15 |
@@ -97,7 +97,7 @@ The *tema*, *problema*, *hipótese* and *objetivos* are already written in final
 2. **This project's own measured number**: **11.4x** first-request payload between a harness and a direct fork of it, measured in #41 on an instrument in this repository — the lineage-fixed case none of the published sources report.
 3. **The applied stake**, in one sentence: *"você está mesmo extraindo o máximo do modelo que está pagando para usar?"*
 
-The fourth candidate — #30's benchmark understating cost by 40–90x for months — **does not fit in 12 lines** and moves to the *referencial teórico*, where it supports objective (f).
+The fourth candidate — that a harness's own cost reporting diverges from what it spends — **does not fit in 12 lines** and moves to the *referencial teórico*, where it supports objective (f).
 
 ### 3.2 Referencial Teórico — 1.0 page, 5 paragraphs
 
@@ -109,9 +109,9 @@ That is a licence to keep it tight, and it aligns with #9's instruction that thi
 |---|---|
 | 1 | Citable definition of *harness*, and the three-layer taxonomy with the arms placed on it (#2) |
 | 2 | The bare claim "the harness matters" is **settled**, with the four sources that settled it — AHE Table 1, arXiv 2605.23950's Binding Constraint Thesis, harnessrank.net, the Databricks study. Two of the four are practitioner sources and the text says so |
-| 3 | **The pendência this work addresses**: every published comparison contrasts harnesses built by different teams on different foundations, so the measured spread bundles prompt, tool, context and loop design with no way to separate them. CaAH §5.2.3 and §5.2.7 name it; the pi vs oh-my-pi pairing answers §5.2.7 directly |
-| 4 | **The second pendência**: what a harness reports about its own cost diverges from what it spends, and #30 recorded a production benchmark understating it by 40–90x for months. This is objective (f), and it is why the measurement sits at a proxy rather than in the arms' own reporting (#4) |
-| 5 | Succ/Mtok as the metric (#2, #11), and the standing caveat that harness effects are **model-specific and can invert in sign** — #30's +67 / −39 / −22 / +1 across four models — which is why the design carries two tiers and states conclusions per tier |
+| 3 | **The pendência this work addresses**: every published comparison contrasts harnesses built by different teams on different foundations, so the measured spread bundles prompt, tool, context and loop design with no way to separate them. CaAH §5.2.1 and §5.2.7 name it; the pi vs oh-my-pi pairing answers §5.2.7 directly |
+| 4 | **The second pendência**: what a harness reports about its own cost diverges from what it spends, and Kapoor et al. (2024) and the Holistic Agent Leaderboard (2025) both record that agent evaluations rarely report cost and that cross-harness comparisons are rare. This is objective (f), and it is why the measurement sits at a proxy rather than in the arms' own reporting (#4) |
+| 5 | Succ/Mtok as the metric (#2, #11), and the standing caveat that harness effects are **model-specific and can invert in sign** — the Holistic Agent Leaderboard measures Anthropic models scoring higher under one scaffold and OpenAI models under another, on the same benchmark — which is why the design carries two tiers and states conclusions per tier |
 
 Stating that the bare claim is settled is a strength; rediscovering it would be a weakness.
 
@@ -147,7 +147,7 @@ The template asks first for the research-type classification on four axes, and t
 
 **This is also the presentation's figure** (#21). The map fixes a figure as the atomic visual deliverable, and this is the one that exists today regardless of what the free tier does.
 
-**The limitations paragraph is mandatory** (#9): model specificity (#30); the small-model transfer question deliberately left open (#24, cited to CaAH §5.2.3); absolute results not being leaderboard-comparable, since every published DeepSWE baseline uses `mini-swe-agent` (#33); and cost as an order-of-magnitude counterfactual (#11).
+**The limitations paragraph is mandatory** (#9): model specificity (#31); the small-model transfer question deliberately left open (#24, on this project's own grounds rather than on a citation); absolute results not being leaderboard-comparable, since every published DeepSWE baseline uses `mini-swe-agent` (#33); and cost as an order-of-magnitude counterfactual (#11).
 
 ### 3.4 Orçamento — 0.3 pages, one paragraph and one table
 
@@ -181,7 +181,7 @@ Numbered section 6 per the template, and therefore inside the page count.
 Formatted per **NBR 6023:2025** where the template contradicts itself (§1). Two cases recur here and the template covers neither:
 
 - **arXiv preprints** — cited as electronic documents with the arXiv identifier and access date, and **marked as preprints**. They are not peer-reviewed and the document should not imply otherwise.
-- **Authorless web sources** — harnessrank.net, earendil.com, akitaonrails.com — carry access dates, and the *referencial teórico* names what kind of source each is when it cites them.
+- **Authorless web sources** — harnessrank.net, earendil.com — carry access dates, and the *referencial teórico* names what kind of source each is when it cites them.
 
 The public repository (#22) is cited here by URL. It is what makes objective (g) — re-execution at zero monetary cost — checkable rather than asserted.
 
