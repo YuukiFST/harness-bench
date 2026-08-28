@@ -58,6 +58,11 @@ LINES_PER_PAGE = 39          # 24.7 cm of text height at 1.5 line spacing
 # hardest constraint in the document, so the build asserts it rather than hoping.
 JUSTIFICATIVA_MAX_LINES = 12
 
+# Length the document is allowed to reach. The 7-page figure doc 14 §5 was
+# written against was a guess; the author settled it at 10 (#49), so the
+# reduction ladder is a tidiness tool now rather than a gate.
+PAGES_MAX = 10.0
+
 
 # --------------------------------------------------------------------------
 # low-level helpers
@@ -1006,9 +1011,10 @@ def main() -> None:
     print("Páginas estimadas por seção (capa e sumário fora da contagem):")
     for name in SECTION_ORDER:
         print(f"  {name:<24} {pages[name]:>5.2f}  (inicia na página {starts[name]})")
-    print(f"  {'TOTAL':<24} {total:>5.2f}   (alvo 6,4; teto 7,0)")
-    if total > 7.0:
-        print("  AVISO: acima de 7 páginas — aplicar a escada de redução do doc 14 §5.")
+    print(f"  {'TOTAL':<24} {total:>5.2f}   (teto {PAGES_MAX:.0f},0)")
+    if total > PAGES_MAX:
+        print(f"  AVISO: acima de {PAGES_MAX:.0f} páginas — aplicar a escada de "
+              "redução do doc 14 §5.")
     print()
 
     markers = collect_markers(doc)
