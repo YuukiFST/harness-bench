@@ -70,7 +70,7 @@ This is a correction, not a restatement, and it was found by measurement.
 
 When the proxy swallows a usage frame that the *client itself* asked for, pi's native usage reporting drops to `input: 0, output: 0` while the proxy still records `prompt_tokens: 137, completion_tokens: 11`. [V]
 That is not a cosmetic loss.
-#30 makes the native-vs-proxy cross-check mandatory on every run, with a hard failure on divergence beyond a stated tolerance, because a native count that silently undercounts reads exactly like a correct one when it is the only witness, and the totals stay plausible while being wrong by an order of magnitude. [R]
+#30 makes the native-vs-proxy cross-check mandatory on every run, with a hard failure on divergence beyond a stated tolerance, because a native count that silently undercounts reads exactly like a correct one when it is the only witness, and the totals stay plausible while being wrong by an order of magnitude.
 Unconditional swallowing zeroes one side of that cross-check, so the instrument would destroy its own only witness.
 
 The rule, in full:
