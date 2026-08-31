@@ -10,6 +10,18 @@ At 5–7 pages the risk this outline exists to prevent is not omission — it is
 
 The section text itself is Portuguese. This file is the plan, so it is English, with the headings in the exact form the template gives them.
 
+## 0. Which source wins
+
+Three sources govern this document, and they disagree. In descending order:
+
+1. **The course handouts in `files/`** — *Aula 2*, *Aula 3* and *Aula 5*, written by the professor who grades the work. They are the most specific statement of what is expected, and they are the only source that can override the template.
+2. **The department template**, `files/Template projeto novo3.pdf`. Binding for structure and formatting wherever the handouts are silent.
+3. **The current ABNT editions** — NBR 15287:2025, NBR 6023, NBR 10520 — which fill the gap where both of the above are silent or self-contradictory.
+
+The handouts outrank the template because the template is a skeleton with formatting notes, while the handouts state the reasoning and the order. Where the template shows something the handouts do not mention, the template still wins: it is the artefact the work is compared against.
+
+Three places where the handouts decided against the earlier reading of this file, each recorded at its section below: the *folha de rosto* (§1), the order of the *introdução* (§3.1), and the citation rules (§1).
+
 ## 1. The template, and where it overrides the norms
 
 ### Structure — six numbered sections, and no others
@@ -52,6 +64,15 @@ The template's reference examples predate the current norms and use conventions 
 In-text citations follow **NBR 10520:2023**: `(Prodanov; Freitas, 2013, p. 51)`, with all-caps surviving only in the reference list. The template gives no in-text example, so the norm fills the gap with nothing to override it.
 
 **One footnote covers the whole divergence**, placed at its first occurrence.
+
+*Aula 5* is the handout on citations, and it settles four things the template does not:
+
+- **No caps inside parentheses.** `(Silva, 2023)`, not `(SILVA, 2023)` — NBR 10520:2023. Uppercase survives only in the reference list.
+- **No `< >` around URLs**, which is where the template contradicts itself.
+- **Latin expressions in italic** in the reference list: *et al.*, *in*, *apud*.
+- **Four or more authors: all of them, or the first followed by *et al.*** Five names and then *et al.* is neither, and two entries did that.
+
+It also fixes what a direct quotation costs. Over three lines it needs a 4 cm indent, a smaller size, single spacing, no quotation marks, and a locator. The Ning definition ran to about four lines with none of that, so it is a **citação indireta** — the idea in the document's own words, author and year only.
 
 ### The norm that governs the genre
 
@@ -115,10 +136,13 @@ The *tema*, *problema*, *hipótese* and *objetivos* are already written in final
 | 1–3 | **Justificativa.** Template constraint: 2–3 paragraphs, **maximum 12 lines total** |
 | 4 | **Tema.** Exactly one paragraph, per the template — the justificativa has already given the context, so this only has to name the object of study |
 | 5 | **Problema**, quoted verbatim from #9. **Both clauses** — dropping the second turns the project back into a replication |
-| 6–7 | **Hipótese**: H1 and H2, one paragraph each, each stating what refutes it |
-| 8 | **Objetivo geral**, quoted from #9 |
-| 9 | **Objetivos específicos** (a)–(g) as a numbered list, quoted from #9 — the template asks for topics, not prose |
-| 10 | **How the work is organised.** The template requires this as the closing paragraph of the introdução |
+| 6 | **Objetivo geral**, quoted from #9 |
+| 7 | **Objetivos específicos** 1)–7) as a numbered list, quoted from #9 — the template asks for topics, not prose, and writes them `1) 2) 3)` |
+| 8 | **Metodologia**, one short paragraph. *Aula 3* puts it here, "apenas para citar o que vai fazer": how the data is collected, what result is expected, and what method systematises it. §3 carries the full treatment; this one only names it |
+| 9–10 | **Hipótese**: H1 and H2, one paragraph each, each stating what refutes it |
+| 11 | **How the work is organised.** The template requires this as the closing paragraph of the introdução |
+
+**The hipótese closes the introdução; it does not follow the problema.** An earlier version of this file put it immediately after the *problema*, reasoning that the template omits it and H1/H2 are the spine of the project. Both handouts say otherwise, in the same words: *"Por fim, no encerramento da introdução você deve lançar pelo menos uma hipótese."* The handouts outrank the template (§0), so the hypothesis goes last, after the metodologia paragraph.
 
 **The *justificativa* is the hardest constraint in the document**: 12 lines to carry the whole case. The template asks for data and statistics from authoritative sources, and says so explicitly. What goes in, in this order:
 
