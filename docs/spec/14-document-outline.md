@@ -4,9 +4,9 @@ Ticket [#14](https://github.com/YuukiFST/harness-bench/issues/14). Drafted again
 
 The deliverable is the IFMT **Projeto de Conclusão de Curso (PCC)**, following the department's own template — *Normas básicas e padrões para a elaboração do Projeto de Conclusão de Curso*, Instituto Federal de Mato Grosso, Campus Octayde Jorge da Silva, Departamento de Área de Informática.
 
-The template is the binding structure. Where it diverges from the current ABNT editions, **the template wins** (§1), and where the template is silent or internally inconsistent, the current norm fills the gap.
+Three sources govern the document and they disagree; §0 states which one wins. In short: the professor's handouts, then the template, then the current ABNT editions.
 
-At 5–7 pages the risk this outline exists to prevent is not omission — it is every section arriving as a stub. So the budget is paragraph-level, and each paragraph names what it must carry and which ticket produced it.
+At well under ten pages the risk this outline exists to prevent is not omission — it is every section arriving as a stub. So the budget is paragraph-level, and each paragraph names what it must carry and which ticket produced it.
 
 The section text itself is Portuguese. This file is the plan, so it is English, with the headings in the exact form the template gives them.
 
@@ -118,7 +118,7 @@ It goes in the *introdução* immediately after the *problema*, as a labelled pa
 | § | Section | Pages | Paragraphs | Source |
 |---|---|---|---|---|
 | — | Capa, sumário | — | — | template |
-| 1 | **Introdução** | 1.7 | 10 | #9 |
+| 1 | **Introdução** | 2.0 | 11 | #9, aula 3 |
 | 2 | **Referencial Teórico** | 1.0 | 5 | #2, #3 |
 | 3 | **Material e Método** | 2.2 | 12 + 1 table | #11, #12, #36, #37, #41 |
 | 4 | **Orçamento** | 0.3 | 1 + 1 table | #11, #33, #34 |
@@ -127,7 +127,7 @@ It goes in the *introdução* immediately after the *problema*, as a labelled pa
 
 ## 3. Section by section
 
-### 3.1 Introdução — 1.7 pages, 10 paragraphs
+### 3.1 Introdução — 2.0 pages, 11 paragraphs
 
 **The template fixes the internal order, and it is not the conventional one**: the *justificativa* comes **first**, before the tema. Its stated purpose is to convince the reader the work is worth reading, so the section opens with the argument rather than the context.
 
