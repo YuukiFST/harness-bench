@@ -549,6 +549,67 @@ def build_cover(doc):
         _style_run(p.add_run(line), size=12)
 
 
+def build_folha_de_rosto(doc):
+    """The one mandatory pre-textual element the template omits.
+
+    NBR 15287:2025 makes the folha de rosto mandatory (4.2.1.1) and the capa
+    optional (4.1.1); the template shows the opposite and says nothing about
+    this page, so doc 14 §1 keeps both. Field order is the norm's: author,
+    title, submission note naming the type and the entity, orientador, city,
+    year.
+    """
+    p = doc.add_paragraph()
+    p.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p.paragraph_format.space_after = Pt(0)
+    _style_run(p.add_run("[NOME COMPLETO]"), size=12, bold=True)
+
+    for _ in range(7):
+        doc.add_paragraph()
+
+    p = doc.add_paragraph()
+    p.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p.paragraph_format.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
+    p.paragraph_format.space_after = Pt(0)
+    _style_run(p.add_run(TITULO), size=14, bold=True)
+
+    for _ in range(4):
+        doc.add_paragraph()
+
+    # The submission note sits in the right half of the text block, single
+    # spaced, which is the form every ABNT-following template in the course
+    # material uses for it.
+    p = doc.add_paragraph()
+    pf = p.paragraph_format
+    pf.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+    pf.left_indent = Cm(8.0)
+    pf.line_spacing_rule = WD_LINE_SPACING.SINGLE
+    pf.space_after = Pt(0)
+    _style_run(p.add_run(
+        "Projeto de Conclusão de Curso apresentado ao Departamento de Área de "
+        "Informática do Instituto Federal de Educação, Ciência e Tecnologia de "
+        "Mato Grosso, Campus Octayde Jorge da Silva, como requisito parcial "
+        "para a conclusão do curso de [NOME DO CURSO]."), size=12)
+
+    p = doc.add_paragraph()
+    pf = p.paragraph_format
+    pf.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+    pf.left_indent = Cm(8.0)
+    pf.line_spacing_rule = WD_LINE_SPACING.SINGLE
+    pf.space_before = Pt(12)
+    pf.space_after = Pt(0)
+    _style_run(p.add_run("Orientador: [NOME DO ORIENTADOR]"), size=12)
+
+    for _ in range(6):
+        doc.add_paragraph()
+
+    for line in ("Cuiabá", "2026"):
+        p = doc.add_paragraph()
+        p.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        p.paragraph_format.space_after = Pt(0)
+        p.paragraph_format.line_spacing_rule = WD_LINE_SPACING.SINGLE
+        _style_run(p.add_run(line), size=12)
+
+
 def build_sumario(doc, start_pages):
     p = doc.add_paragraph()
     p.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -985,6 +1046,8 @@ def main() -> None:
     setup_section(doc.sections[0])
 
     build_cover(doc)
+    doc.add_page_break()
+    build_folha_de_rosto(doc)
     doc.add_page_break()
     build_sumario(doc, starts)
 
