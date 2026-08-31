@@ -10,7 +10,7 @@ protocol numbers from `11-experimental-protocol.md`, control scope from
 `12-harness-zero-scope.md`. Those four specs live on their own branches until
 PRs #42, #45, #46 and #47 land, so they are not under `docs/spec/` here yet; the
 script reads none of them at runtime. Numbers that do not exist yet are emitted
-as ``[A MEDIR — #NN]`` markers rather than guessed, and the build prints what is
+as ``[A MEDIR ...]`` markers rather than guessed, and the build prints what is
 left, including any bare ticket reference that leaked into the body text.
 
 Usage:
@@ -240,11 +240,11 @@ FOOTNOTE_ID = 2
 FOOTNOTE_TEXT = (
     "Os exemplos de referência do template departamental (Instituto Federal de Mato "
     "Grosso, 2022) precedem as edições vigentes "
-    "da NBR 6023 e da NBR 10520, e o template diverge de si mesmo ao alternar entre "
+    "da ABNT NBR 6023 e da ABNT NBR 10520, e o template diverge de si mesmo ao alternar entre "
     "“Acesso em:” e “Acessado em:” e ao envolver endereços eletrônicos em colchetes "
-    "angulares. Onde há contradição interna, seguiu-se a edição vigente: NBR 6023:2025 "
+    "angulares. Onde há contradição interna, seguiu-se a edição vigente: ABNT NBR 6023:2025 "
     "na lista de referências, sem colchetes angulares e com “Acesso em:” em todas as "
-    "entradas, e NBR 10520:2023 nas citações do corpo do texto, com o sobrenome em "
+    "entradas, e ABNT NBR 10520:2023 nas citações do corpo do texto, com o sobrenome em "
     "caixa-alta apenas na lista de referências."
 )
 
@@ -353,6 +353,8 @@ def set_default_style(doc):
 # document content
 # --------------------------------------------------------------------------
 
+AUTOR = "FAUSTO YUUKI T.A FREIRE"
+
 TITULO = (
     "HARNESSES DE AGENTES DE CODIFICAÇÃO: O IMPACTO DO PROJETO DO HARNESS "
     "SOBRE O CUSTO E O DESEMPENHO DE UM MODELO DE LINGUAGEM MANTIDO FIXO"
@@ -363,7 +365,7 @@ TITULO = (
 # published magnitude, then this project's own measurement, then the stake.
 JUSTIFICATIVA = [
     "A escolha do modelo domina a discussão sobre agentes de codificação, mas não é o "
-    "único fator sob controle de quem os usa. Na Tabela 1 de Lin et al. (2026)[[FN]], "
+    "único fator sob controle de quem os usa. Na Tabela 1 de Lin *et al.* (2026)[[FN]], "
     "três *harnesses* humanos sobre o mesmo modelo congelado obtêm 47,2%, 62,9% e 71,9% "
     "de pass@1, uma dispersão de 24,7 pontos percentuais atribuível só ao *harness*. O "
     "estudo da Databricks relatado por Earendil (2026) registra variação superior a 2x "
@@ -406,17 +408,17 @@ CRONOGRAMA_FASES = [
 ]
 
 REFERENCIAS = [
-    "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. **NBR 6023**: informação e documentação — "
-    "referências — elaboração. 3. ed. Rio de Janeiro: ABNT, 2025a.",
+    "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. **ABNT NBR 6023**: informação e documentação: "
+    "referências: elaboração. Rio de Janeiro: ABNT, 2025a.",
 
-    "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. **NBR 10520**: informação e documentação — "
-    "citações em documentos — apresentação. Rio de Janeiro: ABNT, 2023.",
+    "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. **ABNT NBR 10520**: informação e documentação: "
+    "citações em documentos: apresentação. Rio de Janeiro: ABNT, 2023.",
 
     # The norm that governs this document's own genre. Added after the audit found
     # the text claiming ABNT conformity while citing only the citation and
     # reference norms (#20).
-    "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. **NBR 15287**: informação e documentação — "
-    "projeto de pesquisa — apresentação. 3. ed. Rio de Janeiro: ABNT, 2025b.",
+    "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. **ABNT NBR 15287**: informação e documentação: "
+    "projeto de pesquisa: apresentação. Rio de Janeiro: ABNT, 2025b.",
 
     "DATACURVE. **Pier**: a Harbor fork built for DeepSWE. 2026. Repositório de código. "
     "Disponível em: https://github.com/datacurve-ai/pier. Acesso em: 28 ago. 2026.",
@@ -450,8 +452,7 @@ REFERENCIAS = [
     "*Preprint*, não revisado por pares. Disponível em: "
     "https://arxiv.org/abs/2407.01502. Acesso em: 28 ago. 2026.",
 
-    "KAPOOR, Sayash; STROEBL, Benedikt; KIRGIS, Peter; NADGIR, Nitya; "
-    "SIEGEL, Zachary S. et al. **Holistic Agent Leaderboard**: the missing "
+    "KAPOOR, Sayash *et al.* **Holistic Agent Leaderboard**: the missing "
     "infrastructure for AI agent evaluation. arXiv:2510.11977, 2025. *Preprint*, não "
     "revisado por pares. Disponível em: https://arxiv.org/abs/2510.11977. "
     "Acesso em: 28 ago. 2026.",
@@ -472,7 +473,7 @@ REFERENCIAS = [
     "model evaluations. arXiv:2411.00640, 2024. *Preprint*, não revisado por pares. "
     "Disponível em: https://arxiv.org/abs/2411.00640. Acesso em: 28 ago. 2026.",
 
-    "NING, Xuying; TIEU, Katherine; FU, Dongqi; WEI, Tianxin; LI, Zihao et al. **Code as agent "
+    "NING, Xuying *et al.* **Code as agent "
     "harness**. arXiv:2605.18747, 2026. *Preprint*, não revisado por pares. Disponível em: "
     "https://arxiv.org/abs/2605.18747. Acesso em: 28 ago. 2026.",
 
@@ -527,7 +528,7 @@ def build_cover(doc):
     p = doc.add_paragraph()
     p.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p.paragraph_format.space_after = Pt(0)
-    _style_run(p.add_run("[NOME COMPLETO]"), size=14, bold=True)
+    _style_run(p.add_run(AUTOR), size=14, bold=True)
 
     for _ in range(6):
         doc.add_paragraph()
@@ -561,7 +562,7 @@ def build_folha_de_rosto(doc):
     p = doc.add_paragraph()
     p.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p.paragraph_format.space_after = Pt(0)
-    _style_run(p.add_run("[NOME COMPLETO]"), size=12, bold=True)
+    _style_run(p.add_run(AUTOR), size=12, bold=True)
 
     for _ in range(7):
         doc.add_paragraph()
@@ -588,7 +589,7 @@ def build_folha_de_rosto(doc):
         "Projeto de Conclusão de Curso apresentado ao Departamento de Área de "
         "Informática do Instituto Federal de Educação, Ciência e Tecnologia de "
         "Mato Grosso, Campus Octayde Jorge da Silva, como requisito parcial "
-        "para a conclusão do curso de [NOME DO CURSO]."), size=12)
+        "para a conclusão do curso de Sistemas para Internet."), size=12)
 
     p = doc.add_paragraph()
     pf = p.paragraph_format
@@ -597,7 +598,7 @@ def build_folha_de_rosto(doc):
     pf.line_spacing_rule = WD_LINE_SPACING.SINGLE
     pf.space_before = Pt(12)
     pf.space_after = Pt(0)
-    _style_run(p.add_run("Orientador: [NOME DO ORIENTADOR]"), size=12)
+    _style_run(p.add_run("Orientadora: Profa. Inara Silva"), size=12)
 
     for _ in range(6):
         doc.add_paragraph()
@@ -653,6 +654,49 @@ def build_introducao(doc):
          "atribuir essa variação a decisões específicas de projeto, em vez de ao conjunto "
          "indistinto de diferenças entre implementações independentes?")
 
+    label(doc, "Objetivo geral")
+    body(doc,
+         "Medir, com o modelo de linguagem mantido fixo, o efeito do projeto do *harness* "
+         "sobre o custo em tokens e a taxa de sucesso de agentes de codificação, isolando "
+         "decisões específicas de projeto por meio da comparação entre um *harness* e um "
+         "*fork* direto dele.")
+
+    label(doc, "Objetivos específicos")
+    for item in (
+        "1) construir um instrumento de medição externo aos *harnesses*, capaz de contabilizar "
+        "de forma idêntica, para todos eles, o número de requisições ao modelo, os tokens de "
+        "entrada e de saída e a latência por requisição;",
+        "2) definir uma suíte de tarefas de programação com objetivos numerados e crédito "
+        "parcial, acompanhada de um oráculo automatizado independente dos testes produzidos "
+        "pelo próprio agente;",
+        "3) implementar um *harness* mínimo de referência, em laço ReAct, como controle "
+        "científico do experimento;",
+        "4) executar a mesma suíte, com o mesmo modelo, em todos os *harnesses* avaliados, "
+        "repetindo cada condição e reportando dispersão;",
+        "5) repetir o experimento em um segundo modelo, verificando se a ordenação entre "
+        "*harnesses* se mantém ou se inverte;",
+        "6) quantificar a divergência entre o custo relatado por cada *harness* e o custo "
+        "efetivamente medido no instrumento externo;",
+        "7) publicar o *runner*, os dados brutos e os scripts de análise, de modo que o "
+        "experimento possa ser reexecutado a custo monetário zero.",
+    ):
+        bullet(doc, item)
+
+    # The aula 3 handout lists a short metodologia paragraph among the parts of
+    # the introdução, ahead of the hipótese. Section 3 carries the full
+    # treatment; this one only names what will be done.
+    label(doc, "Metodologia")
+    body(doc,
+         "A pesquisa é aplicada, quali-quantitativa, exploratória e experimental, e o método "
+         "é dedutivo, porque parte de hipóteses declaradas e as submete a teste. Os dados são "
+         "coletados por um instrumento próprio, um proxy reverso interposto entre cada "
+         "*harness* e o modelo, que conta requisições, tokens e latência da mesma forma para "
+         "todos os braços. Cada par de braço e tarefa é executado ao menos três vezes sobre "
+         "uma suíte fixa do DeepSWE, e a comparação é feita por teste pareado sobre o "
+         "Succ/Mtok de cada tarefa. Espera-se obter a diferença de custo e de sucesso "
+         "atribuível ao projeto do *harness*, com o modelo mantido fixo. A seção 3 detalha "
+         "material, método e tratamento estatístico.")
+
     label(doc, "Hipótese")
     body(doc,
          "**H1** — Entre *harnesses* distintos executando o mesmo modelo, a diferença de custo "
@@ -670,39 +714,11 @@ def build_introducao(doc):
          "não implica resultado pior, pois o oh-my-pi pode recuperar o custo concluindo a "
          "tarefa em menos passos.")
 
-    label(doc, "Objetivo geral")
-    body(doc,
-         "Medir, com o modelo de linguagem mantido fixo, o efeito do projeto do *harness* "
-         "sobre o custo em tokens e a taxa de sucesso de agentes de codificação, isolando "
-         "decisões específicas de projeto por meio da comparação entre um *harness* e um "
-         "*fork* direto dele.")
-
-    label(doc, "Objetivos específicos")
-    for item in (
-        "a) construir um instrumento de medição externo aos *harnesses*, capaz de contabilizar "
-        "de forma idêntica, para todos eles, o número de requisições ao modelo, os tokens de "
-        "entrada e de saída e a latência por requisição;",
-        "b) definir uma suíte de tarefas de programação com objetivos numerados e crédito "
-        "parcial, acompanhada de um oráculo automatizado independente dos testes produzidos "
-        "pelo próprio agente;",
-        "c) implementar um *harness* mínimo de referência, em laço ReAct, como controle "
-        "científico do experimento;",
-        "d) executar a mesma suíte, com o mesmo modelo, em todos os *harnesses* avaliados, "
-        "repetindo cada condição e reportando dispersão;",
-        "e) repetir o experimento em um segundo modelo, verificando se a ordenação entre "
-        "*harnesses* se mantém ou se inverte;",
-        "f) quantificar a divergência entre o custo relatado por cada *harness* e o custo "
-        "efetivamente medido no instrumento externo;",
-        "g) publicar o *runner*, os dados brutos e os scripts de análise, de modo que o "
-        "experimento possa ser reexecutado a custo monetário zero.",
-    ):
-        bullet(doc, item)
-
     body(doc,
          "Este trabalho segue as normas do curso (IFMT, 2022) e as da ABNT (2023, 2025a, "
          "2025b), e "
          "está organizado em seis seções. Esta introdução apresenta a justificativa, o tema, "
-         "o problema, as hipóteses e os objetivos. A seção 2 posiciona o trabalho na "
+         "o problema, os objetivos, a metodologia e as hipóteses. A seção 2 posiciona o trabalho na "
          "literatura e delimita as pendências que ele se propõe a resolver. A "
          "seção 3 descreve o material e o método: classificação da pesquisa, camadas de "
          "medição, braços, suíte de tarefas, limites, tratamento estatístico, resultados "
@@ -714,24 +730,24 @@ def build_referencial(doc):
     heading(doc, "2 REFERENCIAL TEÓRICO")
 
     body(doc,
-         "Adota-se a definição de Ning et al. (2026): um *agent harness* é a camada de "
+         "Ning *et al.* (2026) definem *agent harness* como a camada de "
          "software que envolve um modelo de linguagem com ferramentas, APIs, *sandboxes*, "
          "memória, validadores, fronteiras de permissão, laços de execução e canais de "
          "realimentação, convertendo um modelo sem estado em um agente capaz de executar "
-         "tarefas de longo horizonte (tradução nossa). Os mesmos autores separam capacidades "
+         "tarefas de longo horizonte. Os mesmos autores separam capacidades "
          "internas do modelo, infraestrutura de *harness* e artefatos de código criados pelo "
          "agente; o recorte aqui é o do meio, com as capacidades internas constantes. Os "
-         "braços vão de um laço ReAct mínimo (Yao et al., 2022) a implementações com "
+         "braços vão de um laço ReAct mínimo (Yao *et al.*, 2022) a implementações com "
          "planejamento, compactação e subagentes.")
 
     body(doc,
-         "A interface entre modelo e ambiente é objeto de projeto desde Yang et al. (2024), "
+         "A interface entre modelo e ambiente é objeto de projeto desde Yang *et al.* (2024), "
          "cuja interface agente-computador sob medida rendeu o estado da arte do SWE-bench à "
          "época. O efeito do *harness* já está estabelecido na "
-         "literatura. Lin et al. (2026) medem 24,7 pontos percentuais de dispersão entre "
+         "literatura. Lin *et al.* (2026) medem 24,7 pontos percentuais de dispersão entre "
          "*harnesses* humanos sobre um modelo congelado, contra os 19,7 pontos entre as "
          "quatro bases alternativas do mesmo *harness* semente (§ 4.3), dispersões da mesma "
-         "ordem. Zhang et al. (2026) enunciam a *Binding Constraint Thesis*: em longo "
+         "ordem. Zhang *et al.* (2026) enunciam a *Binding Constraint Thesis*: em longo "
          "horizonte, o *harness* determina o desempenho mais que o modelo que encapsula. "
          "Somam-se duas fontes de prática: o HarnessRank (2026) e o estudo da Databricks "
          "relatado por Earendil (2026), com custo por tarefa variando mais de 2x sem "
@@ -741,7 +757,7 @@ def build_referencial(doc):
          "A primeira pendência é de atribuição. Toda comparação publicada contrasta "
          "*harnesses* de equipes diferentes sobre fundações diferentes, e a dispersão medida "
          "agrega prompt, ferramentas, gestão de contexto e desenho do laço sem separá-los. "
-         "Ning et al. (2026) nomeiam a lacuna em §5.2.1, onde as métricas de sucesso final "
+         "Ning *et al.* (2026) nomeiam a lacuna em §5.2.1, onde as métricas de sucesso final "
          "confundem modelo e *harness*, e pedem em §5.2.7 métricas que isolem componentes. O "
          "par pi / oh-my-pi responde a §5.2.7: um *fork* direto mantém a linhagem fixa e faz "
          "variar apenas as modificações.")
@@ -749,18 +765,18 @@ def build_referencial(doc):
     body(doc,
          "A segunda pendência é de instrumentação. O que um *harness* relata sobre o próprio "
          "custo diverge do que ele gasta, e cada um omite do relatório um conjunto diferente "
-         "de chamadas reais ao modelo. Kapoor et al. (2024) mostram que a avaliação de "
-         "agentes ignora o custo e por isso erra sobre a origem dos ganhos, e Kapoor et al. "
+         "de chamadas reais ao modelo. Kapoor *et al.* (2024) mostram que a avaliação de "
+         "agentes ignora o custo e por isso erra sobre a origem dos ganhos, e Kapoor *et al.* "
          "(2025) registram que as avaliações raramente relatam custo e que comparações entre "
          "*harnesses* são raras. Por isso a medição ocorre em proxy externo, "
-         "e o objetivo (f) quantifica essa divergência.")
+         "e o objetivo (6) quantifica essa divergência.")
 
     body(doc,
-         "A métrica primária é o Succ/Mtok (sucesso por milhão de tokens), de Lin et al. "
+         "A métrica primária é o Succ/Mtok (sucesso por milhão de tokens), de Lin *et al.* "
          "(2026). Sobre ela pesa uma ressalva permanente. O efeito é específico do modelo e "
          "pode inverter de sinal. No *Holistic Agent Leaderboard*, os modelos da Anthropic "
          "vão melhor com o BrowserUse e os da OpenAI com o SeeAct sobre o mesmo *benchmark* "
-         "(Kapoor et al., 2025). Por isso o desenho carrega "
+         "(Kapoor *et al.*, 2025). Por isso o desenho carrega "
          "dois níveis, e as conclusões são enunciadas por nível.")
 
 
@@ -775,8 +791,9 @@ def build_material(doc):
          "Quanto aos objetivos, é **exploratória**, porque a comparação com linhagem de "
          "*harness* fixa não tem precedente publicado. Quanto aos procedimentos, é "
          "**experimental**: há variável independente manipulada (o *harness*), variáveis "
-         "controladas (modelo, tarefa e limites) e um grupo de controle (Gil, 2022; "
-         "Prodanov; Freitas, 2013).")
+         "controladas (modelo, tarefa e limites) e um grupo de controle. Quanto ao método, é "
+         "**dedutivo**, porque parte de hipóteses declaradas antes da coleta e as submete a "
+         "teste (Gil, 2022; Prodanov; Freitas, 2013).")
 
     body(doc,
          "A medição ocorre em duas camadas, cada uma relatada em separado. "
@@ -800,15 +817,15 @@ def build_material(doc):
          "*harness* acrescenta sobre o laço mais cru capaz de concluir a tarefa.")
 
     body(doc,
-         "A suíte é composta por 8 tarefas Python do DeepSWE (Huang et al., 2026), congeladas "
+         "A suíte é composta por 8 tarefas Python do DeepSWE (Huang *et al.*, 2026), congeladas "
          "na adoção e fixadas por *commit* e por *hash* SHA-256 de cada tarefa. São tarefas de "
          "implementação de longo horizonte sobre repositórios reais: o *benchmark* completo "
          "tem 113 tarefas sobre 91 repositórios, com soluções de referência que tocam cerca "
          "de 5,5x mais código que as do SWE-Bench Pro, outra ordem de grandeza ante o "
-         "SWE-bench (Jimenez et al., 2023). A pontuação adotada aqui é o crédito parcial, a "
+         "SWE-bench (Jimenez *et al.*, 2023). A pontuação adotada aqui é o crédito parcial, a "
          "fração de testes aprovados do verificador de cada tarefa. É uma adaptação, porque "
          "o DeepSWE grada de forma binária e declara a ausência de crédito parcial como "
-         "limitação (Huang et al., 2026, §8); sem ela, um escore binário tenderia a ler zero "
+         "limitação (Huang *et al.*, 2026, §8); sem ela, um escore binário tenderia a ler zero "
          "para todos os braços neste nível de modelo [A VERIFICAR nas tarefas-piloto].")
 
     body(doc,
@@ -874,7 +891,7 @@ def build_material(doc):
 
     body(doc,
          "O instrumento da Camada 1 está construído e executado, com os dados brutos no "
-         "repositório do projeto, cuja abertura é o objetivo (g) (YuukiFST, 2026). Na "
+         "repositório do projeto, cuja abertura é o objetivo (7) (YuukiFST, 2026). Na "
          "primeira requisição da tarefa "
          "*probe*, em ambiente isolado, medida em 28 de agosto de 2026, os braços diferem por "
          "uma ordem de grandeza antes que o modelo gere qualquer token (Tabela 1): com a "
@@ -884,11 +901,11 @@ def build_material(doc):
          "diferente, obtivera 10,8x. A mesma execução produziu outros dois achados. Os três "
          "braços reenviam o histórico completo a cada passo, com incremento constante de 555, "
          "625 e 698 bytes (pi, oh-my-pi e OpenCode), sem compactar nem truncar em cinco "
-         "passos. Além do custo, Liu et al. (2023) medem queda de desempenho quando a "
+         "passos. Além do custo, Liu *et al.* (2023) medem queda de desempenho quando a "
          "informação relevante fica no meio de um contexto longo. O "
          "OpenCode gasta por sessão uma chamada auxiliar de 2.526 bytes que seria cobrada em "
          "um nível pago e não aparece no seu próprio relatório, divergência que o "
-         "objetivo (f) quantifica. O delta de estado ambiente do pi nesta "
+         "objetivo (6) quantifica. O delta de estado ambiente do pi nesta "
          "máquina é de 0 bytes, propriedade da máquina tanto quanto do *harness*, a ser "
          "remedida onde o experimento correrá.")
 
@@ -903,7 +920,7 @@ def build_material(doc):
     body(doc,
          "Cinco limitações são declaradas de partida. O efeito de "
          "um *harness* é específico do modelo e pode inverter de sinal, o que restringe "
-         "qualquer conclusão ao nível de modelo em que foi obtida; o objetivo (e) existe para "
+         "qualquer conclusão ao nível de modelo em que foi obtida; o objetivo (5) existe para "
          "testar isso. A transferência para modelos pequenos fica deliberadamente em aberto e "
          "é registrada como trabalho futuro, porque o único modelo pequeno viável havia sido "
          "treinado dentro de um dos braços, "
