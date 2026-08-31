@@ -1,5 +1,22 @@
+# The professor's course handouts and the department template. Third-party
+# material, and #22 makes this repository public — see docs/spec/14 §0.
+/files/
+
+# Layer 1 working tree. `layer1/data/` is tracked deliberately (#41), apart
+# from the per-run output; the other three are a virtualenv, vendored arms and
+# a test cache.
+/layer1/.venv/
+/layer1/.arms/
+/layer1/.pytest_cache/
+/layer1/data/runs/
+
+# Word writes a lock file next to an open document, and build_pcc.py fails on
+# it with PermissionError.
+~$*.docx
+
 __pycache__/
-*.pyc
+*.py[cod]
 .venv/
-layer1/.arms/
-layer1/data/runs/
+
+# `data/` at the repository root is left visible on purpose: it is experiment
+# output the author may want to commit, and hiding it would decide that here.
