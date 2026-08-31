@@ -41,7 +41,7 @@ There is **no numbered section for preliminary results**, so Layer 1 does not ge
 | work title (cover) | bold, 16 pt, centred, line spacing 1.5, uppercase |
 | section headings | bold, 14 pt, uppercase |
 | cover footer | city and year (`Cuiabá` / year) |
-| pre-textual | cover page, then *sumário* — the template shows no other pre-textual element |
+| pre-textual | cover page, then *sumário* — the template shows no other pre-textual element, but see *Folha de rosto* below |
 
 ### Citations and references
 
@@ -53,7 +53,36 @@ In-text citations follow **NBR 10520:2023**: `(Prodanov; Freitas, 2013, p. 51)`,
 
 **One footnote covers the whole divergence**, placed at its first occurrence.
 
+### The norm that governs the genre
+
+**NBR 15287:2025** — 3rd ed., 18.03.2025, which cancels and replaces NBR 15287:2011 — is the norm for a *projeto de pesquisa*, and it is cited in the document's own reference list.
+An audit found the text claiming ABNT conformity while citing only NBR 6023 and NBR 10520, which govern references and citations, not the genre.
+Two ABNT entries now share the year 2025, so they carry the distinguishing letters `2025a` (NBR 6023) and `2025b` (NBR 15287), and the in-text citation reads `(ABNT, 2023, 2025a, 2025b)`.
+
+Its §4.2.2 is the checklist the document is audited against, and the wording is identical in the 2011 and 2025 editions:
+
+> O texto deve ser constituído por uma parte introdutória, na qual devem ser expostos o tema do projeto, o problema a ser abordado, a(s) hipótese(s), quando couber(em), bem como o(s) objetivo(s) a ser(em) atingido(s) e a(s) justificativa(s).
+> É necessário que sejam indicados o referencial teórico que o embasa, a metodologia a ser utilizada, assim como os recursos e o cronograma necessários à sua consecução.
+
+Two consequences for the text, both already enforced:
+
+- **No *resumo*, no *palavras-chave*, no *considerações finais*.** None is listed by NBR 15287; *considerações finais* is a mandatory element of the **article** norm (NBR 6022:2018, 5.2.3). Any of the three appearing here would mean the document was built on an article template.
+- **No past tense for the project's own procedure.** No ABNT norm prescribes tense, so the evidence is the norm's own wording: §4.2.2 describes the project in four prospective constructions in a row (*a ser abordado*, *a serem atingidos*, *a ser utilizada*, *necessários à sua consecução*), against NBR 14724:2024, which speaks of *estudo realizado*. Layer 1 is the one exception, and §3.3 gives the reason it survives.
+
 ### What the template does not mention
+
+**Folha de rosto.** NBR 15287:2025 makes exactly three elements mandatory — *folha de rosto* (4.2.1.1), *sumário* (4.2.1.6) and *referências* (4.2.3.1) — and makes the **capa optional** (4.1.1).
+The template inverts that: it shows a cover and a *sumário*, and no *folha de rosto*.
+
+**Decision: the document carries both.**
+This is the one place where the template does not win, and the reason is that it is not a divergence — it is an omission.
+The template never says a *folha de rosto* is excluded; it simply shows a model that does not have one, and §1's own rule is that where the template is silent the current norm fills the gap.
+Adding the page is **additive**: it removes nothing the template asks for, contradicts no rule it states, and can be deleted in one commit if the professor objects.
+
+It also carries information the cover has no slot for and a PCC proposal is expected to state — the **tipo de projeto and the entity it is submitted to**, and the **orientador**.
+Those arrive as bracketed placeholders, so `collect_markers()` reports them and no unfilled field can ship silently.
+
+The page sits between the cover and the *sumário*, and costs nothing against the budget in §3: both are pre-textual and outside the page count.
 
 **Hipótese.** The template's *introdução* lists justificativa, tema, problema, objetivo geral and objetivos específicos, with no hypothesis heading — yet its *referencial teórico* section says that section exists to raise what is needed "para testar a hipótese e solucionar o problema". The hypothesis is therefore expected and simply not enumerated.
 
