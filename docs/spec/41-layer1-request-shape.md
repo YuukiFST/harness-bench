@@ -122,7 +122,7 @@ The measurement is that *this machine's* ambient state costs pi nothing right no
 The other two arms could not be measured in the ambient profile, and the reasons are findings rather than defects of the instrument:
 
 - **omp** aborts before issuing any request: `Unknown command: json`, then `ExtensionExitError: Module called process.exit(1) during guarded extension/hook loading`, raised by an extension discovered in the real `HOME`. Ambient state does not merely inflate this arm's request, it prevents the run.
-- **opencode** exits 1 with a SQLite migration failure against the real `~/.local/share/opencode/opencode.db`. Verified to be independent of this instrument: a plain `opencode run` with no Layer 1 configuration fails the same way on this machine. This is the corroboration of doc 09's warning that OpenCode's ambient SQLite state is a preventable failure mechanism.
+- **opencode** exits 1 with a SQLite migration failure against the real `~/.local/share/opencode/opencode.db`. Verified to be independent of this instrument: a plain `opencode run` with no Layer 1 configuration fails the same way on this machine. It is the first evidence for the open hypothesis in #23, that OpenCode's ambient SQLite state is a preventable failure mechanism; the source that first claimed it left the project in #50, so the claim now rests on this run and is confirmed on the rig.
 
 ### Per-step growth (isolated)
 
@@ -132,9 +132,13 @@ The other two arms could not be measured in the ambient profile, and the reasons
 | opencode | 29,997 | 30,695 | 31,393 | 32,091 | 32,789 | +698 |
 | pi | 5,676 | 6,231 | 6,786 | 7,341 | 7,896 | +555 |
 
-All three arms resend the full history: growth is linear, with a constant increment per step after the first, and no arm compacts or truncates within five steps.
-omp's first increment is +328 rather than its steady +625; the other two are constant from the first step.
-The increment is the arm's own framing of one tool call plus one tool result, and it differs by 26% between the cheapest and the most expensive arm — small next to the 11x standing difference in the first request.
+All three arms resend the full history and growth is linear, with a constant increment per step after the first.
+
+**Two arms resend it intact; one does not.** At step 4, pi carries four tool results of 303 characters each and opencode three of 435, all whole. omp has replaced its *oldest* tool result with a 54-character reference stub — `[shaken ~84 tokens — recover: artifact://0 (region 1)]` — and renamed the duplicate `tool_call_id`s to `call_layer1_dup1..3`. So omp compacts, and it does so at the first opportunity rather than under context pressure. That is what its first increment of +328 against a steady +625 is: the stub replacing the first result, not a different framing of it.
+
+**The trigger is not characterised, and the probe is a plausible cause.** The script sends four byte-identical `read` calls carrying the same `tool_call_id` (#55), which is not what a real provider emits. Whether omp shakes because the content repeats, because the ids collide, or on a rule of its own cannot be told from this run. Reported as observed, not as a mechanism.
+
+The steady increment is the arm's own framing of one tool call plus one tool result, and it differs by 26% between the cheapest and the most expensive arm — small next to the 11x standing difference in the first request. Part of that spread is the instrument's own: the mock fills each arm's required schema fields, and omp's `read` requires one more than pi's, so roughly 29 bytes per step of the gap is server-injected rather than the arm's (#55).
 The consequence for Layer 2 is that at this horizon the arms' *relative* cost is set almost entirely by what they send before the loop starts.
 
 ### Auxiliary model calls
