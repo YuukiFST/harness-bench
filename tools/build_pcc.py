@@ -240,11 +240,11 @@ FOOTNOTE_ID = 2
 FOOTNOTE_TEXT = (
     "Os exemplos de referência do template departamental (Instituto Federal de Mato "
     "Grosso, 2022) precedem as edições vigentes "
-    "da NBR 6023 e da NBR 10520, e o template diverge de si mesmo ao alternar entre "
+    "da ABNT NBR 6023 e da ABNT NBR 10520, e o template diverge de si mesmo ao alternar entre "
     "“Acesso em:” e “Acessado em:” e ao envolver endereços eletrônicos em colchetes "
-    "angulares. Onde há contradição interna, seguiu-se a edição vigente: NBR 6023:2025 "
+    "angulares. Onde há contradição interna, seguiu-se a edição vigente: ABNT NBR 6023:2025 "
     "na lista de referências, sem colchetes angulares e com “Acesso em:” em todas as "
-    "entradas, e NBR 10520:2023 nas citações do corpo do texto, com o sobrenome em "
+    "entradas, e ABNT NBR 10520:2023 nas citações do corpo do texto, com o sobrenome em "
     "caixa-alta apenas na lista de referências."
 )
 
@@ -408,17 +408,17 @@ CRONOGRAMA_FASES = [
 ]
 
 REFERENCIAS = [
-    "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. **NBR 6023**: informação e documentação — "
-    "referências — elaboração. 3. ed. Rio de Janeiro: ABNT, 2025a.",
+    "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. **ABNT NBR 6023**: informação e documentação: "
+    "referências: elaboração. Rio de Janeiro: ABNT, 2025a.",
 
-    "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. **NBR 10520**: informação e documentação — "
-    "citações em documentos — apresentação. Rio de Janeiro: ABNT, 2023.",
+    "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. **ABNT NBR 10520**: informação e documentação: "
+    "citações em documentos: apresentação. Rio de Janeiro: ABNT, 2023.",
 
     # The norm that governs this document's own genre. Added after the audit found
     # the text claiming ABNT conformity while citing only the citation and
     # reference norms (#20).
-    "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. **NBR 15287**: informação e documentação — "
-    "projeto de pesquisa — apresentação. 3. ed. Rio de Janeiro: ABNT, 2025b.",
+    "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. **ABNT NBR 15287**: informação e documentação: "
+    "projeto de pesquisa: apresentação. Rio de Janeiro: ABNT, 2025b.",
 
     "DATACURVE. **Pier**: a Harbor fork built for DeepSWE. 2026. Repositório de código. "
     "Disponível em: https://github.com/datacurve-ai/pier. Acesso em: 28 ago. 2026.",
