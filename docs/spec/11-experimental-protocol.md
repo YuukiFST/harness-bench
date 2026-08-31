@@ -62,7 +62,7 @@ Reported alongside, never collapsed into it:
 
 - **Counts** (#25): `proxy_requests`, `proxy_steps`, `tool_invocations`, and on their own lines `side_call_requests` and `retry_requests`. #41 measured why the separation matters: OpenCode spends an unreported 2,526-byte title call per session, and it is a side call, not a step.
 - **Timing**: `Σ inter_request_gap` is the headline timing metric — it isolates harness overhead and tool execution from model time, and it is invisible to every harness's own reporting. `Σ request_latency` is reported only with an explicit contention caveat (58% spread on byte-identical requests, #28). **Time to first token is not reported.** Wall time is never presented as a harness property; harnessrank.net excludes speed rankings for the same reason.
-- **Mechanism class** (#30): every observed harness effect is classified `none` / `scaffolding` / `reliability`, so "the harness made the model produce better code" and "the harness stopped the run from dying" are not merged into one score column.
+- **Mechanism class**: every observed harness effect is classified `none` / `scaffolding` / `reliability`, so "the harness made the model produce better code" and "the harness stopped the run from dying" are not merged into one score column.
 
 ## 3. Run classification
 
@@ -127,7 +127,7 @@ The matrix does not fit, and the exact shape that does fit is not decidable from
 
 ### 5.3 The reduction ladder, in order
 
-1. **Narrow the robustness tier to the flagship pairing** — pi vs oh-my-pi only, all tasks, full n. Cuts the matrix from 192 to 144 runs. The cross-model check exists because #30 showed harness effects invert in sign across models; that risk is concentrated on H2, which *is* the flagship pairing, so the check is preserved exactly where it matters and H1 becomes a primary-tier claim.
+1. **Narrow the robustness tier to the flagship pairing** — pi vs oh-my-pi only, all tasks, full n. Cuts the matrix from 192 to 144 runs. The cross-model check exists because harness effects invert in sign across models — the Holistic Agent Leaderboard measures Anthropic models scoring higher under one scaffold and OpenAI models under another on the same benchmark (arXiv:2510.11977); that risk is concentrated on H2, which *is* the flagship pairing, so the check is preserved exactly where it matters and H1 becomes a primary-tier claim.
 2. **Drop tasks from the tail of the documented draw.** #36's draw is an ordered procedure (`random.Random(0).shuffle`, take 8), so dropping from the tail keeps the remaining set exactly reproducible and the drop itself documented as a truncation rather than a re-draw.
 3. **Drop the robustness tier entirely**, reported as not-run. A tier with one arm or one task is not a robustness check and would read as a result while being none.
 4. **Never below n = 3, and never below 6 tasks.** The task floor is not a preference — see below.
@@ -160,7 +160,7 @@ This is a planning approximation that treats each run as a replicate; the analys
 **σ is not known and is not guessed here** — it is the per-task dispersion of Succ/Mtok, and #39 is the run that produces the first estimate of it.
 If that estimate makes the design underpowered and the budget cannot absorb a larger *n*, the shortfall is reported as a stated limitation with the minimum detectable effect given, not smoothed over.
 
-Repeated measures with a reported dispersion is the single cheapest way this project is more rigorous than its own practitioner reference, which runs n = 1 with temperature and seed uncontrolled (#30). Results are reported as **median with spread, never as a point estimate**.
+Repeated measures with a reported dispersion is the cheapest rigour available here, and Miller (arXiv:2411.00640) is the source for both halves of it: resample rather than chase a point estimate, and do not touch the temperature to reduce variance. Results are reported as **median with spread, never as a point estimate**.
 
 ## 6. Simulated cost
 
@@ -175,7 +175,7 @@ Simulated cost is presented as an **order-of-magnitude comparison**, never as a 
 
 ## 7. Pre-registration and analysis
 
-Registered **per tier**, because #30 established that harness effects invert in sign across models.
+Registered **per tier**, because harness effects invert in sign across models (arXiv:2510.11977).
 
 - **H1** — the arms differ. Refuted if the arms' Succ/Mtok intervals overlap across the whole suite. Registered on the **primary tier**; under ladder step 1 the robustness tier no longer carries the full arm set.
 - **H2** — the difference survives between a harness and a direct fork of it. Refuted if **pi and oh-my-pi do not differ significantly on Succ/Mtok**, despite the 11.4x first-request payload difference #41 measured. Registered on **both tiers**.
