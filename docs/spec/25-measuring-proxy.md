@@ -70,7 +70,7 @@ This is a correction, not a restatement, and it was found by measurement.
 
 When the proxy swallows a usage frame that the *client itself* asked for, pi's native usage reporting drops to `input: 0, output: 0` while the proxy still records `prompt_tokens: 137, completion_tokens: 11`. [V]
 That is not a cosmetic loss.
-#30 makes the native-vs-proxy cross-check mandatory on every run, with a hard failure on divergence beyond a stated tolerance, because Akita's benchmark understated cost by 40-90x for months behind numbers that looked plausible (`docs/research/09-akita-benchmark-lessons.md`, folded into this ticket from #30). [R]
+#30 makes the native-vs-proxy cross-check mandatory on every run, with a hard failure on divergence beyond a stated tolerance, because a native count that silently undercounts reads exactly like a correct one when it is the only witness, and the totals stay plausible while being wrong by an order of magnitude.
 Unconditional swallowing zeroes one side of that cross-check, so the instrument would destroy its own only witness.
 
 The rule, in full:
@@ -182,7 +182,7 @@ The rule stands; the predicted symptom does not.
 Measured: with the usage frame moved after `[DONE]`, pi reported `usage: {input: 0, output: 0}` with `stopReason: "stop"`, no error, no retry and exit code 0, while the proxy recorded `137 / 11` correctly because `parse_past_done` was set. [V]
 
 So the failure is not a crash but a silent zero on the harness side, which means the native-vs-proxy cross-check (§12) is what catches it.
-This raises the value of that cross-check from "good practice" to "the only detector of an entire fault class", and it is a second, independent instance of the Akita failure mode #30 documented.
+This raises the value of that cross-check from "good practice" to "the only detector of an entire fault class", and it is a second, independent instance of the silent-undercount mode #30 documented.
 
 Note the asymmetry that makes both rules coexist: on the Zen profiles the proxy **must** parse past `[DONE]`, because a `{"choices":[],"cost":"0"}` frame arrives there on every stream and is gateway-level rather than model-level (`docs/research/11-second-free-model.md:277-291`), while it must never **emit** a usage frame past `[DONE]`. [R]
 Forwarding order is preserved byte-exactly, so a compliant proxy never has to choose.
@@ -310,7 +310,7 @@ All 11 upstream requests carried `stream_options: {"include_usage": true}` as se
 ## 11. Language and dependencies
 
 ~100-200 lines of async Python or Node, one HTTP client, no dependency of consequence, in one file that fits on a screen.
-The size limit is a correctness argument rather than an aesthetic one: this instrument is audited by reading it, and #30's field evidence is that a plausible-looking aggregation bug survived for months inside code nobody re-read.
+The size limit is a correctness argument rather than an aesthetic one: this instrument is audited by reading it, and #30's finding is that an aggregation bug producing plausible numbers survives exactly as long as nobody re-reads the code.
 
 mitmproxy is **rejected** on the strength of its own documentation — buffered mode destroys time-to-first-token and streaming mode hides the body, which is a fork with no good branch (`docs/research/04-measuring-tokens-steps-time.md:620-624`). [R]
 LiteLLM remains a fallback with two unresolved risks: SSE pass-through buffering is undocumented, and whether usage tracking requires Postgres was not established (`docs/research/04-measuring-tokens-steps-time.md:626-631`). [R]
