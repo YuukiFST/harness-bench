@@ -96,7 +96,8 @@ Cada um comporta ser cortado a uma linha sem perder o que decide. O detalhe já 
 
 A Aula 5 inteira é sobre citação: direta curta (até 3 linhas, entre aspas, autor-ano-página), direta longa (recuo de 4 cm, fonte menor, espaçamento simples, sem aspas), indireta, e citação de citação com `apud`.
 
-O documento tem **17 citações e nenhuma direta**. Todas são indiretas.
+O documento tem **28 citações e nenhuma direta**. Todas são indiretas.
+A evidência é dura: o corpo do texto, excluídas as referências, não contém uma única aspa.
 
 Isso é não conformidade dupla. Primeiro, um Referencial Teórico numa disciplina que acabou de ensinar os três tipos de citação e não exibe nenhum deles deixa de demonstrar o que foi ensinado.
 Segundo, é marca de autoria: parafrasear tudo e nunca transcrever é hábito de máquina — a Aula 5 registra que a citação direta "fortalece a fundamentação teórica", e o texto abre mão dela por completo.
@@ -157,7 +158,7 @@ Contagens sobre os 25 parágrafos de prosa corrida, excluídas tabelas, títulos
 
 ### 5.1 Todo parágrafo fecha justificando
 
-Vinte e dois dos vinte e cinco parágrafos terminam em oração subordinada de justificativa ou em veredicto.
+Doze dos vinte e cinco parágrafos terminam em oração subordinada de justificativa, e outros cinco em veredicto sentencioso — dezessete de vinte e cinco.
 Os conectores: **`porque` 13 vezes, `já que` 5, `por isso` 6** — 24 marcadores causais explícitos em 25 parágrafos.
 
 Amostra dos fechos:
@@ -171,7 +172,7 @@ Amostra dos fechos:
 É o traço mais forte do texto e o mais mecânico. Um LLM treinado a justificar fecha cada unidade com a razão dela.
 Um autor humano justifica onde a objeção é previsível e segue adiante onde não é.
 
-Correção: escolha os cinco lugares onde a objeção é real e mantenha a justificativa. Nos outros vinte, a afirmação fica de pé sozinha.
+Correção: escolha os cinco lugares onde a objeção é real e mantenha a justificativa. Nos outros doze, a afirmação fica de pé sozinha.
 
 ### 5.2 Sessenta e um dois-pontos
 
