@@ -58,7 +58,7 @@ no planning or todo phase · no memory compaction or summarisation · no retry o
 
 Two of those are worth their own sentence.
 
-**No retries.** #25 measured a missing `finish_reason` producing four retried requests for one turn, a 4x token inflation, and exit code 0. Retry logic is a reliability feature, and #30's taxonomy makes `reliability` one of the three mechanism classes this project reports — the control must sit at zero on that axis so the axis has an origin.
+**No retries.** #25 measured a missing `finish_reason` producing four retried requests for one turn, a 4x token inflation, and exit code 0. Retry logic is a reliability feature, and `reliability` is one of the three mechanism classes the protocol reports (#11 §2.2) — the control must sit at zero on that axis so the axis has an origin.
 
 **No context-file discovery.** #41 measured OpenCode walking up to the enclosing git root and injecting the context files it found — 4,918 bytes of a repository the arm was never pointed at. A DeepSWE task workspace *is* a git checkout, so #43 owns that confound for the third-party arms. Harness zero is immune to it by construction, which makes it the reference row that isolates the effect rather than merely avoiding it.
 
@@ -101,7 +101,7 @@ Harness zero is also the instrument for the reference envelope inherited from #1
 
 **≤ 400 lines of Python, excluding tests**, measured over the `harness_zero` package.
 
-Dependencies for HTTP and SSE handling are permitted and do not count — the budget is on harness logic, which is the thing that must stay small. The number is a **CI gate**, not an aspiration: when a change pushes the package over it, a feature comes out. That is the operational definition of "minimal", and it is the only real defence against the control quietly becoming an arm over the life of the project.
+Dependencies for HTTP and SSE handling are permitted and do not count — the budget is on harness logic, which is the thing that must stay small. The number is enforced as a **CI gate**, not left as an aspiration: when a change pushes the package over it, a feature comes out. There is no pipeline in this repository yet, so the gate lands with #17 and rides whatever #22 sets up. That is the operational definition of "minimal", and it is the only real defence against the control quietly becoming an arm over the life of the project.
 
 ## 7. What this leaves open
 
