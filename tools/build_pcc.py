@@ -369,9 +369,9 @@ JUSTIFICATIVA = [
     "estudo da Databricks relatado por Earendil (2026) registra variação superior a 2x "
     "no custo por tarefa, sem mudança de qualidade.",
 
-    "Este projeto já mediu o efeito com a linhagem do *harness* fixa: na primeira "
-    "requisição da mesma tarefa, o oh-my-pi, *fork* direto do pi, envia 11,4x os bytes "
-    "do próprio ascendente, 64.945 contra 5.676, antes que o modelo gere um token. Falta "
+    "Com a linhagem do *harness* fixa, a diferença aparece antes de o modelo gerar um "
+    "token. Na primeira requisição da mesma tarefa, o oh-my-pi, *fork* direto do pi, "
+    "envia 11,4x os bytes do próprio ascendente, 64.945 contra 5.676. Falta "
     "medir quanto dessa diferença de carga chega ao resultado final, porque é isso que "
     "determina quanto do modelo pago cada *harness* aproveita.",
 ]
@@ -407,10 +407,16 @@ CRONOGRAMA_FASES = [
 
 REFERENCIAS = [
     "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. **NBR 6023**: informação e documentação — "
-    "referências — elaboração. 3. ed. Rio de Janeiro: ABNT, 2025.",
+    "referências — elaboração. 3. ed. Rio de Janeiro: ABNT, 2025a.",
 
     "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. **NBR 10520**: informação e documentação — "
     "citações em documentos — apresentação. Rio de Janeiro: ABNT, 2023.",
+
+    # The norm that governs this document's own genre. Added after the audit found
+    # the text claiming ABNT conformity while citing only the citation and
+    # reference norms (#20).
+    "ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. **NBR 15287**: informação e documentação — "
+    "projeto de pesquisa — apresentação. 3. ed. Rio de Janeiro: ABNT, 2025b.",
 
     "DATACURVE. **Pier**: a Harbor fork built for DeepSWE. 2026. Repositório de código. "
     "Disponível em: https://github.com/datacurve-ai/pier. Acesso em: 28 ago. 2026.",
@@ -632,7 +638,8 @@ def build_introducao(doc):
         bullet(doc, item)
 
     body(doc,
-         "Este trabalho segue as normas do curso (IFMT, 2022) e as da ABNT (2023, 2025), e "
+         "Este trabalho segue as normas do curso (IFMT, 2022) e as da ABNT (2023, 2025a, "
+         "2025b), e "
          "está organizado em seis seções. Esta introdução apresenta a justificativa, o tema, "
          "o problema, as hipóteses e os objetivos. A seção 2 posiciona o trabalho na "
          "literatura e delimita as pendências que ele se propõe a resolver. A "
@@ -764,8 +771,8 @@ def build_material(doc):
 
     body(doc,
          "Um único limite é imposto, idêntico para todos os braços. É um relógio de parede, "
-         "cujo valor será três vezes a mediana que o *harness* zero gastar nas tarefas-piloto "
-         "[A MEDIR — #39]. O número de passos não é limitado, porque um teto de passos é ele "
+         "cujo valor será três vezes a mediana que o *harness* zero gastar "
+         "[A MEDIR nas tarefas-piloto]. O número de passos não é limitado, porque um teto de passos é ele "
          "próprio uma decisão de projeto de *harness* e apagaria a diferença sob teste. O "
          "comprimento máximo de saída é forçado idêntico pelo proxy. Os parâmetros de "
          "amostragem são registrados e relatados, mas não normalizados, já que o gateway os "
@@ -859,7 +866,7 @@ def build_orcamento(doc):
     body(doc,
          "O total em dinheiro é zero, e o limite que restringe o experimento é a cota: cerca "
          "de 10 requisições a cada 6 minutos, medidas neste projeto, contra o número de "
-         "requisições que uma tarefa do DeepSWE consome [A MEDIR — tarefas-piloto]. Por isso "
+         "requisições que uma tarefa do DeepSWE consome [A MEDIR nas tarefas-piloto]. Por isso "
          "a matriz é executada em lotes distribuídos ao longo de dias, e o custo monetário "
          "aparece apenas como contrafactual de ordem de grandeza sobre as tarifas pagas "
          "publicadas. O executor roda em docker ou modal, e este projeto usa docker "
@@ -874,7 +881,8 @@ def build_cronograma(doc):
          "vinculante, e por isso o calendário se estende por semanas. A "
          "folga está concentrada na execução da matriz e nos portões de confiabilidade dos "
          "braços, onde está o risco. Os meses são numerados de forma "
-         "relativa porque a data de entrega ainda não está confirmada: [A DEFINIR — #7].")
+         "relativa porque a data de entrega ainda não está confirmada "
+         "[A DEFINIR com o orientador].")
 
     rows = [["FASES", "MÊS 1", "MÊS 2", "MÊS 3", "MÊS 4", "MÊS 5"]]
     for fase, marks in CRONOGRAMA_FASES:
