@@ -1,6 +1,6 @@
-# The professor's course handouts and the department template. Third-party
-# material, and #22 makes this repository public — see docs/spec/14 §0.
-/files/
+# `files/` was excluded here while the handouts were third-party material on a
+# public repository. The author decided to publish them, so the rule is gone and
+# docs/spec/14 §0 records the reversal. Restoring one line brings it back.
 
 # Layer 1 working tree. `layer1/data/` is tracked deliberately (#41), apart
 # from the per-run output; the other three are a virtualenv, vendored arms and

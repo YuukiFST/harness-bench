@@ -20,7 +20,7 @@ Three sources govern this document, and they disagree. In descending order:
 
 The handouts outrank the template because the template is a skeleton with formatting notes, while the handouts state the reasoning and the order. Where the template shows something the handouts do not mention, the template still wins: it is the artefact the work is compared against.
 
-**`files/` is not tracked.** The handouts and the template are the professor's material, and #22 opens this repository to the public, so they stay as local copies and are excluded by `.gitignore`. Every decision they forced is quoted here with the sentence that forced it, so this file stands on its own for a reader who does not have them.
+**`files/` is tracked.** It was not: the handouts and the template are the professor's material and #22 opens this repository to the public, so they were kept as local copies excluded by `.gitignore`. The author reversed that and published three of them — *Aula 3*, *Aula 5* and the template. Every decision they forced is still quoted here with the sentence that forced it, so this file stands on its own for a reader who does not have them, and restoring the `.gitignore` line reverses the reversal.
 
 Three places where the handouts decided against the earlier reading of this file, each recorded at its section below: the *folha de rosto* (§1), the order of the *introdução* (§3.1), and the citation rules (§1).
 

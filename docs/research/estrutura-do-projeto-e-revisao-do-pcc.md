@@ -3,8 +3,10 @@
 Documento vivo.
 Confere o `dist/projeto-pcc.docx` contra o material da disciplina em `files/` e contra o que se mede na própria prosa.
 
-**Última atualização:** 31 ago. 2026.
+**Última atualização:** 10 set. 2026.
 Complementa [Pangram — como o detector funciona](pangram-deteccao-de-texto-gerado.md).
+
+Os três arquivos da disciplina citados aqui passaram a ser rastreados em `files/`, então os caminhos deste documento resolvem para um leitor que só tem o repositório.
 
 ## 0. Método desta revisão
 
@@ -62,6 +64,8 @@ O gabarito da disciplina colapsa os dois em "4 Orçamento". Onde as duas fontes 
 | Citação autor-data em minúsculas | correto — a Aula 5 registra que a NBR 10520:2023 aboliu a caixa alta dentro de parênteses |
 | Ausência de `< >` nos links | correto — exigência da NBR 6023:2025 registrada na Aula 5 |
 | Referências em ordem alfabética | correto |
+| Contribuição social e acadêmica na justificativa | correto desde 10 set. 2026 (§3.1) |
+| Os quatro tipos de citação da Aula 5 | correto desde 10 set. 2026 (§3.3) |
 
 O documento está, no esqueleto, conforme. Os problemas são de conteúdo e de prosa.
 
@@ -75,11 +79,14 @@ O gabarito lista, explicitamente, três coisas que a justificativa deve conter:
 > Interesse (Porque o tema é interessante)
 > **Contribuiçao social e acadêmica do assunto**
 
-A justificativa atual entrega a primeira e a segunda por meio de números (24,7 pontos percentuais, 2x, 11,4x).
-A terceira **não aparece em lugar nenhum do documento**.
+A justificativa entregava a primeira e a segunda por meio de números (17x, 139x, 11,4x) e não entregava a terceira.
 
-É a lacuna mais séria da revisão, e é lacuna de conteúdo, não de estilo.
-Falta a frase que diz para quem isso serve: o desenvolvedor que escolhe harness sem dado nenhum, o curso, a literatura que hoje compara harnesses sem separar modelo de harness.
+**Resolvido em 10 set. 2026.** O segundo parágrafo fecha nomeando os dois destinatários:
+
+> Medir quanto dessa carga chega ao resultado dá ao desenvolvedor, que hoje decide sem dado próprio, um critério de escolha, e à literatura a primeira comparação com a linhagem do *harness* mantida fixa.
+
+Contribuição social é o desenvolvedor; contribuição acadêmica é a comparação com linhagem fixa, que nenhuma fonte levantada publica.
+O teto de 12 linhas foi respeitado cortando redundância dos dois parágrafos: a justificativa continua com dois parágrafos e cerca de 11 linhas.
 A Aula 3 põe a finalidade da justificativa em uma linha: "Convencer o leitor a ler o meu trabalho".
 
 ### 3.2 Objetivos específicos ocupam 2 a 3 linhas cada
@@ -96,18 +103,23 @@ Cada um comporta ser cortado a uma linha sem perder o que decide. O detalhe já 
 
 A Aula 5 inteira é sobre citação: direta curta (até 3 linhas, entre aspas, autor-ano-página), direta longa (recuo de 4 cm, fonte menor, espaçamento simples, sem aspas), indireta, e citação de citação com `apud`.
 
-O documento tem **28 citações e nenhuma direta**. Todas são indiretas.
-A evidência é dura: o corpo do texto, excluídas as referências, não contém uma única aspa.
+O documento tinha **28 citações e nenhuma direta**. Todas eram indiretas, e o corpo do texto, excluídas as referências, não continha uma única aspa.
+Um Referencial Teórico numa disciplina que acabou de ensinar os quatro tipos de citação e não exibe nenhum deles deixa de demonstrar o que foi ensinado.
 
-Isso é não conformidade dupla. Primeiro, um Referencial Teórico numa disciplina que acabou de ensinar os três tipos de citação e não exibe nenhum deles deixa de demonstrar o que foi ensinado.
-Segundo, é marca de autoria: parafrasear tudo e nunca transcrever é hábito de máquina — a Aula 5 registra que a citação direta "fortalece a fundamentação teórica", e o texto abre mão dela por completo.
+**Resolvido em 10 set. 2026**, com um exemplar de cada tipo na seção 2, todos com fonte verbatim registrada em `docs/research/02-harness-concepts-and-metrics.md`:
 
-Dois lugares onde uma citação direta curta cabe e melhora o argumento:
+| Tipo | Onde | Fonte |
+|---|---|---|
+| Direta curta | definição de *harness*, § 2 ¶ 1 | Ning et al. (2026, §2, tradução nossa) |
+| Direta longa | o que a camada contém, § 2, bloco recuado | Lin et al. (2026, §1, tradução nossa) |
+| Direta curta | "métricas que isolem componentes do harness", § 2 ¶ 4 | Ning et al. (2026, §5.2.7, tradução nossa) |
+| Citação de citação | custo por tarefa variando mais de 2x | Databricks, 2026 *apud* Earendil, 2026 |
 
-- A definição de *agent harness* de Ning et al. (2026), hoje parafraseada em 40 palavras. É a definição que sustenta o recorte inteiro do trabalho; transcrita, ela ancora.
-- A Binding Constraint Thesis de Zhang et al. (2026). Uma tese com nome próprio é exatamente o caso de transcrever em vez de reescrever.
+As três diretas transcrevem texto em inglês, então levam `tradução nossa`, que a Aula 5 não cobre e a NBR 10520 prevê.
+Nenhuma obra nova entrou nas referências: Ning, Lin e Earendil já estavam lá, e o `apud` mantém na lista só a obra consultada, como a Aula 5 exige.
+A citação longa segue a formatação pedida: recuo de 4 cm, 10 pt, espaçamento simples, sem aspas, com a fonte depois do ponto final.
 
-Você tem os dois artigos em texto integral em `docs/research/02-harness-concepts-and-metrics.md`, com os trechos já marcados como *verbatim*.
+Continua **não transcrita** a *Binding Constraint Thesis* de Zhang et al. (2026): a pesquisa em `docs/research/03-complementary-references.md` só registra paráfrase em português, e não há trecho verbatim para transcrever sem inventá-lo.
 
 ### 3.4 Marcadores editoriais no texto entregue
 
@@ -132,6 +144,20 @@ A Aula 3 explica o que ela responderia: "Onde você espera achar as informaçõe
 O documento responde isso disperso pela seção 3 (DeepSWE, gateway, proxy, duas estações).
 Baixa prioridade — o gabarito manda —, mas vale confirmar com a orientadora, porque é gratuito acrescentar e caro descobrir depois.
 
+### 3.7 `tools/build_pcc.py` não reproduz mais o `.docx`
+
+Não é não conformidade com a disciplina; é com o repositório, e é a de maior risco.
+
+Os dois últimos commits que tocaram o documento — `cd30dbe` e `3791e1a` — alteram apenas `dist/projeto-pcc.docx`, sem tocar em `tools/build_pcc.py`.
+O gerador ficou parado em `cc15d7b`: ele ainda tem o título antigo ("HARNESSES DE AGENTES DE CODIFICAÇÃO…"), a justificativa antiga, a seção 2 antiga e a lista de referências sem as quatro fontes que `cd30dbe` acrescentou.
+
+Consequência dura: **rodar `python tools/build_pcc.py` hoje desfaz os dois commits.** O script escreve em `dist/projeto-pcc.docx` e sobrescreve tudo.
+
+Por isso as correções de 10 set. 2026 foram aplicadas em `word/document.xml` dentro do `.docx`, e não no gerador.
+Reconciliar os dois é trabalho próprio, e enquanto não acontecer o `.docx` é a fonte da verdade e o gerador é uma armadilha.
+
+A paginação também deixou de ser calculável fora do Word: as páginas do sumário vêm da paginação real e precisam ser reconferidas ao abrir o documento.
+
 ## 4. Projetos de pesquisa anteriores a 2020 — o que foi possível estabelecer
 
 **NÃO ESTABELECIDO por fonte primária.** Duas monografias pré-2020 de institutos federais em computação foram localizadas (IF Farroupilha, 2018; IFPE) e **nenhuma das duas pôde ser lida**: os PDFs são digitalizações sem camada de texto.
@@ -155,6 +181,8 @@ Um autor humano que acabou de escrever uma frase densa a explica de novo mais si
 ## 5. O que se mede na prosa do documento
 
 Contagens sobre os 25 parágrafos de prosa corrida, excluídas tabelas, títulos e listas.
+
+**Medidas em 31 ago. 2026, antes das correções de 10 set.** Estas reescreveram dois parágrafos da justificativa e três da seção 2, e acrescentaram dois. As contagens abaixo, portanto, erram por poucas unidades para baixo no número de parágrafos e para cima nos conectores causais — uma das ocorrências de `porque` saiu com a reescrita da justificativa. A leitura qualitativa não muda; os itens 5 a 7 da seção 6 continuam abertos.
 
 ### 5.1 Todo parágrafo fecha justificando
 
@@ -223,9 +251,10 @@ Aqui há um ganho real de honestidade junto com o de estilo: a seção 3 descrev
 
 Por retorno, do maior para o menor:
 
-1. Escrever a **contribuição social e acadêmica** na justificativa (§3.1). É exigência do gabarito e é o único item que hoje falta por completo.
-2. Inserir **duas citações diretas curtas** no Referencial Teórico (§3.3). Os trechos já estão marcados como verbatim em `docs/research/02-...md`.
+1. ~~Escrever a **contribuição social e acadêmica** na justificativa (§3.1).~~ Feito em 10 set. 2026.
+2. ~~Inserir **citações diretas** no Referencial Teórico (§3.3).~~ Feito em 10 set. 2026: duas diretas curtas, uma direta longa e uma citação de citação.
 3. Cortar os **objetivos específicos a uma linha** cada (§3.2).
+3b. Reconciliar `tools/build_pcc.py` com o `.docx`, ou aposentá-lo (§3.7). Enquanto os dois divergirem, rodar o gerador destrói o documento.
 4. Perguntar à orientadora a data de entrega; resolver os três **marcadores editoriais** e o cronograma (§3.4, §3.5).
 5. Reescrever os fechos de parágrafo: manter cinco justificativas, soltar as outras (§5.1).
 6. Marcar o tempo futuro na Metodologia e na seção 3 (§5.5).
@@ -242,9 +271,9 @@ De 1 a 4 o documento fica conforme à disciplina. De 5 a 7 ele passa a soar como
 
 ## 8. Fontes
 
-- IFMT. *Template projeto novo3* — `files/Template projeto novo3.pdf`.
-- IFMT. *Aula 2 — Projeto de Conclusão de Curso* — `files/O que é projeto de pesquisa.pdf`.
-- IFMT. *Aula 3 — Estrutura do Projeto de Pesquisa* — `files/Estrutura do projeto de pesquisa-aula3.pdf`.
-- IFMT. *Aula 5 — Citações e referências* — `files/Aula 5- Citacoes e referencias.odt`.
+- IFMT. *Template projeto novo3* — `files/Template projeto novo3.pdf`. **No repositório.**
+- IFMT. *Aula 2 — Projeto de Conclusão de Curso* — `files/O que é projeto de pesquisa.pdf`. **Cópia local; não foi publicada.**
+- IFMT. *Aula 3 — Estrutura do Projeto de Pesquisa* — `files/Estrutura do projeto de pesquisa-aula3.pdf`. **No repositório.**
+- IFMT. *Aula 5 — Citações e referências* — `files/Aula 5- Citacoes e referencias.odt`. **No repositório.**
 - ABNT NBR 15287, NBR 6023, NBR 10520, NBR 14724, conforme reproduzidas no material acima.
 - Medições de prosa: extraídas de `dist/projeto-pcc.docx`, `word/document.xml`, em 31 ago. 2026.
