@@ -123,19 +123,11 @@ Continua **não transcrita** a *Binding Constraint Thesis* de Zhang et al. (2026
 
 ### 3.4 Marcadores editoriais no texto entregue
 
-Três permanecem no corpo:
-
-- `[A VERIFICAR nas tarefas-piloto]` — seção 3, sobre o crédito parcial.
-- `[A MEDIR nas tarefas-piloto]` — seção 3, sobre o relógio de parede.
-- `[A DEFINIR com o orientador]` — seção 5, sobre a data de entrega.
-
-Um documento entregue com anotações de trabalho é defeito, independente de quem escreveu.
-Os dois primeiros viram prosa: "o valor será fixado nas tarefas-piloto". O terceiro é uma pergunta para a orientadora, e a resposta dela resolve também o item 3.5.
+~~Quatro no corpo: `[A VERIFICAR]` (crédito parcial, §3), dois `[A MEDIR]` (relógio §3, cota §4) e `[A DEFINIR]` (data, §5).~~ Resolvidos: a data virou prosa com a entrega em setembro de 2026, e os três das pilotos viraram prosa futura ("será confirmado", "gastar nas tarefas-piloto", "consome nas tarefas-piloto") — proposta descreve trabalho a fazer, então o futuro no texto está certo e o colchete, errado.
 
 ### 3.5 Cronograma em meses relativos
 
-O gabarito usa meses nomeados (MARÇO a JULHO). O documento usa MÊS 1 a MÊS 5, pela razão declarada em 3.4.
-Resolvido o `[A DEFINIR]`, os meses passam a nomeados e a tabela fica igual à do gabarito.
+O gabarito usa meses nomeados (MARÇO a JULHO). O documento usa SETEMBRO a JANEIRO, 5 colunas de trabalho futuro a partir da entrega em setembro de 2026 — proposta planeja para frente, e o futuro no cronograma está certo. Plano do autor: hoje só o documento do projeto; o prático da pesquisa, para janeiro (matriz em DEZ–JAN).
 
 ### 3.6 Recursos Necessários
 
@@ -255,7 +247,7 @@ Por retorno, do maior para o menor:
 2. ~~Inserir **citações diretas** no Referencial Teórico (§3.3).~~ Feito em 10 set. 2026: duas diretas curtas, uma direta longa e uma citação de citação.
 3. Cortar os **objetivos específicos a uma linha** cada (§3.2).
 3b. Reconciliar `tools/build_pcc.py` com o `.docx`, ou aposentá-lo (§3.7). Enquanto os dois divergirem, rodar o gerador destrói o documento.
-4. Perguntar à orientadora a data de entrega; resolver os três **marcadores editoriais** e o cronograma (§3.4, §3.5).
+4. ~~Perguntar à orientadora a data de entrega; resolver os três **marcadores editoriais** e o cronograma (§3.4, §3.5).~~ Data: setembro de 2026; cronograma em SETEMBRO-JANEIRO e marcadores virados em prosa.
 5. Reescrever os fechos de parágrafo: manter cinco justificativas, soltar as outras (§5.1).
 6. Marcar o tempo futuro na Metodologia e na seção 3 (§5.5).
 7. Reduzir dois-pontos e construções "e não" (§5.2, §5.3).
@@ -266,7 +258,7 @@ De 1 a 4 o documento fica conforme à disciplina. De 5 a 7 ele passa a soar como
 
 - **NÃO ESTABELECIDO:** nenhum projeto de pesquisa pré-2020 de instituto federal em computação pôde ser lido em texto integral; os dois localizados são digitalizações sem camada de texto. Um corpus verbatim pré-2020 continua desejável como linha de base.
 - **NÃO ESTABELECIDO:** se a disciplina exige a seção Recursos Necessários da NBR 15287, que o gabarito omite (§3.6).
-- **NÃO ESTABELECIDO:** a data de entrega, que trava o cronograma (§3.5).
+- ~~**NÃO ESTABELECIDO:** a data de entrega, que trava o cronograma (§3.5).~~ Estabelecida: setembro de 2026 (mês; o documento não fixa dia).
 - A contagem de linhas da justificativa foi verificada por contagem de palavras, não por renderização paginada do `.docx`.
 
 ## 8. Fontes
