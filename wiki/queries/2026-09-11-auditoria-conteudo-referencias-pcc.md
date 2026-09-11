@@ -5,7 +5,7 @@ summary: 21 entradas lidas contra o corpo; 12 concretas, 6 divergentes, 1 fora d
 tags: [auditoria, referencias, conteudo, tema, nbr]
 created: 2026-09-11
 updated: 2026-09-11
-sources: [wiki/sources/scaffolding-matters-alier-forment-2026.md, wiki/sources/pier-datacurve-2026.md, wiki/sources/pi-earendil-2026.md, wiki/sources/harnessrank-2026.md, wiki/sources/deepswe-huang-2026.md, wiki/sources/swe-bench-jimenez-2023.md, wiki/sources/ai-agents-that-matter-kapoor-2024.md, wiki/sources/holistic-agent-leaderboard-kapoor-2025.md, wiki/sources/meta-harness-lee-2026.md, wiki/sources/agentic-harness-engineering-lin-2026.md, wiki/sources/lost-in-the-middle-liu-2023.md, wiki/sources/adding-error-bars-miller-2024.md, wiki/sources/code-as-agent-harness-ning-2026.md, wiki/sources/zen-opencode-2026.md, wiki/sources/frontierharness-runta-2026.md, wiki/sources/harness-handbook-wang-2026.md, wiki/sources/swe-agent-yang-2024.md, wiki/sources/react-yao-2022.md, wiki/sources/stop-comparing-harness-zhang-2026.md, wiki/sources/metodologia-prodanov-freitas-2013.md, wiki/sources/estrutura-projeto-template-ifmt-2022.md]
+sources: [wiki/sources/portaria-cnpq-2664-2026.md, wiki/sources/scaffolding-matters-alier-forment-2026.md, wiki/sources/pier-datacurve-2026.md, wiki/sources/pi-earendil-2026.md, wiki/sources/harnessrank-2026.md, wiki/sources/deepswe-huang-2026.md, wiki/sources/swe-bench-jimenez-2023.md, wiki/sources/ai-agents-that-matter-kapoor-2024.md, wiki/sources/holistic-agent-leaderboard-kapoor-2025.md, wiki/sources/meta-harness-lee-2026.md, wiki/sources/agentic-harness-engineering-lin-2026.md, wiki/sources/lost-in-the-middle-liu-2023.md, wiki/sources/adding-error-bars-miller-2024.md, wiki/sources/code-as-agent-harness-ning-2026.md, wiki/sources/zen-opencode-2026.md, wiki/sources/frontierharness-runta-2026.md, wiki/sources/harness-handbook-wang-2026.md, wiki/sources/swe-agent-yang-2024.md, wiki/sources/react-yao-2022.md, wiki/sources/stop-comparing-harness-zhang-2026.md, wiki/sources/metodologia-prodanov-freitas-2013.md, wiki/sources/estrutura-projeto-template-ifmt-2022.md]
 ---
 
 # Auditoria de conteudo das referencias do PCC — as of 2026-09-11
@@ -95,3 +95,23 @@ Falta ler (candidatas a ingest via `prompts/ingest.md`; nada em `raw/inbox/`):
 5. Licenca do DeepSWE conferida em `https://api.github.com/repos/datacurve-ai/deep-swe` (`spdx_id`).
 6. Numeros comparados um a um; razao calculada pelo autor registrada como tal.
 7. ABNT e Gil: sem copia local; marcadas NÃO VERIFICADA.
+
+## Resolução (2026-09-11)
+
+Aplicado em `dist/projeto-pcc.docx` (indices do dump apos a edicao; PR da issue #70):
+
+- [26] Runta: frase de Bogdanov removida; "doze configuracoes de nove *harnesses*"; 17,5x marcado como calculo do autor.
+- [52] Lin: Tabela 1 citada com denominador (GPT-5.4, Terminal-Bench 2, 89 tarefas), 24,7 pp como calculo do autor. Zhang: "modelos de fronteira comparaveis", "frequentemente comparavel ou maior", "pode domina-la". HarnessRank: ordena por taxa de aprovacao com modelo fixo, custo e tokens ao lado. Runta: 5,3x marcado como calculo do autor. Databricks: "em alguns casos".
+- [53] Lee: 7,7 pontos / 4x (classificacao de texto) trocados pelo resultado de codigo do mesmo artigo: 76,4% no TerminalBench-2 (89 tarefas, Claude Opus 4.6) contra 74,7% do Terminus-KIRA (Tabela 7, §4.3, p. 9). Fonte: [[meta-harness-lee-2026]].
+- [55] Runta: "25,0% ponderado por tokens contra 67,8% na celula mediana do mesmo *harness*", para o Claude Code.
+- [57] Prodanov/Freitas: "natureza" no lugar de "finalidade"; "combina o quantitativo e o qualitativo" no lugar de "quali-quantitativa". Gil (2022) mantido na citacao.
+- [60] DeepSWE: "668 linhas em media (Figura 2), contra 32,8 linhas editadas no SWE-bench, cerca de 20x, razao calculada pelo autor".
+- [58] novo: paragrafo do *LLM Wiki* em §3, citando (YuukiFST, 2026) e (Brasil, 2026). Amparo: [[portaria-cnpq-2664-2026]], Art. 9º, I, c-d-f; excecao de tema registrada em `AGENTS.md`.
+- Lista: ABNT x3, Gil, IFMT, Prodanov/Freitas recolocadas com o texto de `HEAD`; BRASIL 2026 inserida; Liu 2023 e Bogdanov 2026 removidas. 25 entradas, 25 citadas (conferido no dump).
+
+Pendente para o autor (em `_review.md`):
+
+- YuukiFST (2026): repositorio privado; tornar publico antes da entrega.
+- Nome da ferramenta em [58] ("Claude Code"): `log.md` nao registra o nome por sessao; confirmar.
+- Bogdanov (2026): fora da lista; so volta com linha de excecao em `AGENTS.md`.
+- Gil (2022) e ABNT: continuam NÃO VERIFICADAS.

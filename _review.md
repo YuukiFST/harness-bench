@@ -35,3 +35,11 @@ The agent writes here what it cannot decide alone. Resolve an item by editing th
 - Citacoes orfas (entradas removidas entre HEAD e a versao de trabalho, ainda citadas em [47] e [57]): ABNT NBR 6023, NBR 10520, NBR 15287, GIL 2022, IFMT 2022, PRODANOV; FREITAS 2013. Recolocar (texto em `git show HEAD:dist/projeto-pcc.docx` [183]-[185], [188], [191], [201]).
 - ABNT (3 normas) e Gil (2022): NÃO VERIFICADA, sem copia local em `raw/` ou `files/`. Prodanov/Freitas lido: "finalidade" e "quali-quantitativa" nao sao rotulos do livro (usa "natureza"; quanti e quali como alternativas).
 - Ressalvas que nao derrubam: Lin 24,7 pp e calculo da Tabela 1 (71,9 - 47,2); DeepSWE "ordem de grandeza ante SWE-bench" e inferencia (668 vs 32,8 linhas); Earendil omite "in some cases"; Apache-2.0 do DeepSWE so no repositorio, nao no artigo.
+
+## [2026-09-11] fix | resolucao-auditoria-conteudo-pcc
+
+- YuukiFST (2026) [59]/[177]: entrada mantida; o repositorio segue privado. **Tornar publico antes da entrega** ou trocar a entrada por "em elaboracao". Visibilidade nao alterada pelo agente.
+- §3 [58] nomeia "Claude Code" como ferramenta do *LLM Wiki* (Portaria CNPq 2.664/2026, Art. 9º, I, c pede ferramenta e finalidade). `log.md` registra as operacoes mas nao o nome da ferramenta em cada sessao; confirmar o nome (ou acrescentar OpenCode) antes da entrega.
+- [57] usa os eixos do livro de Prodanov e Freitas ("natureza"; quantitativo e qualitativo). O handout `files/Estrutura do projeto de pesquisa-aula3.pdf` usa "finalidade" e "quali-quantitativa". Se a orientadora exigir os rotulos do handout, voltar a eles e citar Gil (2022) como fonte dos rotulos, apos ler o livro.
+- Bogdanov (2026) removido da lista e de [26] por estar fora do tema. Para manter, acrescentar linha de excecao em `AGENTS.md` e ingerir o post.
+- Gil (2022) e as tres normas ABNT continuam NÃO VERIFICADAS (sem copia local); entradas recolocadas com o texto de `HEAD`.
