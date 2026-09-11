@@ -4,7 +4,7 @@ type: source
 summary: Laco pensamento-acao-observacao; +34 pp ALFWorld e +10 pp WebShop few-shot
 tags: [react, loop, controle, baseline, interpretabilidade]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-11
 dated: 2023-03-10
 sources: []
 ---
@@ -43,3 +43,10 @@ Gargalo de demonstracoes (contexto de in-context learning); runs principais em P
 - Laco de controle cientifico: pensamento-acao-observacao com LM congelado = logica exata de *harness* fixo / ACI variavel; baseline a ablar.
 - Prova de que desenho de interface supera escala de treino com modelo fixo (precedente de H1).
 - Taxonomia de falhas + fallback ReAct->CoT-SC como modelo de medicao (groundedness, recuperacao, custo por trajetoria de sucesso).
+
+### Auditoria de conteudo 2026-09-11
+
+- Citada em: §2 [49].
+- Afirmacao sustentada: espaco de acao aumentado com pensamentos (§2).
+- Veredito: CONCRETA. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
+

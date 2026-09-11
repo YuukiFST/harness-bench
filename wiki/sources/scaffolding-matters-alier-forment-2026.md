@@ -4,7 +4,7 @@ type: source
 summary: 20x entre scaffoldings e 139x num modelo 27B fixo, com verificacao por estado
 tags: [scaffolding, mcp, cli, custo, verificacao, resolucao]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-11
 dated: 2026-08-09
 sources: []
 ---
@@ -57,6 +57,12 @@ Custo condicionado a conclusao; conclusao reportada em separado; verificacao por
 - Material e metodo: as cinco regras (condicionar, separar, verificar, checar aderencia, repetir) viram protocolo do PCC.
 - H2: pi vs Tau (12% de diferenca, ambos 4/4) mostra que efeito minimalista sobrevive a reimplementacao independente — precedente do teste pi vs oh-my-pi.
 - Limitacoes: mesmas ressalvas de tarefa unica e atribuicao.
+
+### Auditoria de conteudo 2026-09-11
+
+- Citada em: §2 [52]; §1 [27].
+- Afirmacao sustentada: 5,0x-28x entre *scaffoldings* sem e com MCP (Abstract); Tau e reimplementacao independente, nao *fork* (§2.3).
+- Veredito: CONCRETA; razao e mediana sobre mix de modelos, nao modelo fixo. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
 
 ## Contradictions
 

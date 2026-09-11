@@ -4,7 +4,7 @@ type: source
 summary: Sumario fixo 1-6, blocos da introducao e teto de 12 linhas da justificativa
 tags: [abnt, estrutura, template, nbr-15287, justificativa]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-11
 dated: unknown
 sources: []
 ---
@@ -30,3 +30,11 @@ Sumario fixo: 1 Introducao, 2 Referencial Teorico, 3 Material e Metodo, 4 Orcame
 - Objetivos especificos do PCC tem 2-3 linhas (gabarito pede 1) — pendente.
 - Marcadores `[A MEDIR/A VERIFICAR/A DEFINIR]` pendentes; cronograma em meses relativos (data nao confirmada).
 - `tools/build_pcc.py` desatualizado (parado em cc15d7b): rodar sobrescreve o `.docx` — fonte da verdade e o `.docx`.
+
+## Uso no PCC
+
+### Auditoria de conteudo 2026-09-11
+
+- Citada em: §1 [47]; nota de rodape.
+- Afirmacao sustentada: folha de rosto: "Normas básicas e padrões para a elaboração do Projeto de Conclusão de Curso (PCC)", Cuiabá, 2022.
+- Veredito: CITAÇÃO ÓRFÃ (entrada removida da lista); exigencia da disciplina. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].

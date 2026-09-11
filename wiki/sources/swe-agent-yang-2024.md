@@ -4,7 +4,7 @@ type: source
 summary: Agent-Computer Interface leva GPT-4 a 12,47% no SWE-bench com modelo fixo
 tags: [harness, aci, interface, swe-bench, custo]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-11
 dated: 2024-11-11
 sources: []
 ---
@@ -47,3 +47,10 @@ Toolkit pequeno; desenho do ACI manual (automatizar e futuro); escopo so em tare
 - Primeira evidencia *harness*-como-interface com LM fixo: 2,67% -> 11% -> 18% no Lite isolam a contribuicao do *harness* (H1).
 - Reagentes de custo para H2 (Succ/Mtok, pass@1 por dolar).
 - Ablacoes rankeiam alavancas (lint, busca, viewer, historico) — definicoes de bracos.
+
+### Auditoria de conteudo 2026-09-11
+
+- Citada em: §2 [52].
+- Afirmacao sustentada: ACI como objeto de projeto sem mudar pesos (§1); 11,00% -> 18,00% Lite com GPT-4 Turbo (Tabela 1).
+- Veredito: CONCRETA. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
+

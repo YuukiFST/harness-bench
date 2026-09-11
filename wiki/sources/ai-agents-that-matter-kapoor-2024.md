@@ -4,7 +4,7 @@ type: source
 summary: Avaliacao deve ser controlada por custo; Pareto acuracia-custo e holdouts
 tags: [custo, pareto, holdout, reprodutibilidade, atribuicao]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-11
 dated: 2024-07-01
 sources: []
 ---
@@ -42,3 +42,10 @@ KAPOOR, Sayash; STROEBL, Benedikt; SIEGEL, Zachary S.; NADGIR, Nitya; NARAYANAN,
 - Precedente central de H1: mesmo modelo, so *harness* muda -> ~100x custo com acuracia empatada; fronteira de Pareto como figura de resultados; Succ/Mtok como metrica conjunta.
 - Medicao: custo em dolar + tokens in/out recalculaveis, nunca proxies (n. parametros).
 - H2/metodos: holdouts no nivel certo + scripts congelados + repeticoes (licao STeP/WebArena); separar custo fixo de tuning do custo variavel por run.
+
+### Auditoria de conteudo 2026-09-11
+
+- Citada em: §2 [54].
+- Afirmacao sustentada: foco em acuracia sem custo leva a conclusoes erradas sobre a origem dos ganhos (Abstract).
+- Veredito: CONCRETA. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
+

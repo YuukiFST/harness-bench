@@ -4,7 +4,7 @@ type: source
 summary: Localizacao de comportamento em harnesses; +10 a +19 pp de win-rate com menos tokens
 tags: [harness, localizacao, navegabilidade, tokens, codex, terminus]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-11
 dated: 2026-07-14
 sources: []
 ---
@@ -43,6 +43,12 @@ So 2 *harnesses*, 60 pedidos, 1 modelo planejador; qualidade de plano por juizes
 - Referencial: definicao de *harness* como runtime; evidencia de que internos de *harness* sao distribuidos por arquivos/estagios/estado.
 - Material e metodo: protocolo BGPD como auditoria do diff pi vs oh-my-pi (enumerar todos os sites de leitura/escrita dos registradores mudados).
 - Lacuna que o PCC preenche: executar *fork* vs original com modelo fixo e precificar tarefas concluidas (este artigo nao executa).
+
+### Auditoria de conteudo 2026-09-11
+
+- Citada em: §2 [49].
+- Afirmacao sustentada: "constructs prompts, manages state, invokes tools, and coordinates execution" (Abstract).
+- Veredito: CONCRETA; parafrase. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
 
 ## Contradictions
 

@@ -4,7 +4,7 @@ type: source
 summary: Ranking de harnesses com modelo fixo; timeout e resultado, tokens sem cache
 tags: [harness, ranking, metodologia, terminal-bench, tokens]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-11
 dated: 2026-08-28
 sources: []
 ---
@@ -33,3 +33,10 @@ HARNESSRANK. **HarnessRank**: coding-agent harness rankings. 2026. Disponivel em
 
 - Precedente de pratica para H1 com modelo fixo + dispersao reportada.
 - Regras adotaveis: timeout-como-resultado, descarte documentado (vs falha), tokens sem cache como eficiencia, custo reportado-nao-estimado.
+
+### Auditoria de conteudo 2026-09-11
+
+- Citada em: §2 [52].
+- Afirmacao sustentada: "ordena por custo".
+- Veredito: DIVERGENTE: ordena por taxa de aprovacao; custo/tokens nao afetam a ordem; sem linhas publicadas. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
+

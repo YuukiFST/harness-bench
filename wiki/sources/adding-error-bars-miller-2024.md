@@ -4,7 +4,7 @@ type: source
 summary: Estatistica de evals; diferencas pareadas, SE clusterizado e n>=1000
 tags: [estatistica, pareado, wilcoxon, variancia, poder, mde]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-11
 dated: 2024-11-01
 sources: []
 ---
@@ -40,3 +40,10 @@ MILLER, Evan. **Adding error bars to evals**: a statistical approach to language
 - Licenca estatistica do teste de Wilcoxon pareado por tarefa sobre Succ/Mtok (α=0,05, bilateral): analisar diferencas por tarefa, reportar SE pareado + correlacao + IC95% no formato Tabela 5.
 - Reportar media (SE) + n (+ clusters), MDE pre-registrada (~0,81σ com n=3 e 8 tarefas).
 - Protocolo de reamostragem sem vies: K por tarefa com media no nivel da tarefa; parametros de amostragem registrados, nao normalizados (gateway nao os honra).
+
+### Auditoria de conteudo 2026-09-11
+
+- Citada em: §3 [63], [64], [65].
+- Afirmacao sustentada: nao mexer na temperatura (§3.3); reamostragem (§3.1); diferenca pareada por questao (§1, §4.2).
+- Veredito: CONCRETA. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
+

@@ -4,7 +4,7 @@ type: source
 summary: E-book Feevale; taxonomia natureza-objetivos-abordagem-procedimentos do PCC
 tags: [metodologia, classificacao, aplicada, experimental, quali-quanti]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-11
 dated: unknown
 sources: []
 ---
@@ -25,3 +25,10 @@ PRODANOV, Cleber Cristiano; FREITAS, Ernani Cesar de. **Metodologia do trabalho 
 
 - Fonte da classificacao unificada em 4 dimensoes: finalidade **aplicada**; abordagem **quali-quantitativa**; objetivos **exploratoria**; procedimentos **experimental**; metodo **dedutivo**.
 - Nao atribuir a Prodanov e Freitas: origem da triade exploratoria/descritiva/explicativa (Gil), triangulacao quali-quanti (Lakatos e Marconi, *Metodologia cientifica*), definicao canonica de pesquisa experimental (Gil).
+
+### Auditoria de conteudo 2026-09-11
+
+- Citada em: §3 [57].
+- Afirmacao sustentada: aplicada (eixo natureza, p. 51); exploratoria (p. 51); experimental (p. 57); quantitativa/qualitativa (p. 69-70); dedutivo (p. 27).
+- Veredito: CITAÇÃO ÓRFÃ (entrada removida da lista); "finalidade" e "quali-quantitativa" nao sao rotulos do livro. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
+

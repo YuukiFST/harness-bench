@@ -4,7 +4,7 @@ type: source
 summary: 2.294 issues reais em 12 repos Python; Claude 2 resolve 1,96%
 tags: [benchmark, swe-bench, github-issues, baseline]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-11
 dated: 2024-11-11
 sources: []
 ---
@@ -41,3 +41,10 @@ So Python; baselines intencionalmente mais simples (retrieval, sem agentes — c
 - Contraste fixo: teto nao-interativo ~2-4% define o piso que qualquer *harness* precisa bater com interacao.
 - Split fail-to-pass/pass-to-pass como modelo de atribuicao ao *harness*.
 - Diagnosticos de dificuldade (contexto longo, patches multi-arquivo) motivam H1.
+
+### Auditoria de conteudo 2026-09-11
+
+- Citada em: §3 [60] (comparador).
+- Afirmacao sustentada: 2.294 instancias, 32,8 linhas por patch de referencia.
+- Veredito: CONCRETA, uso minimo. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
+

@@ -4,7 +4,7 @@ type: source
 summary: AHE evolui harnesses por observabilidade; 24,7 pp entre harnesses, Succ/Mtok no apendice
 tags: [harness, succ-mtok, pass-at-1, observabilidade, terminal-bench]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-11
 dated: 2026-05-18
 sources: []
 ---
@@ -65,6 +65,12 @@ Definida na Eq. (2), Apendice A: `pass@1 x 10^6 / media de tokens por execucao`.
 - Referencial: definicao operacional de *harness* e tese da alavanca de primeira classe.
 - Material e metodo: Succ/Mtok como metrica primaria; semente minima como precedente do *harness* zero; convencao de contagem do Apendice A.
 - Limitacoes: campanha unica sem variancia; efeito especifico do modelo.
+
+### Auditoria de conteudo 2026-09-11
+
+- Citada em: §2 [49]-[50], [52], [55].
+- Afirmacao sustentada: definicao §1 verbatim; Tabela 1 (OpenCode 47,2% / Codex 71,9%, TB2, 89 tarefas, GPT-5.4); Succ/Mtok no Apendice A.
+- Veredito: CONCRETA; 24,7 pp e diferenca calculada da Tabela 1, nao frase do artigo. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
 
 ## Contradictions
 

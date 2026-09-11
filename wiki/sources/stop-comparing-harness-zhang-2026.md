@@ -4,7 +4,7 @@ type: source
 summary: Binding Constraint Thesis e protocolo fatorial HV/MV com 7,8x de razao
 tags: [harness, binding-constraint-thesis, variancia, metodologia, disclusao]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-11
 dated: 2026-05-07
 sources: []
 ---
@@ -48,6 +48,12 @@ Escopo restrito a longo horizonte + modelos de fronteira comparaveis; HV depende
 - Hipoteses/desenho: backbone estatistico de H1 (HV>0 em custo por tarefa concluida) e H2 (contraste *harness* vs *fork* com distancia ETCSOVG minima).
 - Instrumentacao: cartao ETCSOVG como apendice de especificacao dos bracos.
 - Ameacas: 6/9 reversoes obrigam relatar rankings por *harness*, nunca ranking unico.
+
+### Auditoria de conteudo 2026-09-11
+
+- Citada em: §2 [52].
+- Afirmacao sustentada: tese formal condicionada a "comparable frontier models", "often comparable to or larger than", "may dominate" (§3); HV/MV 7,80x (§4).
+- Veredito: DIVERGENTE: projeto omite os qualificadores. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
 
 ## Contradictions
 

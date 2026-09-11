@@ -16,3 +16,22 @@ The agent writes here what it cannot decide alone. Resolve an item by editing th
 - Tabela "median cost per successful task" do site frontierharness.org ($0,06-$0,29) vs blog e repo ($1,05-$18,34 por pass): reconciliar contra `results/eval-data.json` antes de citar; ate la, citar blog + repo.
 - Video "Learn Pi in 22 Min" (Sean's AI Stories): conteudo e data nao verificados (sem transcricao acessivel); uso restrito a ilustracao, sem numeros citados.
 - Alegacao "vagas pedem Claude Code/Codex/Cursor": sem fonte na wiki; manter como motivacao ou levantar mini-survey de anuncios.
+
+## [2026-09-11] edit | projeto-pcc.docx futuro e destinatario empresarial
+
+- "Resultados preliminares do instrumento (Camada 1)" e a Tabela 1 (11,4x, 64.945 vs 5.676 bytes, 28 ago. 2026) sairam do `dist/projeto-pcc.docx` a pedido do autor: projeto de pesquisa descreve o que sera feito. Confirmar com a orientadora se um piloto ja medido pode voltar como "estudo piloto"; os dados seguem em `layer1/data/` e `docs/spec/41-layer1-request-shape.md`.
+- Nova referencia Bogdanov (2026), JetBrains Developer Ecosystem Survey 2026 (>15.000 devs, maio-jul. 2026: Claude Code 39%, Codex 16%, Cursor 12% no trabalho), citada na justificativa. Fonte ainda nao ingerida na wiki (`raw/inbox/`); a alegacao "vagas pedem Claude Code/Codex/Cursor" continua sem fonte e ficou fora do texto.
+- Objetivos especificos seguem com 2-3 linhas cada (revisao Secao 3.2); nao tocados nesta edicao.
+
+## [2026-09-11] query | auditoria-conteudo-referencias-pcc
+
+- Bogdanov (2026) [26]: FORA DO TEMA. Post da JetBrains trata so de adocao (39% "around", 16%/12% na janela maio-jul. 2026); nada sobre *harness* ou custo. Regra de `AGENTS.md` exclui adocao de mercado. Manter ou remover?
+- Liu et al. (2023) [165]: NÃO CITADA. Entrada sem citacao no corpo apos a remocao da Tabela da Camada 1; obra fora do tema. Retirar da lista?
+- HarnessRank [52]: DIVERGENTE. Site ordena por taxa de aprovacao; custo e tokens "don't affect ranking"; sem linhas publicadas. Corrigir "ordena por custo".
+- Runta [55]: DIVERGENTE. 67,8% e a mediana por celula do proprio Claude Code, nao mediana entre *harnesses*. [26]/[52]: 17x e 5,3x sao razoes calculadas pelo autor (post diz 5,6x vs DSH Creator); faixa 50,0-66,7% e sobre 12 configuracoes.
+- Lee et al. (2026) [53]: DIVERGENTE. 7,7 pontos / 4x menos tokens e em classificacao de texto *online* (vs ACE), nao em agente de codificacao.
+- Zhang et al. (2026) [52]: DIVERGENTE. Tese formal condicionada a "comparable frontier models", "often comparable to or larger than", "may dominate"; projeto afirma sem qualificador.
+- YuukiFST (2026) [59]/[173]: DIVERGENTE. Repositorio privado (gh: `"visibility":"PRIVATE"`, README 404); entrada declara "Acesso em: 28 ago. 2026". Tornar publico ou retirar.
+- Citacoes orfas (entradas removidas entre HEAD e a versao de trabalho, ainda citadas em [47] e [57]): ABNT NBR 6023, NBR 10520, NBR 15287, GIL 2022, IFMT 2022, PRODANOV; FREITAS 2013. Recolocar (texto em `git show HEAD:dist/projeto-pcc.docx` [183]-[185], [188], [191], [201]).
+- ABNT (3 normas) e Gil (2022): NÃO VERIFICADA, sem copia local em `raw/` ou `files/`. Prodanov/Freitas lido: "finalidade" e "quali-quantitativa" nao sao rotulos do livro (usa "natureza"; quanti e quali como alternativas).
+- Ressalvas que nao derrubam: Lin 24,7 pp e calculo da Tabela 1 (71,9 - 47,2); DeepSWE "ordem de grandeza ante SWE-bench" e inferencia (668 vs 32,8 linhas); Earendil omite "in some cases"; Apache-2.0 do DeepSWE so no repositorio, nao no artigo.

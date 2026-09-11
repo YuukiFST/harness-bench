@@ -4,7 +4,7 @@ type: source
 summary: Survey que define harness em 3 camadas e pede metricas que isolem componentes
 tags: [harness, survey, metricas, oracle, pexels-loop]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-11
 dated: 2026-05-18
 sources: []
 ---
@@ -58,6 +58,12 @@ Grade de metricas adotada pelo PCC: custo fica em (i), reprodutibilidade em (vi)
 - Referencial: definicao canonica de *harness*; distincao dos tres elementos (recorte: capacidades internas constantes, infraestrutura varia).
 - Referencial: lacuna de atribuicao (Secao 5.2.1) e pedido de metricas por componente (Secao 5.2.7) — o par pi/oh-my-pi responde a 5.2.7.
 - Material e metodo: dimensoes (i) e (vi); adequacao do oraculo como ameaca declarada.
+
+### Auditoria de conteudo 2026-09-11
+
+- Citada em: §2 [49], [53].
+- Afirmacao sustentada: definicao §2 verbatim; conflacao modelo/harness em §5.2.1; "metrics that isolate harness components" em §5.2.7.
+- Veredito: CONCRETA. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
 
 ## Contradictions
 

@@ -4,7 +4,7 @@ type: source
 summary: Pi com 4 ferramentas e prompt <1K tokens; 2x custo Databricks, 3x menos contexto
 tags: [pi, minimalismo, custo, databricks, contexto]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-11
 dated: 2026-08-04
 sources: []
 ---
@@ -34,3 +34,10 @@ EARENDIL. **Pi, minimal and performant**. 2026. Publicacao de blogue institucion
 - H2: caracteriza o polo original do par pi / oh-my-pi (4 ferramentas, <1K tokens, sem MCP/subagentes/plan).
 - Justificativa: 2x Databricks com qualidade igual (fonte de pratica; citar como *apud* quando via este post).
 - Camada 1: precedente dos 11,4x bytes (prompt+schemas inchados custam antes do primeiro token).
+
+### Auditoria de conteudo 2026-09-11
+
+- Citada em: §2 [52] (*apud* Databricks).
+- Afirmacao sustentada: custo por tarefa >2x "in some cases" com mesma qualidade.
+- Veredito: CONCRETA; projeto omite "em alguns casos". Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
+

@@ -4,7 +4,7 @@ type: source
 summary: HAL com 21.730 rollouts; scaffolds movem 34-48 pp e front open-source vence
 tags: [leaderboard, hal, pareto, scaffold, generalista, gaming]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-11
 dated: 2025-10-13
 sources: []
 ---
@@ -47,6 +47,12 @@ Majoritariamente single-run sem IC (custo); provedores trocam pesos por tras do 
 - Taxonomia failed/discarded/tampered + auditoria de trajetorias (licao TAU/HuggingFace).
 - Checklist de ameacas: pinar endpoints, datar precos, pre-registrar n, nao comparar reasoning cross-provider.
 - Ressalva permanente do PCC (efeito especifico do modelo, pode inverter): BrowserUse x SeeAct.
+
+### Auditoria de conteudo 2026-09-11
+
+- Citada em: §2 [54], [55].
+- Afirmacao sustentada: custos raramente relatados, comparacoes entre *scaffolds* raras (§1); Claude melhor com BrowserUse, OpenAI com SeeAct em Online Mind2Web (§4.1).
+- Veredito: CONCRETA. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
 
 ## Contradictions
 

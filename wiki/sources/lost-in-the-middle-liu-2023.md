@@ -4,7 +4,7 @@ type: source
 summary: Curva em U no uso de contexto longo; pior caso abaixo do closed-book
 tags: [contexto, posicao, u-shape, recuperacao, compactacao]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-11
 dated: 2023-11-20
 sources: []
 ---
@@ -41,3 +41,10 @@ Modelos usam melhor o inicio (primazia) e o fim (recencia); o meio degrada mesmo
 - Camada 1 mediu compactacao silenciosa do oh-my-pi (troca de resultado antigo por referencia de 54 bytes no passo 5 sem pressao): este artigo da o mecanismo pelo qual isso pode custar desempenho alem do custo.
 - Justifica condicoes de compactacao/truncacao e o padrao de reportar melhor/pior por posicao, nao so media.
 - Mecanismo de H1: contexto maior eleva tokens e pode *reduzir* acuracia — Succ/Mtok precisa cair.
+
+### Auditoria de conteudo 2026-09-11
+
+- Citada em: nenhuma.
+- Afirmacao sustentada: (nenhuma; gancho da Camada 1 removido em 2026-09-11).
+- Veredito: NÃO CITADA; fora do tema. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
+

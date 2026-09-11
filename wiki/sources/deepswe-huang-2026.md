@@ -4,7 +4,7 @@ type: source
 summary: Benchmark de 113 tarefas originais longas; verifiers escritos a mao, 1,4% vs 32,4%
 tags: [benchmark, deepswe, verificador, contaminacao, pass-at-1]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-11
 dated: 2026-07-08
 sources: []
 ---
@@ -49,6 +49,12 @@ Pass/fail binario sem credito parcial; so correcao funcional; prompts ~2.000 cha
 - Metodo: protocolo travado + regra de exclusao + SE run-to-run como modelo de H1/H2.
 - Oraculo: verificadores funcionais + auditoria independente + taxonomia de patologias (vazamento por git log, stubs, testes alheios quebrando).
 - Futuro declarado (§9): decompor escore em modelo vs *scaffolding* — exatamente H2 do PCC.
+
+### Auditoria de conteudo 2026-09-11
+
+- Citada em: §3 [60]; §4 [75].
+- Afirmacao sustentada: 113/91, 5,5x vs SWE-Bench Pro, §8 sem credito parcial, 34 tarefas Python, mini-swe-agent em toda linha de base.
+- Veredito: CONCRETA; Apache-2.0 so no repositorio; "ordem de grandeza ante SWE-bench" e inferencia (668 vs 32,8 linhas). Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
 
 ## Contradictions
 

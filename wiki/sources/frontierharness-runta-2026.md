@@ -4,7 +4,7 @@ type: source
 summary: 9 harnesses x Kimi K3 fixo; pass 50-66,7% e custo 17x por pass
 tags: [harness, leaderboard, custo-por-pass, kimi-k3, pi, oh-my-pi]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-11
 dated: 2026-09-01
 sources: []
 ---
@@ -43,3 +43,10 @@ Resultado do Claude Code pode refletir interacao *harness*-modelo-gateway (cache
 - H2: Pi e oh-my-pi medidos no mesmo protocolo (60,0%/$2,43 vs 56,7%/$4,75) — ponto externo de comparacao para o experimento do PCC.
 - Metodo: checkpoint dourado, 1 tentativa/celula, reprecificacao de cache, debug fora das oficiais.
 - Limitacoes: cada *harness* como entregue, sem adaptar caching; matriz *harness* x modelo futura (v1.1).
+
+### Auditoria de conteudo 2026-09-11
+
+- Citada em: §1 [26]; §2 [52], [55].
+- Afirmacao sustentada: 50,0-66,7% (12 configuracoes); $1,05-$18,34; Codex 66,7%/$3,47; Claude Code 63,3%/$18,34; cache 25,0% ponderado / 67,8% mediana por celula do Claude Code.
+- Veredito: DIVERGENTE em [55] (67,8% nao e mediana entre *harnesses*); 17x e 5,3x sao calculos do autor (post diz 5,6x vs DSH Creator). Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
+

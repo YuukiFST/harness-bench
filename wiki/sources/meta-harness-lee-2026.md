@@ -4,7 +4,7 @@ type: source
 summary: Busca outer-loop sobre codigo do harness; +7,7 pp com 4x menos tokens
 tags: [harness, otimizacao, outer-loop, terminal-bench, traces]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-11
 dated: 2026-03-30
 sources: []
 ---
@@ -46,6 +46,12 @@ Busca e avaliacao final no mesmo TerminalBench-2 de 89 tarefas (sem split held-o
 - Referencial: definicao formal e objetivo com M fixo, adotaveis verbatim.
 - Material e metodo: protocolo propose-evaluate-log em filesystem, Pareto acuracia vs custo, validacao leve — modelo para logging de runs/celulas.
 - Cautela: PCC **nao** segue busca=avaliacao; mantem descoberta e confirmacao disjuntas.
+
+### Auditoria de conteudo 2026-09-11
+
+- Citada em: §2 [53].
+- Afirmacao sustentada: 7,7 pontos com 4x menos tokens de contexto.
+- Veredito: DIVERGENTE: resultado e em classificacao de texto *online* contra ACE, nao em codificacao. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
 
 ## Contradictions
 

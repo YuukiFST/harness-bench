@@ -4,7 +4,7 @@ type: source
 summary: Fork Harbor para DeepSWE; docker ou modal, custo zero, agentes CLI isolados
 tags: [pier, executor, docker, deepswe, air-gapped]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-11
 dated: 2026-08-28
 sources: []
 ---
@@ -29,3 +29,11 @@ Framework compativel com tarefas Harbor para avaliar agentes de codigo em *sandb
 - Agentes hoje: nop, oracle, antigravity-sdk, claude-code, codex, cursor-cli, gemini-cli, **opencode**, **mini-swe-agent**. **Sem adaptador para pi nem oh-my-pi** — os dois (e o *harness* zero) sao escritos neste projeto.
 - Este projeto usa **docker**; GPU da estacao irrelevante para resultados.
 - Trials em `jobs/<ts>/<trial_id>/`; datasets Harbor via download previo.
+
+## Uso no PCC
+
+### Auditoria de conteudo 2026-09-11
+
+- Citada em: §3 [59]; §4 [75].
+- Afirmacao sustentada: sem adaptador para pi/oh-my-pi (lista do README); Apache-2.0.
+- Veredito: CONCRETA. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
