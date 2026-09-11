@@ -3,7 +3,7 @@
 Documento vivo.
 Confere o `dist/projeto-pcc.docx` contra o material da disciplina em `files/` e contra o que se mede na própria prosa.
 
-**Última atualização:** 10 set. 2026.
+**Última atualização:** 11 set. 2026.
 Complementa [Pangram — como o detector funciona](pangram-deteccao-de-texto-gerado.md).
 
 Os três arquivos da disciplina citados aqui passaram a ser rastreados em `files/`, então os caminhos deste documento resolvem para um leitor que só tem o repositório.
@@ -148,6 +148,10 @@ Consequência dura: **rodar `python tools/build_pcc.py` hoje desfaz os dois comm
 Por isso as correções de 10 set. 2026 foram aplicadas em `word/document.xml` dentro do `.docx`, e não no gerador.
 Reconciliar os dois é trabalho próprio, e enquanto não acontecer o `.docx` é a fonte da verdade e o gerador é uma armadilha.
 
+Desde 11 set. 2026 a edição em `word/document.xml` tem ferramenta: `python tools/docx_prose.py dump dist/projeto-pcc.docx` lista os parágrafos com índice e marcação `*itálico*`, e `apply` reescreve os parágrafos nomeados em um JSON.
+Os dois lotes de edição daquele dia estão em `tools/pcc_edits_2026-09-11.py` e `tools/pcc_humanizer_2026-09-11.py`, com os índices que valiam em cada momento.
+As páginas do sumário foram conferidas no Word (COM) depois da edição, não estimadas.
+
 A paginação também deixou de ser calculável fora do Word: as páginas do sumário vêm da paginação real e precisam ser reconferidas ao abrir o documento.
 
 ## 4. Projetos de pesquisa anteriores a 2020 — o que foi possível estabelecer
@@ -232,9 +236,15 @@ O documento fala do experimento futuro com a segurança de quem já o rodou. É 
 
 Aqui há um ganho real de honestidade junto com o de estilo: a seção 3 descreve uma matriz que a Camada 2 ainda não executou.
 
+**Resolvido em 11 set. 2026.** Metodologia, seção 3, orçamento e cronograma passaram ao futuro (`serão coletados`, `medirá`, `receberá`).
+Pelo mesmo critério, a subseção "Resultados preliminares do instrumento (Camada 1)" e a Tabela 1 saíram do documento, junto com os `11,4x`, `64.945 contra 5.676` e a cota `medidas neste projeto`: o autor decidiu que o projeto de pesquisa descreve o que será feito e não relata medição própria.
+Os números continuam em `layer1/data/` e em `docs/spec/41-layer1-request-shape.md`; H2 passou a apontar para o que a Camada 1 vai confirmar.
+A justificativa ganhou o destinatário empresarial e a adoção no mercado (Bogdanov, 2026: 39% Claude Code, 16% Codex, 12% Cursor entre mais de 15.000 desenvolvedores, maio a julho de 2026), dentro das 12 linhas.
+A âncora da nota de rodapé sobre a divergência ABNT, perdida em `c8d3fb8`, voltou ao parágrafo de organização do trabalho.
+
 ### 5.6 O que já está bom e não deve ser mexido
 
-- A tabela 1 e os números dela. São seus, medidos, datados.
+- ~~A tabela 1 e os números dela. São seus, medidos, datados.~~ Removida em 11 set. 2026 (§5.5): projeto de pesquisa não relata medição feita.
 - A seção de limitações. Declarar cinco limitações de partida é raro e é força.
 - O parágrafo de organização do trabalho, que faz exatamente o que o gabarito pede.
 - As referências, conformes à NBR 6023:2025.
@@ -248,9 +258,9 @@ Por retorno, do maior para o menor:
 3. Cortar os **objetivos específicos a uma linha** cada (§3.2).
 3b. Reconciliar `tools/build_pcc.py` com o `.docx`, ou aposentá-lo (§3.7). Enquanto os dois divergirem, rodar o gerador destrói o documento.
 4. ~~Perguntar à orientadora a data de entrega; resolver os três **marcadores editoriais** e o cronograma (§3.4, §3.5).~~ Data: setembro de 2026; cronograma em SETEMBRO-JANEIRO e marcadores virados em prosa.
-5. Reescrever os fechos de parágrafo: manter cinco justificativas, soltar as outras (§5.1).
-6. Marcar o tempo futuro na Metodologia e na seção 3 (§5.5).
-7. Reduzir dois-pontos e construções "e não" (§5.2, §5.3).
+5. Reescrever os fechos de parágrafo: manter cinco justificativas, soltar as outras (§5.1). Parcial em 11 set. 2026: `porque` 12, `já que` 6, `por isso` 4 nos 71 parágrafos do corpo.
+6. ~~Marcar o tempo futuro na Metodologia e na seção 3 (§5.5).~~ Feito em 11 set. 2026.
+7. Reduzir dois-pontos e construções "e não" (§5.2, §5.3). Parcial em 11 set. 2026: 11 dois-pontos e 5 `e não` no corpo, nenhum travessão; passe com `.claude/skills/humanizer` registrado em `tools/pcc_humanizer_2026-09-11.py`.
 
 De 1 a 4 o documento fica conforme à disciplina. De 5 a 7 ele passa a soar como alguém escrevendo, e são os itens que só funcionam se for você escrevendo — trocar as palavras por sinônimos reproduz o mesmo padrão com outro vocabulário.
 
