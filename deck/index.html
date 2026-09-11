@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>O harness como decisão do desenvolvedor — apresentação do projeto de pesquisa</title>
+  </head>
+  <body>
+    <div id="viewport">
+      <div id="stage">
+        <!-- 1 CAPA -->
+        <section class="slide cover" data-title="Capa">
+          <canvas class="cover-bg" id="coverbg1" aria-hidden="true"></canvas>
+          <div class="cover-inner">
+            <div class="inst">
+              Instituto Federal de Mato Grosso · Campus Octayde Jorge da Silva · Sistemas para Internet
+            </div>
+            <h1 class="split">O <em>harness</em> como decisão do desenvolvedor</h1>
+            <div style="font-size: 38px; color: var(--mute); max-width: 1500px">
+              custo por tarefa concluída e taxa de sucesso de agentes de codificação sob um mesmo modelo
+            </div>
+            <div class="who">
+              <b>Fausto Yuuki T. A. Freire</b> &nbsp;·&nbsp; Orientadora: Profa. Inara Silva
+            </div>
+            <div class="mute" style="font-size: 28px; margin-top: 10px">
+              Projeto de pesquisa · Metodologia Científica · Cuiabá, 2026
+            </div>
+            <div class="denom">Setas ← → avançam. <span class="kbd">?</span> mostra os atalhos.</div>
+          </div>
+        </section>
+
+        <!-- 2 PROBLEMA -->
+        <section class="slide" id="s-bars" data-title="O problema em uma tela">
+          <h2>
+            Mesmo modelo, custo por tarefa 17,5× diferente<small
+              >FrontierHarness (Runta, 2026): 12 configurações de 9 <em>harnesses</em>, modelo Kimi K3, 30
+              tarefas, 1 tentativa por célula, set. 2026</small
+            >
+          </h2>
+          <div style="display: flex; gap: 40px; font-size: 24px; color: var(--mute); margin: -10px 0 18px">
+            <span
+              ><i
+                style="
+                  display: inline-block;
+                  width: 26px;
+                  height: 14px;
+                  background: var(--acc);
+                  border-radius: 3px;
+                "
+              ></i>
+              US$ por tarefa concluída</span
+            ><span
+              ><i
+                style="
+                  display: inline-block;
+                  width: 26px;
+                  height: 8px;
+                  background: #3b7bd6;
+                  border-radius: 3px;
+                "
+              ></i>
+              taxa de aprovação</span
+            >
+          </div>
+          <div id="bars" style="flex: 1"></div>
+          <div id="barstooltip" class="tooltip" role="status" aria-live="polite"></div>
+          <div class="denom">
+            Aprovação 50,0–66,7 % e US$ 1,05–18,34 nas 12 configurações; o gráfico mostra as 7 com valor no
+            texto do post. Razão 17,5× calculada pelo autor. Blogue institucional, não revisado por pares.
+          </div>
+        </section>
+
+        <!-- 3 HARNESS 3D -->
+        <section class="slide" id="s-h3d" data-title="O que é um harness (3D)">
+          <h2>
+            O que é um <em>harness</em
+            ><small>arraste para orbitar · clique ou tecle 0–5 para destacar · rolagem aproxima</small>
+          </h2>
+          <div class="row">
+            <div class="col" style="position: relative">
+              <canvas id="h3d"></canvas>
+              <div id="h3labels"></div>
+              <svg id="fallback2d" viewBox="0 0 900 600" style="width: 100%; height: 100%"></svg>
+            </div>
+            <div id="h3dpanel" class="card">
+              <h3 id="h3title">Modelo de linguagem</h3>
+              <p id="h3text">
+                Sem estado. Fixo em todos os braços. Tudo ao redor é o <em>harness</em>: componentes externos
+                ao modelo e editáveis.
+              </p>
+              <p id="h3src" class="mute" style="font-size: 22px">Lin <em>et al.</em> (2026, §1)</p>
+              <div class="chips" id="h3chips"></div>
+            </div>
+          </div>
+          <div class="denom">
+            Definição: Lin <em>et al.</em> (2026, §1); Ning <em>et al.</em> (2026, §2); Wang
+            <em>et al.</em> (2026). Todos <em>preprints</em>, não revisados por pares.
+          </div>
+        </section>
+
+        <!-- 4 TEMA / PROBLEMA / OBJETIVO GERAL -->
+        <section class="slide" data-title="Tema, problema, objetivo geral">
+          <h2>Justificativa, tema, problema, objetivo geral</h2>
+          <div class="row" style="flex-direction: column; gap: 22px">
+            <div class="card frag glass">
+              <b class="acc">Justificativa</b> · quem paga é o desenvolvedor, na assinatura, e a empresa, em
+              escala. As comparações publicadas contrastam equipes diferentes e não dizem qual decisão de
+              projeto pesa.
+            </div>
+            <div class="card frag glass">
+              <b class="acc">Tema</b> · a escolha do <em>harness</em> como decisão de engenharia: efeito sobre
+              custo por tarefa concluída e taxa de sucesso, modelo fixo.
+            </div>
+            <div class="card frag glass">
+              <b class="acc">Problema</b> · com o modelo já escolhido, quanto do custo e do sucesso vem do
+              <em>harness</em>? Quais decisões de projeto explicam a diferença?
+            </div>
+            <div class="card frag hi glass">
+              <b class="acc">Objetivo geral</b> · medir esse efeito, isolar decisões pela comparação
+              <em>harness</em> × <em>fork</em> direto, entregar critério de escolha reproduzível.
+            </div>
+          </div>
+        </section>
+
+        <!-- 5 OBJETIVOS ESPECÍFICOS -->
+        <section class="slide" data-title="Objetivos específicos">
+          <h2>Sete objetivos específicos</h2>
+          <div class="row">
+            <div class="col">
+              <ul class="big" id="objs">
+                <li class="frag"><b>1</b> Instrumento externo: requisições, tokens, latência</li>
+                <li class="frag"><b>2</b> Suíte com objetivos numerados e <em>oracle</em> próprio</li>
+                <li class="frag"><b>3</b> <em>Harness</em> zero em laço ReAct (controle)</li>
+                <li class="frag"><b>4</b> Mesma suíte, mesmo modelo, todos os braços, com repetição</li>
+                <li class="frag"><b>5</b> Segundo modelo: a ordenação se mantém ou inverte?</li>
+                <li class="frag"><b>6</b> Custo relatado × custo medido no <em>proxy</em></li>
+                <li class="frag"><b>7</b> Publicar <em>runner</em>, dados e scripts, custo zero</li>
+              </ul>
+            </div>
+            <div
+              class="col"
+              style="flex: 0 0 620px; display: flex; align-items: center; justify-content: center"
+            >
+              <svg id="objring" viewBox="0 0 600 600" style="width: 600px; height: 600px"></svg>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6 HIPÓTESES -->
+        <section class="slide" id="s-hip" data-title="Hipóteses H1 e H2">
+          <h2>Hipóteses</h2>
+          <div class="row">
+            <div class="col">
+              <div class="card frag glass" style="margin-bottom: 26px">
+                <b class="acc">H1</b> · entre <em>harnesses</em> distintos no mesmo modelo, a diferença de
+                custo por tarefa é relevante para quem paga, comparável a trocar de modelo.
+                <span class="mute"
+                  >Refutada se os intervalos de Succ/Mtok se sobrepuserem em toda a suíte.</span
+                >
+              </div>
+              <div class="card frag glass">
+                <b class="acc">H2</b> · a diferença persiste entre um <em>harness</em> e seu
+                <em>fork</em> direto: decisões isoláveis, não acúmulo de bases distintas.
+                <span class="mute">Refutada se pi e oh-my-pi não diferirem em Succ/Mtok.</span>
+              </div>
+            </div>
+            <div class="col" style="flex: 0 0 800px">
+              <svg id="forksvg" viewBox="0 0 800 560" style="width: 100%; height: 100%"></svg>
+            </div>
+          </div>
+          <div class="denom">
+            Camada 1, medição própria: primeira requisição da mesma tarefa, endpoint simulado, n = 1
+            (determinístico), tokenizador cl100k_base, 28 ago. 2026. pi 0.80.10, oh-my-pi 17.2.10.
+          </div>
+        </section>
+
+        <!-- 7 REFERENCIAL -->
+        <section class="slide" id="s-tl" data-title="Referencial teórico (linha do tempo)">
+          <h2>
+            Referencial teórico<small
+              >→ avança um nó; clique em um nó para ler a afirmação usada no projeto</small
+            >
+          </h2>
+          <svg id="timeline" viewBox="0 0 1680 300" style="width: 100%; height: 300px"></svg>
+          <div id="tlcard" class="card glass" style="flex: 1; margin: 20px 0 50px">
+            <h3 class="acc" style="margin: 0 0 12px; font-size: 36px">Yao <em>et al.</em> (2022) · ReAct</h3>
+            <p style="margin: 0; font-size: 30px">
+              O laço observar/agir mínimo. É um <em>harness</em> legítimo, o mais raso; ponto de partida do
+              <em>harness</em> zero.
+            </p>
+          </div>
+          <div class="denom">
+            ReAct (ICLR 2023) e SWE-agent (NeurIPS 2024) têm revisão por pares; o FrontierHarness é blogue
+            institucional; os demais são <em>preprints</em> não revisados.
+          </div>
+        </section>
+
+        <!-- 8 CLASSIFICAÇÃO DA PESQUISA -->
+        <section class="slide" id="s-class" data-title="Classificação da pesquisa e uso de IA">
+          <h2>
+            Classificação da pesquisa<small>Gil (2022); Prodanov e Freitas (2013) · → revela cada eixo</small>
+          </h2>
+          <div class="axes">
+            <div class="card frag flip">
+              <span class="k">Natureza</span><span class="v">aplicada</span
+              ><span class="w">produto: critério de escolha</span>
+            </div>
+            <div class="card frag flip">
+              <span class="k">Abordagem</span><span class="v">quanti + quali</span
+              ><span class="w">medir custo e sucesso; atribuir a decisão</span>
+            </div>
+            <div class="card frag flip">
+              <span class="k">Objetivos</span><span class="v">exploratória</span
+              ><span class="w">linhagem fixa sem precedente</span>
+            </div>
+            <div class="card frag flip">
+              <span class="k">Procedimentos</span><span class="v">experimental</span
+              ><span class="w"
+                >VI: <em>harness</em> · controladas: modelo, tarefa, limites · grupo de controle</span
+              >
+            </div>
+            <div class="card frag flip">
+              <span class="k">Método</span><span class="v">dedutivo</span
+              ><span class="w">hipóteses antes da coleta</span>
+            </div>
+          </div>
+          <div
+            class="card frag glass"
+            style="flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 26px"
+          >
+            <div style="display: flex; gap: 40px; align-items: center">
+              <div style="flex: 0 0 420px">
+                <b class="acc" style="font-size: 36px">Uso de IA declarado</b>
+                <div class="mute" style="font-size: 24px; margin-top: 8px">
+                  Portaria CNPq nº 2.664/2026 (Brasil, 2026)
+                </div>
+              </div>
+              <div style="font-size: 28px">
+                Levantamento e auditoria das fontes com um <em>LLM Wiki</em> no repositório do projeto. A
+                ferramenta foi o Claude Code e a finalidade foi a síntese e a conferência de fontes. O autor
+                curou as fontes, conferiu cada citação na obra original e responde pelo texto final.
+              </div>
+            </div>
+            <svg id="wikiflow" viewBox="0 0 1560 120" style="width: 100%; height: 120px" aria-hidden="true">
+              <defs>
+                <marker id="a3" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                  <path d="M0,0 L10,5 L0,10z" fill="#8b98a8" />
+                </marker>
+              </defs>
+              <g font-size="24" text-anchor="middle">
+                <rect
+                  x="10"
+                  y="20"
+                  width="340"
+                  height="80"
+                  rx="14"
+                  fill="#0b0f14"
+                  stroke="#3b7bd6"
+                  stroke-width="3"
+                />
+                <text x="180" y="54" fill="#fff" font-weight="700">fontes brutas</text>
+                <text x="180" y="84" fill="#8b98a8">imutáveis, curadas pelo autor</text>
+                <line
+                  x1="355"
+                  y1="60"
+                  x2="405"
+                  y2="60"
+                  stroke="#8b98a8"
+                  stroke-width="3"
+                  marker-end="url(#a3)"
+                />
+                <rect
+                  x="410"
+                  y="20"
+                  width="340"
+                  height="80"
+                  rx="14"
+                  fill="#0b0f14"
+                  stroke="#f5b638"
+                  stroke-width="3"
+                />
+                <text x="580" y="54" fill="#fff" font-weight="700">páginas de síntese</text>
+                <text x="580" y="84" fill="#8b98a8">escritas pelo agente</text>
+                <line
+                  x1="755"
+                  y1="60"
+                  x2="805"
+                  y2="60"
+                  stroke="#8b98a8"
+                  stroke-width="3"
+                  marker-end="url(#a3)"
+                />
+                <rect
+                  x="810"
+                  y="20"
+                  width="340"
+                  height="80"
+                  rx="14"
+                  fill="#0b0f14"
+                  stroke="#7bd88f"
+                  stroke-width="3"
+                />
+                <text x="980" y="54" fill="#fff" font-weight="700">registro cronológico</text>
+                <text x="980" y="84" fill="#8b98a8">cada operação registrada</text>
+                <line
+                  x1="1155"
+                  y1="60"
+                  x2="1205"
+                  y2="60"
+                  stroke="#8b98a8"
+                  stroke-width="3"
+                  marker-end="url(#a3)"
+                />
+                <rect
+                  x="1210"
+                  y="20"
+                  width="340"
+                  height="80"
+                  rx="14"
+                  fill="#0b0f14"
+                  stroke="#ef6b6b"
+                  stroke-width="3"
+                />
+                <text x="1380" y="54" fill="#fff" font-weight="700">fila de revisão</text>
+                <text x="1380" y="84" fill="#8b98a8">dúvidas para o autor decidir</text>
+              </g>
+            </svg>
+          </div>
+          <div class="denom">
+            Projeto, §3, parágrafos de classificação e de declaração do método (YuukiFST, 2026; Brasil, 2026).
+          </div>
+        </section>
+
+        <!-- 9 MÉTODO -->
+        <section class="slide" id="s-flow" data-title="Método: duas camadas de medição">
+          <h2>Duas camadas de medição<small>→ alterna Camada 1 e Camada 2</small></h2>
+          <svg id="flow" viewBox="0 0 1680 520" style="width: 100%; height: 520px"></svg>
+          <div class="row" style="flex: none; gap: 30px; margin-top: 10px">
+            <div class="card col glass" id="l1card">
+              <b class="acc">Camada 1</b> · forma da requisição contra endpoint simulado. Esquemas, bytes de
+              prompt, tokens por passo. Determinística, sem cota.
+            </div>
+            <div class="card col glass" id="l2card">
+              <b class="acc">Camada 2</b> · desfecho das tarefas no modelo real via <em>proxy</em> reverso.
+              Estocástica, consome cota, n ≥ 3.
+            </div>
+          </div>
+          <div class="denom">
+            O <em>proxy</em> conta tokens sobre os bytes transmitidos, um só tokenizador para todos os braços;
+            o relatório do <em>gateway</em> fica para verificação cruzada.
+          </div>
+        </section>
+
+        <!-- 10 BRAÇOS E MATRIZ -->
+        <section class="slide" id="s-matrix" data-title="Braços e matriz experimental">
+          <h2>
+            Braços e matriz (braço × tarefa × nível)<small
+              >clique ou navegue com Tab em uma célula · cada célula recebe n ≥ 3 execuções após
+              descartes</small
+            >
+          </h2>
+          <div class="row">
+            <div class="col">
+              <div id="matrix" class="matrix"></div>
+              <div id="cellinfo" class="mute" style="margin: 8px 0; font-size: 22px; min-height: 66px">
+                Célula: selecione.
+              </div>
+              <div class="card glass" style="padding: 18px 28px; font-size: 24px">
+                <b class="acc">Cada execução recebe uma classe</b> ·
+                <span style="color: var(--bad)">falhada</span>: agente não cumpriu; é resultado, escore zero
+                (estouro do relógio incluído). <span class="mute">descartada</span>: medição inconfiável;
+                registrada, sem reparo nem repetição. Classe lida do registro do <em>proxy</em>.
+              </div>
+            </div>
+            <div
+              class="col"
+              style="flex: 0 0 640px; font-size: 25px; display: flex; flex-direction: column; gap: 14px"
+            >
+              <div class="card hi glass" style="padding: 20px 30px">
+                <b class="acc"><em>Harness</em> zero</b> · controle. Laço observar/agir, 3 ferramentas, &lt;
+                400 linhas de Python, sem planejamento, compactação ou <em>retry</em>.
+              </div>
+              <div class="card glass" style="padding: 20px 30px">
+                <b class="acc">Suíte</b> · 8 tarefas Python do DeepSWE, fixadas por <em>commit</em> e SHA-256.
+                Crédito parcial: fração de testes do verificador.
+              </div>
+              <div class="card glass" style="padding: 20px 30px">
+                <b class="acc">Limite único</b> · relógio de parede 3× a mediana do <em>harness</em> zero nas
+                tarefas-piloto. Sem teto de passos, já que o teto seria uma decisão de projeto do
+                <em>harness</em>. Saída máxima idêntica via <em>proxy</em>.
+              </div>
+            </div>
+          </div>
+          <div class="denom">
+            DeepSWE (Huang <em>et al.</em>, 2026): 113 tarefas, 91 repositórios; soluções de referência com
+            668 linhas em média, contra 32,8 no SWE-bench. Braços provisórios até os portões de
+            confiabilidade.
+          </div>
+        </section>
+
+        <!-- 11 SUCC/MTOK -->
+        <section class="slide" id="s-succ" data-title="Succ/Mtok e Wilcoxon pareado">
+          <h2>
+            Succ/Mtok e teste pareado<small
+              >simulação didática: mova os controles; os valores não são dados do experimento</small
+            >
+          </h2>
+          <div class="row">
+            <div class="col">
+              <div style="font-size: 30px; margin-bottom: 18px">
+                Succ/Mtok = pass@1 × 10⁶ ÷ média de tokens por execução
+                <span class="mute">(Lin <em>et al.</em>, 2026, Eq. 2)</span>
+              </div>
+              <div class="sl">
+                <span>Braço A · pass@1</span
+                ><input type="range" id="pa" min="0" max="100" value="55" aria-label="Braço A pass@1" /><span
+                  id="pav"
+                  >0,55</span
+                >
+              </div>
+              <div class="sl">
+                <span>Braço A · tokens/execução</span
+                ><input
+                  type="range"
+                  id="ta"
+                  min="50"
+                  max="3000"
+                  value="400"
+                  step="10"
+                  aria-label="Braço A tokens por execução"
+                /><span id="tav">400 k</span>
+              </div>
+              <div class="sl">
+                <span>Braço B · pass@1</span
+                ><input type="range" id="pb" min="0" max="100" value="50" aria-label="Braço B pass@1" /><span
+                  id="pbv"
+                  >0,50</span
+                >
+              </div>
+              <div class="sl">
+                <span>Braço B · tokens/execução</span
+                ><input
+                  type="range"
+                  id="tb"
+                  min="50"
+                  max="3000"
+                  value="1200"
+                  step="10"
+                  aria-label="Braço B tokens por execução"
+                /><span id="tbv">1200 k</span>
+              </div>
+              <div style="display: flex; gap: 60px; margin-top: 20px">
+                <div>
+                  <div class="mute">A</div>
+                  <div class="big-num" id="sa">–</div>
+                </div>
+                <div>
+                  <div class="mute">B</div>
+                  <div class="big-num" id="sb">–</div>
+                </div>
+                <div>
+                  <div class="mute">Wilcoxon (8 pares)</div>
+                  <div class="big-num" id="wres" style="font-size: 40px">–</div>
+                </div>
+              </div>
+            </div>
+            <div class="col" style="flex: 0 0 760px">
+              <svg id="wsvg" viewBox="0 0 760 520" style="width: 100%; height: 100%"></svg>
+            </div>
+          </div>
+          <div class="denom">
+            Teste de Wilcoxon dos postos sinalizados, bilateral, α = 0,05, pareado por tarefa. Com n = 3 por
+            célula e 8 tarefas, diferença mínima detectável ≈ 0,81σ.
+          </div>
+        </section>
+
+        <!-- 12 LIMITAÇÕES -->
+        <section class="slide" id="s-lim" data-title="Limitações e ameaças à validade">
+          <h2>
+            Limitações e ameaças à validade<small
+              >quatro declaradas de partida; o gráfico ilustra a inversão de sinal que o segundo nível de
+              modelo existe para detectar</small
+            >
+          </h2>
+          <div class="row" style="flex: none; gap: 26px; margin-bottom: 26px">
+            <svg id="invsvg" viewBox="0 0 1680 260" style="width: 100%; height: 260px"></svg>
+          </div>
+          <div
+            class="row limgrid"
+            style="flex-wrap: wrap; gap: 22px; align-content: flex-start; font-size: 29px"
+          >
+            <div class="card frag glass lim" style="flex: 1 1 45%; align-self: flex-start">
+              <b class="acc">Específico do modelo</b> · o efeito pode inverter de sinal. Conclusões por nível;
+              objetivo 5 testa isso.
+            </div>
+            <div class="card frag glass lim" style="flex: 1 1 45%; align-self: flex-start">
+              <b class="acc">Modelos pequenos</b> · fora do escopo: o único viável foi treinado dentro de um
+              braço.
+            </div>
+            <div class="card frag glass lim" style="flex: 1 1 45%; align-self: flex-start">
+              <b class="acc">Sem comparação ao placar público</b> · linhas de base do DeepSWE usam
+              <em>harness</em> de ferramenta única. Válido: braço × braço.
+            </div>
+            <div class="card frag glass lim" style="flex: 1 1 45%; align-self: flex-start">
+              <b class="acc">Custo em dinheiro</b> · contrafactual de ordem de grandeza sobre tarifas pagas,
+              rotulado como tal.
+            </div>
+          </div>
+          <div class="denom">
+            Ameaça principal ao desenho: variância entre execuções no nível gratuito. Resposta: n ≥ 3, mediana
+            com dispersão, cobertura antes de repetições.
+          </div>
+        </section>
+
+        <!-- 13 ORÇAMENTO E CRONOGRAMA -->
+        <section class="slide" id="s-gantt" data-title="Orçamento e cronograma">
+          <h2>
+            Orçamento R$ 0,00 · cronograma set. 2026 – jan. 2027<small
+              >clique em uma fase; → revela as fases</small
+            >
+          </h2>
+          <div style="display: flex; gap: 22px; margin-bottom: 26px; font-size: 24px">
+            <div class="card glass" style="flex: 1; padding: 18px 26px">
+              <span class="mute">Inferência (dois níveis, gratuito)</span><br /><b class="acc">R$ 0,00</b>
+            </div>
+            <div class="card glass" style="flex: 1; padding: 18px 26px">
+              <span class="mute">Executor e <em>benchmark</em> (Pier, DeepSWE; Apache-2.0)</span><br /><b
+                class="acc"
+                >R$ 0,00</b
+              >
+            </div>
+            <div class="card glass" style="flex: 1; padding: 18px 26px">
+              <span class="mute">Máquinas (NixOS e Windows, já disponíveis)</span><br /><b class="acc"
+                >R$ 0,00</b
+              >
+            </div>
+          </div>
+          <div id="gantt" style="flex: 1"></div>
+          <div class="denom">
+            Tabelas 1 e 2 do projeto. <em>Gateway</em>: OpenCode Zen. Limite vinculante: cota gratuita, um
+            lote da matriz por dia; folga concentrada na execução da matriz e nos portões de confiabilidade.
+          </div>
+        </section>
+
+        <!-- 14 REFERÊNCIAS -->
+        <section class="slide" data-title="Referências citadas nos slides">
+          <h2>
+            Referências citadas nos slides<small
+              >formato ABNT abreviado; lista completa com 25 entradas no projeto, seção 6</small
+            >
+          </h2>
+          <div class="refs three" id="refs"></div>
+        </section>
+
+        <!-- 15 FECHO -->
+        <section class="slide cover" data-title="Fecho">
+          <canvas class="cover-bg" id="coverbg2" aria-hidden="true"></canvas>
+          <div class="cover-inner">
+            <div class="inst">Pergunta que o projeto responde</div>
+            <h1 class="split" style="font-size: 60px">
+              Quanto do que o desenvolvedor paga por tarefa vem do <em>harness</em>, e de qual decisão de
+              projeto?
+            </h1>
+            <div class="who">Obrigado. Perguntas?</div>
+            <div class="denom">
+              Repositório do projeto: github.com/YuukiFST/harness-bench (YuukiFST, 2026).
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <button class="nav" id="prev" aria-label="anterior">‹</button>
+    <button class="nav" id="next" aria-label="próximo">›</button>
+    <div id="progress"></div>
+    <div id="counter"></div>
+    <div id="notes"></div>
+    <div id="help">
+      <h2 style="color: var(--acc)">Atalhos</h2>
+      <table>
+        <tr>
+          <td><span class="kbd">→</span> <span class="kbd">Espaço</span> <span class="kbd">PgDn</span></td>
+          <td>próximo fragmento / slide</td>
+        </tr>
+        <tr>
+          <td><span class="kbd">←</span> <span class="kbd">PgUp</span></td>
+          <td>slide anterior</td>
+        </tr>
+        <tr>
+          <td><span class="kbd">Home</span> <span class="kbd">End</span></td>
+          <td>primeiro / último</td>
+        </tr>
+        <tr>
+          <td><span class="kbd">F</span></td>
+          <td>tela cheia</td>
+        </tr>
+        <tr>
+          <td><span class="kbd">O</span></td>
+          <td>visão geral</td>
+        </tr>
+        <tr>
+          <td><span class="kbd">N</span></td>
+          <td>notas do apresentador</td>
+        </tr>
+        <tr>
+          <td><span class="kbd">0–5</span></td>
+          <td>no slide 3D, destaca um componente</td>
+        </tr>
+        <tr>
+          <td><span class="kbd">?</span> <span class="kbd">Esc</span></td>
+          <td>abre / fecha</td>
+        </tr>
+      </table>
+    </div>
+    <div id="overview">
+      <h2 style="color: var(--acc)">Visão geral</h2>
+      <div class="grid"></div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

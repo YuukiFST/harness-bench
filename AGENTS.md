@@ -56,13 +56,17 @@ python bin/wiki-lint.py
 
 ## Domain
 
-This wiki is the knowledge base of the harness-bench PCC project: agent-harness cost vs performance with the language model held fixed.
+This wiki is the knowledge base of the harness-bench research project (a *projeto de pesquisa* for the Metodologia Científica course; "PCC" is only the repo shorthand, the work is not a Projeto de Conclusão de Curso): agent-harness cost vs performance with the language model held fixed.
 
 - Emphasise when ingesting: harness definition and components, cost/performance numbers with model held fixed (Succ/Mtok, pass@1, tokens, deltas atribuiveis ao harness), measurement method (proxy vs self-report), model-specificity/inversion, open gaps (attribution, oracle adequacy).
 - Every quantitative claim keeps its denominator: model, harness, benchmark, n runs, date measured.
 - Preprints are labelled `*Preprint*, nao revisado por pares` unless the source page records a venue.
 - Portuguese pages keep English technical terms (harness, scaffold, proxy, oracle) in italics as in `dist/projeto-pcc.docx`.
 - Glossary authority: `CONTEXT.md` for arm, harness zero, tier, run, cell, step, failed/discarded/tampered run, task, oracle, visible/held-out test, synthetic library, self-review.
+
+## Slides (apresentação)
+
+Any work on slides or HTML presentation files (`dist/apresentacao-pcc.html`, `deck/`) must first read `.claude/skills/frontend-slides/SKILL.md` (upstream: https://github.com/zarazhangrui/frontend-slides) and follow it, Mode C (enhancement) for existing decks: keep the single self-contained HTML file, keep the fixed 1920×1080 stage scaled as a whole, never reflow slide content per device, max 4–6 bullets per slide (split the slide instead of overflowing), and after any change verify no text overflows its card and no panels overlap.
 
 ## Project documents (PCC)
 

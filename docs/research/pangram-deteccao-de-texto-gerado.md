@@ -249,7 +249,7 @@ Não existe atalho que seja atalho — o que derruba o escore é escrever.
 
 ## 10. O que isso significa para este projeto
 
-O `dist/projeto-pcc.docx` é um Projeto de Conclusão de Curso do IFMT, sob a NBR 15287:2025, com orientadora nomeada.
+O `dist/projeto-pcc.docx` é um projeto de pesquisa da disciplina de Metodologia Científica do IFMT, sob a NBR 15287:2025, com orientadora nomeada.
 O conteúdo é autoral e verificável: a Camada 1 está construída, os 11,4x foram medidos em 28 ago. 2026, os dados brutos estão no repositório, o `docs/research/` rastreia cada afirmação até a fonte, e o histórico de *git* tem dezenas de *issues* e PRs com decisões datadas.
 O que veio de LLM é a **prosa**, não a pesquisa.
 

@@ -26,3 +26,7 @@ __pycache__/
 .obsidian/cache
 .trash/
 .wiki-ingest.log
+
+# Dependencies (never commit vendored installs).
+node_modules/
+deck/node_modules/

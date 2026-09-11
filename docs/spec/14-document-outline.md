@@ -2,7 +2,7 @@
 
 Ticket [#14](https://github.com/YuukiFST/harness-bench/issues/14). Drafted against in [#20](https://github.com/YuukiFST/harness-bench/issues/20); the *cronograma* it budgets space for is built in [#15](https://github.com/YuukiFST/harness-bench/issues/15).
 
-The deliverable is the IFMT **Projeto de Conclusão de Curso (PCC)**, following the department's own template — *Normas básicas e padrões para a elaboração do Projeto de Conclusão de Curso*, Instituto Federal de Mato Grosso, Campus Octayde Jorge da Silva, Departamento de Área de Informática.
+The deliverable is a **projeto de pesquisa** for the Metodologia Científica course (not a Projeto de Conclusão de Curso; "PCC" in this repo is only the shorthand inherited from the template's title), following the department's own template — *Normas básicas e padrões para a elaboração do Projeto de Conclusão de Curso*, Instituto Federal de Mato Grosso, Campus Octayde Jorge da Silva, Departamento de Área de Informática.
 
 Three sources govern the document and they disagree; §0 states which one wins. In short: the professor's handouts, then the template, then the current ABNT editions.
 

@@ -1,4 +1,4 @@
-"""Build dist/projeto-pcc.docx — the IFMT Projeto de Conclusão de Curso.
+"""Build dist/projeto-pcc.docx — the IFMT projeto de pesquisa (Metodologia Científica).
 
 Structure, page budget and reduction ladder come from docs/spec/14-document-outline.md,
 which is the binding specification. The spine (tema, problema, H1/H2, objetivos) is
