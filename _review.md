@@ -43,3 +43,4 @@ The agent writes here what it cannot decide alone. Resolve an item by editing th
 - [57] usa os eixos do livro de Prodanov e Freitas ("natureza"; quantitativo e qualitativo). O handout `files/Estrutura do projeto de pesquisa-aula3.pdf` usa "finalidade" e "quali-quantitativa". Se a orientadora exigir os rotulos do handout, voltar a eles e citar Gil (2022) como fonte dos rotulos, apos ler o livro.
 - Bogdanov (2026) removido da lista e de [26] por estar fora do tema. Para manter, acrescentar linha de excecao em `AGENTS.md` e ingerir o post.
 - Gil (2022) e as tres normas ABNT continuam NÃO VERIFICADAS (sem copia local); entradas recolocadas com o texto de `HEAD`.
+- ABNT 2025a/2025b: letras seguem HEAD; por titulo (NBR 6023 'projeto de pesquisa' antes de 'referencias'?) a NBR 15287 seria 2025a. Conferir com a NBR 6023:2025 antes de trocar, pois [47] e a nota de rodape citam as letras.
