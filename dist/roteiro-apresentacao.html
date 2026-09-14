@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roteiro de estudo — apresentação do projeto "O harness como decisão do desenvolvedor"</title>
+<style>
+:root{--bg:#0b0f14;--bg2:#121923;--fg:#e8edf2;--mute:#8b98a8;--acc:#f5b638;--blue:#5b9ae6;--ok:#7bd88f;--bad:#ef6b6b;--line:#243040}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.55 "Segoe UI",Inter,Roboto,Arial,sans-serif}
+a{color:var(--blue)}
+main{max-width:1040px;margin:0 auto;padding:40px 28px 120px}
+h1{font:800 40px/1.15 Georgia,"Times New Roman",serif;margin:0 0 6px}
+h1 em,h2 em,h3 em,p em,li em{font-style:italic}
+.sub{color:var(--mute);font-size:18px;margin:0 0 28px}
+h2{font:700 28px/1.2 Georgia,serif;margin:56px 0 14px;color:var(--acc);border-bottom:1px solid var(--line);padding-bottom:8px}
+h3{font-size:19px;margin:22px 0 8px}
+p{margin:0 0 12px}
+ul,ol{margin:0 0 12px;padding-left:24px}
+li{margin:0 0 6px}
+code,kbd{font-family:Consolas,"Cascadia Mono",monospace;font-size:.92em}
+kbd{display:inline-block;border:1px solid var(--mute);border-radius:6px;padding:0 8px;line-height:1.5;background:var(--bg2)}
+code{background:var(--bg2);padding:1px 6px;border-radius:5px}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
+.nav a{background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:14px;text-decoration:none;color:var(--fg)}
+.nav a:hover{border-color:var(--acc)}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:22px 26px;margin:0 0 22px}
+.card.hi{border-color:rgba(245,182,56,.7)}
+.slide{position:relative;padding-top:18px}
+.slide .n{position:absolute;top:-14px;left:22px;background:var(--acc);color:#241a05;font-weight:800;border-radius:999px;padding:2px 14px;font-size:15px}
+.slide h3{font:700 24px/1.2 Georgia,serif;margin:6px 0 4px}
+.meta{color:var(--mute);font-size:15px;margin:0 0 14px}
+.meta b{color:var(--fg)}
+.blk{margin:14px 0 0}
+.blk > b{display:block;text-transform:uppercase;letter-spacing:.08em;font-size:12.5px;color:var(--mute);margin-bottom:6px}
+.say{border-left:3px solid var(--acc);padding:2px 0 2px 16px}
+.say p{margin:0 0 10px}
+.num{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.num div{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+.num b{display:block;font-size:24px;color:var(--acc);line-height:1.1}
+.num small{color:var(--mute);display:block;margin-top:4px;font-size:13.5px}
+.src li{margin-bottom:4px}
+.src b{color:var(--fg)}
+.q{list-style:none;padding:0}
+.q li{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-bottom:8px}
+.q li b{display:block;color:var(--acc);margin-bottom:4px}
+.tag{display:inline-block;font-size:12px;border-radius:6px;padding:1px 8px;margin-left:6px;vertical-align:middle;background:rgba(91,154,230,.18);color:var(--blue)}
+.tag.warn{background:rgba(239,107,107,.18);color:var(--bad)}
+.tag.ok{background:rgba(123,216,143,.18);color:var(--ok)}
+table{border-collapse:collapse;width:100%;font-size:15.5px}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{color:var(--mute);font-weight:600}
+td.r,th.r{text-align:right;white-space:nowrap}
+dl{display:grid;grid-template-columns:200px 1fr;gap:6px 18px}
+dt{font-weight:700;color:var(--acc)}
+dd{margin:0}
+.check li{list-style:none;position:relative;padding-left:30px}
+.check li::before{content:"☐";position:absolute;left:0;top:0;color:var(--mute)}
+@media print{
+  body{background:#fff;color:#111;font-size:11.5pt}
+  :root{--bg:#fff;--bg2:#f4f6f8;--fg:#111;--mute:#555;--line:#ccc;--acc:#8a5f14;--blue:#1d4f91}
+  .nav{display:none}
+  .card{break-inside:avoid;box-shadow:none}
+  h2{break-after:avoid}
+}
+</style>
+</head>
+<body>
+<main>
+
+<h1>Roteiro de estudo da apresentação</h1>
+<p class="sub">Projeto de pesquisa "O <em>harness</em> como decisão do desenvolvedor" · Metodologia Científica · IFMT · setembro de 2026.<br>
+Companheiro de <code>dist/apresentacao-pcc/index.html</code> (17 slides). Leia em voz alta, cronometre, corte o que passar do tempo.</p>
+
+<nav class="nav">
+  <a href="#uso">Como usar</a><a href="#pitch">Versões curtas</a><a href="#gloss">Glossário</a><a href="#slides">Slide a slide</a><a href="#perguntas">Banco de perguntas</a><a href="#numeros">Tabela de números</a><a href="#check">Checklist</a>
+</nav>
+
+<h2 id="uso">Como usar este roteiro</h2>
+<div class="card">
+<ul>
+  <li><b>Tempo alvo: 12 minutos de fala + perguntas.</b> Cada slide traz um tempo sugerido; a soma dá cerca de 18 min, então já ensaie com cortes. Se a banca der 10 min, pule os slides 7 e 16 e corte o 13 pela metade. Se der 15, pule só o 16.</li>
+  <li><b>Blocos por slide:</b> <i>Fale</i> é o texto para dizer, em primeira pessoa, na ordem em que o slide revela. <i>Números</i> traz cada valor com o seu denominador (modelo, benchmark, n, data). <i>Fontes</i> diz de onde veio cada afirmação e o que responder se perguntarem "quem disse isso?". <i>No slide</i> lista as teclas. <i>Se perguntarem</i> antecipa a pergunta mais provável daquele slide.</li>
+  <li><b>Regra dos números:</b> nunca diga um número sem o denominador. "17,5×" sozinho é fraco; "17,5× entre doze configurações sobre o mesmo modelo, Kimi K3, 30 tarefas" fecha a porta para a pergunta óbvia.</li>
+  <li><b>Fontes fora do slide:</b> o deck cita autores na tela nos slides 3, 8, 9 (linha do tempo), 10, 13 e 16. Nos outros slides a fonte fica na sua boca. Decore o par autor-ano dos quatro que mais sustentam o trabalho: Runta (2026), Lin et al. (2026), Ning et al. (2026), Kapoor et al. (2025).</li>
+  <li>As notas do apresentador (tecla <kbd>N</kbd> no deck) contêm os índices <code>[n]</code> dos parágrafos do projeto; use para achar o trecho no <code>.docx</code>, não para ler durante a fala.</li>
+</ul>
+</div>
+
+<h2 id="pitch">Versões curtas do projeto</h2>
+<div class="card hi">
+<h3>Uma frase</h3>
+<p class="say">Eu meço quantos tokens a mais custa construir o mesmo SaaS com um <em>harness</em> em vez de outro, com o modelo fixo, e quanto dessa diferença é carga fixa por requisição.</p>
+<h3>Trinta segundos (corredor, banca apressada)</h3>
+<div class="say">
+<p>Quando alguém usa um agente de codificação, ele escolhe dois componentes: o modelo e o <em>harness</em>, que é tudo que fica em volta do modelo: <em>prompt</em> de sistema, ferramentas, laço de execução. As comparações publicadas mostram que, com o mesmo modelo, o custo por tarefa muda até 17,5× só pelo <em>harness</em>. Só que essas comparações usam tarefas isoladas. Meu projeto constrói o mesmo produto, o Finn, duas vezes, com OpenCode e com pi, a partir da mesma especificação, unidade a unidade, sobre o mesmo modelo, e conta os tokens fora do <em>harness</em>, num <em>proxy</em>. Saída: um critério de escolha que um desenvolvedor ou uma empresa pode aplicar.</p>
+</div>
+<h3>Dois minutos (resumo da defesa)</h3>
+<div class="say">
+<p><b>Problema.</b> Com o modelo já escolhido, quantos tokens a mais ou a menos custa construir o mesmo software com um <em>harness</em> em vez de outro? E quanto dessa diferença vem da carga fixa que cada <em>harness</em> manda em toda requisição?</p>
+<p><b>Por que importa.</b> Quem paga é o desenvolvedor, na assinatura, e a empresa, em escala. No FrontierHarness (Runta, 2026), doze configurações de nove <em>harnesses</em> sobre o mesmo modelo ficam entre 50,0 % e 66,7 % de aprovação e o custo por tarefa concluída vai de US$ 1,05 a US$ 18,34. Os meus dois braços estão nesse mesmo levantamento: pi a US$ 2,43 e OpenCode a US$ 3,24.</p>
+<p><b>Método.</b> Duas camadas. Camada 1: a forma da requisição contra um <em>endpoint</em> simulado, determinística; dá a carga fixa. Camada 2: a construção do Finn contra o modelo real, via <em>proxy</em> reverso, n ≥ 3 construções por célula. Uma especificação em nove unidades, congelada por SHA-256, espaço de trabalho inicial vazio, testes de aceitação escritos por mim. Métrica: tokens por construção, ao lado da fração de testes aprovados, e Succ/Mtok. Estatística: Wilcoxon pareado por unidade.</p>
+<p><b>Hipóteses.</b> H1: a diferença de tokens é relevante para quem paga, comparável a trocar de modelo. H2: a carga fixa explica a maior parte da diferença. As duas têm condição de refutação declarada.</p>
+<p><b>Limites.</b> Efeito específico do modelo, um produto numa pilha só, especificação escrita por mim e cada braço carregando os próprios erros de uma unidade à seguinte, sem placar público. Orçamento R$ 0,00, cota gratuita como limite vinculante.</p>
+</div>
+</div>
+
+<h2 id="gloss">Glossário para não travar</h2>
+<div class="card">
+<dl>
+  <dt><em>harness</em></dt><dd>Conjunto de componentes externos ao modelo e editáveis: <em>prompt</em> de sistema, ferramentas, <em>middleware</em> de contexto, laço de execução (Lin et al., 2026, §1). Converte um modelo sem estado em agente funcional (Ning et al., 2026, §2). Sinônimo aproximado: andaime, <em>scaffold</em>.</dd>
+  <dt>modelo de linguagem</dt><dd>O núcleo sem estado. Fixo em todos os braços deste projeto; é a variável controlada.</dd>
+  <dt>braço</dt><dd>Um <em>harness</em> sob teste. Dois: OpenCode e pi.</dd>
+  <dt>carga fixa</dt><dd>Bytes que o <em>harness</em> envia em toda requisição, independentemente da tarefa: <em>prompt</em> de sistema e esquemas de ferramentas. Medida na Camada 1.</dd>
+  <dt>unidade</dt><dd>Uma parte da especificação do Finn, com testes de aceitação próprios. Nove, em ordem de dependência (U1 a U9); cada uma veio de uma <em>issue</em> técnica.</dd>
+  <dt>especificação</dt><dd>Documento único, escrito por mim antes de qualquer execução a partir das <em>issues</em> do Finn e congelado por SHA-256: produto, pilha, restrições e as nove unidades.</dd>
+  <dt>espaço de trabalho inicial</dt><dd>O diretório de onde uma construção parte: só a especificação e a pilha. Daí em diante o espaço é do braço; o que ele construiu numa unidade é o ponto de partida da seguinte, e eu não escrevo código.</dd>
+  <dt>construção</dt><dd>Uma execução de um braço, num nível, que constrói o produto inteiro, unidade a unidade, uma invocação do <em>harness</em> por unidade.</dd>
+  <dt>teste de aceitação</dt><dd>Teste escrito por mim, <em>held-out</em>: o agente não vê. Escore = fração aprovada; unidade concluída quando todos os seus testes passam, construção concluída quando todos passam ao fim.</dd>
+  <dt>célula</dt><dd>Um par (braço, nível de modelo). Cada célula recebe n ≥ 3 construções válidas.</dd>
+  <dt>unidade não concluída</dt><dd>O agente não concluiu a unidade. É resultado: entra com a fração aprovada e a construção segue para a unidade seguinte. Estouro do relógio incluído.</dd>
+  <dt>construção descartada</dt><dd>Medição inconfiável em alguma unidade descarta a construção. Registrada, sem reparo nem repetição. Classe lida do registro do <em>proxy</em>.</dd>
+  <dt><em>proxy</em> reverso</dt><dd>O instrumento. Fica entre <em>harness</em> e <em>gateway</em>; conta requisições, tokens e latência sobre os bytes transmitidos, com um só tokenizador para os dois braços. Fora do <em>harness</em>.</dd>
+  <dt><em>gateway</em></dt><dd>OpenCode Zen, o serviço que entrega o modelo. Dois níveis gratuitos. O relatório de uso dele serve para verificação cruzada.</dd>
+  <dt>Succ/Mtok</dt><dd>pass@1 × 10⁶ ÷ média de tokens por execução (Lin et al., 2026, Eq. 2). Sucessos por milhão de tokens.</dd>
+  <dt>pass@1</dt><dd>Fração de tarefas aprovadas na primeira tentativa.</dd>
+  <dt>Wilcoxon dos postos sinalizados</dt><dd>Teste não paramétrico para pares. Pareado por unidade porque a dificuldade da unidade é o maior fator de perturbação. Bilateral, α = 0,05.</dd>
+  <dt>MDE</dt><dd>Diferença mínima detectável. Com n = 3 por célula e 9 unidades, ≈ 0,76σ.</dd>
+  <dt><em>preprint</em></dt><dd>Artigo publicado sem revisão por pares. A maior parte do referencial é de 2026 e está nessa condição; dizer isso antes que perguntem.</dd>
+</dl>
+</div>
+
+<h2 id="slides">Slide a slide</h2>
+
+<div class="card slide"><span class="n">1</span>
+<h3>Capa</h3>
+<p class="meta"><b>30 s</b> · sem interação</p>
+<div class="blk"><b>Fale</b><div class="say">
+<p>Bom dia. Meu nome é Fausto Yuuki, curso Sistemas para Internet, orientadora professora Inara Silva. O projeto se chama "O <em>harness</em> como decisão do desenvolvedor": tokens e taxa de sucesso do OpenCode e do pi construindo um mesmo SaaS sob um mesmo modelo.</p>
+<p>Vou falar de um custo que a maioria das comparações ignora: o custo do <em>harness</em>, o pedaço do agente que não é o modelo.</p>
+</div></div>
+<div class="blk"><b>No slide</b><p><kbd>→</kbd> avança. <kbd>F</kbd> tela cheia antes de começar. <kbd>N</kbd> deve estar desligado.</p></div>
+</div>
+
+<div class="card slide"><span class="n">2</span>
+<h3>Mesmo modelo, custo por tarefa 17,5× diferente</h3>
+<p class="meta"><b>75 s</b> · barras crescem ao entrar</p>
+<div class="blk"><b>Fale</b><div class="say">
+<p>Este gráfico é o ponto de partida. FrontierHarness, setembro de 2026: doze configurações de nove <em>harnesses</em>, todas sobre o mesmo modelo, o Kimi K3, 30 tarefas, uma tentativa por célula.</p>
+<p>A taxa de aprovação fica entre 50,0 % e 66,7 %. Faixa estreita. O custo por tarefa concluída vai de US$ 1,05 a US$ 18,34. Razão de 17,5×, cálculo meu sobre os valores do post. Mesmo modelo; o que muda é o <em>harness</em>.</p>
+<p>Os dois em âmbar são os meus braços: pi, 60,0 % a US$ 2,43; OpenCode, 50,0 % a US$ 3,24. Eles estão perto no gráfico. Se a diferença entre os dois construindo um produto inteiro for pequena, o projeto também responde algo: que a escolha custa pouco.</p>
+</div></div>
+<div class="blk"><b>Números</b><div class="num">
+<div><b>17,5×</b><small>US$ 18,34 ÷ US$ 1,05, razão calculada pelo autor</small></div>
+<div><b>50,0–66,7 %</b><small>aprovação, 12 configurações, Kimi K3, 30 tarefas, 1 tentativa</small></div>
+<div><b>pi US$ 2,43</b><small>60,0 % de aprovação, mesmo post</small></div>
+<div><b>OpenCode US$ 3,24</b><small>50,0 % de aprovação, mesmo post</small></div>
+<div><b>Claude Code US$ 18,34</b><small>63,3 %; 5,3× o Codex (US$ 3,47, 66,7 %)</small></div>
+</div></div>
+<div class="blk"><b>Fontes</b><ul class="src">
+<li><b>Runta (2026)</b>, "Introducing the FrontierHarness eval". Blogue institucional da empresa que roda o benchmark, não revisado por pares. Diga isso antes que perguntem. A tabela do post tem as 12 configurações; o gráfico do slide mostra 7 delas, as que têm valor citado no texto do projeto.</li>
+</ul></div>
+<div class="blk"><b>Se perguntarem</b><ul class="q">
+<li><b>"Isso é fonte confiável?"</b>É a única medição pública que fixa o modelo e varia o <em>harness</em> em escala. Uso como motivação, não como evidência do resultado. A evidência revisada por pares do efeito do <em>harness</em> está no slide 9: SWE-agent (NeurIPS 2024).</li>
+<li><b>"Uma tentativa por célula não é pouco?"</b>É. Por isso o meu desenho pede n ≥ 3 por célula e reporta mediana com dispersão.</li>
+</ul></div>
+</div>
+
+<div class="card slide"><span class="n">3</span>
+<h3>O que é um <em>harness</em></h3>
+<p class="meta"><b>90 s</b> · diagrama interativo, teclas <kbd>0</kbd>–<kbd>5</kbd></p>
+<div class="blk"><b>Fale</b><div class="say">
+<p>(tecla <kbd>0</kbd>) No centro, o modelo de linguagem. Ele não tem estado: recebe texto, devolve texto. É o mesmo nos dois braços; é a variável que eu controlo.</p>
+<p>Tudo em volta é o <em>harness</em>. Lin e colegas, 2026, definem como o conjunto de componentes externos ao modelo e editáveis. Ning e colegas, 2026, dizem que ele converte um modelo sem estado em um agente funcional.</p>
+<p>(<kbd>1</kbd>) <em>Prompt</em> de sistema: molda o estilo de trabalho. Na minha medição da Camada 1, o pi envia 2.499 bytes; o OpenCode, 9.738. Quase quatro vezes.</p>
+<p>(<kbd>2</kbd>) Ferramentas: expõem sistema de arquivos e <em>shell</em>. Os esquemas viajam em toda requisição: 4 no pi, 9 no OpenCode.</p>
+<p>(<kbd>3</kbd>) <em>Middleware</em> de contexto: compactação, memória, permissões, verificação. (<kbd>4</kbd>) Laço de execução: monta o <em>prompt</em>, chama ferramentas, coordena. Do ReAct mínimo até planejamento com subagentes.</p>
+<p>(<kbd>5</kbd>) E este aqui, fora do anel, é o <em>proxy</em>: não faz parte do <em>harness</em>. É o meu instrumento. Conta requisições, tokens e latência do mesmo jeito para os dois braços.</p>
+<p>Os meus dois braços ficam em pontos distantes dessa camada: o pi perto do ReAct, com quatro ferramentas; o OpenCode com planejamento, compactação, subagentes e permissões.</p>
+</div></div>
+<div class="blk"><b>Números</b><div class="num">
+<div><b>2.499 vs 9.738 bytes</b><small><em>prompt</em> de sistema, pi vs OpenCode, 3,9×; Camada 1, 28 ago. 2026</small></div>
+<div><b>4 vs 9 esquemas</b><small>ferramentas enviadas por requisição, pi vs OpenCode</small></div>
+<div><b>pi 0.80.10 · OpenCode 1.17.9</b><small>versões medidas; <code>layer1/data/first_request.csv</code></small></div>
+</div></div>
+<div class="blk"><b>Fontes</b><ul class="src">
+<li><b>Lin et al. (2026, §1)</b>, "Agentic harness engineering": os componentes (<em>prompt</em> de sistema, ferramentas, <em>middleware</em>) e a frase "componentes externos ao modelo e editáveis". <em>Preprint</em>.</li>
+<li><b>Ning et al. (2026, §2)</b>, "Code as agent harness": a definição funcional. <em>Preprint</em>.</li>
+<li><b>Wang et al. (2026)</b>, "Harness Handbook": o laço monta <em>prompts</em>, gerencia estado, invoca ferramentas. <em>Preprint</em>.</li>
+<li><b>Yao et al. (2022)</b>, ReAct, ICLR 2023: o laço observar/agir mínimo.</li>
+<li>Bytes e esquemas: medição própria, repositório <code>harness-bench</code>, pasta <code>layer1/data</code>.</li>
+</ul></div>
+<div class="blk"><b>Se perguntarem</b><ul class="q">
+<li><b>"O proxy não altera o que está sendo medido?"</b>Ele só repassa bytes e conta. O <em>gateway</em> injeta conteúdo, sim, mas é um deslocamento aditivo igual para os dois braços; ele não se cancela em razão, por isso eu reporto diferença absoluta e também a razão.</li>
+<li><b>"Por que não escrever o próprio harness?"</b>Porque a pergunta é sobre escolher entre os que existem. O projeto escreve o instrumento, os <em>prompts</em> e os testes de aceitação; <em>harness</em>, nenhum.</li>
+</ul></div>
+</div>
+
+<div class="card slide"><span class="n">4</span>
+<h3>Justificativa, tema, problema, objetivo geral</h3>
+<p class="meta"><b>75 s</b> · <kbd>→</kbd> revela cada bloco</p>
+<div class="blk"><b>Fale</b><div class="say">
+<p>Justificativa: quem paga é o desenvolvedor, na assinatura, e a empresa, em escala. As comparações publicadas usam tarefas isoladas e não dizem quanto custa entregar um produto inteiro com uma ferramenta em vez de outra.</p>
+<p>Tema: a escolha do <em>harness</em> como decisão de engenharia. Efeito sobre tokens consumidos e taxa de sucesso na construção de um mesmo produto, com o modelo fixo.</p>
+<p>Problema, e vou ler na íntegra: com o modelo já escolhido, quantos tokens a mais ou a menos custa construir o mesmo software com um <em>harness</em> em vez de outro? E quanto dessa diferença vem da carga fixa que cada <em>harness</em> envia em toda requisição?</p>
+<p>Objetivo geral: medir a diferença de tokens e de sucesso entre OpenCode e pi construindo o mesmo SaaS a partir da mesma especificação; separar a parte que vem da carga fixa; entregar um critério reproduzível.</p>
+</div></div>
+<div class="blk"><b>Se perguntarem</b><ul class="q">
+<li><b>"Por que tokens e não dólares?"</b>Dólar depende do preço do modelo, do nível de assinatura e do dia. Token é a unidade que o <em>harness</em> controla. Custo em dinheiro entra como contrafactual rotulado, com preços de outros modelos.</li>
+<li><b>"Qual é o produto entregue?"</b>Um critério de escolha reproduzível: executor, <em>prompts</em>, testes, dados e scripts publicados. Quem quiser troca os braços e roda de novo.</li>
+</ul></div>
+</div>
+
+<div class="card slide"><span class="n">5</span>
+<h3>Finn: o produto</h3>
+<p class="meta"><b>60 s</b> · <kbd>→</kbd> revela os cartões; o <em>pipeline</em> e as nove unidades ficam na tela</p>
+<div class="blk"><b>Fale</b><div class="say">
+<p>Antes de usar o Finn como suíte, o que ele é. Um financeiro por voz para pequenas empresas. O dono fala pelo WhatsApp ou pelo aplicativo e recebe lançamento, relatório e aviso no celular. Multiempresa num banco só.</p>
+<p>Tudo isso já está decidido: 21 <em>issues</em> fechadas por mim antes do experimento. Os agentes não escolhem nada disso. O <em>pipeline</em> de voz tem sete passos na <em>issue</em> #14; aqui executar e negar aparecem juntos. Toda escrita confirma antes de valer. Custo zero por padrão: Whisper local, IA por API atrás de <em>flag</em>, desligada.</p>
+<p>As nove <em>issues</em> técnicas, #14 a #22, viram as nove unidades de uma especificação única, congelada por hash, cada uma com testes de aceitação meus. É um produto de verdade, com pilha fixa. As comparações publicadas usam suítes de tarefas soltas.</p>
+</div></div>
+<div class="blk"><b>Números</b><div class="num">
+<div><b>21 <em>issues</em></b><small>#1 mapa; #2–#10 produto; #11–#22 técnicas</small></div>
+<div><b>9 unidades</b><small>U1 tenant · U2 governança · U3 <em>flags</em> · U4 <em>pipeline</em> de voz · U5 confirmação · U6 log · U7 relatório · U8 agendador · U9 cobrança</small></div>
+</div></div>
+<div class="blk"><b>Fontes</b><ul class="src">
+<li><b>YuukiFST (2026a)</b>, github.com/YuukiFST/Finn. Cada decisão de produto tem número de <em>issue</em>; citar o número se perguntarem.</li>
+</ul></div>
+<div class="blk"><b>Se perguntarem</b><ul class="q">
+<li><b>"Por que o seu próprio produto?"</b>Porque as decisões já estão tomadas e registradas, então a especificação sai das <em>issues</em> e não da minha cabeça durante o experimento. E porque conheço a pilha o bastante para escrever os testes de aceitação.</li>
+</ul></div>
+</div>
+
+<div class="card slide"><span class="n">6</span>
+<h3>Como o projeto funciona</h3>
+<p class="meta"><b>60 s</b> · <kbd>→</kbd> revela os quatro cartões e a justificativa</p>
+<div class="blk"><b>Fale</b><div class="say">
+<p>A visão geral, em quatro passos. Uma especificação: o Finn descrito em nove unidades a partir das <em>issues</em>, cada uma com testes de aceitação meus. Dois <em>harnesses</em>: OpenCode e pi recebem a mesma especificação, os mesmos <em>prompts</em>, o mesmo espaço de trabalho vazio e o mesmo modelo, e constroem o produto do zero, unidade a unidade.</p>
+<p>Um contador externo: um <em>proxy</em> entre o <em>harness</em> e o modelo conta requisições, tokens e latência da mesma forma para os dois; n ≥ 3 construções por célula. Um critério: tokens por construção, ao lado da fração de testes aprovados, e Succ/Mtok, comparados por teste pareado por unidade; a Camada 1 separa a parte que é carga fixa.</p>
+<p>Isso justifica o tema. Quem paga é o desenvolvedor, na assinatura, e a empresa, em escala; conhecer o <em>harness</em> virou parte do ofício. As comparações publicadas usam tarefas isoladas. Este projeto mede o custo de entregar um produto inteiro.</p>
+</div></div>
+<div class="blk"><b>Se perguntarem</b><ul class="q">
+<li><b>"Por que não deixar o OpenCode construir e gerar a especificação para o pi?"</b>Entrada desigual. O pi receberia um documento destilado de um sistema pronto, e a diferença deixaria de ser atribuível ao <em>harness</em>. Por isso a especificação é minha, vem das <em>issues</em> e é a mesma para os dois.</li>
+</ul></div>
+</div>
+
+<div class="card slide"><span class="n">7</span>
+<h3>Sete objetivos específicos</h3>
+<p class="meta"><b>60 s</b> · <kbd>→</kbd> acende um objetivo e o nó do anel</p>
+<div class="blk"><b>Fale</b><div class="say">
+<p>Sete objetivos, e eles são as etapas do trabalho. Um: instrumento externo idêntico para os dois braços. Dois: a especificação do Finn em nove unidades, com testes de aceitação meus, independentes dos testes do agente. Três: espaço de trabalho inicial idêntico, só a especificação e a pilha. Quatro: construção completa nos dois <em>harnesses</em>, unidade a unidade, mesmo modelo, mesmos <em>prompts</em>, com repetição e dispersão.</p>
+<p>Cinco: um segundo modelo, para ver se a ordenação se mantém ou inverte. Seis: comparar tokens relatados pelo <em>harness</em> com tokens medidos no <em>proxy</em>. Sete: publicar tudo, a custo zero.</p>
+</div></div>
+<div class="blk"><b>Se perguntarem</b><ul class="q">
+<li><b>"Por que o objetivo 6?"</b>O <em>harness</em> relata o próprio consumo, e esse relato pode divergir do que passou pelo fio. Medir a divergência é parte do método, e é o que Kapoor e colegas, 2025, cobram: relatar custo.</li>
+</ul></div>
+</div>
+
+<div class="card slide"><span class="n">8</span>
+<h3>Hipóteses H1 e H2</h3>
+<p class="meta"><b>75 s</b> · painel da direita só com fontes externas; as barras do FrontierHarness crescem ao entrar</p>
+<div class="blk"><b>Fale</b><div class="say">
+<p>H1: entre OpenCode e pi, no mesmo modelo, a diferença de tokens para construir o Finn a partir da mesma especificação é relevante para quem paga, comparável a trocar de modelo. Refutada se os intervalos de tokens por construção se sobrepuserem e o teste pareado por unidade não apontar diferença.</p>
+<p>H2: a carga fixa por requisição explica a maior parte da diferença; o número de passos, a parte menor. Refutada se o número de passos explicar a maior parte. Esse desfecho é possível e reportável: um <em>harness</em> com mais ferramentas pode compensar a carga extra concluindo a unidade em menos passos.</p>
+<p>O painel usa só fontes externas. Para H1, as duas linhas do FrontierHarness: pi 60,0 % a US$ 2,43 por tarefa aprovada; OpenCode 50,0 % a US$ 3,24. Mesmo modelo, e o OpenCode paga 1,33× por tarefa aprovada e aprova 10 pontos a menos; as duas contas são minhas. Para H2, o Earendil: o pi tem 4 ferramentas, <em>prompt</em> de sistema e definições abaixo de 1.000 tokens; e a Databricks, citada pelo Earendil, mediu «3x less context per turn», com custo por tarefa acima de 2× e qualidade igual. Isso é o que H2 quer explicar, agora com a minha medição.</p>
+</div></div>
+<div class="blk"><b>Números</b><div class="num">
+<div><b>1,33×</b><small>US$ 3,24 ÷ US$ 2,43, custo por tarefa aprovada, OpenCode sobre pi; cálculo do autor</small></div>
+<div><b>10 pp</b><small>60,0 % − 50,0 % de aprovação, pi sobre OpenCode; cálculo do autor</small></div>
+<div><b>Kimi K3 · 30 tarefas · n = 1</b><small>via Fireworks; pi v0.84.2, OpenCode v1.18.19; FrontierHarness, 1 set. 2026</small></div>
+<div><b>&lt; 1.000 tokens</b><small><em>prompt</em> de sistema e definições das 4 ferramentas do pi (Earendil, 2026)</small></div>
+<div><b>3× menos contexto por turno</b><small>Databricks apud Earendil (2026); custo por tarefa &gt; 2×</small></div>
+</div></div>
+<div class="blk"><b>Fontes</b><ul class="src">
+<li><b>Runta (2026)</b>, FrontierHarness, blogue institucional de 1 set. 2026; versões dos braços no repositório do <em>eval</em>. <b>Earendil (2026)</b>, "Pi, minimal and performant", blogue institucional de 4 ago. 2026; a medição da Databricks é citação de segunda mão (apud). Nenhum dos dois é revisado por pares.</li>
+</ul></div>
+<div class="blk"><b>Se perguntarem</b><ul class="q">
+<li><b>"Você tem número próprio da carga fixa?"</b>Tenho, da Camada 1, medida em 28 ago. 2026 contra <em>endpoint</em> simulado, <code>layer1/data/first_request.csv</code> e <code>step_growth.csv</code>: primeira requisição de 5.676 bytes e 1.228 tokens no pi contra 29.997 bytes e 6.659 tokens no OpenCode, 5,3×; crescimento por passo de 555 contra 698 bytes. Saiu do slide porque o projeto descreve o que será feito; está no repositório.</li>
+<li><b>"Três vezes menos contexto não já responde a pergunta?"</b>Não. Mais bytes por requisição não significam, por si, resultado pior. Se o OpenCode conclui a unidade em menos passos, a conta pode virar. É exatamente o que H2 testa.</li>
+<li><b>"O que é 'comparável a trocar de modelo'?"</b>A ordem de grandeza que separa dois modelos de níveis diferentes no mesmo <em>gateway</em>. O segundo nível de modelo do desenho dá essa régua.</li>
+</ul></div>
+</div>
+
+<div class="card slide"><span class="n">9</span>
+<h3>Referencial teórico (linha do tempo)</h3>
+<p class="meta"><b>120 s</b> · <kbd>→</kbd> avança um nó; clique no nó abre a afirmação. Único slide com autores na tela.</p>
+<div class="blk"><b>Fale</b><div class="say">
+<p>Dez nós, em ordem. Vou passar rápido pelos primeiros e parar nos de 2026.</p>
+<p><b>Yao et al., 2022, ReAct.</b> O laço observar/agir mínimo. Já é um <em>harness</em>, o mais raso. O pi fica perto dele.</p>
+<p><b>Yang et al., 2024, SWE-agent.</b> A interface entre modelo e ambiente vira objeto de projeto: melhora sem tocar nos pesos. NeurIPS, revisado por pares.</p>
+<p><b>Kapoor et al., 2024, "AI agents that matter".</b> A avaliação de agentes ignora o custo e por isso erra sobre a origem dos ganhos.</p>
+<p><b>Kapoor et al., 2025, HAL.</b> Avaliações raramente relatam custo; comparações entre <em>harnesses</em> são raras. E o efeito é específico do modelo: Anthropic vai melhor com BrowserUse, OpenAI com SeeAct. Daí o meu objetivo 5.</p>
+<p><b>Lin et al., 2026, Agentic Harness Engineering.</b> Definição operacional e a métrica Succ/Mtok. Tabela 1: 47,2 % com OpenCode a 71,9 % com Codex, mesmo GPT-5.4, Terminal-Bench 2, 89 tarefas. 24,7 pontos percentuais, cálculo meu.</p>
+<p><b>Zhang et al., 2026, Binding Constraint Thesis.</b> Com modelos de fronteira comparáveis, a parcela do <em>harness</em> é comparável ou maior que a do modelo.</p>
+<p><b>Lee et al., 2026, Meta-Harness.</b> Editar só o código do <em>harness</em>, modelo fixo: 76,4 % contra 74,7 %. Decisões de <em>harness</em> são isoláveis.</p>
+<p><b>Ning et al., 2026, Code as agent harness.</b> A definição que eu uso. E a lacuna: §5.2.1 diz que não se sabe atribuir o resultado a cada componente; §5.2.7 pede métricas por componente. O meu projeto responde pelo lado da medição: separa carga fixa de conversa em cada requisição.</p>
+<p><b>Wang et al., 2026, Harness Handbook.</b> O que o <em>harness</em> faz: monta <em>prompts</em>, gerencia estado, invoca ferramentas, coordena o laço.</p>
+<p><b>Runta, 2026, FrontierHarness.</b> O gráfico do slide 2. E um dado a mais: <em>cache</em> do Claude Code 25,0 % ponderado contra 67,8 % na célula mediana.</p>
+<p>Sobre revisão por pares: ReAct e SWE-agent têm. FrontierHarness é blogue. Os demais são <em>preprints</em> de 2026. O tema é novo; o referencial acompanha.</p>
+</div></div>
+<div class="blk"><b>Números</b><div class="num">
+<div><b>47,2 % → 71,9 %</b><small>Lin et al. 2026, Tabela 1; OpenCode vs Codex; GPT-5.4; Terminal-Bench 2; 89 tarefas</small></div>
+<div><b>24,7 pp</b><small>diferença acima, cálculo do autor</small></div>
+<div><b>76,4 % vs 74,7 %</b><small>Lee et al. 2026, Tabela 7; Meta-Harness vs Terminus-KIRA; TerminalBench-2; 89 tarefas; Claude Opus 4.6</small></div>
+<div><b>25,0 % vs 67,8 %</b><small>Runta 2026; taxa de <em>cache</em> do Claude Code, ponderada vs célula mediana</small></div>
+</div></div>
+<div class="blk"><b>Fontes</b><ul class="src">
+<li>Todas na tela. Fora da tela, mas no projeto: <b>Alier Forment et al. (2026)</b>, sem MCP 5,0× a 28× mais barato, pi o mais barato da matriz; <b>Miller (2024)</b>, barras de erro em avaliações, base para o teste pareado.</li>
+</ul></div>
+<div class="blk"><b>Se perguntarem</b><ul class="q">
+<li><b>"Quase tudo é preprint. Isso sustenta um projeto?"</b>Sustenta a motivação e a definição. A lacuna que eu ataco, atribuição por componente, é nomeada por Ning et al. e confirmada por Kapoor et al. (2025), e o método de medição não depende de nenhum resultado desses artigos. O que eu peço emprestado deles é a definição e a métrica.</li>
+<li><b>"Qual é a sua contribuição em relação a Lin et al.?"</b>Lin compara <em>harnesses</em> em tarefas isoladas de benchmark. Eu comparo na construção de um produto completo, a partir de uma especificação única, unidade a unidade, com o mesmo espaço de trabalho inicial, e decomponho o custo em carga fixa e conversa.</li>
+</ul></div>
+</div>
+
+<div class="card slide"><span class="n">10</span>
+<h3>Classificação da pesquisa e uso de IA</h3>
+<p class="meta"><b>60 s</b> · <kbd>→</kbd> revela cada eixo</p>
+<div class="blk"><b>Fale</b><div class="say">
+<p>Natureza aplicada: o produto é um critério de escolha. Abordagem quanti e quali: meço tokens e sucesso, e atribuo a diferença à carga fixa ou aos passos. Objetivos: exploratória, porque comparar dois <em>harnesses</em> construindo o mesmo produto completo do zero, a partir da mesma especificação, não tem precedente publicado. Procedimentos: experimental; variável independente, o <em>harness</em>; controladas, modelo, especificação, espaço de trabalho inicial e limites. Método dedutivo: hipóteses antes da coleta.</p>
+<p>Uso de IA declarado, conforme a Portaria CNPq 2.664 de 2026, que pede ferramenta e finalidade. Ferramenta: Claude Code. Finalidade: síntese e conferência de fontes, num <em>LLM Wiki</em> no repositório, padrão de Karpathy (2026). Eu curei as fontes, conferi cada citação na obra original e respondo pelo texto.</p>
+</div></div>
+<div class="blk"><b>Fontes</b><ul class="src">
+<li>A classificação segue sem manual citado: as referências do projeto são só sobre o <em>harness</em>. <b>Brasil (2026)</b>: Portaria CNPq nº 2.664, de 6 de março de 2026, Política de Integridade. <b>Karpathy (2026)</b>: <em>gist</em> "LLM Wiki", o padrão que o repositório instancia.</li>
+</ul></div>
+<div class="blk"><b>Se perguntarem</b><ul class="q">
+<li><b>"O que a IA escreveu?"</b>Nada do texto final. Ela leu fontes e montou resumos numa wiki; cada afirmação que entrou no projeto eu conferi no original.</li>
+</ul></div>
+</div>
+
+<div class="card slide"><span class="n">11</span>
+<h3>Método: duas camadas de medição</h3>
+<p class="meta"><b>75 s</b> · <kbd>→</kbd> alterna Camada 1 e Camada 2</p>
+<div class="blk"><b>Fale</b><div class="say">
+<p>Camada 1: a forma da requisição. O <em>harness</em> fala com um <em>endpoint</em> simulado, que devolve uma resposta fixa. Eu vejo esquemas, bytes de <em>prompt</em>, tokens por passo. Determinística, não consome cota. Dá a carga fixa de que H2 depende.</p>
+<p>Camada 2: o desfecho. A construção do produto roda contra o modelo real, através de um <em>proxy</em> reverso. Estocástica, consome cota, n ≥ 3 construções por célula.</p>
+<p>O <em>proxy</em> força o relatório de uso e conta tokens sobre os bytes transmitidos, um só tokenizador para os dois braços. O relatório do <em>gateway</em> fica como verificação cruzada. Limite único: relógio de parede por unidade, 3× a maior mediana dos braços nas unidades-piloto. Sem teto de passos: o teto seria uma decisão de projeto do <em>harness</em>, e eu não quero tomar decisões de <em>harness</em>.</p>
+</div></div>
+<div class="blk"><b>Se perguntarem</b><ul class="q">
+<li><b>"Por que dois tokenizadores seriam um problema?"</b>Cada <em>harness</em> pode contar tokens do seu jeito. Se eu usar o relato de cada um, comparo réguas diferentes. O <em>proxy</em> aplica uma régua só.</li>
+<li><b>"Por que 3× a mediana?"</b>Larga o suficiente para não punir o braço mais lento por lentidão normal; estreita o suficiente para cortar laços presos. Calibrada nas unidades-piloto, antes da matriz.</li>
+</ul></div>
+</div>
+
+<div class="card slide"><span class="n">12</span>
+<h3>Braços e matriz experimental</h3>
+<p class="meta"><b>90 s</b> · clique numa unidade ou navegue com <kbd>Tab</kbd>; <kbd>→</kbd> preenche a matriz</p>
+<div class="blk"><b>Fale</b><div class="say">
+<p>Braços: OpenCode e pi. Código aberto, sem interface, <code>opencode run</code> e <code>pi --mode json</code>, URL base compatível com OpenAI. Nenhum <em>harness</em> escrito pelo projeto.</p>
+<p>Suíte: o Finn, um SaaS multiempresa de financeiro por voz, com 21 tickets fechados antes do experimento. Os nove técnicos viram as nove unidades da especificação, em ordem de dependência: tenant, governança, <em>flags</em>, <em>pipeline</em> de voz, confirmação, log, relatório, agendador, cobrança. Pilha fixa: TypeScript, TanStack Start, tRPC, Drizzle, PostgreSQL, Vitest.</p>
+<p>A matriz é braço × nível de modelo, com as nove unidades dentro de cada construção. Cada célula, n ≥ 3 construções válidas. A especificação é congelada por SHA-256; o espaço de trabalho inicial é vazio, e o que o agente construiu numa unidade é o ponto de partida da seguinte. Eu não escrevo código depois do início. Escore: fração dos meus testes de aceitação, que o agente não vê, rodados sobre uma cópia do espaço ao fim de cada unidade.</p>
+<p>Duas classes. Unidade não concluída: o agente não a concluiu; é resultado, entra com a fração aprovada e a construção segue, estouro de relógio incluído. Construção descartada: medição inconfiável em alguma unidade; registrada, sem reparo nem repetição. A classe é lida do registro do <em>proxy</em>, não da minha impressão.</p>
+</div></div>
+<div class="blk"><b>Números</b><div class="num">
+<div><b>2 × 2</b><small>braços × níveis de modelo = 4 células; 9 unidades por construção</small></div>
+<div><b>n ≥ 3</b><small>construções válidas por célula, após descartes; ≥ 12 construções</small></div>
+<div><b>21 tickets</b><small>fechados no Finn antes do experimento; os 9 técnicos (#14–#22) viram as unidades</small></div>
+</div></div>
+<div class="blk"><b>Fontes</b><ul class="src">
+<li><b>Opencode (2026a)</b> e <b>Earendil (2026)</b>: repositório e blogue dos dois braços. <b>YuukiFST (2026a)</b>: repositório do Finn; as decisões de produto estão nas <em>issues</em> #1–#22.</li>
+</ul></div>
+<div class="blk"><b>Se perguntarem</b><ul class="q">
+<li><b>"A especificação é sua. Isso não enviesa?"</b>Enviesa igual para os dois braços: a mesma entrada e o mesmo início vazio para os dois, e a comparação é pareada por unidade. O viés que sobra é sobre o valor absoluto, que eu já declaro não ter placar público.</li>
+<li><b>"E se os dois braços falharem numa unidade?"</b>Entra como não concluída nos dois, com a fração aprovada, e as duas construções seguem. O par continua válido para o Wilcoxon.</li>
+<li><b>"Por que essas nove unidades?"</b>São as issues técnicas #14–#22, cada uma com um resultado que um teste de aceitação decide. As issues #1–#13 são o mapa, as decisões do dono do produto e as decisões de base que as unidades já assumem.</li>
+</ul></div>
+</div>
+
+<div class="card slide"><span class="n">13</span>
+<h3>Succ/Mtok e teste pareado</h3>
+<p class="meta"><b>60 s</b> · simulação: mova os controles. Dizer em voz alta que os valores não são dados.</p>
+<div class="blk"><b>Fale</b><div class="say">
+<p>Duas medidas. Tokens por construção, contados no <em>proxy</em>, sempre ao lado da fração final de testes aprovados: um braço que falha barato não pode parecer o mais barato. E Succ/Mtok, de Lin e colegas: pass@1 vezes um milhão, dividido pela média de tokens por execução. Sucessos por milhão de tokens.</p>
+<p>Este painel é uma simulação didática. Se eu mover o braço B para 1200 mil tokens, o Succ/Mtok dele cai, mesmo com aprovação parecida. É o efeito que a taxa de aprovação sozinha esconde.</p>
+<p>Estatística: Wilcoxon dos postos sinalizados, bilateral, α = 0,05, pareado por unidade, sobre os tokens por unidade e o Succ/Mtok por unidade. Não paramétrico, porque nove pares não sustentam suposição de distribuição. Pareado, porque a dificuldade da unidade é o maior fator de perturbação. Com n = 3 por célula e nove unidades, a diferença mínima detectável é cerca de 0,76 desvio-padrão. Efeito pequeno não vai aparecer; efeito do tamanho que H1 afirma, aparece.</p>
+</div></div>
+<div class="blk"><b>Números</b><div class="num">
+<div><b>Succ/Mtok</b><small>pass@1 × 10⁶ ÷ média de tokens por execução (Lin et al. 2026, Eq. 2)</small></div>
+<div><b>MDE ≈ 0,76σ</b><small>n = 3 por célula, 9 unidades, Wilcoxon bilateral, α = 0,05</small></div>
+<div><b>W crítico = 5</b><small>n = 9 pares, bilateral, α = 0,05</small></div>
+</div></div>
+<div class="blk"><b>Fontes</b><ul class="src">
+<li><b>Lin et al. (2026, Eq. 2)</b>: a métrica. <b>Miller (2024)</b>, "Adding error bars to evals": por que parear e reportar dispersão.</li>
+</ul></div>
+<div class="blk"><b>Se perguntarem</b><ul class="q">
+<li><b>"Nove pares é pouco."</b>É o que a cota gratuita permite com n ≥ 3. O MDE está declarado; se a diferença real for menor que 0,76σ, o resultado é "não detectado", e isso também responde H1 pela negativa.</li>
+<li><b>"Por que não teste t?"</b>Nove observações, distribuição desconhecida, possíveis <em>outliers</em> de laço preso. Wilcoxon usa postos e resiste a isso.</li>
+</ul></div>
+</div>
+
+<div class="card slide"><span class="n">14</span>
+<h3>Limitações e ameaças à validade</h3>
+<p class="meta"><b>60 s</b> · <kbd>→</kbd> revela cada limitação; gráfico de inversão é ilustrativo</p>
+<div class="blk"><b>Fale</b><div class="say">
+<p>Quatro limitações declaradas de partida. Efeito específico do modelo: pode inverter de sinal; conclusões por nível, e o objetivo 5 testa isso. Um produto, uma pilha: o resultado vale para essa família de tarefas; outras pilhas ficam como trabalho futuro. Especificação humana e trajetória própria: eu escrevo a especificação, e cada braço carrega os próprios erros de uma unidade à seguinte; mitigado pela mesma entrada e pelo mesmo início vazio para os dois, com comparação pareada por unidade. Sem placar público: suíte própria, válido só braço contra braço; custo em dinheiro só como contrafactual rotulado.</p>
+<p>A ameaça principal ao desenho é a variância entre execuções no nível gratuito. Resposta: n ≥ 3, mediana com dispersão, e cobertura da matriz antes de repetições.</p>
+<p>O gráfico de barras aqui é ilustrativo. A evidência real de inversão é Kapoor e colegas, 2025.</p>
+</div></div>
+<div class="blk"><b>Fontes</b><ul class="src">
+<li><b>Kapoor et al. (2025)</b>, HAL: Anthropic melhor com BrowserUse, OpenAI com SeeAct; a inversão de sinal entre modelos.</li>
+</ul></div>
+<div class="blk"><b>Se perguntarem</b><ul class="q">
+<li><b>"O que acontece se a cota acabar?"</b>A matriz roda em lotes, um por dia. Cobertura primeiro: todas as células com n = 1, depois n = 2, depois n = 3. Se parar antes, o que existe é reportado com o n que tem.</li>
+</ul></div>
+</div>
+
+<div class="card slide"><span class="n">15</span>
+<h3>Orçamento e cronograma</h3>
+<p class="meta"><b>45 s</b> · clique numa fase; <kbd>→</kbd> revela as fases</p>
+<div class="blk"><b>Fale</b><div class="say">
+<p>Orçamento R$ 0,00. Inferência nos dois níveis gratuitos do <em>gateway</em>, o OpenCode Zen. <em>Harnesses</em> e ferramentas de código aberto. Máquinas que já tenho, uma NixOS e uma Windows. O limite vinculante não é dinheiro, é cota: um lote da matriz por dia.</p>
+<p>Cronograma: agosto e setembro, leitura, tema e escrita, que está concluída. Outubro e novembro, instrumento, especificação e testes de aceitação. Dezembro e janeiro, a matriz. Janeiro, análise. A folga está concentrada onde a cota manda: na matriz e na escrita da especificação e dos testes.</p>
+</div></div>
+<div class="blk"><b>Se perguntarem</b><ul class="q">
+<li><b>"E se o gateway mudar o nível gratuito?"</b>O <em>proxy</em> fala com qualquer URL base compatível com OpenAI, então trocar de <em>gateway</em> é possível. A troca seria registrada e as execuções anteriores não se misturariam com as novas.</li>
+</ul></div>
+</div>
+
+<div class="card slide"><span class="n">16</span>
+<h3>Referências citadas nos slides</h3>
+<p class="meta"><b>20 s</b> · sem interação; pular se faltar tempo</p>
+<div class="blk"><b>Fale</b><div class="say">
+<p>As dezoito referências que apareceram nos slides, em ABNT abreviado, todas sobre o <em>harness</em>. O projeto tem 20; ficam de fora aqui duas citadas só no texto. Os <em>preprints</em> estão marcados.</p>
+</div></div>
+<div class="blk"><b>Se perguntarem</b><ul class="q">
+<li><b>"Quais são as duas que faltam?"</b>HarnessRank e Opencode Zen (2026b), citadas só no texto.</li>
+<li><b>"Cadê as normas ABNT e os manuais de metodologia?"</b>Saíram da lista em 14 de setembro: a lista só tem fontes sobre o <em>harness</em>. A formatação segue a ABNT mesmo assim, e a classificação da pesquisa fica sem manual citado.</li>
+</ul></div>
+</div>
+
+<div class="card slide"><span class="n">17</span>
+<h3>Fecho</h3>
+<p class="meta"><b>20 s</b></p>
+<div class="blk"><b>Fale</b><div class="say">
+<p>A tela pergunta: quanto pesa, para o desenvolvedor que já escolheu o modelo, conhecer o <em>harness</em> antes de pagar por ele? O projeto responde em tokens: quantos a mais custa construir o mesmo SaaS com um <em>harness</em> em vez de outro, e quanto disso é carga fixa. O produto é um critério de escolha que um desenvolvedor ou uma empresa pode aplicar. Tudo fica público nos dois repositórios, harness-bench e Finn. Obrigado. Perguntas?</p>
+</div></div>
+</div>
+
+<h2 id="perguntas">Banco de perguntas gerais</h2>
+<div class="card">
+<ul class="q">
+<li><b>"Por que OpenCode e pi, e não Claude Code ou Cursor?"</b>Os dois são código aberto, rodam sem interface e aceitam URL base compatível com OpenAI, então passam pelo mesmo <em>proxy</em> e pelo mesmo modelo. Ferramentas fechadas não deixam fixar o modelo nem interceptar a requisição. E os dois estão em pontos distantes da camada: pi mínimo, OpenCode com planejamento e subagentes.</li>
+<li><b>"O resultado vale para outros modelos?"</b>Não necessariamente. Kapoor et al. (2025) mostram inversão de sinal entre modelos. Por isso o objetivo 5 roda um segundo nível e as conclusões são por nível.</li>
+<li><b>"Qual é a variável independente?"</b>O <em>harness</em>. Controladas: modelo, especificação, espaço de trabalho inicial, limites de tempo e saída. Dependentes: tokens por construção, fração de testes aprovada, Succ/Mtok.</li>
+<li><b>"Isso é pesquisa ou benchmark?"</b>Pesquisa experimental com hipóteses refutáveis declaradas antes da coleta. O benchmark é o instrumento; a contribuição é a decomposição do custo em carga fixa e conversa, que Ning et al. (2026, §5.2.7) pedem.</li>
+<li><b>"Como garante que o agente não viu os testes?"</b>Os testes de aceitação ficam fora do espaço de trabalho. O agente recebe a especificação e o <em>prompt</em> da unidade; os testes rodam depois, sobre uma cópia do espaço ao fim de cada unidade.</li>
+<li><b>"Por que o proxy e não o relatório do próprio harness?"</b>Objetivo 6 existe para medir a divergência entre os dois. O relatório do <em>harness</em> é auto-relato; o <em>proxy</em> é medição sobre os bytes que passaram.</li>
+<li><b>"O que significa 'carga fixa'?"</b><em>Prompt</em> de sistema e esquemas de ferramentas, que vão em toda requisição, independentemente da tarefa. Medida na Camada 1: 5.676 bytes no pi, 29.997 no OpenCode, na primeira requisição.</li>
+<li><b>"Qual o tamanho do efeito esperado?"</b>Não declaro um número. H1 diz "comparável a trocar de modelo" e o segundo nível dá a régua. O MDE de 0,76σ diz o que o desenho consegue ver.</li>
+<li><b>"Se H2 for refutada, o projeto falhou?"</b>Não. Se os passos explicarem mais que a carga fixa, o resultado diz que a diferença está no laço, não no <em>prompt</em>. É um desfecho previsto e reportável.</li>
+<li><b>"Onde entra a IA generativa no seu trabalho?"</b>Declarado conforme a Portaria CNPq 2.664/2026: Claude Code, para síntese e conferência de fontes num <em>LLM Wiki</em>, padrão de Karpathy (2026). O texto e as citações são meus e conferidos no original.</li>
+</ul>
+</div>
+
+<h2 id="numeros">Tabela de números com denominador</h2>
+<div class="card">
+<table>
+<tr><th>Valor</th><th>O que é</th><th>Denominador</th><th>Fonte</th></tr>
+<tr><td class="r">17,5×</td><td>razão de custo por tarefa concluída</td><td>12 configurações, 9 <em>harnesses</em>, Kimi K3, 30 tarefas, 1 tentativa, set. 2026</td><td>Runta (2026); cálculo do autor</td></tr>
+<tr><td class="r">50,0–66,7 %</td><td>faixa de aprovação</td><td>idem</td><td>Runta (2026)</td></tr>
+<tr><td class="r">US$ 1,05–18,34</td><td>faixa de custo por tarefa concluída</td><td>idem</td><td>Runta (2026)</td></tr>
+<tr><td class="r">US$ 2,43 / 60,0 %</td><td>pi</td><td>idem</td><td>Runta (2026)</td></tr>
+<tr><td class="r">US$ 3,24 / 50,0 %</td><td>OpenCode</td><td>idem</td><td>Runta (2026)</td></tr>
+<tr><td class="r">2.499 / 9.738 bytes</td><td><em>prompt</em> de sistema, pi / OpenCode (3,9×)</td><td>Camada 1, <em>endpoint</em> simulado, 28 ago. 2026, pi 0.80.10, OpenCode 1.17.9</td><td>layer1/data</td></tr>
+<tr><td class="r">4 / 9</td><td>esquemas de ferramentas por requisição</td><td>idem</td><td>layer1/data</td></tr>
+<tr><td class="r">5.676 / 29.997 bytes</td><td>primeira requisição completa (5,3×)</td><td>idem</td><td>first_request.csv</td></tr>
+<tr><td class="r">1.228 / 6.659 tokens</td><td>primeira requisição (5,4×)</td><td>idem, tokenizador cl100k_base</td><td>first_request.csv</td></tr>
+<tr><td class="r">555 / 698 bytes</td><td>crescimento por passo</td><td>idem</td><td>step_growth.csv</td></tr>
+<tr><td class="r">47,2 % → 71,9 %</td><td>aprovação OpenCode → Codex (24,7 pp)</td><td>GPT-5.4, Terminal-Bench 2, 89 tarefas</td><td>Lin et al. (2026), Tabela 1</td></tr>
+<tr><td class="r">76,4 % vs 74,7 %</td><td>Meta-Harness vs Terminus-KIRA</td><td>TerminalBench-2, 89 tarefas, Claude Opus 4.6</td><td>Lee et al. (2026), Tabela 7</td></tr>
+<tr><td class="r">25,0 % vs 67,8 %</td><td><em>cache</em> do Claude Code, ponderado vs célula mediana</td><td>FrontierHarness</td><td>Runta (2026)</td></tr>
+<tr><td class="r">5,0× a 28×</td><td>mais barato sem MCP</td><td>matriz do artigo; pi o mais barato</td><td>Alier Forment et al. (2026)</td></tr>
+<tr><td class="r">1,33× / 10 pp</td><td>OpenCode paga mais por tarefa aprovada e aprova menos que o pi</td><td>idem; cálculo do autor</td><td>Runta (2026)</td></tr>
+<tr><td class="r">&lt; 1.000 tokens</td><td><em>prompt</em> de sistema e definições das 4 ferramentas do pi</td><td>blogue, 4 ago. 2026</td><td>Earendil (2026)</td></tr>
+<tr><td class="r">3× / &gt; 2×</td><td>menos contexto por turno / custo por tarefa, pi vs outro <em>harness</em></td><td>medição da Databricks, citada de segunda mão</td><td>Databricks apud Earendil (2026)</td></tr>
+<tr><td class="r">9</td><td>unidades da especificação do Finn</td><td>de 21 tickets fechados; issues #14–#22</td><td>YuukiFST (2026a)</td></tr>
+<tr><td class="r">n ≥ 3</td><td>construções válidas por célula</td><td>2 braços × 2 níveis = 4 células; 9 unidades por construção</td><td>projeto, §3</td></tr>
+<tr><td class="r">3×</td><td>limite de relógio de parede por unidade</td><td>maior mediana dos braços nas unidades-piloto</td><td>projeto, §3</td></tr>
+<tr><td class="r">≈ 0,76σ</td><td>diferença mínima detectável</td><td>n = 3, 9 unidades, Wilcoxon bilateral, α = 0,05</td><td>projeto, §3</td></tr>
+<tr><td class="r">R$ 0,00</td><td>orçamento total</td><td>inferência, <em>harnesses</em>, máquinas</td><td>projeto, Tabela 1</td></tr>
+</table>
+</div>
+
+<h2 id="check">Checklist do dia</h2>
+<div class="card">
+<ul class="check">
+<li>Abrir <code>dist/apresentacao-pcc/index.html</code> no Chrome; testar <kbd>→</kbd>, <kbd>F</kbd>, <kbd>0</kbd>–<kbd>5</kbd> no slide 3, clique nos nós do slide 9.</li>
+<li>Confirmar que <kbd>N</kbd> (notas) está desligado e <kbd>O</kbd> (visão geral) fecha com <kbd>Esc</kbd>.</li>
+<li>Fontes Space Grotesk/Inter vêm embutidas no deck; não dependem de internet. Testar mesmo assim.</li>
+<li>Ensaiar o slide 9 com o cronômetro: é o mais longo (2 min) e o que mais tem nomes de autores.</li>
+<li>Ter na ponta da língua: 17,5×; 2.499 vs 9.738; 4 vs 9; n ≥ 3; 0,76σ; R$ 0,00.</li>
+<li>Se a banca cortar tempo: pular o 7 (objetivos estão implícitos no 11 e 12) e o 16, e fazer o 13 sem mover os controles.</li>
+</ul>
+</div>
+
+</main>
+</body>
+</html>
