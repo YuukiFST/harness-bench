@@ -2,9 +2,9 @@
 
 Deck da apresentação oral do projeto de pesquisa "O harness como decisão do desenvolvedor"
 (Metodologia Científica, IFMT). Conteúdo (textos, números, notas, ordem dos 17 slides)
-congelado de `../dist/apresentacao-pcc.html` na versão de 2026-09-14 (experimento Finn:
+auditado contra `../dist/projeto-pcc.docx` em 2026-09-14 (experimento Finn:
 OpenCode vs pi): não alterar palavras nem números. Mudança de conteúdo passa por
-`tools/deck_edits_<data>.py`, espelhando `tools/slides_edits_<data>.py`.
+`tools/slides_edits_<data>.py`, com o roteiro em `tools/roteiro_edits_<data>.py`.
 
 ## Stack
 
@@ -25,7 +25,8 @@ npm run build
 ```
 
 Depois abrir `../dist/apresentacao-pcc/index.html` com `?v=<aleatório>` para forçar
-recarga em `file://`. O `dist/apresentacao-pcc.html` antigo segue intacto.
+recarga em `file://`. O deck antigo de arquivo único (`dist/apresentacao-pcc.html`) foi
+removido em 2026-09-14; está no histórico do git.
 
 ## Verificação (Chrome, 1920×1080)
 

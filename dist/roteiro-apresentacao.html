@@ -83,7 +83,7 @@ Companheiro de <code>dist/apresentacao-pcc/index.html</code> (17 slides). Leia e
   <li><b>Tempo alvo: 12 minutos de fala + perguntas.</b> Cada slide traz um tempo sugerido; a soma dá cerca de 18 min, então já ensaie com cortes. Se a banca der 10 min, pule os slides 7 e 16 e corte o 13 pela metade. Se der 15, pule só o 16.</li>
   <li><b>Blocos por slide:</b> <i>Fale</i> é o texto para dizer, em primeira pessoa, na ordem em que o slide revela. <i>Números</i> traz cada valor com o seu denominador (modelo, benchmark, n, data). <i>Fontes</i> diz de onde veio cada afirmação e o que responder se perguntarem "quem disse isso?". <i>No slide</i> lista as teclas. <i>Se perguntarem</i> antecipa a pergunta mais provável daquele slide.</li>
   <li><b>Regra dos números:</b> nunca diga um número sem o denominador. "17,5×" sozinho é fraco; "17,5× entre doze configurações sobre o mesmo modelo, Kimi K3, 30 tarefas" fecha a porta para a pergunta óbvia.</li>
-  <li><b>Fontes fora do slide:</b> o deck cita autores na tela nos slides 3, 8, 9 (linha do tempo), 10, 13 e 16. Nos outros slides a fonte fica na sua boca. Decore o par autor-ano dos quatro que mais sustentam o trabalho: Runta (2026), Lin et al. (2026), Ning et al. (2026), Kapoor et al. (2025).</li>
+  <li><b>Fontes fora do slide:</b> o deck cita autores na tela nos slides 2, 3, 5, 6, 8, 9 (linha do tempo), 10, 12, 13, 15, 16 e 17. Nos outros slides a fonte fica na sua boca. Decore o par autor-ano dos quatro que mais sustentam o trabalho: Runta (2026), Lin et al. (2026), Ning et al. (2026), Kapoor et al. (2025).</li>
   <li>As notas do apresentador (tecla <kbd>N</kbd> no deck) contêm os índices <code>[n]</code> dos parágrafos do projeto; use para achar o trecho no <code>.docx</code>, não para ler durante a fala.</li>
 </ul>
 </div>
@@ -159,7 +159,7 @@ Companheiro de <code>dist/apresentacao-pcc/index.html</code> (17 slides). Leia e
 <div><b>Claude Code US$ 18,34</b><small>63,3 %; 5,3× o Codex (US$ 3,47, 66,7 %)</small></div>
 </div></div>
 <div class="blk"><b>Fontes</b><ul class="src">
-<li><b>Runta (2026)</b>, "Introducing the FrontierHarness eval". Blogue institucional da empresa que roda o benchmark, não revisado por pares. Diga isso antes que perguntem. A tabela do post tem as 12 configurações; o gráfico do slide mostra 7 delas, as que têm valor citado no texto do projeto.</li>
+<li><b>Runta (2026)</b>, "Introducing the FrontierHarness eval". Blogue institucional da empresa que roda o benchmark, não revisado por pares. Diga isso antes que perguntem. A tabela do post tem as 12 configurações; o gráfico do slide mostra 7 delas, as que têm valor no texto do post.</li>
 </ul></div>
 <div class="blk"><b>Se perguntarem</b><ul class="q">
 <li><b>"Isso é fonte confiável?"</b>É a única medição pública que fixa o modelo e varia o <em>harness</em> em escala. Uso como motivação, não como evidência do resultado. A evidência revisada por pares do efeito do <em>harness</em> está no slide 9: SWE-agent (NeurIPS 2024).</li>
@@ -192,7 +192,7 @@ Companheiro de <code>dist/apresentacao-pcc/index.html</code> (17 slides). Leia e
 <li>Bytes e esquemas: medição própria, repositório <code>harness-bench</code>, pasta <code>layer1/data</code>.</li>
 </ul></div>
 <div class="blk"><b>Se perguntarem</b><ul class="q">
-<li><b>"O proxy não altera o que está sendo medido?"</b>Ele só repassa bytes e conta. O <em>gateway</em> injeta conteúdo, sim, mas é um deslocamento aditivo igual para os dois braços; ele não se cancela em razão, por isso eu reporto diferença absoluta e também a razão.</li>
+<li><b>"O proxy não altera o que está sendo medido?"</b>Ele só repassa bytes e conta. O <em>gateway</em> injeta conteúdo, sim, mas é um deslocamento aditivo igual para os dois braços; ele não se cancela em razão e cobraria de cada braço um excedente proporcional ao número de passos. Por isso eu conto no <em>proxy</em>, sobre os bytes transmitidos, e o relatório do <em>gateway</em> fica só para verificação cruzada.</li>
 <li><b>"Por que não escrever o próprio harness?"</b>Porque a pergunta é sobre escolher entre os que existem. O projeto escreve o instrumento, os <em>prompts</em> e os testes de aceitação; <em>harness</em>, nenhum.</li>
 </ul></div>
 </div>
@@ -221,7 +221,7 @@ Companheiro de <code>dist/apresentacao-pcc/index.html</code> (17 slides). Leia e
 <p>As nove <em>issues</em> técnicas, #14 a #22, viram as nove unidades de uma especificação única, congelada por hash, cada uma com testes de aceitação meus. É um produto de verdade, com pilha fixa. As comparações publicadas usam suítes de tarefas soltas.</p>
 </div></div>
 <div class="blk"><b>Números</b><div class="num">
-<div><b>21 <em>issues</em></b><small>#1 mapa; #2–#10 produto; #11–#22 técnicas</small></div>
+<div><b>21 <em>issues</em></b><small>#2–#22, sob o mapa #1: #2–#10 produto; #11–#22 técnicas</small></div>
 <div><b>9 unidades</b><small>U1 tenant · U2 governança · U3 <em>flags</em> · U4 <em>pipeline</em> de voz · U5 confirmação · U6 log · U7 relatório · U8 agendador · U9 cobrança</small></div>
 </div></div>
 <div class="blk"><b>Fontes</b><ul class="src">
@@ -284,7 +284,7 @@ Companheiro de <code>dist/apresentacao-pcc/index.html</code> (17 slides). Leia e
 
 <div class="card slide"><span class="n">9</span>
 <h3>Referencial teórico (linha do tempo)</h3>
-<p class="meta"><b>120 s</b> · <kbd>→</kbd> avança um nó; clique no nó abre a afirmação. Único slide com autores na tela.</p>
+<p class="meta"><b>120 s</b> · <kbd>→</kbd> avança um nó; clique no nó abre a afirmação. Slide com mais autores na tela.</p>
 <div class="blk"><b>Fale</b><div class="say">
 <p>Dez nós, em ordem. Vou passar rápido pelos primeiros e parar nos de 2026.</p>
 <p><b>Yao et al., 2022, ReAct.</b> O laço observar/agir mínimo. Já é um <em>harness</em>, o mais raso. O pi fica perto dele.</p>
@@ -306,7 +306,7 @@ Companheiro de <code>dist/apresentacao-pcc/index.html</code> (17 slides). Leia e
 <div><b>25,0 % vs 67,8 %</b><small>Runta 2026; taxa de <em>cache</em> do Claude Code, ponderada vs célula mediana</small></div>
 </div></div>
 <div class="blk"><b>Fontes</b><ul class="src">
-<li>Todas na tela. Fora da tela, mas no projeto: <b>Alier Forment et al. (2026)</b>, sem MCP 5,0× a 28× mais barato, pi o mais barato da matriz; <b>Miller (2024)</b>, barras de erro em avaliações, base para o teste pareado.</li>
+<li>Todas na tela. Fora da tela, mas no projeto: <b>Alier Forment et al. (2026)</b>, sem MCP 5,0× a 28× mais barato, pi o mais barato da matriz; <b>Miller (2024)</b>, barras de erro em avaliações, base para o teste pareado; <b>HarnessRank (2026)</b>, ordena <em>harnesses</em> por aprovação com modelo fixo e publica custo ao lado.</li>
 </ul></div>
 <div class="blk"><b>Se perguntarem</b><ul class="q">
 <li><b>"Quase tudo é preprint. Isso sustenta um projeto?"</b>Sustenta a motivação e a definição. A lacuna que eu ataco, atribuição por componente, é nomeada por Ning et al. e confirmada por Kapoor et al. (2025), e o método de medição não depende de nenhum resultado desses artigos. O que eu peço emprestado deles é a definição e a métrica.</li>
@@ -319,7 +319,7 @@ Companheiro de <code>dist/apresentacao-pcc/index.html</code> (17 slides). Leia e
 <p class="meta"><b>60 s</b> · <kbd>→</kbd> revela cada eixo</p>
 <div class="blk"><b>Fale</b><div class="say">
 <p>Natureza aplicada: o produto é um critério de escolha. Abordagem quanti e quali: meço tokens e sucesso, e atribuo a diferença à carga fixa ou aos passos. Objetivos: exploratória, porque comparar dois <em>harnesses</em> construindo o mesmo produto completo do zero, a partir da mesma especificação, não tem precedente publicado. Procedimentos: experimental; variável independente, o <em>harness</em>; controladas, modelo, especificação, espaço de trabalho inicial e limites. Método dedutivo: hipóteses antes da coleta.</p>
-<p>Uso de IA declarado, conforme a Portaria CNPq 2.664 de 2026, que pede ferramenta e finalidade. Ferramenta: Claude Code. Finalidade: síntese e conferência de fontes, num <em>LLM Wiki</em> no repositório, padrão de Karpathy (2026). Eu curei as fontes, conferi cada citação na obra original e respondo pelo texto.</p>
+<p>Uso de IA declarado, conforme a Portaria CNPq 2.664 de 2026, que pede ferramenta e finalidade. Ferramenta: Claude Code. Finalidade: entender o tema do projeto e ajudar a buscar mais artigos, num <em>LLM Wiki</em> no repositório, padrão de Karpathy (2026). Eu curei as fontes, conferi cada citação na obra original e respondo pelo texto.</p>
 </div></div>
 <div class="blk"><b>Fontes</b><ul class="src">
 <li>A classificação segue sem manual citado: as referências do projeto são só sobre o <em>harness</em>. <b>Brasil (2026)</b>: Portaria CNPq nº 2.664, de 6 de março de 2026, Política de Integridade. <b>Karpathy (2026)</b>: <em>gist</em> "LLM Wiki", o padrão que o repositório instancia.</li>
@@ -378,13 +378,13 @@ Companheiro de <code>dist/apresentacao-pcc/index.html</code> (17 slides). Leia e
 <div class="blk"><b>Números</b><div class="num">
 <div><b>Succ/Mtok</b><small>pass@1 × 10⁶ ÷ média de tokens por execução (Lin et al. 2026, Eq. 2)</small></div>
 <div><b>MDE ≈ 0,76σ</b><small>n = 3 por célula, 9 unidades, Wilcoxon bilateral, α = 0,05</small></div>
-<div><b>W crítico = 5</b><small>n = 9 pares, bilateral, α = 0,05</small></div>
+<div><b>W crítico = 5</b><small>k = 9 pares (as nove unidades), bilateral, α = 0,05</small></div>
 </div></div>
 <div class="blk"><b>Fontes</b><ul class="src">
 <li><b>Lin et al. (2026, Eq. 2)</b>: a métrica. <b>Miller (2024)</b>, "Adding error bars to evals": por que parear e reportar dispersão.</li>
 </ul></div>
 <div class="blk"><b>Se perguntarem</b><ul class="q">
-<li><b>"Nove pares é pouco."</b>É o que a cota gratuita permite com n ≥ 3. O MDE está declarado; se a diferença real for menor que 0,76σ, o resultado é "não detectado", e isso também responde H1 pela negativa.</li>
+<li><b>"Nove pares é pouco."</b>Nove pares são as nove unidades do Finn. A cota limita o n por célula. O MDE está declarado; se a diferença real for menor que 0,76σ, o resultado é "não detectado", e isso também responde H1 pela negativa.</li>
 <li><b>"Por que não teste t?"</b>Nove observações, distribuição desconhecida, possíveis <em>outliers</em> de laço preso. Wilcoxon usa postos e resiste a isso.</li>
 </ul></div>
 </div>
@@ -394,14 +394,14 @@ Companheiro de <code>dist/apresentacao-pcc/index.html</code> (17 slides). Leia e
 <p class="meta"><b>60 s</b> · <kbd>→</kbd> revela cada limitação; gráfico de inversão é ilustrativo</p>
 <div class="blk"><b>Fale</b><div class="say">
 <p>Quatro limitações declaradas de partida. Efeito específico do modelo: pode inverter de sinal; conclusões por nível, e o objetivo 5 testa isso. Um produto, uma pilha: o resultado vale para essa família de tarefas; outras pilhas ficam como trabalho futuro. Especificação humana e trajetória própria: eu escrevo a especificação, e cada braço carrega os próprios erros de uma unidade à seguinte; mitigado pela mesma entrada e pelo mesmo início vazio para os dois, com comparação pareada por unidade. Sem placar público: suíte própria, válido só braço contra braço; custo em dinheiro só como contrafactual rotulado.</p>
-<p>A ameaça principal ao desenho é a variância entre execuções no nível gratuito. Resposta: n ≥ 3, mediana com dispersão, e cobertura da matriz antes de repetições.</p>
+<p>A ameaça principal ao desenho é a variância entre execuções no nível gratuito. Resposta: n ≥ 3, mediana com dispersão, e reduzir cobertura antes de reduzir repetições.</p>
 <p>O gráfico de barras aqui é ilustrativo. A evidência real de inversão é Kapoor e colegas, 2025.</p>
 </div></div>
 <div class="blk"><b>Fontes</b><ul class="src">
 <li><b>Kapoor et al. (2025)</b>, HAL: Anthropic melhor com BrowserUse, OpenAI com SeeAct; a inversão de sinal entre modelos.</li>
 </ul></div>
 <div class="blk"><b>Se perguntarem</b><ul class="q">
-<li><b>"O que acontece se a cota acabar?"</b>A matriz roda em lotes, um por dia. Cobertura primeiro: todas as células com n = 1, depois n = 2, depois n = 3. Se parar antes, o que existe é reportado com o n que tem.</li>
+<li><b>"O que acontece se a cota acabar?"</b>A matriz roda em lotes, um por dia. Repetições primeiro: n = 3 no nível primário, nas nove unidades. Se a cota não comportar a matriz, eu trunco o nível de robustez após a unidade 6; se ainda não couber, tiro esse nível inteiro e reporto como não executado. Nunca abaixo de n = 3.</li>
 </ul></div>
 </div>
 
@@ -409,7 +409,7 @@ Companheiro de <code>dist/apresentacao-pcc/index.html</code> (17 slides). Leia e
 <h3>Orçamento e cronograma</h3>
 <p class="meta"><b>45 s</b> · clique numa fase; <kbd>→</kbd> revela as fases</p>
 <div class="blk"><b>Fale</b><div class="say">
-<p>Orçamento R$ 0,00. Inferência nos dois níveis gratuitos do <em>gateway</em>, o OpenCode Zen. <em>Harnesses</em> e ferramentas de código aberto. Máquinas que já tenho, uma NixOS e uma Windows. O limite vinculante não é dinheiro, é cota: um lote da matriz por dia.</p>
+<p>Orçamento R$ 0,00. Inferência nos dois níveis gratuitos do <em>gateway</em>, o OpenCode Zen (Opencode, 2026b). <em>Harnesses</em> e ferramentas de código aberto. Máquinas que já tenho, uma NixOS e uma Windows. O limite vinculante não é dinheiro, é cota: um lote da matriz por dia.</p>
 <p>Cronograma: agosto e setembro, leitura, tema e escrita, que está concluída. Outubro e novembro, instrumento, especificação e testes de aceitação. Dezembro e janeiro, a matriz. Janeiro, análise. A folga está concentrada onde a cota manda: na matriz e na escrita da especificação e dos testes.</p>
 </div></div>
 <div class="blk"><b>Se perguntarem</b><ul class="q">
@@ -418,13 +418,13 @@ Companheiro de <code>dist/apresentacao-pcc/index.html</code> (17 slides). Leia e
 </div>
 
 <div class="card slide"><span class="n">16</span>
-<h3>Referências citadas nos slides</h3>
+<h3>Referências</h3>
 <p class="meta"><b>20 s</b> · sem interação; pular se faltar tempo</p>
 <div class="blk"><b>Fale</b><div class="say">
-<p>As dezoito referências que apareceram nos slides, em ABNT abreviado, todas sobre o <em>harness</em>. O projeto tem 20; ficam de fora aqui duas citadas só no texto. Os <em>preprints</em> estão marcados.</p>
+<p>As vinte referências do projeto, em ABNT abreviado, todas sobre o <em>harness</em>; a mesma lista da seção 6. Os <em>preprints</em> estão marcados.</p>
 </div></div>
 <div class="blk"><b>Se perguntarem</b><ul class="q">
-<li><b>"Quais são as duas que faltam?"</b>HarnessRank e Opencode Zen (2026b), citadas só no texto.</li>
+<li><b>"Todas essas aparecem nos slides?"</b>Dezesseis na tela. Alier Forment, Miller, HarnessRank e Opencode (2026a) estão no texto do projeto e na minha fala dos slides 9, 12 e 13.</li>
 <li><b>"Cadê as normas ABNT e os manuais de metodologia?"</b>Saíram da lista em 14 de setembro: a lista só tem fontes sobre o <em>harness</em>. A formatação segue a ABNT mesmo assim, e a classificação da pesquisa fica sem manual citado.</li>
 </ul></div>
 </div>
@@ -449,7 +449,7 @@ Companheiro de <code>dist/apresentacao-pcc/index.html</code> (17 slides). Leia e
 <li><b>"O que significa 'carga fixa'?"</b><em>Prompt</em> de sistema e esquemas de ferramentas, que vão em toda requisição, independentemente da tarefa. Medida na Camada 1: 5.676 bytes no pi, 29.997 no OpenCode, na primeira requisição.</li>
 <li><b>"Qual o tamanho do efeito esperado?"</b>Não declaro um número. H1 diz "comparável a trocar de modelo" e o segundo nível dá a régua. O MDE de 0,76σ diz o que o desenho consegue ver.</li>
 <li><b>"Se H2 for refutada, o projeto falhou?"</b>Não. Se os passos explicarem mais que a carga fixa, o resultado diz que a diferença está no laço, não no <em>prompt</em>. É um desfecho previsto e reportável.</li>
-<li><b>"Onde entra a IA generativa no seu trabalho?"</b>Declarado conforme a Portaria CNPq 2.664/2026: Claude Code, para síntese e conferência de fontes num <em>LLM Wiki</em>, padrão de Karpathy (2026). O texto e as citações são meus e conferidos no original.</li>
+<li><b>"Onde entra a IA generativa no seu trabalho?"</b>Declarado conforme a Portaria CNPq 2.664/2026: Claude Code, para entender o tema e buscar mais artigos num <em>LLM Wiki</em>, padrão de Karpathy (2026). O texto e as citações são meus e conferidos no original.</li>
 </ul>
 </div>
 

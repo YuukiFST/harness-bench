@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Decisões do autor — auditoria de coerência (14 set. 2026)</title>
+<style>
+  :root { --bg:#0b0f14; --card:#121923; --line:#243040; --txt:#e8edf2; --mute:#8b98a8; --acc:#f5b638; --blue:#3b7bd6; --green:#7bd88f; --red:#ef6b6b; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--txt); font:18px/1.5 Inter, system-ui, sans-serif; }
+  main { max-width:1100px; margin:0 auto; padding:40px 24px 80px; }
+  h1 { font-size:34px; margin:0 0 6px; }
+  h2 { font-size:26px; margin:48px 0 8px; color:var(--acc); }
+  h3 { font-size:19px; margin:20px 0 8px; }
+  .mute { color:var(--mute); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 24px; margin:14px 0; }
+  .opts { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .opt { background:#0f151d; border:2px solid var(--line); border-radius:12px; padding:16px 18px; }
+  .opt.rec { border-color:var(--green); }
+  .opt b.tag { display:inline-block; font-size:13px; letter-spacing:.06em; text-transform:uppercase; color:var(--green); margin-bottom:6px; }
+  .opt ul { margin:8px 0 0; padding-left:20px; }
+  .where { font-size:15px; color:var(--mute); margin-top:10px; }
+  code { background:#0b1118; border:1px solid var(--line); border-radius:6px; padding:1px 6px; font-size:15px; }
+  svg text { font-family:Inter, system-ui, sans-serif; }
+  .answer { border-left:4px solid var(--acc); padding:10px 16px; background:#161c14; border-radius:0 10px 10px 0; margin-top:14px; }
+  .answer input[type=text] { width:100%; background:#0b0f14; color:var(--txt); border:1px solid var(--line); border-radius:8px; padding:8px 10px; font-size:16px; }
+  .done { border-color:var(--green); }
+  .done h2 { color:var(--green); }
+  table { border-collapse:collapse; width:100%; font-size:16px; }
+  th, td { text-align:left; padding:6px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { color:var(--mute); font-weight:600; }
+  .pill { display:inline-block; border:1.5px solid var(--blue); border-radius:999px; padding:2px 12px; font-size:14px; margin:2px 4px 2px 0; }
+  .pill.miss { border-color:var(--red); color:var(--red); }
+  .pill.extra { border-color:var(--acc); color:var(--acc); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Decisões do autor — auditoria de coerência</h1>
+  <div class="mute">harness-bench · docx × deck × roteiro · 14 set. 2026.</div>
+  <div class="answer"><b>Respondido em 14 set. 2026:</b> 1 A (barra fica), 2 A (lista com 20), 3 A (legado removido). Aplicado por <code>tools/pcc_edits_2026-09-14d.py</code>, <code>tools/slides_edits_2026-09-14g.py</code>, <code>tools/roteiro_edits_2026-09-14b.py</code>.</div>
+
+  <div class="card done">
+    <h2 style="margin-top:0">Resolvido: folha de rosto</h2>
+    O parágrafo [11] do <code>projeto-pcc.docx</code> dizia "Projeto de Conclusão de Curso ... requisito parcial para a conclusão do curso". Você confirmou: é um projeto de pesquisa da disciplina de Metodologia Científica. Correção prevista em [11]: "Projeto de pesquisa apresentado ao Departamento de Área de Informática ... na disciplina de Metodologia Científica do curso de Sistemas para Internet."
+  </div>
+
+  <!-- ============ Q1 ============ -->
+  <h2>Pergunta 1 — a barra "oh-my-pi" no gráfico do slide 2</h2>
+  <div class="card">
+    <p>O slide 2 mostra 7 barras do FrontierHarness (Runta, 2026). Uma delas é o <b>oh-my-pi</b>, que foi braço do desenho antigo do experimento e hoje é termo proibido nos artefatos. Aqui ele aparece só como uma linha da tabela do post, não como parte do seu desenho. A dúvida é se a banca pode confundir.</p>
+    <svg viewBox="0 0 1040 250" style="width:100%;height:auto">
+      <g font-size="15" fill="#e8edf2">
+        <text x="20" y="24" fill="#8b98a8">Hoje: 7 barras (US$ por tarefa concluída)</text>
+        <!-- bars -->
+        <g>
+          <rect x="20"  y="200" width="60" height="6"   fill="#3b7bd6"/><text x="50" y="230" text-anchor="middle">Exo</text><text x="50" y="192" text-anchor="middle" font-size="13">1,05</text>
+          <rect x="100" y="187" width="60" height="19"  fill="#f5b638"/><text x="130" y="230" text-anchor="middle">Pi</text><text x="130" y="179" text-anchor="middle" font-size="13">2,43</text>
+          <rect x="180" y="181" width="60" height="25"  fill="#f5b638"/><text x="210" y="230" text-anchor="middle">OpenCode</text><text x="210" y="173" text-anchor="middle" font-size="13">3,24</text>
+          <rect x="260" y="181" width="60" height="25"  fill="#3b7bd6"/><text x="290" y="230" text-anchor="middle">DSH Creator</text><text x="290" y="173" text-anchor="middle" font-size="13">3,28</text>
+          <rect x="340" y="180" width="60" height="26"  fill="#3b7bd6"/><text x="370" y="230" text-anchor="middle">Codex</text><text x="370" y="172" text-anchor="middle" font-size="13">3,47</text>
+          <rect x="420" y="170" width="60" height="36"  fill="#ef6b6b"/><text x="450" y="230" text-anchor="middle" fill="#ef6b6b">oh-my-pi</text><text x="450" y="162" text-anchor="middle" font-size="13">4,75</text>
+          <rect x="500" y="66"  width="60" height="140" fill="#3b7bd6"/><text x="530" y="230" text-anchor="middle">Claude Code</text><text x="530" y="58" text-anchor="middle" font-size="13">18,34</text>
+        </g>
+        <line x1="600" y1="20" x2="600" y2="240" stroke="#243040" stroke-width="2"/>
+        <text x="620" y="24" fill="#8b98a8">Opção B: 6 barras</text>
+        <g>
+          <rect x="620" y="200" width="60" height="6"   fill="#3b7bd6"/><text x="650" y="230" text-anchor="middle">Exo</text>
+          <rect x="700" y="187" width="60" height="19"  fill="#f5b638"/><text x="730" y="230" text-anchor="middle">Pi</text>
+          <rect x="780" y="181" width="60" height="25"  fill="#f5b638"/><text x="810" y="230" text-anchor="middle">OpenCode</text>
+          <rect x="860" y="181" width="60" height="25"  fill="#3b7bd6"/><text x="890" y="230" text-anchor="middle">DSH Creator</text>
+          <rect x="940" y="180" width="60" height="26"  fill="#3b7bd6"/><text x="970" y="230" text-anchor="middle">Codex</text>
+        </g>
+        <text x="620" y="120" fill="#8b98a8" font-size="13">(+ Claude Code 18,34, omitido aqui por escala)</text>
+      </g>
+    </svg>
+    <div class="opts">
+      <div class="opt rec">
+        <b class="tag">Opção A · recomendada</b>
+        <div><b>Manter a barra.</b> É dado da fonte externa, e o desenho antigo não aparece em nenhum texto.</div>
+        <ul>
+          <li>Nada muda no deck.</li>
+          <li>Registro no <code>log.md</code>: "oh-my-pi no slide 2 é linha do FrontierHarness, não braço do experimento".</li>
+          <li>Risco: alguém da banca que conheça o histórico do repositório pergunta; resposta pronta no roteiro.</li>
+        </ul>
+      </div>
+      <div class="opt">
+        <b class="tag" style="color:#8b98a8">Opção B</b>
+        <div><b>Retirar a barra.</b> Gráfico com 6 configurações.</div>
+        <ul>
+          <li>Edita <code>deck/src/content.ts</code> (FH) e o rodapé do slide 2 ("6 com valor no texto do post").</li>
+          <li>Roteiro: "o gráfico mostra 6 delas".</li>
+          <li>Custo: perde um ponto entre pi e Claude Code; o intervalo 1,05–18,34 continua igual.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="answer">Resposta 1 (A ou B): <input type="text" placeholder="A" /></div>
+  </div>
+
+  <!-- ============ Q2 ============ -->
+  <h2>Pergunta 2 — qual lista de referências vai no slide 16</h2>
+  <div class="card">
+    <p>O projeto tem <b>20</b> referências. O slide 16 diz "referências citadas nos slides" e lista <b>18</b>. O problema: o critério "citadas nos slides" está sendo aplicado de dois jeitos ao mesmo tempo.</p>
+    <svg viewBox="0 0 1040 300" style="width:100%;height:auto">
+      <g font-size="15">
+        <rect x="20" y="20" width="320" height="260" rx="14" fill="#0f151d" stroke="#3b7bd6" stroke-width="2"/>
+        <text x="180" y="50" text-anchor="middle" fill="#3b7bd6" font-weight="700">Aparece na TELA</text>
+        <text x="40" y="85" fill="#e8edf2">Runta · Earendil · Lin · Ning · Wang</text>
+        <text x="40" y="110" fill="#e8edf2">Yao · Yang · Kapoor 2024 · Kapoor 2025</text>
+        <text x="40" y="135" fill="#e8edf2">Zhang · Lee · Brasil · Karpathy</text>
+        <text x="40" y="160" fill="#e8edf2">YuukiFST 2026a · YuukiFST 2026b</text>
+        <text x="40" y="200" fill="#f5b638">"OpenCode Zen" no slide 15, sem citação</text>
+        <text x="40" y="225" fill="#8b98a8" font-size="13">(o produto é nomeado, mas Opencode 2026b não está na lista)</text>
+
+        <rect x="360" y="20" width="320" height="260" rx="14" fill="#0f151d" stroke="#f5b638" stroke-width="2"/>
+        <text x="520" y="50" text-anchor="middle" fill="#f5b638" font-weight="700">Só nas NOTAS / roteiro</text>
+        <text x="380" y="85" fill="#e8edf2">Alier Forment 2026 → está na lista</text>
+        <text x="380" y="110" fill="#e8edf2">Miller 2024 → está na lista</text>
+        <text x="380" y="135" fill="#e8edf2">Opencode 2026a → está na lista</text>
+        <text x="380" y="175" fill="#ef6b6b">HarnessRank 2026 → NÃO está</text>
+        <text x="380" y="200" fill="#ef6b6b">Opencode Zen 2026b → NÃO está</text>
+        <text x="380" y="240" fill="#8b98a8" font-size="13">mesmo tipo de citação, tratamento diferente</text>
+
+        <rect x="700" y="20" width="320" height="260" rx="14" fill="#0f151d" stroke="#243040" stroke-width="2"/>
+        <text x="860" y="50" text-anchor="middle" fill="#8b98a8" font-weight="700">Só no DOCX</text>
+        <text x="720" y="85" fill="#8b98a8">(nenhuma: as 20 aparecem em tela,</text>
+        <text x="720" y="110" fill="#8b98a8">notas ou roteiro)</text>
+      </g>
+    </svg>
+    <div class="opts">
+      <div class="opt rec">
+        <b class="tag">Opção A · recomendada</b>
+        <div><b>Lista com 20, igual ao projeto.</b> Critério: tudo que é citado na tela ou nas notas.</div>
+        <ul>
+          <li>Acrescenta HarnessRank (2026) e Opencode Zen (2026b) ao <code>REFS</code>.</li>
+          <li>Slide 15 passa a citar "(Opencode, 2026b)" ao lado de "OpenCode Zen".</li>
+          <li>Subtítulo do slide 16: "as 20 referências do projeto"; roteiro deixa de falar em "duas que faltam".</li>
+          <li>Vantagem: uma pergunta a menos da banca ("por que 18 e não 20?").</li>
+        </ul>
+      </div>
+      <div class="opt">
+        <b class="tag" style="color:#8b98a8">Opção B</b>
+        <div><b>Lista só com o que está na tela: 15.</b></div>
+        <ul>
+          <li>Retira Alier Forment, Miller e Opencode 2026a do <code>REFS</code>.</li>
+          <li>Slide 15: ou cita Zen (vira 16) ou troca "OpenCode Zen" por "gateway gratuito".</li>
+          <li>Roteiro: "quinze na tela, vinte no projeto; as outras cinco estão só no texto e nas minhas notas".</li>
+          <li>Custo: Miller sustenta o teste pareado e o roteiro o menciona no slide 13; some da tela.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="answer">Resposta 2 (A ou B): <input type="text" placeholder="A" /></div>
+  </div>
+
+  <!-- ============ Q3 ============ -->
+  <h2>Pergunta 3 — o deck legado <code>dist/apresentacao-pcc.html</code></h2>
+  <div class="card">
+    <p>Existem dois decks. O atual é <code>dist/apresentacao-pcc/index.html</code> (17 slides, gerado de <code>deck/</code>). O legado <code>dist/apresentacao-pcc.html</code> (16 slides, arquivo único) parou de ser atualizado e ainda contém <span class="pill miss">Gil, 2022</span> <span class="pill miss">Prodanov; Freitas, 2013</span> <span class="pill miss">oh-my-pi</span>. Se alguém abrir o arquivo errado no dia, apresenta conteúdo removido.</p>
+    <svg viewBox="0 0 1040 150" style="width:100%;height:auto">
+      <g font-size="15">
+        <rect x="20" y="20" width="300" height="110" rx="12" fill="#0f151d" stroke="#7bd88f" stroke-width="2"/>
+        <text x="170" y="50" text-anchor="middle" fill="#7bd88f" font-weight="700">deck/ (fonte)</text>
+        <text x="170" y="80" text-anchor="middle" fill="#e8edf2">npm run build ↓</text>
+        <text x="170" y="110" text-anchor="middle" fill="#e8edf2">dist/apresentacao-pcc/index.html · 17</text>
+        <rect x="380" y="20" width="300" height="110" rx="12" fill="#0f151d" stroke="#ef6b6b" stroke-width="2"/>
+        <text x="530" y="50" text-anchor="middle" fill="#ef6b6b" font-weight="700">dist/apresentacao-pcc.html</text>
+        <text x="530" y="80" text-anchor="middle" fill="#e8edf2">16 slides · sem build · desatualizado</text>
+        <text x="530" y="110" text-anchor="middle" fill="#8b98a8">roteiro e AGENTS.md ainda o citam</text>
+        <rect x="740" y="20" width="280" height="110" rx="12" fill="#0f151d" stroke="#243040" stroke-width="2"/>
+        <text x="880" y="50" text-anchor="middle" fill="#8b98a8" font-weight="700">git history</text>
+        <text x="880" y="80" text-anchor="middle" fill="#e8edf2">o arquivo continua recuperável</text>
+        <text x="880" y="110" text-anchor="middle" fill="#8b98a8">mesmo se removido de dist/</text>
+      </g>
+    </svg>
+    <div class="opts">
+      <div class="opt rec">
+        <b class="tag">Opção A · recomendada</b>
+        <div><b>Remover o legado</b> (fica no histórico do git).</div>
+        <ul>
+          <li><code>git rm dist/apresentacao-pcc.html</code>; AGENTS.md e <code>content.ts:2</code> deixam de apontar para ele.</li>
+          <li>Um único deck para abrir no dia.</li>
+        </ul>
+      </div>
+      <div class="opt">
+        <b class="tag" style="color:#8b98a8">Opção B</b>
+        <div><b>Manter como histórico</b>, sem corrigir.</div>
+        <ul>
+          <li>Renomear para <code>dist/legacy/apresentacao-pcc-2026-09-14.html</code> e anotar no README do <code>deck/</code>.</li>
+          <li>Continua carregando os termos removidos; não será auditado de novo.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="answer">Resposta 3 (A ou B): <input type="text" placeholder="A" /></div>
+  </div>
+
+  <!-- ============ what happens next ============ -->
+  <h2>O que será aplicado sem depender de você</h2>
+  <div class="card">
+    <table>
+      <tr><th>Onde</th><th>Correção</th></tr>
+      <tr><td>docx [11]</td><td>Folha de rosto: projeto de pesquisa de Metodologia Científica (já decidido).</td></tr>
+      <tr><td>docx [47]</td><td>"suíte de tarefas" → "produto e especificação" (termo do desenho antigo).</td></tr>
+      <tr><td>deck slide 5, nota 5, roteiro</td><td>"21 issues (#1–#22)" → "21 issues (#2–#22) sob o mapa #1".</td></tr>
+      <tr><td>deck slide 10, roteiro</td><td>Finalidade do Claude Code alinhada ao [58]: entender o tema e buscar mais artigos.</td></tr>
+      <tr><td>nota 10</td><td>Remove "(Gil, 2022; Prodanov; Freitas, 2013)".</td></tr>
+      <tr><td>deck slide 10 rodapé</td><td>"(YuukiFST, 2026)" → "(YuukiFST, 2026b)".</td></tr>
+      <tr><td>deck slide 14, roteiro</td><td>"cobertura antes de repetições" → "reduzir cobertura antes de reduzir repetições"; resposta da cota reescrita conforme a escada do protocolo (nunca n &lt; 3).</td></tr>
+      <tr><td>nota 13, roteiro</td><td>"n = 9 pares" → "k = 9 pares"; "nove pares é o que a cota permite" → nove pares são as nove unidades.</td></tr>
+      <tr><td>roteiro</td><td>Lista de slides com autor na tela; "único slide com autores" → "slide com mais autores"; "valor no texto do projeto" → "no texto do post"; resposta do proxy alinhada ao [63].</td></tr>
+      <tr><td>deck</td><td>Cartão inicial do slide 9 igual ao <code>content.ts</code>; comentários HTML renumerados; "15 slides" → "17".</td></tr>
+    </table>
+  </div>
+</main>
+</body>
+</html>

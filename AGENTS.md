@@ -67,7 +67,7 @@ This wiki is the knowledge base of the harness-bench research project (a *projet
 
 ## Slides (apresentação)
 
-Any work on slides or HTML presentation files (`dist/apresentacao-pcc.html`, `deck/`) must first read `.claude/skills/frontend-slides/SKILL.md` (upstream: https://github.com/zarazhangrui/frontend-slides) and follow it, Mode C (enhancement) for existing decks: keep the single self-contained HTML file, keep the fixed 1920×1080 stage scaled as a whole, never reflow slide content per device, max 4–6 bullets per slide (split the slide instead of overflowing), and after any change verify no text overflows its card and no panels overlap.
+Any work on slides or HTML presentation files (`deck/`, built into `dist/apresentacao-pcc/index.html`; the single-file `dist/apresentacao-pcc.html` was removed on 2026-09-14) must first read `.claude/skills/frontend-slides/SKILL.md` (upstream: https://github.com/zarazhangrui/frontend-slides) and follow it, Mode C (enhancement) for existing decks: keep the single self-contained HTML file, keep the fixed 1920×1080 stage scaled as a whole, never reflow slide content per device, max 4–6 bullets per slide (split the slide instead of overflowing), and after any change verify no text overflows its card and no panels overlap.
 
 ## Project documents (PCC)
 

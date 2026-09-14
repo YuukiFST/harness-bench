@@ -1,5 +1,5 @@
-// Conteúdo congelado do deck: textos, números e ordem dos 15 slides.
-// Fonte: dist/apresentacao-pcc.html (auditado). Não alterar palavras nem números.
+// Conteúdo congelado do deck: textos, números e ordem dos 17 slides.
+// Fonte: dist/projeto-pcc.docx (tools/docx_prose.py dump), auditado em 2026-09-14. Não alterar palavras nem números.
 // Qualquer correção aparente vai para _review.md, nunca para edição direta.
 
 export interface FrontierRow {
@@ -180,6 +180,7 @@ export const REFS: string[] = [
   "ALIER FORMENT, M. <em>et al.</em> <b>The scaffolding matters more than the interface</b>. arXiv:2608.08654, 2026. <em>Preprint</em>.",
   "BRASIL. CNPq. <b>Portaria CNPq nº 2.664, de 6 de março de 2026</b>. Política de Integridade na Atividade Científica. DOU, 11 mar. 2026.",
   "EARENDIL. <b>Pi, minimal and performant</b>. 2026. Blogue institucional.",
+  "HARNESSRANK. <b>HarnessRank</b>: coding-agent harness rankings. 2026.",
   "KAPOOR, S. <em>et al.</em> <b>AI agents that matter</b>. arXiv:2407.01502, 2024. <em>Preprint</em>.",
   "KAPOOR, S. <em>et al.</em> <b>Holistic Agent Leaderboard</b>. arXiv:2510.11977, 2025. <em>Preprint</em>.",
   "KARPATHY, A. <b>LLM Wiki</b>: a pattern for building personal knowledge bases using LLMs. 2026. Gist (GitHub).",
@@ -188,6 +189,7 @@ export const REFS: string[] = [
   "MILLER, E. <b>Adding error bars to evals</b>. arXiv:2411.00640, 2024. <em>Preprint</em>.",
   "NING, X. <em>et al.</em> <b>Code as agent harness</b>. arXiv:2605.18747, 2026. <em>Preprint</em>.",
   "OPENCODE. <b>OpenCode</b>: the open source coding agent. 2026a. Repositório de código.",
+  "OPENCODE. <b>Zen</b>. 2026b. Documentação do produto.",
   "RUNTA. <b>Introducing the FrontierHarness eval</b>. 2026. Blogue institucional.",
   "WANG, R. <em>et al.</em> <b>Harness Handbook</b>. arXiv:2607.13285, 2026. <em>Preprint</em>.",
   "YANG, J. <em>et al.</em> <b>SWE-agent</b>: agent-computer interfaces enable automated software engineering. NeurIPS, 2024.",
