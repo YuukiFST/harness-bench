@@ -4,7 +4,7 @@ type: concept
 summary: Efeito do harness e por modelo; ordenacao pode inverter entre niveis
 tags: [modelo, inversao, robustez, niveis]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-14
 sources: [wiki/sources/agentic-harness-engineering-lin-2026.md, wiki/sources/holistic-agent-leaderboard-kapoor-2025.md, wiki/sources/frontierharness-runta-2026.md, wiki/sources/stop-comparing-harness-zhang-2026.md]
 ---
 
@@ -21,7 +21,7 @@ Ressalva permanente do PCC: o efeito e especifico do modelo e pode inverter de s
 
 ## Resposta do PCC
 
-Dois niveis (primario + robustez), mesmo gateway (source: [[zen-opencode-2026]]), relatados em separado, nunca medios. Se a ordenacao inverter, a inversao e o resultado. Conclusoes enunciadas por nivel.
+Dois niveis (primario + robustez), mesmo gateway (source: [[zen-opencode-2026]]), relatados em separado, nunca medios. Se a ordenacao inverter, a inversao e o resultado. Conclusoes enunciadas por nivel. Objetivo (5): a ordenacao OpenCode vs pi se mantem ou inverte no segundo nivel.
 
 ## Contradictions
 

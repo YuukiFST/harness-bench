@@ -1,10 +1,10 @@
 ---
 title: Metodologia do Trabalho Cientifico (Prodanov e Freitas, 2013)
 type: source
-summary: E-book Feevale; taxonomia natureza-objetivos-abordagem-procedimentos do PCC
+summary: E-book Feevale; eixos natureza-abordagem-objetivos-procedimentos-metodo usados no PCC
 tags: [metodologia, classificacao, aplicada, experimental, quali-quanti]
 created: 2026-09-10
-updated: 2026-09-11
+updated: 2026-09-14
 dated: unknown
 sources: []
 ---
@@ -23,12 +23,14 @@ PRODANOV, Cleber Cristiano; FREITAS, Ernani Cesar de. **Metodologia do trabalho 
 
 ## Uso no PCC (atribuicao correta)
 
-- Fonte da classificacao unificada em 4 dimensoes: finalidade **aplicada**; abordagem **quali-quantitativa**; objetivos **exploratoria**; procedimentos **experimental**; metodo **dedutivo**.
+- Fonte dos eixos de classificacao usados em §3 [57]: natureza **aplicada** (p. 51); abordagem **quantitativa e qualitativa** combinadas (p. 69-70); objetivos **exploratoria** (p. 51); procedimentos **experimental** (p. 57); metodo **dedutivo** (p. 27).
+- Rotulos (decisao 2026-09-14): o handout `files/Estrutura do projeto de pesquisa-aula3.pdf` usa "finalidade" e "quali-quantitativa"; o texto do PCC segue os rotulos do livro ("natureza"; quantitativo e qualitativo como abordagens combinadas), que e a obra citada ao lado de [[gil-2022-como-elaborar-projetos-de-pesquisa]]. Prodanov e Freitas fica na lista.
+- Data: o e-book traz so o ano (folha de rosto: "Novo Hamburgo - Rio Grande do Sul - Brasil 2013"; ficha: "2. ed. - Novo Hamburgo: Feevale, 2013"), por isso `dated: unknown`. A divergencia de ordem Lakatos/Marconi anotada em 2026-09-10 diz respeito a outra obra, que nao esta na lista do PCC; sem efeito.
 - Nao atribuir a Prodanov e Freitas: origem da triade exploratoria/descritiva/explicativa (Gil), triangulacao quali-quanti (Lakatos e Marconi, *Metodologia cientifica*), definicao canonica de pesquisa experimental (Gil).
 
 ### Auditoria de conteudo 2026-09-11
 
 - Citada em: §3 [57].
 - Afirmacao sustentada: aplicada (eixo natureza, p. 51); exploratoria (p. 51); experimental (p. 57); quantitativa/qualitativa (p. 69-70); dedutivo (p. 27).
-- Veredito: CITAÇÃO ÓRFÃ (entrada removida da lista); "finalidade" e "quali-quantitativa" nao sao rotulos do livro. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
+- Veredito: CITAÇÃO ÓRFÃ (entrada removida da lista); "finalidade" e "quali-quantitativa" nao sao rotulos do livro. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]]. Resolvido 2026-09-11 (entrada recolocada, [183]) e 2026-09-14 (rotulos, acima).
 

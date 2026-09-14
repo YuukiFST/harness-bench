@@ -1,3 +1,4 @@
+# RETIRED 2026-09-14: stopped reproducing dist/projeto-pcc.docx at cd30dbe; edit the document with tools/docx_prose.py dump | apply (AGENTS.md, "Project documents"). Kept for history only; do not run.
 """Build dist/projeto-pcc.docx — the IFMT projeto de pesquisa (Metodologia Científica).
 
 Structure, page budget and reduction ladder come from docs/spec/14-document-outline.md,

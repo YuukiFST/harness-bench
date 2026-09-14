@@ -30,3 +30,4 @@ __pycache__/
 # Dependencies (never commit vendored installs).
 node_modules/
 deck/node_modules/
+.tmp/

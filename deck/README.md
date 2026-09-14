@@ -1,8 +1,10 @@
 # Apresentação PCC — deck reconstruído
 
 Deck da apresentação oral do projeto de pesquisa "O harness como decisão do desenvolvedor"
-(Metodologia Científica, IFMT). Conteúdo (textos, números, notas, ordem dos 15 slides)
-congelado de `../dist/apresentacao-pcc.html`: não alterar palavras nem números.
+(Metodologia Científica, IFMT). Conteúdo (textos, números, notas, ordem dos 17 slides)
+congelado de `../dist/apresentacao-pcc.html` na versão de 2026-09-14 (experimento Finn:
+OpenCode vs pi): não alterar palavras nem números. Mudança de conteúdo passa por
+`tools/deck_edits_<data>.py`, espelhando `tools/slides_edits_<data>.py`.
 
 ## Stack
 
@@ -33,7 +35,7 @@ chrome-devtools-axi resize 1920 1080
 chrome-devtools-axi eval "document.querySelectorAll('.slide').length"
 chrome-devtools-axi console
 chrome-devtools-axi perf-start
-# percorrer os 15 slides com a seta, interagir no slide 3, tecla N nas notas
+# percorrer os 17 slides com a seta, interagir no slide 3, tecla N nas notas
 chrome-devtools-axi perf-stop
 ```
 

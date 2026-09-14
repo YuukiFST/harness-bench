@@ -4,7 +4,7 @@ type: concept
 summary: Verificador captura a tarefa ou so um proxy executavel estreito
 tags: [oraculo, verificador, gaming, held-out]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-14
 sources: [wiki/sources/code-as-agent-harness-ning-2026.md, wiki/sources/deepswe-huang-2026.md, wiki/sources/holistic-agent-leaderboard-kapoor-2025.md, wiki/sources/ai-agents-that-matter-kapoor-2024.md, wiki/sources/scaffolding-matters-alier-forment-2026.md]
 ---
 
@@ -22,7 +22,7 @@ Gargalo central (source: [[code-as-agent-harness-ning-2026]], Secao 5.2.1): "*or
 
 ## Resposta do PCC
 
-Oraculo proprio executado pelo runner, nunca a suite do agente (modelo que alucina API escreve testes que mocam a alucinacao). Testes visiveis (credito por iterar) vs held-out (decidem o objetivo). Verificadores funcionais + checks de regressao (shallow clone) + auditoria de logs; taxonomia failed/discarded/tampered. Holdouts no nivel certo de generalidade (source: [[ai-agents-that-matter-kapoor-2024]]).
+Oraculo proprio executado pelo runner, nunca a suite do agente (modelo que alucina API escreve testes que mocam a alucinacao). Desde 2026-09-14: testes de aceitacao Vitest escritos pelo autor por unidade da especificacao do [[finn]], antes da execucao, mantidos fora do espaco de trabalho (held-out) e rodados sobre uma copia dele ao fim de cada unidade; a fracao aprovada e o escore e todos aprovados = *ticket* concluido. Auditoria de logs; taxonomia nao-concluida/descartada/adulterada. Holdouts no nivel certo de generalidade (source: [[ai-agents-that-matter-kapoor-2024]]).
 
 ## Contradictions
 

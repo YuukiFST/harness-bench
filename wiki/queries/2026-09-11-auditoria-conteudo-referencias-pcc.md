@@ -4,9 +4,11 @@ type: query
 summary: 21 entradas lidas contra o corpo; 12 concretas, 6 divergentes, 1 fora do tema, 1 nao citada, 6 citacoes orfas
 tags: [auditoria, referencias, conteudo, tema, nbr]
 created: 2026-09-11
-updated: 2026-09-11
+updated: 2026-09-14
 sources: [wiki/sources/portaria-cnpq-2664-2026.md, wiki/sources/scaffolding-matters-alier-forment-2026.md, wiki/sources/pier-datacurve-2026.md, wiki/sources/pi-earendil-2026.md, wiki/sources/harnessrank-2026.md, wiki/sources/deepswe-huang-2026.md, wiki/sources/swe-bench-jimenez-2023.md, wiki/sources/ai-agents-that-matter-kapoor-2024.md, wiki/sources/holistic-agent-leaderboard-kapoor-2025.md, wiki/sources/meta-harness-lee-2026.md, wiki/sources/agentic-harness-engineering-lin-2026.md, wiki/sources/lost-in-the-middle-liu-2023.md, wiki/sources/adding-error-bars-miller-2024.md, wiki/sources/code-as-agent-harness-ning-2026.md, wiki/sources/zen-opencode-2026.md, wiki/sources/frontierharness-runta-2026.md, wiki/sources/harness-handbook-wang-2026.md, wiki/sources/swe-agent-yang-2024.md, wiki/sources/react-yao-2022.md, wiki/sources/stop-comparing-harness-zhang-2026.md, wiki/sources/metodologia-prodanov-freitas-2013.md, wiki/sources/estrutura-projeto-template-ifmt-2022.md]
 ---
+
+> Histórico: descreve o desenho anterior a 2026-09-14 (harness zero, oh-my-pi, DeepSWE). O desenho vigente está em `docs/spec/11-experimental-protocol.md`.
 
 # Auditoria de conteudo das referencias do PCC — as of 2026-09-11
 
@@ -74,7 +76,7 @@ Corrigir no corpo:
 - **[52] Earendil/Databricks**: acrescentar "em alguns casos".
 - **[60] DeepSWE vs SWE-bench**: "outra ordem de grandeza" e inferencia (668 vs 32,8 linhas); citar os numeros.
 - **[57] Prodanov/Freitas**: "quanto a finalidade" e "quali-quantitativa" nao sao rotulos do livro; atribuir a Gil ou reescrever com os eixos do livro (natureza; abordagem).
-- **[59]/[173] YuukiFST**: tornar o repositorio publico antes da entrega ou retirar a entrada.
+- **[59]/[173] YuukiFST**: entrada mantida (decisao do autor, 2026-09-14).
 
 Lista de referencias:
 
@@ -111,7 +113,17 @@ Aplicado em `dist/projeto-pcc.docx` (indices do dump apos a edicao; PR da issue 
 
 Pendente para o autor (em `_review.md`):
 
-- YuukiFST (2026): repositorio privado; tornar publico antes da entrega.
+- YuukiFST (2026): entrada mantida (decisao do autor, 2026-09-14).
 - Nome da ferramenta em [58] ("Claude Code"): `log.md` nao registra o nome por sessao; confirmar.
 - Bogdanov (2026): fora da lista; so volta com linha de excecao em `AGENTS.md`.
 - Gil (2022) e ABNT: continuam NÃO VERIFICADAS.
+
+## Resolucao das pendencias (2026-09-14)
+
+- Gil (2022) e as tres normas ABNT: entradas conferidas em catalogo ou folha de rosto; paginas [[gil-2022-como-elaborar-projetos-de-pesquisa]], [[abnt-nbr-6023-2025]], [[abnt-nbr-10520-2023]], [[abnt-nbr-15287-2025]]. Gil segue nao lido (so a entrada).
+- ABNT 2025a/2025b: NBR 6023:2025 §9.1 manda ordem crescente dos numerais; NBR 6023 = 2025a, NBR 15287 = 2025b, como esta. Sem troca; `dump` confere ([47], [168], [169]).
+- Rotulos de [57]: mantidos os eixos do livro de Prodanov e Freitas (natureza, abordagem, objetivos, procedimentos, metodo); registrado em [[metodologia-prodanov-freitas-2013]].
+- Bogdanov (2026): fora da lista e do texto, sem excecao em `AGENTS.md`. Liu et al. (2023): fora da lista desde 2026-09-14 (24 entradas). HarnessRank, Runta, Lee e Zhang: texto corrigido em 2026-09-11/14 ([52], [53], [55]).
+- Camada 1 como "estudo piloto": nao volta ao `.docx`. O projeto descreve o que sera feito ([59] apresenta a Camada 1 no futuro); os dados medidos ficam em `layer1/data/`, em `docs/spec/41-layer1-request-shape.md` e no slide 6 de `dist/apresentacao-pcc.html`.
+- Zhang, HAL e DeepSWE: numeros conferidos nos PDFs de `raw/sources/` (secoes "Verificacao no PDF" nas paginas); HAL corrigido (par "Sonnet 4.5 68->34" nao existe no v1).
+- "Learn Pi in 22 Min" e "vagas pedem Claude Code/Codex/Cursor": retirados da wiki como apoio; nao entram no texto.

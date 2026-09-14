@@ -249,7 +249,7 @@ INSERT = {185: ("BOGDANOV, Mikhail. **AI coding agents**: adoption trends. 2026.
 
 
 def main() -> None:
-    # Template caps the justificativa at 12 lines; build_pcc.py counts 79 chars per line.
+    # Template caps the justificativa at 12 lines; legacy/build_pcc.py counts 79 chars per line.
     lines = sum(math.ceil(len(re.sub(r"\*", "", P[i])) / 79) for i in (26, 27))
     print(f"justificativa: {lines} linhas (max 12)", file=sys.stderr)
     sys.stdout.reconfigure(encoding="utf-8")

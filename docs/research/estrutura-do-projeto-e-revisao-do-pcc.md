@@ -1,5 +1,7 @@
 # Estrutura do projeto de pesquisa e revisão do `projeto-pcc.docx`
 
+> Histórico: descreve o desenho anterior a 2026-09-14 (harness zero, oh-my-pi, DeepSWE). O desenho vigente está em `docs/spec/11-experimental-protocol.md`.
+
 Documento vivo.
 Confere o `dist/projeto-pcc.docx` contra o material da disciplina em `files/` e contra o que se mede na própria prosa.
 
@@ -255,8 +257,8 @@ Por retorno, do maior para o menor:
 
 1. ~~Escrever a **contribuição social e acadêmica** na justificativa (§3.1).~~ Feito em 10 set. 2026.
 2. ~~Inserir **citações diretas** no Referencial Teórico (§3.3).~~ Feito em 10 set. 2026: duas diretas curtas, uma direta longa e uma citação de citação.
-3. Cortar os **objetivos específicos a uma linha** cada (§3.2).
-3b. Reconciliar `tools/build_pcc.py` com o `.docx`, ou aposentá-lo (§3.7). Enquanto os dois divergirem, rodar o gerador destrói o documento.
+3. ~~Cortar os **objetivos específicos a uma linha** cada (§3.2).~~ Decisão do autor em 14 set. 2026: ficam com 2-3 linhas.
+3b. ~~Reconciliar `tools/build_pcc.py` com o `.docx`, ou aposentá-lo (§3.7).~~ Aposentado em 14 set. 2026: movido para `tools/legacy/build_pcc.py`; a edição é só por `tools/docx_prose.py`.
 4. ~~Perguntar à orientadora a data de entrega; resolver os três **marcadores editoriais** e o cronograma (§3.4, §3.5).~~ Data: setembro de 2026; cronograma em SETEMBRO-JANEIRO e marcadores virados em prosa.
 5. Reescrever os fechos de parágrafo: manter cinco justificativas, soltar as outras (§5.1). Parcial em 11 set. 2026: `porque` 12, `já que` 6, `por isso` 4 nos 71 parágrafos do corpo.
 6. ~~Marcar o tempo futuro na Metodologia e na seção 3 (§5.5).~~ Feito em 11 set. 2026.

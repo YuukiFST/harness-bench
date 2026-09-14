@@ -4,8 +4,8 @@ function num(id: string): number {
   return Number((document.getElementById(id) as HTMLInputElement).value);
 }
 
-const diff = [0.6, 0.8, 0.9, 1.0, 1.1, 1.25, 1.4, 1.7];
-const CRIT: Record<number, number> = { 8: 3, 7: 2, 6: 0 };
+const diff = [0.6, 0.8, 0.9, 1.0, 1.1, 1.25, 1.4, 1.55, 1.7];
+const CRIT: Record<number, number> = { 9: 5, 8: 3, 7: 2, 6: 0 };
 
 function succ(p: number, tk: number): number {
   return (p * 1e6) / (tk * 1000);
@@ -73,18 +73,18 @@ export function initSucc(): void {
     if (!(svg instanceof SVGSVGElement)) return;
     const mx = Math.max(...A, ...B, 0.01);
     let h =
-      '<text x="380" y="30" text-anchor="middle" fill="#8b98a8" font-size="22">Succ/Mtok por tarefa · A (âmbar) vs B (azul)</text>';
-    for (let i = 0; i < 8; i++) {
-      const y = 70 + i * 54;
+      '<text x="380" y="30" text-anchor="middle" fill="#8b98a8" font-size="22">Succ/Mtok por unidade · A (âmbar) vs B (azul)</text>';
+    for (let i = 0; i < 9; i++) {
+      const y = 64 + i * 49;
       const xa = 120 + (A[i] / mx) * 560;
       const xb = 120 + (B[i] / mx) * 560;
       const good = D[i] > 0;
       h +=
-        `<text x="100" y="${y + 8}" text-anchor="end" fill="#8b98a8" font-size="22">T${i + 1}</text>` +
+        `<text x="100" y="${y + 8}" text-anchor="end" fill="#8b98a8" font-size="22">U${i + 1}</text>` +
         `<line x1="120" y1="${y}" x2="680" y2="${y}" stroke="#1a2432" stroke-width="2"/>` +
-        `<line x1="${xa}" y1="${y}" x2="${xb}" y2="${y}" stroke="${good ? "#7bd88f" : "#ef6b6b"}" stroke-width="6" stroke-linecap="round"><title>T${i + 1}: A ${A[i].toFixed(2)} vs B ${B[i].toFixed(2)}</title></line>` +
-        `<circle cx="${xa}" cy="${y}" r="10" fill="#f5b638" stroke="#0b0f14" stroke-width="2"><title>A · T${i + 1}: ${A[i].toFixed(2)}</title></circle>` +
-        `<circle cx="${xb}" cy="${y}" r="10" fill="#3b7bd6" stroke="#0b0f14" stroke-width="2"><title>B · T${i + 1}: ${B[i].toFixed(2)}</title></circle>`;
+        `<line x1="${xa}" y1="${y}" x2="${xb}" y2="${y}" stroke="${good ? "#7bd88f" : "#ef6b6b"}" stroke-width="6" stroke-linecap="round"><title>U${i + 1}: A ${A[i].toFixed(2)} vs B ${B[i].toFixed(2)}</title></line>` +
+        `<circle cx="${xa}" cy="${y}" r="10" fill="#f5b638" stroke="#0b0f14" stroke-width="2"><title>A · U${i + 1}: ${A[i].toFixed(2)}</title></circle>` +
+        `<circle cx="${xb}" cy="${y}" r="10" fill="#3b7bd6" stroke="#0b0f14" stroke-width="2"><title>B · U${i + 1}: ${B[i].toFixed(2)}</title></circle>`;
     }
     h += `<text x="380" y="512" text-anchor="middle" fill="#8b98a8" font-size="20">segmento verde: A &gt; B · vermelho: A &lt; B · postos sinalizados das diferenças</text>`;
     svg.innerHTML = h;

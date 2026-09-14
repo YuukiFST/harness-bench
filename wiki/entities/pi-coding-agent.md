@@ -1,10 +1,10 @@
 ---
 title: Pi Coding Agent
 type: entity
-summary: Harness minimo de Mario Zechner; 4 ferramentas, sem MCP nem subagentes
+summary: Braco do PCC; harness minimo de Mario Zechner, 4 ferramentas, sem MCP nem subagentes
 tags: [pi, harness, bracos, minimalismo]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-14
 sources: [wiki/sources/pi-earendil-2026.md, wiki/sources/scaffolding-matters-alier-forment-2026.md, wiki/sources/frontierharness-runta-2026.md]
 ---
 
@@ -24,7 +24,7 @@ Padrao: `read`, `write`, `edit`, `bash` (+ `grep`, `find`, `ls` disponiveis); sy
 
 ## No PCC
 
-Polo original do par de H2; um dos bracos da Camada 1 (5.676 bytes / 1.228 tokens na primeira requisicao). Sem adaptador no executor — escrito neste projeto. Ver [[oh-my-pi]] e [[atribuicao-harness-vs-modelo]].
+Um dos dois bracos (com [[opencode]]) desde 2026-09-14: constroi o [[finn]] do zero, da mesma especificacao, unidade a unidade, via `pi --mode json` apontando `models.json` para o *proxy*. Camada 1: 5.676 bytes / 1.228 tokens / 4 schemas na primeira requisicao (pi 0.80.10, 28 ago. 2026), +555 bytes por passo. Referencia no PCC: Earendil (2026). Ver [[atribuicao-harness-vs-modelo]] e [[desenho-experimental-harness-fixo]].
 
 ## Contradictions
 

@@ -72,15 +72,43 @@ svg text{font-family:inherit}
 .bar{height:44px;background:var(--acc);border-radius:8px;width:0;transition:width 1.2s cubic-bezier(.2,.8,.2,1);position:relative}
 .bar.pass{background:#3b7bd6;height:16px;margin-top:4px}
 .bar span{position:absolute;left:100%;margin-left:14px;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:26px}
-/* 3d — palco do harness */
+/* slide 3 — palco do harness (SVG 2D, sem órbita: posições fixas, sem flicker) */
 #s-h3d{background:
   radial-gradient(900px 480px at 32% 62%,rgba(245,182,56,.08),transparent 60%),
   radial-gradient(700px 420px at 85% 20%,rgba(59,123,214,.10),transparent 60%)}
-#h3d{width:100%;height:100%;display:block;cursor:grab;border-radius:20px;background:
-  radial-gradient(ellipse at 50% 68%,rgba(245,182,56,.10) 0%,transparent 55%),
-  radial-gradient(ellipse at 50% 40%,#16203200 0%,#162032 0%,#0b0f14 72%);
+#h3d{position:relative;border-radius:20px;overflow:hidden;background:
+  radial-gradient(ellipse at 50% 40%,#162032 0%,#0b0f14 72%);
   background-color:#0d131c;border:1px solid rgba(60,78,102,.6);box-shadow:inset 0 0 120px rgba(0,0,0,.55),0 24px 70px rgba(0,0,0,.4)}
-#h3d:active{cursor:grabbing}
+#h3svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+#h3svg text{font-family:"Archivo","Segoe UI",sans-serif}
+.h3ringlab{fill:rgba(245,182,56,.92);font-size:20px;font-weight:700;letter-spacing:.02em}
+@keyframes h3dash{to{stroke-dashoffset:-310}}
+@keyframes h3flow{to{stroke-dashoffset:-34}}
+@keyframes h3twinkle{0%,100%{opacity:.12}50%{opacity:.5}}
+@keyframes h3pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+.h3dash{animation:h3dash 12s linear infinite}
+.h3link{stroke:rgba(139,152,168,.32);stroke-width:2;stroke-dasharray:9 8;animation:h3flow 1.4s linear infinite;transition:stroke .25s,stroke-width .25s}
+.h3link.proxy{stroke:rgba(123,216,143,.5)}
+.h3link.on{stroke:#ffe19a;stroke-width:4;filter:url(#h3glow)}
+.h3node{cursor:pointer;outline:none}
+.h3node .box{fill:url(#h3card);stroke:rgba(90,110,135,.6);stroke-width:1.5;transition:stroke .2s}
+.h3node:hover .box,.h3node:focus-visible .box{stroke:rgba(245,182,56,.8)}
+.h3node .num{fill:#3b7bd6}.h3node .num.proxy{fill:#7bd88f}
+.h3node .numt{fill:#0b0f14;font-family:Consolas,monospace;font-size:19px;font-weight:700}
+.h3node .abbr{fill:#8b98a8;font-family:Consolas,monospace;font-size:16px;letter-spacing:.06em}
+.h3node .name{fill:#e8edf2;font-size:22px;font-weight:600}
+.h3node.on .box{fill:url(#h3cardOn);stroke:#fff;stroke-width:2.5;filter:url(#h3glow)}
+.h3node.on .num{fill:#241a05}.h3node.on .numt{fill:#ffe19a}
+.h3node.on .abbr{fill:rgba(36,26,5,.75)}.h3node.on .name{fill:#241a05;font-weight:700}
+#h3core{cursor:pointer;outline:none;transform-origin:510px 360px;transform-box:view-box}
+#h3core .halo{opacity:0;transition:opacity .3s}
+#h3core.on .halo{opacity:1}
+#h3core.on{animation:h3pulse 2.4s ease-in-out infinite}
+#h3core:focus-visible .rim{stroke:#fff}
+#h3core .lab{fill:#241a05;font-size:34px;font-weight:700}
+#h3core .sub{fill:rgba(36,26,5,.82);font-size:17px;font-weight:600}
+.h3dust circle{animation:h3twinkle 3s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){.h3dash,.h3link,#h3core.on,.h3dust circle{animation:none}}
 #h3dpanel{width:600px;flex:none;overflow:hidden}
 #h3dpanel h3{margin:10px 0 12px;font-size:40px;line-height:1.1;color:var(--fg);letter-spacing:-.01em}
 #h3dpanel h3 em{color:var(--acc)}
@@ -88,7 +116,6 @@ svg text{font-family:inherit}
 .h3-eyebrow{display:flex;align-items:center;gap:14px;font-size:20px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
 #h3badge{display:inline-flex;align-items:center;justify-content:center;min-width:44px;height:44px;padding:0 10px;border-radius:12px;background:linear-gradient(180deg,#ffe19a,var(--acc));color:#241a05;font-weight:700;font-size:24px;box-shadow:0 4px 18px rgba(245,182,56,.4)}
 #h3kicker{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-#h3src{border-left:3px solid rgba(245,182,56,.5);padding-left:14px}
 .h3-div{height:1px;margin:18px 0 4px;background:linear-gradient(90deg,rgba(245,182,56,.5),rgba(59,123,214,.4),transparent)}
 .h3-meta{display:flex;align-items:center;justify-content:space-between;margin-top:16px;font-size:20px;color:var(--mute)}
 .h3-hint{font-size:20px;color:var(--mute)}
@@ -133,7 +160,6 @@ input[type=range]{width:100%;accent-color:var(--acc);height:36px}
 .refs{font-size:26px;line-height:1.35;columns:2;column-gap:60px}
 .refs p{margin:0 0 12px;break-inside:avoid}
 .refs b{font-weight:700}
-#fallback2d{display:none}
 </style>
 </head>
 <body>
@@ -143,7 +169,6 @@ input[type=range]{width:100%;accent-color:var(--acc);height:36px}
 <section class="slide cover" data-title="Capa">
   <div class="inst">Instituto Federal de Mato Grosso · Campus Octayde Jorge da Silva · Sistemas para Internet</div>
   <h1>O <em>harness</em> como decisão do desenvolvedor</h1>
-  <div style="font-size:38px;color:var(--mute);max-width:1500px">custo por tarefa concluída e taxa de sucesso de agentes de codificação sob um mesmo modelo</div>
   <div class="who"><b>Fausto Yuuki T. A. Freire</b> &nbsp;·&nbsp; Orientadora: Profa. Inara Silva</div>
   <div class="mute" style="font-size:28px;margin-top:10px">Projeto de pesquisa · Metodologia Científica · Cuiabá, 2026</div>
   <div class="denom">Setas ← → avançam. <span class="kbd">?</span> mostra os atalhos.</div>
@@ -151,55 +176,102 @@ input[type=range]{width:100%;accent-color:var(--acc);height:36px}
 
 <!-- 2 PROBLEMA -->
 <section class="slide" id="s-bars" data-title="O problema em uma tela">
-  <h2>Mesmo modelo, custo por tarefa 17,5× diferente<small>FrontierHarness (Runta, 2026): 12 configurações de 9 <em>harnesses</em>, modelo Kimi K3, 30 tarefas, 1 tentativa por célula, set. 2026</small></h2>
+  <h2>Mesmo modelo, custo por tarefa 17,5× diferente<small>FrontierHarness: 12 configurações de 9 <em>harnesses</em>, modelo Kimi K3, 30 tarefas, 1 tentativa por célula, set. 2026</small></h2>
   <div style="display:flex;gap:40px;font-size:24px;color:var(--mute);margin:-10px 0 18px"><span><i style="display:inline-block;width:26px;height:14px;background:var(--acc);border-radius:3px"></i> US$ por tarefa concluída</span><span><i style="display:inline-block;width:26px;height:8px;background:#3b7bd6;border-radius:3px"></i> taxa de aprovação</span></div>
   <div id="bars" style="flex:1"></div>
-  <div class="denom">Aprovação 50,0–66,7 % e US$ 1,05–18,34 nas 12 configurações; o gráfico mostra as 7 com valor no texto do post. Razão 17,5× calculada pelo autor. Blogue institucional, não revisado por pares.</div>
+  <div class="denom">Aprovação 50,0–66,7 % e US$ 1,05–18,34 nas 12 configurações; o gráfico mostra as 7 com valor no texto do post; Pi e OpenCode, em âmbar, são os dois braços deste projeto. Razão 17,5× calculada pelo autor.</div>
 </section>
 
-<!-- 3 HARNESS 3D -->
-<section class="slide" id="s-h3d" data-title="O que é um harness (3D)">
-  <h2>O que é um <em>harness</em><small>arraste para orbitar · clique ou tecle 0–5 para destacar · rolagem aproxima</small></h2>
+<!-- 3 HARNESS -->
+<section class="slide" id="s-h3d" data-title="O que é um harness">
+  <h2>O que é um <em>harness</em><small>clique no módulo ou tecle 0–5 para destacar</small></h2>
   <div class="row">
-    <div class="col" style="position:relative"><canvas id="h3d"></canvas>
-      <svg id="fallback2d" viewBox="0 0 900 600" style="width:100%;height:100%"></svg>
+    <div class="col" id="h3d">
+      <svg id="h3svg" viewBox="0 0 1020 760" role="img" aria-label="Diagrama: modelo de linguagem no centro, quatro módulos do harness em órbita e o proxy externo abaixo">
+        <defs>
+          <radialGradient id="h3core" cx="38%" cy="32%" r="75%"><stop offset="0" stop-color="#fff6dd"/><stop offset=".4" stop-color="#ffd97a"/><stop offset=".72" stop-color="#f5b638"/><stop offset="1" stop-color="#9a6a18"/></radialGradient>
+          <radialGradient id="h3halo"><stop offset="0" stop-color="#f5b638" stop-opacity=".45"/><stop offset=".55" stop-color="#f5b638" stop-opacity=".12"/><stop offset="1" stop-color="#f5b638" stop-opacity="0"/></radialGradient>
+          <radialGradient id="h3vig" cx="50%" cy="50%" r="72%"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".55"/></radialGradient>
+          <linearGradient id="h3card" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c2a40"/><stop offset="1" stop-color="#0f1826"/></linearGradient>
+          <linearGradient id="h3cardOn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe6a8"/><stop offset="1" stop-color="#f5b638"/></linearGradient>
+          <pattern id="h3grid" width="46" height="46" patternUnits="userSpaceOnUse"><path d="M46 0H0V46" fill="none" stroke="rgba(148,170,200,.07)" stroke-width="1"/></pattern>
+          <filter id="h3glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <rect width="1020" height="760" fill="url(#h3grid)"/>
+        <g id="h3dust" class="h3dust" aria-hidden="true"></g>
+        <circle cx="510" cy="360" r="330" fill="url(#h3halo)" opacity=".6"/>
+        <g id="h3links" fill="none" stroke-linecap="round"></g>
+        <g fill="none">
+          <circle cx="510" cy="360" r="200" stroke="rgba(139,152,168,.18)" stroke-width="1.5"/>
+          <circle cx="510" cy="360" r="250" stroke="rgba(245,182,56,.12)" stroke-width="12"/>
+          <circle class="h3dash" cx="510" cy="360" r="250" stroke="rgba(245,182,56,.8)" stroke-width="3" stroke-dasharray="18 13"/>
+        </g>
+        <text x="510" y="84" text-anchor="middle" class="h3ringlab">◆  harness · andaime do agente</text>
+        <g id="h3nodes"></g>
+        <rect width="1020" height="760" fill="url(#h3vig)" pointer-events="none"/>
+      </svg>
     </div>
     <div id="h3dpanel" class="card hi">
       <div class="h3-eyebrow"><span id="h3badge">0</span><span id="h3kicker">Núcleo · fixo em todos os braços</span></div>
       <h3 id="h3title">Modelo de linguagem</h3>
       <p id="h3text">Sem estado. Fixo em todos os braços. Tudo ao redor é o <em>harness</em>: componentes externos ao modelo e editáveis.</p>
-      <p id="h3src" class="mute" style="font-size:22px">Lin <em>et al.</em> (2026, §1)</p>
       <div class="h3-div" aria-hidden="true"></div>
       <div class="chips" id="h3chips"></div>
       <div class="h3-meta"><span class="h3-hint">clique no módulo, no chip ou tecle 0–5</span><span class="h3-hint" id="h3count">1 / 6</span></div>
     </div>
   </div>
-  <div class="denom">Definição: Lin <em>et al.</em> (2026, §1); Ning <em>et al.</em> (2026, §2); Wang <em>et al.</em> (2026). Todos <em>preprints</em>, não revisados por pares.</div>
 </section>
 
 <!-- 4 TEMA / PROBLEMA / OBJETIVO GERAL -->
 <section class="slide" data-title="Tema, problema, objetivo geral">
   <h2>Justificativa, tema, problema, objetivo geral</h2>
   <div class="row" style="flex-direction:column;gap:22px">
-    <div class="card frag"><b class="acc">Justificativa</b> · quem paga é o desenvolvedor, na assinatura, e a empresa, em escala. As comparações publicadas contrastam equipes diferentes e não dizem qual decisão de projeto pesa.</div>
-    <div class="card frag"><b class="acc">Tema</b> · a escolha do <em>harness</em> como decisão de engenharia: efeito sobre custo por tarefa concluída e taxa de sucesso, modelo fixo.</div>
-    <div class="card frag"><b class="acc">Problema</b> · com o modelo já escolhido, quanto do custo e do sucesso vem do <em>harness</em>? Quais decisões de projeto explicam a diferença?</div>
-    <div class="card frag hi"><b class="acc">Objetivo geral</b> · medir esse efeito, isolar decisões pela comparação <em>harness</em> × <em>fork</em> direto, entregar critério de escolha reproduzível.</div>
+    <div class="card frag"><b class="acc">Justificativa</b> · quem paga é o desenvolvedor, na assinatura, e a empresa, em escala. As comparações publicadas usam tarefas isoladas e não dizem quanto custa entregar um produto inteiro com uma ferramenta em vez de outra.</div>
+    <div class="card frag"><b class="acc">Tema</b> · a escolha do <em>harness</em> como decisão de engenharia: efeito sobre tokens consumidos e taxa de sucesso na construção de um mesmo produto, modelo fixo.</div>
+    <div class="card frag"><b class="acc">Problema</b> · com o modelo já escolhido, quantos tokens a mais ou a menos custa construir o mesmo software com um <em>harness</em> em vez de outro? Quanto vem da carga fixa por requisição?</div>
+    <div class="card frag hi"><b class="acc">Objetivo geral</b> · medir a diferença de tokens e de sucesso entre OpenCode e pi construindo o mesmo SaaS a partir da mesma especificação; separar a parte que vem da carga fixa; entregar critério reproduzível.</div>
   </div>
 </section>
 
-<!-- 5 OBJETIVOS ESPECÍFICOS -->
+<!-- 5 FINN -->
+<section class="slide" id="s-finn" data-title="Finn: o produto">
+  <h2>Finn: o produto que os dois <em>harnesses</em> vão construir<small>um SaaS de verdade, não um <em>benchmark</em> de tarefas soltas</small></h2>
+  <div class="row" style="flex:none;gap:40px">
+    <div class="col" style="flex:0 0 600px;display:flex;flex-direction:column;gap:20px;font-size:25px">
+      <div class="card frag" style="padding:24px 30px"><b class="acc">O que é</b> · financeiro por voz para pequenas empresas: o dono fala pelo WhatsApp ou pelo app e recebe lançamento, relatório e aviso no celular. Multiempresa em um banco só.</div>
+      <div class="card frag" style="padding:24px 30px"><b class="acc">Já decidido antes do experimento</b> · 21 <em>issues</em> fechadas pelo autor (#1–#22) fixam produto e pilha: TypeScript, TanStack Start, tRPC, Drizzle, PostgreSQL, Vitest. Os agentes não escolhem nada disso.</div>
+    </div>
+    <div class="col card frag" style="display:flex;flex-direction:column;justify-content:center;gap:18px;font-size:23px"><div class="mute">Um só <em>pipeline</em>, sete passos na <em>issue</em> #14 (executar e negar juntos aqui); toda escrita confirma antes de valer (#5, #20).</div><svg viewBox="0 0 1000 170" style="width:100%;height:170px" aria-label="pipeline de voz do Finn em seis passos"><defs><marker id="finarr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10z" fill="#f5b638"/></marker></defs><rect x="0" y="20" width="140" height="84" rx="14" fill="#121923" stroke="#3b7bd6" stroke-width="3"/><text x="70" y="58" text-anchor="middle" fill="#fff" font-size="26" font-weight="700">1</text><text x="70" y="88" text-anchor="middle" fill="#e8edf2" font-size="22">áudio</text><text x="70" y="138" text-anchor="middle" fill="#8b98a8" font-size="17">WhatsApp ou app</text><line x1="146" y1="62.0" x2="164" y2="62.0" stroke="#f5b638" stroke-width="3" marker-end="url(#finarr)"/><rect x="172" y="20" width="140" height="84" rx="14" fill="#121923" stroke="#3b7bd6" stroke-width="3"/><text x="242" y="58" text-anchor="middle" fill="#fff" font-size="26" font-weight="700">2</text><text x="242" y="88" text-anchor="middle" fill="#e8edf2" font-size="22">texto</text><text x="242" y="138" text-anchor="middle" fill="#8b98a8" font-size="17">Whisper local</text><line x1="318" y1="62.0" x2="336" y2="62.0" stroke="#f5b638" stroke-width="3" marker-end="url(#finarr)"/><rect x="344" y="20" width="140" height="84" rx="14" fill="#121923" stroke="#3b7bd6" stroke-width="3"/><text x="414" y="58" text-anchor="middle" fill="#fff" font-size="26" font-weight="700">3</text><text x="414" y="88" text-anchor="middle" fill="#e8edf2" font-size="22">intenção</text><text x="414" y="138" text-anchor="middle" fill="#8b98a8" font-size="17">palavras-chave</text><line x1="490" y1="62.0" x2="508" y2="62.0" stroke="#f5b638" stroke-width="3" marker-end="url(#finarr)"/><rect x="516" y="20" width="140" height="84" rx="14" fill="#121923" stroke="#f5b638" stroke-width="3"/><text x="586" y="58" text-anchor="middle" fill="#fff" font-size="26" font-weight="700">4</text><text x="586" y="88" text-anchor="middle" fill="#e8edf2" font-size="22">gate</text><text x="586" y="138" text-anchor="middle" fill="#8b98a8" font-size="17">papel × ação</text><line x1="662" y1="62.0" x2="680" y2="62.0" stroke="#f5b638" stroke-width="3" marker-end="url(#finarr)"/><rect x="688" y="20" width="140" height="84" rx="14" fill="#121923" stroke="#3b7bd6" stroke-width="3"/><text x="758" y="58" text-anchor="middle" fill="#fff" font-size="26" font-weight="700">5</text><text x="758" y="88" text-anchor="middle" fill="#e8edf2" font-size="22">executar</text><text x="758" y="138" text-anchor="middle" fill="#8b98a8" font-size="17">ou negar</text><line x1="834" y1="62.0" x2="852" y2="62.0" stroke="#f5b638" stroke-width="3" marker-end="url(#finarr)"/><rect x="860" y="20" width="140" height="84" rx="14" fill="#121923" stroke="#3b7bd6" stroke-width="3"/><text x="930" y="58" text-anchor="middle" fill="#fff" font-size="26" font-weight="700">6</text><text x="930" y="88" text-anchor="middle" fill="#e8edf2" font-size="22">resposta</text><text x="930" y="138" text-anchor="middle" fill="#8b98a8" font-size="17">push</text></svg><div class="mute">Custo zero por padrão: Whisper local; IA por API atrás de <em>flag</em> por empresa, desligada (#4, #12, #17).</div></div>
+  </div>
+  <div class="card frag hi" style="margin-top:24px;padding:22px 30px;font-size:26px"><b class="acc">A especificação</b> · as 9 <em>issues</em> técnicas (#14–#22) viram as 9 unidades de uma especificação única, congelada por hash; cada unidade tem testes de aceitação escritos pelo autor.<div style="margin-top:16px"><span style="display:inline-block;padding:6px 20px;margin:0 10px 8px 0;border:2px solid #3b7bd6;border-radius:999px;font-size:23px">U1 tenant</span><span style="display:inline-block;padding:6px 20px;margin:0 10px 8px 0;border:2px solid #3b7bd6;border-radius:999px;font-size:23px">U2 governança</span><span style="display:inline-block;padding:6px 20px;margin:0 10px 8px 0;border:2px solid #3b7bd6;border-radius:999px;font-size:23px">U3 flags</span><span style="display:inline-block;padding:6px 20px;margin:0 10px 8px 0;border:2px solid #f5b638;border-radius:999px;font-size:23px">U4 pipeline de voz</span><span style="display:inline-block;padding:6px 20px;margin:0 10px 8px 0;border:2px solid #3b7bd6;border-radius:999px;font-size:23px">U5 confirmação</span><span style="display:inline-block;padding:6px 20px;margin:0 10px 8px 0;border:2px solid #3b7bd6;border-radius:999px;font-size:23px">U6 log</span><span style="display:inline-block;padding:6px 20px;margin:0 10px 8px 0;border:2px solid #3b7bd6;border-radius:999px;font-size:23px">U7 relatório</span><span style="display:inline-block;padding:6px 20px;margin:0 10px 8px 0;border:2px solid #3b7bd6;border-radius:999px;font-size:23px">U8 agendador</span><span style="display:inline-block;padding:6px 20px;margin:0 10px 8px 0;border:2px solid #3b7bd6;border-radius:999px;font-size:23px">U9 cobrança</span></div></div>
+  <div class="denom">Finn (YuukiFST, 2026a): github.com/YuukiFST/Finn. Decisões de produto nas <em>issues</em> #2–#10; decisões técnicas em #11–#22. Em âmbar, a unidade do <em>pipeline</em> desenhado acima.</div>
+</section>
+
+<!-- 6 COMO O PROJETO FUNCIONA -->
+<section class="slide" id="s-como" data-title="Como o projeto funciona">
+  <h2>Como o projeto funciona<small>o mesmo produto, construído duas vezes</small></h2>
+  <div class="row" style="flex:none;gap:30px;font-size:26px">
+    <div class="card col frag"><b class="acc">1 · Uma especificação</b> · Finn, SaaS de financeiro por voz, descrito em 9 unidades a partir das <em>issues</em>, cada uma com testes de aceitação escritos pelo autor.</div>
+    <div class="card col frag"><b class="acc">2 · Dois <em>harnesses</em></b> · OpenCode e pi recebem a mesma especificação, os mesmos <em>prompts</em>, o mesmo espaço de trabalho vazio e o mesmo modelo, e constroem o produto do zero, unidade a unidade.</div>
+    <div class="card col frag"><b class="acc">3 · Um contador externo</b> · um <em>proxy</em> entre o <em>harness</em> e o modelo conta requisições, tokens e latência da mesma forma para os dois; n ≥ 3 construções por célula.</div>
+    <div class="card col frag"><b class="acc">4 · Um critério</b> · tokens por construção, ao lado da fração de testes aprovados, e Succ/Mtok, comparados por teste pareado por unidade; a Camada 1 separa a parte que é carga fixa por requisição.</div>
+  </div>
+  <div class="card frag hi" style="margin-top:30px;font-size:28px"><b class="acc">Por que isso justifica o tema</b> · quem paga é o desenvolvedor, na assinatura, e a empresa, em escala; conhecer o <em>harness</em> virou parte do ofício. As comparações publicadas usam tarefas isoladas e não dizem quanto custa entregar um produto inteiro com uma ferramenta em vez de outra. Este projeto mede esse custo.</div>
+  <div class="denom">Finn: github.com/YuukiFST/Finn (YuukiFST, 2026a), <em>issues</em> #1–#22. Braços: OpenCode 1.17.9 e pi 0.80.10, código aberto, sem interface. Método detalhado nos slides seguintes.</div>
+</section>
+
+<!-- 6 OBJETIVOS ESPECÍFICOS -->
 <section class="slide" data-title="Objetivos específicos">
   <h2>Sete objetivos específicos</h2>
   <div class="row">
     <div class="col"><ul class="big" id="objs">
       <li class="frag"><b>1</b> Instrumento externo: requisições, tokens, latência</li>
-      <li class="frag"><b>2</b> Suíte com objetivos numerados e <em>oracle</em> próprio</li>
-      <li class="frag"><b>3</b> <em>Harness</em> zero em laço ReAct (controle)</li>
-      <li class="frag"><b>4</b> Mesma suíte, mesmo modelo, todos os braços, com repetição</li>
+      <li class="frag"><b>2</b> Especificação do Finn em 9 unidades, com testes de aceitação do autor</li>
+      <li class="frag"><b>3</b> Espaço de trabalho inicial idêntico: só a especificação e a pilha</li>
+      <li class="frag"><b>4</b> Construção completa nos dois <em>harnesses</em>, mesmo modelo e <em>prompts</em>, n ≥ 3</li>
       <li class="frag"><b>5</b> Segundo modelo: a ordenação se mantém ou inverte?</li>
-      <li class="frag"><b>6</b> Custo relatado × custo medido no <em>proxy</em></li>
-      <li class="frag"><b>7</b> Publicar <em>runner</em>, dados e scripts, custo zero</li>
+      <li class="frag"><b>6</b> Tokens relatados × tokens medidos no <em>proxy</em></li>
+      <li class="frag"><b>7</b> Publicar executor, <em>prompts</em>, testes, dados e scripts, custo zero</li>
     </ul></div>
     <div class="col" style="flex:0 0 620px;display:flex;align-items:center;justify-content:center"><svg id="objring" viewBox="0 0 600 600" style="width:600px;height:600px"></svg></div>
   </div>
@@ -210,36 +282,36 @@ input[type=range]{width:100%;accent-color:var(--acc);height:36px}
   <h2>Hipóteses</h2>
   <div class="row">
     <div class="col">
-      <div class="card frag" style="margin-bottom:26px"><b class="acc">H1</b> · entre <em>harnesses</em> distintos no mesmo modelo, a diferença de custo por tarefa é relevante para quem paga, comparável a trocar de modelo. <span class="mute">Refutada se os intervalos de Succ/Mtok se sobrepuserem em toda a suíte.</span></div>
-      <div class="card frag"><b class="acc">H2</b> · a diferença persiste entre um <em>harness</em> e seu <em>fork</em> direto: decisões isoláveis, não acúmulo de bases distintas. <span class="mute">Refutada se pi e oh-my-pi não diferirem em Succ/Mtok.</span></div>
+      <div class="card frag" style="margin-bottom:26px"><b class="acc">H1</b> · entre OpenCode e pi no mesmo modelo, a diferença de tokens para construir o Finn a partir da mesma especificação é relevante para quem paga, comparável a trocar de modelo. <span class="mute">Refutada se os intervalos de tokens por construção se sobrepuserem e o teste pareado por unidade não apontar diferença.</span></div>
+      <div class="card frag"><b class="acc">H2</b> · a carga fixa por requisição (<em>prompt</em> de sistema e esquemas, Camada 1) explica a maior parte da diferença; o número de passos, a parte menor. <span class="mute">Refutada se o número de passos explicar a maior parte.</span></div>
     </div>
-    <div class="col" style="flex:0 0 800px"><svg id="forksvg" viewBox="0 0 800 560" style="width:100%;height:100%"></svg></div>
+    <div class="col" style="flex:0 0 800px"><svg id="forksvg" viewBox="0 0 800 560" style="width:100%;height:100%"><rect x="40" y="30" width="330" height="110" rx="16" fill="#121923" stroke="#3b7bd6" stroke-width="3"/><text x="205" y="75" text-anchor="middle" fill="#fff" font-size="34" font-weight="700">pi</text><text x="205" y="115" text-anchor="middle" fill="#8b98a8" font-size="21">60,0 % · US$ 2,43 por aprovada</text><text x="400" y="93" text-anchor="middle" fill="#8b98a8" font-size="26">vs</text><rect x="430" y="30" width="330" height="110" rx="16" fill="#121923" stroke="#f5b638" stroke-width="3"/><text x="595" y="75" text-anchor="middle" fill="#fff" font-size="34" font-weight="700">OpenCode</text><text x="595" y="115" text-anchor="middle" fill="#8b98a8" font-size="21">50,0 % · US$ 3,24 por aprovada</text><text x="400" y="185" text-anchor="middle" fill="#e8edf2" font-size="25"><tspan fill="#f5b638" font-weight="700">H1</tspan> · mesmo modelo: OpenCode paga <tspan fill="#f5b638" font-weight="700">1,33×</tspan> por tarefa aprovada</text><text x="400" y="218" text-anchor="middle" fill="#e8edf2" font-size="25">e aprova <tspan fill="#f5b638" font-weight="700">10 pp</tspan> a menos (cálculo do autor)</text><text x="216" y="266" text-anchor="end" fill="#8b98a8" font-size="21">aprovação</text><rect class="grow" x="230" y="243" width="0" height="26" rx="6" fill="#3b7bd6" data-w="240.0"/><text x="482.0" y="262" fill="#e8edf2" font-size="21">pi 60,0 %</text><rect class="grow" x="230" y="275" width="0" height="26" rx="6" fill="#f5b638" data-w="200.0"/><text x="442.0" y="294" fill="#e8edf2" font-size="21">OpenCode 50,0 %</text><text x="216" y="341" text-anchor="end" fill="#8b98a8" font-size="21">US$ / aprovada</text><rect class="grow" x="230" y="318" width="0" height="26" rx="6" fill="#3b7bd6" data-w="243.0"/><text x="485.0" y="337" fill="#e8edf2" font-size="21">pi 2,43</text><rect class="grow" x="230" y="350" width="0" height="26" rx="6" fill="#f5b638" data-w="324.0"/><text x="566.0" y="369" fill="#e8edf2" font-size="21">OpenCode 3,24</text><text x="400" y="400" text-anchor="middle" fill="#8b98a8" font-size="19">FrontierHarness (Runta, 2026) · Kimi K3 · 30 tarefas · 1 tentativa por célula</text><rect x="40" y="420" width="720" height="130" rx="16" fill="#121923" stroke="#243040" stroke-width="2"/><text x="70" y="458" fill="#e8edf2" font-size="23"><tspan fill="#f5b638" font-weight="700">H2</tspan> · carga por requisição, fonte externa</text><text x="70" y="493" fill="#8b98a8" font-size="19">pi: 4 ferramentas; <tspan fill="#e8edf2">prompt e definições abaixo de 1.000 tokens</tspan> (Earendil, 2026)</text><text x="70" y="526" fill="#8b98a8" font-size="19">Databricks apud Earendil (2026): <tspan fill="#e8edf2">«3x less context per turn»,</tspan> custo &gt; 2×</text></svg></div>
   </div>
-  <div class="denom">Camada 1, medição própria: primeira requisição da mesma tarefa, endpoint simulado, n = 1 (determinístico), tokenizador cl100k_base, 28 ago. 2026. pi 0.80.10, oh-my-pi 17.2.10.</div>
+  <div class="denom">H1: FrontierHarness (Runta, 2026), blogue institucional, 1 set. 2026; Kimi K3 via Fireworks, 30 tarefas, 1 tentativa por célula, pi v0.84.2, OpenCode v1.18.19; 1,33× e 10 pp calculados pelo autor. H2: Earendil (2026), blogue institucional, 4 ago. 2026; Databricks apud Earendil (2026).</div>
 </section>
 
 <!-- 7 REFERENCIAL -->
 <section class="slide" id="s-tl" data-title="Referencial teórico (linha do tempo)">
   <h2>Referencial teórico<small>→ avança um nó; clique em um nó para ler a afirmação usada no projeto</small></h2>
   <svg id="timeline" viewBox="0 0 1680 300" style="width:100%;height:300px"></svg>
-  <div id="tlcard" class="card" style="flex:1;margin:20px 0 50px"><h3 class="acc" style="margin:0 0 12px;font-size:36px">Yao <em>et al.</em> (2022) · ReAct</h3><p style="margin:0;font-size:30px">O laço observar/agir mínimo. É um <em>harness</em> legítimo, o mais raso; ponto de partida do <em>harness</em> zero.</p></div>
+  <div id="tlcard" class="card" style="flex:1;margin:20px 0 50px"><h3 class="acc" style="margin:0 0 12px;font-size:36px">Yao <em>et al.</em> (2022) · ReAct</h3><p style="margin:0;font-size:30px">O laço observar/agir mínimo. É um <em>harness</em> legítimo, o mais raso; o pi fica perto dele.</p></div>
   <div class="denom">ReAct (ICLR 2023) e SWE-agent (NeurIPS 2024) têm revisão por pares; o FrontierHarness é blogue institucional; os demais são <em>preprints</em> não revisados.</div>
 </section>
 
 <!-- 8 CLASSIFICAÇÃO DA PESQUISA -->
 <section class="slide" id="s-class" data-title="Classificação da pesquisa e uso de IA">
-  <h2 style="margin-bottom:24px">Classificação da pesquisa<small>Gil (2022); Prodanov e Freitas (2013) · → revela cada eixo</small></h2>
+  <h2 style="margin-bottom:24px">Classificação da pesquisa<small>→ revela cada eixo</small></h2>
   <div class="axes">
     <div class="card frag"><span class="k">Natureza</span><span class="v">aplicada</span><span class="w">produto: critério de escolha</span></div>
-    <div class="card frag"><span class="k">Abordagem</span><span class="v">quanti + quali</span><span class="w">medir custo e sucesso; atribuir a decisão</span></div>
-    <div class="card frag"><span class="k">Objetivos</span><span class="v">exploratória</span><span class="w">linhagem fixa sem precedente</span></div>
-    <div class="card frag"><span class="k">Procedimentos</span><span class="v">experimental</span><span class="w">VI: <em>harness</em> · controladas: modelo, tarefa, limites · grupo de controle</span></div>
+    <div class="card frag"><span class="k">Abordagem</span><span class="v">quanti + quali</span><span class="w">medir tokens e sucesso; atribuir à carga fixa ou aos passos</span></div>
+    <div class="card frag"><span class="k">Objetivos</span><span class="v">exploratória</span><span class="w">mesmo produto completo, dois <em>harnesses</em>, sem precedente</span></div>
+    <div class="card frag"><span class="k">Procedimentos</span><span class="v">experimental</span><span class="w">VI: <em>harness</em> · controladas: modelo, especificação, espaço de trabalho inicial, limites</span></div>
     <div class="card frag"><span class="k">Método</span><span class="v">dedutivo</span><span class="w">hipóteses antes da coleta</span></div>
   </div>
   <div class="card frag" style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:14px">
     <div style="display:flex;gap:40px;align-items:center">
-      <div style="flex:0 0 420px"><b class="acc" style="font-size:36px">Uso de IA declarado</b><div class="mute" style="font-size:24px;margin-top:8px">Portaria CNPq nº 2.664/2026 (Brasil, 2026)</div></div>
-      <div style="font-size:28px">Levantamento das fontes com um <em>LLM Wiki</em> no repositório do projeto. A ferramenta foi o Claude Code e a finalidade foi que o agente entendesse o tema e ajudasse a buscar mais artigos sobre o tema escolhido. O autor curou as fontes, conferiu cada citação na obra original e responde pelo texto final.</div>
+      <div style="flex:0 0 420px"><b class="acc" style="font-size:36px">Uso de IA declarado</b><div class="mute" style="font-size:24px;margin-top:8px">Portaria CNPq nº 2.664/2026</div></div>
+      <div style="font-size:28px">Levantamento das fontes com um <em>LLM Wiki</em> (Karpathy, 2026) no repositório do projeto. A ferramenta foi o Claude Code e a finalidade foi que o agente entendesse o tema e ajudasse a buscar mais artigos sobre o tema escolhido. O autor curou as fontes, conferiu cada citação na obra original e responde pelo texto final.</div>
     </div>
     <svg viewBox="0 0 1560 120" style="width:100%;height:88px" aria-hidden="true">
       <defs><marker id="a3" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10z" fill="#8b98a8"/></marker></defs>
@@ -254,7 +326,6 @@ input[type=range]{width:100%;accent-color:var(--acc);height:36px}
       </g>
     </svg>
   </div>
-  <div class="denom">Projeto, §3, parágrafos de classificação e de declaração do método (YuukiFST, 2026; Brasil, 2026).</div>
 </section>
 
 <!-- 9 MÉTODO -->
@@ -262,26 +333,26 @@ input[type=range]{width:100%;accent-color:var(--acc);height:36px}
   <h2>Duas camadas de medição<small>→ alterna Camada 1 e Camada 2</small></h2>
   <svg id="flow" viewBox="0 0 1680 520" style="width:100%;height:520px"></svg>
   <div class="row" style="flex:none;gap:30px;margin-top:10px">
-    <div class="card col" id="l1card"><b class="acc">Camada 1</b> · forma da requisição contra endpoint simulado. Esquemas, bytes de prompt, tokens por passo. Determinística, sem cota.</div>
-    <div class="card col" id="l2card"><b class="acc">Camada 2</b> · desfecho das tarefas no modelo real via <em>proxy</em> reverso. Estocástica, consome cota, n ≥ 3.</div>
+    <div class="card col" id="l1card"><b class="acc">Camada 1</b> · forma da requisição contra endpoint simulado. Esquemas, bytes de prompt, tokens por passo. Determinística, sem cota. Dá a carga fixa de H2.</div>
+    <div class="card col" id="l2card"><b class="acc">Camada 2</b> · construção do produto no modelo real via <em>proxy</em> reverso. Estocástica, consome cota, n ≥ 3.</div>
   </div>
-  <div class="denom">O <em>proxy</em> conta tokens sobre os bytes transmitidos, um só tokenizador para todos os braços; o relatório do <em>gateway</em> fica para verificação cruzada.</div>
+  <div class="denom">O <em>proxy</em> conta tokens sobre os bytes transmitidos, um só tokenizador para os dois braços; o relatório do <em>gateway</em> fica para verificação cruzada.</div>
 </section>
 
 <!-- 9 BRAÇOS E MATRIZ -->
 <section class="slide" id="s-matrix" data-title="Braços e matriz experimental">
-  <h2>Braços e matriz (braço × tarefa × nível)<small>clique ou navegue com Tab em uma célula · cada célula recebe n ≥ 3 execuções após descartes</small></h2>
+  <h2>Braços e matriz (braço × nível, 9 unidades por construção)<small>clique ou navegue com Tab em uma unidade · cada célula (braço, nível) recebe n ≥ 3 construções após descartes</small></h2>
   <div class="row">
     <div class="col"><div id="matrix" class="matrix"></div><div id="cellinfo" class="mute" style="margin:8px 0;font-size:22px;min-height:66px">Célula: selecione.</div>
-      <div class="card" style="padding:18px 28px;font-size:24px"><b class="acc">Cada execução recebe uma classe</b> · <span style="color:var(--bad)">falhada</span>: agente não cumpriu; é resultado, escore zero (estouro do relógio incluído). <span class="mute">descartada</span>: medição inconfiável; registrada, sem reparo nem repetição. Classe lida do registro do <em>proxy</em>.</div>
+      <div class="card" style="padding:18px 28px;font-size:24px"><b class="acc">Cada unidade recebe uma classe</b> · <span style="color:var(--bad)">não concluída</span>: agente não concluiu a unidade; é resultado, entra com a fração de testes aprovada e a construção segue (estouro do relógio incluído). <span class="mute">descartada</span>: medição inconfiável descarta a construção; registrada, sem reparo nem repetição. Classe lida do registro do <em>proxy</em>.</div>
     </div>
     <div class="col" style="flex:0 0 640px;font-size:25px;display:flex;flex-direction:column;gap:14px">
-      <div class="card hi" style="padding:20px 30px"><b class="acc"><em>Harness</em> zero</b> · controle. Laço observar/agir, 3 ferramentas, &lt; 400 linhas de Python, sem planejamento, compactação ou <em>retry</em>.</div>
-      <div class="card" style="padding:20px 30px"><b class="acc">Suíte</b> · 8 tarefas Python do DeepSWE, fixadas por <em>commit</em> e SHA-256. Crédito parcial: fração de testes do verificador.</div>
-      <div class="card" style="padding:20px 30px"><b class="acc">Limite único</b> · relógio de parede 3× a mediana do <em>harness</em> zero nas tarefas-piloto. Sem teto de passos, já que o teto seria uma decisão de projeto do <em>harness</em>. Saída máxima idêntica via <em>proxy</em>.</div>
+      <div class="card hi" style="padding:20px 30px"><b class="acc">Braços</b> · OpenCode e pi: código aberto, sem interface (<code>opencode run</code>, <code>pi --mode json</code>), URL base OpenAI-compatível. Nenhum <em>harness</em> escrito pelo projeto.</div>
+      <div class="card" style="padding:20px 30px"><b class="acc">Especificação</b> · Finn em 9 unidades, congelada por SHA-256; espaço de trabalho inicial vazio, o agente carrega o próprio código de uma unidade à seguinte. Escore: fração dos testes de aceitação do autor, <em>held-out</em>.</div>
+      <div class="card" style="padding:20px 30px"><b class="acc">Limite único</b> · relógio de parede por unidade, 3× a maior mediana dos braços nas unidades-piloto. Sem teto de passos, já que o teto seria uma decisão de projeto do <em>harness</em>. Saída máxima idêntica via <em>proxy</em>.</div>
     </div>
   </div>
-  <div class="denom">DeepSWE (Huang <em>et al.</em>, 2026): 113 tarefas, 91 repositórios; soluções de referência com 668 linhas em média, contra 32,8 no SWE-bench. Braços provisórios até os portões de confiabilidade.</div>
+  <div class="denom">Finn: SaaS multiempresa de financeiro por voz, 21 <em>tickets</em> fechados antes do experimento; pilha fixa TypeScript, TanStack Start, tRPC, Drizzle, PostgreSQL, Vitest. Unidades em ordem de dependência: U1 tenant · U2 governança · U3 <em>flags</em> · U4 <em>pipeline</em> de voz · U5 confirmação · U6 log · U7 relatório · U8 agendador · U9 cobrança.</div>
 </section>
 
 <!-- 10 SUCC/MTOK -->
@@ -289,16 +360,16 @@ input[type=range]{width:100%;accent-color:var(--acc);height:36px}
   <h2>Succ/Mtok e teste pareado<small>simulação didática: mova os controles; os valores não são dados do experimento</small></h2>
   <div class="row">
     <div class="col">
-      <div style="font-size:30px;margin-bottom:18px">Succ/Mtok = pass@1 × 10⁶ ÷ média de tokens por execução <span class="mute">(Lin <em>et al.</em>, 2026, Eq. 2)</span></div>
+      <div style="font-size:30px;margin-bottom:18px">Succ/Mtok = pass@1 × 10⁶ ÷ média de tokens por execução</div>
       <div class="sl"><span>Braço A · pass@1</span><input type="range" id="pa" min="0" max="100" value="55"><span id="pav">0,55</span></div>
       <div class="sl"><span>Braço A · tokens/execução</span><input type="range" id="ta" min="50" max="3000" value="400" step="10"><span id="tav">400 k</span></div>
       <div class="sl"><span>Braço B · pass@1</span><input type="range" id="pb" min="0" max="100" value="50"><span id="pbv">0,50</span></div>
       <div class="sl"><span>Braço B · tokens/execução</span><input type="range" id="tb" min="50" max="3000" value="1200" step="10"><span id="tbv">1200 k</span></div>
-      <div style="display:flex;gap:60px;margin-top:20px"><div><div class="mute">A</div><div class="big-num" id="sa">–</div></div><div><div class="mute">B</div><div class="big-num" id="sb">–</div></div><div><div class="mute">Wilcoxon (8 pares)</div><div class="big-num" id="wres" style="font-size:40px">–</div></div></div>
+      <div style="display:flex;gap:60px;margin-top:20px"><div><div class="mute">A</div><div class="big-num" id="sa">–</div></div><div><div class="mute">B</div><div class="big-num" id="sb">–</div></div><div><div class="mute">Wilcoxon (9 pares)</div><div class="big-num" id="wres" style="font-size:40px">–</div></div></div>
     </div>
     <div class="col" style="flex:0 0 760px"><svg id="wsvg" viewBox="0 0 760 520" style="width:100%;height:100%"></svg></div>
   </div>
-  <div class="denom">Teste de Wilcoxon dos postos sinalizados, bilateral, α = 0,05, pareado por tarefa. Com n = 3 por célula e 8 tarefas, diferença mínima detectável ≈ 0,81σ.</div>
+  <div class="denom">Teste de Wilcoxon dos postos sinalizados, bilateral, α = 0,05, pareado por unidade. Com n = 3 por célula e 9 unidades, diferença mínima detectável ≈ 0,76σ. O mesmo teste roda sobre os tokens por unidade; a medida principal, tokens por construção, é relatada ao lado da fração de testes aprovados.</div>
 </section>
 
 <!-- 11 LIMITAÇÕES -->
@@ -309,9 +380,9 @@ input[type=range]{width:100%;accent-color:var(--acc);height:36px}
   </div>
   <div class="row" style="flex-wrap:wrap;gap:22px;align-content:flex-start;font-size:29px">
     <div class="card frag" style="flex:1 1 45%;align-self:flex-start"><b class="acc">Específico do modelo</b> · o efeito pode inverter de sinal. Conclusões por nível; objetivo 5 testa isso.</div>
-    <div class="card frag" style="flex:1 1 45%;align-self:flex-start"><b class="acc">Modelos pequenos</b> · fora do escopo: o único viável foi treinado dentro de um braço.</div>
-    <div class="card frag" style="flex:1 1 45%;align-self:flex-start"><b class="acc">Sem comparação ao placar público</b> · linhas de base do DeepSWE usam <em>harness</em> de ferramenta única. Válido: braço × braço.</div>
-    <div class="card frag" style="flex:1 1 45%;align-self:flex-start"><b class="acc">Custo em dinheiro</b> · contrafactual de ordem de grandeza sobre tarifas pagas, rotulado como tal.</div>
+    <div class="card frag" style="flex:1 1 45%;align-self:flex-start"><b class="acc">Um produto, uma pilha</b> · o resultado vale para tarefas dessa família; outras pilhas ficam como trabalho futuro.</div>
+    <div class="card frag" style="flex:1 1 45%;align-self:flex-start"><b class="acc">Especificação humana e trajetória própria</b> · o autor escreve a especificação, e cada braço carrega os próprios erros de uma unidade à seguinte; mitigação: mesma entrada e mesmo início vazio para os dois, comparação pareada por unidade.</div>
+    <div class="card frag" style="flex:1 1 45%;align-self:flex-start"><b class="acc">Sem placar público</b> · suíte própria, válido só braço × braço; custo em dinheiro como contrafactual rotulado.</div>
   </div>
   <div class="denom">Ameaça principal ao desenho: variância entre execuções no nível gratuito. Resposta: n ≥ 3, mediana com dispersão, cobertura antes de repetições.</div>
 </section>
@@ -321,25 +392,20 @@ input[type=range]{width:100%;accent-color:var(--acc);height:36px}
   <h2>Orçamento R$ 0,00 · cronograma ago. 2026 – jan. 2027<small>clique em uma fase; → revela as fases</small></h2>
   <div style="display:flex;gap:22px;margin-bottom:26px;font-size:24px">
     <div class="card" style="flex:1;padding:18px 26px"><span class="mute">Inferência (dois níveis, gratuito)</span><br><b class="acc">R$ 0,00</b></div>
-    <div class="card" style="flex:1;padding:18px 26px"><span class="mute">Executor e <em>benchmark</em> (Pier, DeepSWE; Apache-2.0)</span><br><b class="acc">R$ 0,00</b></div>
+    <div class="card" style="flex:1;padding:18px 26px"><span class="mute"><em>Harnesses</em> e ferramentas (OpenCode, pi; Node.js, PostgreSQL)</span><br><b class="acc">R$ 0,00</b></div>
     <div class="card" style="flex:1;padding:18px 26px"><span class="mute">Máquinas (NixOS e Windows, já disponíveis)</span><br><b class="acc">R$ 0,00</b></div>
   </div>
   <div id="gantt" style="flex:1"></div>
-  <div class="denom">Tabelas 1 e 2 do projeto. Escrita do projeto concluída em 11 set. 2026; experimentos práticos a partir de out. 2026. <em>Gateway</em>: OpenCode Zen. Limite vinculante: cota gratuita, um lote da matriz por dia; folga concentrada na execução da matriz e nos portões de confiabilidade.</div>
+  <div class="denom">Tabelas 1 e 2 do projeto. Escrita do projeto concluída em set. 2026; experimentos práticos a partir de out. 2026. <em>Gateway</em>: OpenCode Zen. Limite vinculante: cota gratuita, um lote da matriz por dia; folga concentrada na execução da matriz e na escrita da especificação e dos testes de aceitação.</div>
 </section>
 
 <!-- 14 REFERÊNCIAS -->
-<section class="slide" data-title="Referências citadas nos slides">
-  <h2>Referências citadas nos slides<small>formato ABNT abreviado; lista completa com 25 entradas no projeto, seção 6</small></h2>
-  <div class="refs three" id="refs"></div>
-</section>
-
 <!-- 14 FECHO -->
 <section class="slide cover" data-title="Fecho">
   <div class="inst">Pergunta que o projeto responde</div>
-  <h1 style="font-size:60px">Quanto do que o desenvolvedor paga por tarefa vem do <em>harness</em>, e de qual decisão de projeto?</h1>
+  <h1 style="font-size:60px">Quanto pesa, para o desenvolvedor que já escolheu o modelo, conhecer o <em>harness</em> antes de pagar por ele?</h1>
   <div class="who">Obrigado. Perguntas?</div>
-  <div class="denom">Repositório do projeto: github.com/YuukiFST/harness-bench (YuukiFST, 2026).</div>
+  <div class="denom">Repositórios: github.com/YuukiFST/harness-bench e github.com/YuukiFST/Finn.</div>
 </section>
 
 </div></div>
@@ -366,20 +432,21 @@ input[type=range]{width:100%;accent-color:var(--acc);height:36px}
 // ---------- notas por slide (índices [n] do dump de dist/projeto-pcc.docx) ----------
 const NOTES=[
 `<b>Capa.</b> Título, autor e orientadora [4][5][12]. Projeto de pesquisa da disciplina de Metodologia Científica, curso de Sistemas para Internet, IFMT Campus Octayde Jorge da Silva [11].`,
-`<b>Justificativa [26].</b> "No FrontierHarness (Runta, 2026), doze configurações de nove harnesses sobre o mesmo modelo ficam entre 50,0% e 66,7% de aprovação, e o custo por tarefa concluída vai de US$ 1,05 a US$ 18,34, uma razão de 17,5x calculada pelo autor." Também [52]: Codex 66,7% a US$ 3,47; Claude Code 63,3% a US$ 18,34 (5,3x, cálculo do autor). Os demais valores das barras (Pi, oh-my-pi, DSH Creator, Exo, OpenCode) vêm da página wiki/sources/frontierharness-runta-2026.md, mesmo post; 30 tarefas e 1 tentativa por célula também vêm dessa página. Quem paga é o desenvolvedor e a empresa [27].`,
-`<b>Referencial [49][50].</b> Ning et al. (2026, §2): um harness "converte um modelo de linguagem sem estado em um agente funcional ao ancorar suas saídas em execução externa, estado persistente e realimentação verificável". Wang et al. (2026): monta os prompts, gerencia o estado, invoca as ferramentas e coordena o laço. Lin et al. (2026, §1): prompt de sistema, ferramentas (sistema de arquivos e shell), middleware de contexto, execução e recuperação; "conjunto de componentes externos ao modelo e editáveis". [51]: é esse conjunto, e só ele, que varia entre os braços. O proxy externo é o instrumento do projeto [63], fora do harness.`,
-`<b>Justificativa [27], tema [29], problema [31], objetivo geral [33].</b> [27]: "Quem paga essa conta é o desenvolvedor, na assinatura pessoal, e a empresa que adota a ferramenta em escala; conhecer o harness virou parte do ofício. As comparações publicadas contrastam ferramentas de equipes diferentes e não dizem qual decisão de projeto pesa." Ler o problema na íntegra: "Para o desenvolvedor ou a empresa que já escolheu o modelo, quanto do custo por tarefa concluída e da taxa de sucesso do agente de codificação é determinado pelo harness adotado? E quais decisões de projeto do harness respondem por essa diferença, de modo que seja possível agir sobre elas?"`,
-`<b>Objetivos específicos [35]–[41].</b> 1 instrumento externo idêntico para todos; 2 suíte com objetivos numerados, crédito parcial e oráculo independente dos testes do agente; 3 harness mínimo ReAct como controle; 4 mesma suíte, mesmo modelo, repetição e dispersão; 5 segundo modelo, ordenação mantida ou invertida; 6 divergência custo relatado vs medido; 7 publicar runner, dados e scripts a custo zero.`,
-`<b>Hipóteses [45][46].</b> H1 refutada se os intervalos de Succ/Mtok dos braços se sobrepuserem ao longo de toda a suíte. H2 refutada se pi e oh-my-pi não diferirem em Succ/Mtok, "mesmo que a Camada 1 confirme que o fork envia uma carga maior por requisição" — desfecho possível e reportável, pois o oh-my-pi pode compensar em menos passos. Dados do gráfico: layer1/data/first_request.csv e step_growth.csv (pi 5.676 bytes / 1.228 tokens; oh-my-pi 64.945 bytes / 16.714 tokens; 4 vs 11 esquemas; razão 11,4x em bytes). Ponto externo: FrontierHarness, Pi 60,0%/US$ 2,43 vs oh-my-pi 56,7%/US$ 4,75 (wiki/entities/oh-my-pi.md).`,
-`<b>Referencial [49]–[55].</b> Yang 2024: interface modelo-ambiente como objeto de projeto. Lin 2026 Tabela 1: 47,2% OpenCode a 71,9% Codex, GPT-5.4, Terminal-Bench 2, 89 tarefas, 24,7 pp (cálculo do autor). Zhang 2026: Binding Constraint Thesis, com modelos de fronteira comparáveis a parcela do harness é frequentemente comparável ou maior. Alier Forment 2026: sem MCP 5,0x a 28x mais barato. HarnessRank: ordena por aprovação, custo ao lado. Databricks apud Earendil: >2x em alguns casos. Ning 2026 §5.2.1/§5.2.7: lacuna de atribuição, pede métricas por componente. Lee 2026 Tabela 7: 76,4% vs 74,7% (TerminalBench-2, 89 tarefas, Claude Opus 4.6). Kapoor 2024/2025: custo ignorado, comparações entre harnesses raras; Anthropic melhor com BrowserUse, OpenAI com SeeAct. Runta 2026: cache 25,0% ponderado vs 67,8% na célula mediana do Claude Code.`,
-`<b>Classificação [43][57] e declaração de IA [58].</b> [57]: "Quanto à natureza, esta é uma pesquisa aplicada [...]. Quanto à abordagem, combina o quantitativo e o qualitativo. [...] Quanto aos objetivos, é exploratória, porque a comparação com linhagem de harness fixa não tem precedente publicado. Quanto aos procedimentos, é experimental, com variável independente manipulada (o harness), variáveis controladas (modelo, tarefa e limites) e um grupo de controle. Quanto ao método, é dedutivo" (Gil, 2022; Prodanov; Freitas, 2013). [58]: LLM Wiki no repositório (YuukiFST, 2026); Portaria CNPq 2.664/2026 pede declaração com ferramenta e finalidade (Brasil, 2026); ferramenta Claude Code, finalidade que o agente entendesse o tema e ajudasse a buscar mais artigos sobre o tema escolhido; o autor curou as fontes, conferiu cada citação na obra original e responde pelo texto final.`,
-`<b>Método [59][63][64].</b> Camada 1: forma da requisição contra endpoint simulado que não encaminha nada ao modelo; determinística, sem cota. Camada 2: desfecho contra o modelo real, estocástica, consome cota. "Mais bytes por requisição não significam, por si, resultado pior." Proxy reverso força o relatório de uso, conta tokens sobre os bytes transmitidos com um único tokenizador; o gateway injeta conteúdo, deslocamento aditivo por requisição que não se cancela em razão [63]. Limite único: relógio de parede 3x a mediana do harness zero; sem teto de passos [64].`,
-`<b>Braços [60], suíte [61], limite [64], células [65], classes [67].</b> [64]: "Um único limite será imposto, idêntico para todos os braços. É um relógio de parede, cujo valor será três vezes a mediana que o harness zero gastar nas tarefas-piloto. O número de passos não será limitado, porque um teto de passos é ele próprio uma decisão de projeto de harness." Parâmetros de amostragem registrados, não normalizados (Miller, 2024). Harness zero: laço observar/agir, 3 ferramentas (ler, escrever, executar), sem planejamento, compactação, retry ou chamada auxiliar, < 400 linhas com portão de CI. Adaptadores pi e oh-my-pi escritos no projeto (o executor Pier não os traz). Suíte: 8 tarefas Python do DeepSWE congeladas; DeepSWE tem 113 tarefas, 91 repositórios, 668 linhas em média vs 32,8 no SWE-bench (~20x, cálculo do autor). Crédito parcial é adaptação (DeepSWE grada binário, §8). Cada célula (braço, tarefa, nível) n ≥ 3 após descartes; dois níveis de modelo gratuitos no mesmo gateway [62]. Classes de execução [67]: falhada = resultado com escore zero; descartada = medição inconfiável.`,
-`<b>Métrica e estatística [55][66].</b> Succ/Mtok de Lin et al. (2026): sucessos por milhão de tokens. Wilcoxon dos postos sinalizados, bilateral, α = 0,05, sobre o Succ/Mtok por tarefa; não paramétrico porque 8 pares não sustentam suposição distribucional; pareado porque a dificuldade da tarefa é o maior fator de perturbação (Miller, 2024). MDE ≈ 0,81σ com n = 3 e 8 tarefas. Predições pré-registradas por nível. O painel é simulação: dificuldades das 8 tarefas são multiplicadores fixos ilustrativos; valor crítico de W para n = 8, bilateral, α = 0,05 é 3.`,
-`<b>Limitações [69].</b> Quatro declaradas: efeito específico do modelo (pode inverter; objetivo 5); modelos pequenos em aberto (único viável treinado dentro de um braço); valores absolutos não comparáveis ao placar do DeepSWE (linhas de base com harness de ferramenta única; dólares externos vêm de outros modelos e níveis pagos); custo em dinheiro como contrafactual rotulado. Variância como principal ameaça [65]. O gráfico de barras do slide é ilustrativo (forma de uma inversão), sem dados do experimento; a evidência real de inversão é Kapoor et al. (2025) [55].`,
-`<b>Orçamento [71]–[83]:</b> inferência R$ 0,00 (nível gratuito do gateway), executor e benchmark R$ 0,00 (Pier e DeepSWE, Apache-2.0), máquinas R$ 0,00 (estação NixOS e estação Windows, já disponíveis). Cota gratuita é o limite vinculante; lotes ao longo de dias. <b>Cronograma [85]–[163]:</b> ago–set leitura, definição do tema e toda a escrita (introdução, referencial, material e método, referências; concluída em 11 set. 2026); out–nov instrumento e harness zero; matriz dez–jan; análise em jan; revisão final e apresentação em set; experimentos práticos a partir de out.`,
-`<b>Referências [155]–[180].</b> Lista completa com 25 entradas no projeto. Preprints marcados. Aqui só as citadas nos slides: sem as três normas ABNT, IFMT (2022), Earendil, HarnessRank e Opencode, citadas só no texto do projeto.`,
-`<b>Fecho.</b> Retomar o problema [31] e o produto [57]: um critério de escolha que um desenvolvedor ou uma empresa poderá aplicar. Repositório YuukiFST/harness-bench [179].`
+`<b>Justificativa [26].</b> "No FrontierHarness (Runta, 2026), doze configurações de nove harnesses sobre o mesmo modelo ficam entre 50,0% e 66,7% de aprovação, e o custo por tarefa concluída vai de US$ 1,05 a US$ 18,34, uma razão de 17,5x calculada pelo autor." Os dois braços deste projeto estão no mesmo post: pi 60,0% a US$ 2,43, OpenCode 50,0% a US$ 3,24 [26]. Também [52]: Codex 66,7% a US$ 3,47; Claude Code 63,3% a US$ 18,34 (5,3x). Os demais valores das barras vêm de wiki/sources/frontierharness-runta-2026.md, mesmo post; 30 tarefas e 1 tentativa por célula também. Quem paga é o desenvolvedor e a empresa [27].`,
+`<b>Referencial [49][50].</b> Ning et al. (2026, §2): um harness "converte um modelo de linguagem sem estado em um agente funcional ao ancorar suas saídas em execução externa, estado persistente e realimentação verificável". Wang et al. (2026): monta os prompts, gerencia o estado, invoca as ferramentas e coordena o laço. Lin et al. (2026, §1): prompt de sistema, ferramentas, middleware de contexto; "conjunto de componentes externos ao modelo e editáveis". [49]: os dois braços ficam em pontos distantes dessa camada: pi perto do ReAct mínimo com quatro ferramentas; OpenCode com planejamento, compactação, subagentes e permissões. Números de bytes e esquemas: layer1/data/first_request.csv (pi 2.499 bytes de prompt de sistema e 4 esquemas; OpenCode 9.738 e 9). O proxy externo é o instrumento [63], fora do harness.`,
+`<b>Justificativa [27], tema [29], problema [31], objetivo geral [33].</b> [27]: "Este projeto medirá esse custo construindo o mesmo produto duas vezes: o Finn, um SaaS de financeiro por voz, será construído com o OpenCode e com o pi, sobre o mesmo modelo e a partir da mesma especificação, e os tokens que cada braço gastar até entregar o produto serão contados fora do harness." Ler o problema na íntegra [31]: "quantos tokens a mais ou a menos custa construir o mesmo software com um harness em vez de outro? E quanto dessa diferença vem da carga fixa que cada harness envia em toda requisição?"`,
+`<b>Finn (YuukiFST, 2026a) [61].</b> Apresentar o produto antes de usá-lo como suíte: SaaS de financeiro por voz para pequenas empresas, do próprio autor, especificado em 21 issues fechadas antes do experimento (#1 mapa; #2–#10 decisões de produto; #11–#22 decisões técnicas). Pipeline de sete passos da issue #14: áudio, texto, intenção, gate de permissão, executar ou negar, resposta por push; o desenho junta os dois últimos. Os 9 tickets técnicos (#14–#22) viram as 9 unidades de uma especificação única; os agentes recebem a mesma especificação, os mesmos prompts e o mesmo espaço vazio, constroem do zero, e o escore é a fração dos testes de aceitação do autor. Ponto a dizer: é um produto de verdade, com pilha fixa, não uma suíte de tarefas isoladas como as das comparações publicadas.`,
+`<b>Como o projeto funciona [27][43][59][61].</b> [27]: "Este projeto medirá esse custo construindo o mesmo produto duas vezes: o Finn, um SaaS de financeiro por voz, será construído com o OpenCode e com o pi, sobre o mesmo modelo e a partir da mesma especificação, e os tokens que cada braço gastar até entregar o produto serão contados fora do harness." Dizer em voz alta a ordem: especificação → dois braços do zero → proxy → critério. Se perguntarem por que não deixar o OpenCode construir e gerar a spec para o pi: entrada desigual, o pi receberia um documento destilado de um sistema pronto e a diferença deixaria de ser atribuível ao harness. Camada 1 e Camada 2, matriz e limites vêm nos slides de método; aqui só a visão geral. "Conhecer o harness virou parte do ofício" é [27].`,
+`<b>Objetivos específicos [35]–[41].</b> 1 instrumento externo idêntico para os dois; 2 especificação do Finn em nove unidades, a partir das decisões do repositório, com testes de aceitação do autor independentes dos testes do agente; 3 espaço de trabalho inicial idêntico, só especificação e pilha, congelado por hash; 4 construção completa nos dois harnesses, unidade a unidade, mesmo modelo e prompts, repetição e dispersão; 5 segundo modelo, ordenação mantida ou invertida; 6 divergência tokens relatados vs medidos; 7 publicar executor, prompts, testes, dados e scripts a custo zero.`,
+`<b>Hipóteses [45][46].</b> H1 refutada se os intervalos de tokens por construção dos dois braços se sobrepuserem e o teste pareado por unidade não apontar diferença. H2: a carga fixa (prompt de sistema e esquemas, Camada 1) explica a maior parte da diferença; refutada se o número de passos explicar a maior parte, "desfecho possível e reportável, já que o harness com mais ferramentas pode compensar a carga extra concluindo a unidade em menos passos". Painel da direita, tudo fonte externa: H1 usa as duas linhas do FrontierHarness [26][52] (pi 60,0% / US$ 2,43; OpenCode 50,0% / US$ 3,24; mesmo modelo Kimi K3 via Fireworks, 30 tarefas, 1 tentativa por célula, versões pi v0.84.2 e OpenCode v1.18.19 no repositório do eval); 1,33x e 10 pp são conta do autor sobre a tabela. H2 usa Earendil 2026 (pi: 4 ferramentas, prompt de sistema e definições abaixo de 1.000 tokens) e Databricks apud Earendil ("Pi sent about 3x less context per turn"; custo por tarefa acima de 2x com qualidade igual) [52][60]. A Camada 1 (medição própria, layer1/data) sai deste slide e fica no método; se perguntarem por números próprios, eles estão no repositório.`,
+`<b>Referencial [49]–[55].</b> Yang 2024: interface modelo-ambiente como objeto de projeto. Lin 2026 Tabela 1: 47,2% OpenCode a 71,9% Codex, GPT-5.4, Terminal-Bench 2, 89 tarefas, 24,7 pp (cálculo do autor). Zhang 2026: Binding Constraint Thesis. Alier Forment 2026: sem MCP 5,0x a 28x mais barato; pi o mais barato da matriz. HarnessRank: ordena por aprovação, custo ao lado. Databricks apud Earendil: >2x em alguns casos. Ning 2026 §5.2.1/§5.2.7: lacuna de atribuição, pede métricas por componente; este projeto responde pelo lado da medição, separando carga fixa de conversa em cada requisição [53]. Lee 2026 Tabela 7: 76,4% vs 74,7%. Kapoor 2024/2025: custo ignorado, comparações entre harnesses raras; Anthropic melhor com BrowserUse, OpenAI com SeeAct. Runta 2026: cache 25,0% vs 67,8%.`,
+`<b>Classificação [43][57] e declaração de IA [58].</b> [57]: aplicada; quantitativa (tokens e sucesso) e qualitativa (atribuição à carga fixa ou aos passos); exploratória "porque a comparação de dois harnesses construindo o mesmo produto completo do zero, a partir da mesma especificação, não tem precedente publicado"; experimental, VI o harness, controladas modelo, especificação, espaço de trabalho inicial e limites; dedutiva (Gil, 2022; Prodanov; Freitas, 2013). [58]: LLM Wiki, padrão de Karpathy (2026), instanciado no repositório (YuukiFST, 2026b); Portaria CNPq 2.664/2026 pede ferramenta e finalidade (Brasil, 2026); ferramenta Claude Code; o autor curou as fontes, conferiu cada citação na obra original e responde pelo texto final.`,
+`<b>Método [59][63][64].</b> Camada 1: forma da requisição contra endpoint simulado; determinística, sem cota; "fornece a carga fixa por requisição de que H2 depende". Camada 2: construção do produto contra o modelo real, estocástica, consome cota. "Mais bytes por requisição não significam, por si, resultado pior." Proxy reverso força o relatório de uso, conta tokens sobre os bytes transmitidos com um único tokenizador; o gateway injeta conteúdo, deslocamento aditivo por requisição que não se cancela em razão [63]. Limite único: relógio de parede por unidade, 3x a maior mediana dos braços nas unidades-piloto; sem teto de passos [64].`,
+`<b>Braços [60], suíte [61], limite [64], células [65], classes [67].</b> [60]: OpenCode (Opencode, 2026a) e pi (Earendil, 2026); código aberto, headless (opencode run, pi --mode json), URL base OpenAI-compatível; "Este projeto não escreve harness algum; escreve o instrumento, os prompts e os testes de aceitação." [61]: Finn (YuukiFST, 2026a), 21 tickets fechados no repositório; o autor escreve, antes de qualquer execução, uma especificação única congelada por SHA-256: produto, pilha (TypeScript, TanStack Start, tRPC, Drizzle, PostgreSQL, Vitest), restrições gerais e nove unidades em ordem de dependência (#15 tenant, #16 governança, #17 flags, #14 pipeline de voz, #20 confirmação, #21 log, #19 relatório, #18 agendador, #22 cobrança). Os dois braços recebem os mesmos bytes e constroem do zero em um único espaço de trabalho: o executor invoca o harness uma vez por unidade, em ordem, com prompt idêntico; o que o agente construiu em uma unidade é o ponto de partida da seguinte; o autor não escreve código depois do início. Escore: fração dos testes de aceitação do autor, held-out, rodados sobre uma cópia do espaço ao fim de cada unidade; unidade concluída quando todos os seus testes passam, construção concluída quando todos passam ao fim. Células (braço, nível) com n ≥ 3 construções [65]; dois níveis gratuitos no mesmo gateway [62]. Classes [67]: não concluída = resultado com a fração aprovada, a construção segue; descartada = medição inconfiável descarta a construção.`,
+`<b>Métrica e estatística [55][66].</b> Medida principal: tokens por construção, contados no proxy, sempre ao lado da fração final de testes aprovados (um braço que falha barato não pode parecer o mais barato); Succ/Mtok de Lin et al. (2026). Wilcoxon dos postos sinalizados, bilateral, α = 0,05, pareado por unidade, sobre tokens por unidade e Succ/Mtok por unidade; não paramétrico porque nove pares não sustentam suposição distribucional; pareado porque a dificuldade da unidade é o maior fator de perturbação (Miller, 2024). Unidades não são independentes: a seguinte parte do que o mesmo braço construiu; essa dependência é custo do harness e é reportada por unidade. MDE ≈ 0,76σ com n = 3 e 9 unidades. Para H2: tokens decompostos em carga fixa (Camada 1 x passos) e conversa, parcela reportada por unidade e por construção. O painel é simulação: dificuldades das 9 unidades são multiplicadores ilustrativos; valor crítico de W para n = 9, bilateral, α = 0,05 é 5.`,
+`<b>Limitações [69].</b> Quatro declaradas: efeito específico do modelo (pode inverter; objetivo 5); um único produto sobre uma única pilha (transferência como trabalho futuro); especificação escrita pelo autor e cada braço carregando os próprios erros de uma unidade à seguinte (mitigação: mesma entrada e mesmo início vazio para os dois, comparação pareada por unidade); valores absolutos sem placar público, dólares externos de outros modelos e níveis pagos, custo em dinheiro como contrafactual rotulado. Variância como principal ameaça [65]. O gráfico de barras do slide é ilustrativo; a evidência real de inversão é Kapoor et al. (2025) [55].`,
+`<b>Orçamento [71]–[83]:</b> inferência R$ 0,00 (nível gratuito do gateway), harnesses e ferramentas R$ 0,00 (OpenCode e pi, código aberto; Node.js e PostgreSQL), máquinas R$ 0,00 (estação NixOS e estação Windows). Cota gratuita é o limite vinculante; lotes ao longo de dias. <b>Cronograma [85]–[163]:</b> ago–set leitura, definição do tema e toda a escrita (concluída em set. 2026); out–nov instrumento, especificação e testes de aceitação; matriz dez–jan; análise em jan; revisão final e apresentação em set; experimentos práticos a partir de out.`,
+`<b>Fecho.</b> Retomar o problema [31] e o produto [57]: um critério de escolha que um desenvolvedor ou uma empresa poderá aplicar. Repositórios YuukiFST/Finn [183] e YuukiFST/harness-bench [184].`
 ];
 
 // ---------- navegação ----------
@@ -443,7 +510,7 @@ const FH=[ // FrontierHarness, Kimi K3, set. 2026 (wiki/sources/frontierharness-
   const box=document.getElementById('bars');
   FH.forEach(([n,p,c])=>{
     const r=document.createElement('div');r.className='barrow';
-    r.innerHTML=`<div>${n}</div><div><div class="bar cost" data-w="${c/18.34*100}" data-c="${c}"><span>US$ 0,00</span></div><div class="bar pass" data-w="${p}"></div></div><div class="mute">${p.toFixed(1).replace('.',',')} %</div>`;
+    r.innerHTML=`<div${n==='Pi'||n==='OpenCode'?' class="acc" style="font-weight:700"':''}>${n}</div><div><div class="bar cost" data-w="${c/18.34*100}" data-c="${c}"><span>US$ 0,00</span></div><div class="bar pass" data-w="${p}"></div></div><div class="mute">${p.toFixed(1).replace('.',',')} %</div>`;
     box.appendChild(r);
   });
   const fmtUS=v=>'US$ '+v.toFixed(2).replace('.',',');
@@ -456,228 +523,61 @@ const FH=[ // FrontierHarness, Kimi K3, set. 2026 (wiki/sources/frontierharness-
   };
 })();
 
-// ---------- slide 3: cena 3D (renderizador próprio em canvas, sem rede) ----------
+// ---------- slide 3: diagrama do harness (SVG 2D, posições fixas; sem citações no slide) ----------
 const H3=[
- {id:0,key:'core',abbr:'LLM',kick:'Núcleo · fixo em todos os braços',name:'Modelo de linguagem',text:'Sem estado. Fixo em todos os braços. Tudo ao redor é o <em>harness</em>: componentes externos ao modelo e editáveis.',src:'Lin <em>et al.</em> (2026, §1); Ning <em>et al.</em> (2026, §2)',pos:[0,0,0],sphere:true,col:'#f5b638'},
- {id:1,key:'sys',abbr:'SYS',kick:'Andaime · conduta do agente',name:'Prompt de sistema',text:'Molda o estilo de trabalho. Na Camada 1, pi envia 2.499 bytes; oh-my-pi, 25.395 (10,2×).',src:'Lin <em>et al.</em> (2026, §1); layer1/data, 28 ago. 2026',pos:[-3.6,0.6,0.9],col:'#3b7bd6'},
- {id:2,key:'tool',abbr:'TOOL',kick:'Andaime · corpo do agente',name:'Ferramentas',text:'Expõem sistema de arquivos e shell ao modelo. Esquemas viajam a cada requisição: 4 no pi, 11 no oh-my-pi.',src:'Lin <em>et al.</em> (2026, §1); layer1/data',pos:[3.6,0.6,0.9],col:'#3b7bd6'},
- {id:3,key:'ctx',abbr:'CTX',kick:'Andaime · memória e limite',name:'Middleware de contexto',text:'Controla contexto, execução e recuperação: compactação, memória, permissões, verificação.',src:'Lin <em>et al.</em> (2026, §1); Ning <em>et al.</em> (2026, §2)',pos:[0,0.6,-3.8],col:'#3b7bd6'},
- {id:4,key:'loop',abbr:'LOOP',kick:'Andaime · o motor',name:'Laço de execução',text:'Monta prompts, gerencia estado, invoca ferramentas, coordena o laço. Do ReAct mínimo ao planejamento com subagentes.',src:'Wang <em>et al.</em> (2026); Yao <em>et al.</em> (2022)',pos:[0,0.6,3.8],col:'#3b7bd6'},
- {id:5,key:'proxy',abbr:'PROXY',kick:'Instrumento · fora do harness',name:'Proxy externo',text:'Fora do <em>harness</em>: instrumento do projeto. Conta requisições, tokens e latência igual para todos os braços.',src:'Projeto, §3 [63]; objetivo 1',pos:[0,-3.4,0.9],col:'#7bd88f',flat:true}
+ {id:0,key:'core',abbr:'LLM',kick:'Núcleo · fixo em todos os braços',name:'Modelo de linguagem',text:'Sem estado. Fixo em todos os braços. Tudo ao redor é o <em>harness</em>: componentes externos ao modelo e editáveis.',x:510,y:360},
+ {id:1,key:'sys',abbr:'SYS',kick:'Andaime · conduta do agente',name:'Prompt de sistema',text:'Molda o estilo de trabalho. Na Camada 1, pi envia 2.499 bytes; OpenCode, 9.738 (3,9×).',x:333,y:183},
+ {id:2,key:'tool',abbr:'TOOL',kick:'Andaime · corpo do agente',name:'Ferramentas',text:'Expõem sistema de arquivos e shell ao modelo. Esquemas viajam a cada requisição: 4 no pi, 9 no OpenCode.',x:687,y:183},
+ {id:3,key:'ctx',abbr:'CTX',kick:'Andaime · memória e limite',name:'Middleware de contexto',text:'Controla contexto, execução e recuperação: compactação, memória, permissões, verificação.',x:333,y:537},
+ {id:4,key:'loop',abbr:'LOOP',kick:'Andaime · o motor',name:'Laço de execução',text:'Monta prompts, gerencia estado, invoca ferramentas, coordena o laço. Do ReAct mínimo ao planejamento com subagentes.',x:687,y:537},
+ {id:5,key:'proxy',abbr:'PROXY',kick:'Instrumento · fora do harness',name:'Proxy externo',text:'Fora do <em>harness</em>: instrumento do projeto. Conta requisições, tokens e latência igual para os dois braços.',x:510,y:690,proxy:true}
 ];
-let h3sel=0,h3selAt=0;
+let h3sel=0;
 function h3select(i){
-  h3sel=i;h3selAt=performance.now();const c=H3[i];
+  h3sel=i;const c=H3[i];
   document.getElementById('h3title').innerHTML=c.name;
   document.getElementById('h3text').innerHTML=c.text;
-  document.getElementById('h3src').innerHTML=c.src;
-  const b=document.getElementById('h3badge');if(b)b.textContent=i;
-  const k=document.getElementById('h3kicker');if(k)k.textContent=c.kick;
-  const n=document.getElementById('h3count');if(n)n.textContent=(i+1)+' / '+H3.length;
+  document.getElementById('h3badge').textContent=i;
+  document.getElementById('h3kicker').textContent=c.kick;
+  document.getElementById('h3count').textContent=(i+1)+' / '+H3.length;
   document.querySelectorAll('#h3chips .chip').forEach((ch,j)=>ch.classList.toggle('on',j===i));
+  document.querySelectorAll('#h3svg [data-i]').forEach(el=>el.classList.toggle('on',+el.dataset.i===i));
 }
 (function(){
+  const NS='http://www.w3.org/2000/svg';
+  const el=(tag,attrs,parent)=>{const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e;};
   const chips=document.getElementById('h3chips');
-  H3.forEach((c,i)=>{const b=document.createElement('button');b.className='chip'+(i===0?' on':'');b.dataset.k=c.key||'mod';b.setAttribute('aria-label','Destacar '+c.name.replace(/<[^>]+>/g,''));b.innerHTML='<span class="dot" aria-hidden="true"></span><span><span class="n">'+i+' · '+c.abbr+'</span><br>'+c.name.replace(/<[^>]+>/g,'')+'</span>';b.onclick=()=>h3select(i);chips.appendChild(b);});
-  const cv=document.getElementById('h3d');let ctx;
-  try{ctx=cv.getContext('2d');}catch(e){}
-  if(!ctx){cv.style.display='none';fallback2d();return;}
-  let yaw=0.85,pitch=0.8,dist=13.5,auto=true,drag=null,raf=null;
-  const labCache=[]; // posições exibidas dos rótulos, um por id: warm-start + easing (sem flicker)
-  const proj=[];window.h3proj=proj; // exposto para testes de clique automatizados
-  function rot(p){const[x,y,z]=p;const cy=Math.cos(yaw),sy=Math.sin(yaw),cp=Math.cos(pitch),sp=Math.sin(pitch);
-    const x1=x*cy-z*sy,z1=x*sy+z*cy;const y2=y*cp-z1*sp,z2=y*sp+z1*cp;return[x1,y2,z2];}
-  function P(v,W,Hh){const[x,y,z]=rot(v);const f=W*0.8/(dist-z);return{x:W/2+x*f,y:Hh/2-y*f,z:z,f:f};}
-  function hexRGB(h){return[1,3,5].map(i=>parseInt(h.substr(i,2),16));}
-  function roundRect(x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();}
-  const dust=[];for(let i=0;i<70;i++)dust.push({x:Math.random(),y:Math.random(),r:0.8+Math.random()*1.8,ph:Math.random()*7,sp:0.4+Math.random()});
-  function quad(a,m,b,u){const v=1-u;return{x:v*v*a.x+2*v*u*m.x+u*u*b.x,y:v*v*a.y+2*v*u*m.y+u*u*b.y};}
-  function paintBG(W,Hh,t,dpr){
-    const base=ctx.createLinearGradient(0,0,0,Hh);base.addColorStop(0,'#121b2a');base.addColorStop(0.55,'#0b0f14');base.addColorStop(1,'#080c11');
-    ctx.fillStyle=base;ctx.fillRect(0,0,W,Hh);
-    let g=ctx.createRadialGradient(W*0.5,Hh*0.74,10,W*0.5,Hh*0.74,W*0.36);g.addColorStop(0,'rgba(245,182,56,.12)');g.addColorStop(1,'rgba(245,182,56,0)');ctx.fillStyle=g;ctx.fillRect(0,0,W,Hh);
-    g=ctx.createRadialGradient(W*0.1,Hh*0.12,10,W*0.1,Hh*0.12,W*0.3);g.addColorStop(0,'rgba(59,123,214,.14)');g.addColorStop(1,'rgba(59,123,214,0)');ctx.fillStyle=g;ctx.fillRect(0,0,W,Hh);
-    g=ctx.createRadialGradient(W*0.9,Hh*0.2,10,W*0.9,Hh*0.2,W*0.26);g.addColorStop(0,'rgba(59,123,214,.10)');g.addColorStop(1,'rgba(59,123,214,0)');ctx.fillStyle=g;ctx.fillRect(0,0,W,Hh);
-    ctx.strokeStyle='rgba(148,170,200,.055)';ctx.lineWidth=1;const step=46*dpr;ctx.beginPath();
-    for(let x=step;x<W;x+=step){ctx.moveTo(x,0);ctx.lineTo(x,Hh);}
-    for(let y=step;y<Hh;y+=step){ctx.moveTo(0,y);ctx.lineTo(W,y);}
-    ctx.stroke();
-    dust.forEach(d=>{const x=(d.x*W+t*9*d.sp*dpr)%W;const y=d.y*Hh+Math.sin(t*0.6+d.ph)*7*dpr;const a=0.10+0.30*(0.5+0.5*Math.sin(t*1.3+d.ph));ctx.beginPath();ctx.arc(x,y,d.r*dpr,0,7);ctx.fillStyle='rgba(220,232,245,'+a.toFixed(3)+')';ctx.fill();});
-    g=ctx.createRadialGradient(W/2,Hh/2,Math.min(W,Hh)*0.36,W/2,Hh/2,Math.max(W,Hh)*0.75);g.addColorStop(0,'rgba(0,0,0,0)');g.addColorStop(1,'rgba(0,0,0,.52)');ctx.fillStyle=g;ctx.fillRect(0,0,W,Hh);
-  }
-  function drawCore(px,py,R,t,hi,dpr,pulse){
-    let hg=ctx.createRadialGradient(px,py,R*0.6,px,py,R*2.2);hg.addColorStop(0,hi?'rgba(245,182,56,.5)':'rgba(245,182,56,.28)');hg.addColorStop(1,'rgba(245,182,56,0)');ctx.beginPath();ctx.arc(px,py,R*2.2,0,7);ctx.fillStyle=hg;ctx.fill();
-    for(let k=0;k<2;k++){const u=((t*0.45)+k*0.5)%1;ctx.beginPath();ctx.arc(px,py,R*(1+u*0.95),0,7);ctx.strokeStyle='rgba(245,182,56,'+((1-u)*(hi?0.5:0.26)).toFixed(3)+')';ctx.lineWidth=2*dpr;ctx.stroke();}
-    ctx.beginPath();ctx.arc(px,py,R*1.04,0,7);ctx.fillStyle='#101825';ctx.fill();ctx.lineWidth=(hi?3.2:2)*dpr;ctx.strokeStyle=hi?'#ffffff':'rgba(255,225,154,.55)';ctx.stroke();
-    for(let k=0;k<3;k++){const rr=R*(1.2+k*0.17);const dir=k%2?-1:1;const a0=t*(0.5+k*0.22)*dir+k*2.1;ctx.beginPath();ctx.arc(px,py,rr,a0,a0+1.15+k*0.4);ctx.strokeStyle=k===1?'rgba(255,225,154,.8)':'rgba(139,152,168,.55)';ctx.lineWidth=2.4*dpr;ctx.lineCap='round';ctx.stroke();
-      const ex=px+Math.cos(a0+1.15+k*0.4)*rr,ey=py+Math.sin(a0+1.15+k*0.4)*rr;ctx.beginPath();ctx.arc(ex,ey,3*dpr,0,7);ctx.fillStyle=k===1?'#f5b638':'#8b98a8';ctx.fill();}
-    const g=ctx.createRadialGradient(px-R*0.35,py-R*0.4,R*0.08,px,py,R*0.9);g.addColorStop(0,'#fff6dd');g.addColorStop(0.38,'#ffd97a');g.addColorStop(0.66,'#f5b638');g.addColorStop(1,hi?'#c78f1f':'#8a5f14');
-    ctx.beginPath();ctx.arc(px,py,R*0.88*pulse,0,7);ctx.fillStyle=g;ctx.fill();
-    ctx.strokeStyle='rgba(70,48,8,.5)';ctx.lineWidth=1.4*dpr;ctx.beginPath();
-    for(let j=0;j<6;j++){const a=j/6*Math.PI*2+t*0.35;ctx.moveTo(px,py);ctx.lineTo(px+Math.cos(a)*R*0.55,py+Math.sin(a)*R*0.55);}
-    ctx.stroke();
-    for(let j=0;j<6;j++){const a=j/6*Math.PI*2+t*0.35;ctx.beginPath();ctx.arc(px+Math.cos(a)*R*0.55,py+Math.sin(a)*R*0.55,2.6*dpr,0,7);ctx.fillStyle='#5b430f';ctx.fill();}
-    ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillStyle='#241a05';
-    ctx.font='700 '+(R*0.4)+'px Archivo,sans-serif';ctx.fillText('LLM',px,py-R*0.1);
-    ctx.font='600 '+(R*0.21)+'px Archivo,sans-serif';ctx.fillStyle='rgba(36,26,5,.82)';ctx.fillText('modelo',px,py+R*0.26);
-    ctx.textBaseline='alphabetic';
-  }
-  function glyph(kind,tx,ty,s,dpr,t){
-    ctx.save();ctx.strokeStyle='rgba(255,255,255,.94)';ctx.fillStyle='rgba(255,255,255,.94)';ctx.lineWidth=2.8*dpr;ctx.lineCap='round';ctx.lineJoin='round';ctx.shadowColor='rgba(0,0,0,.35)';ctx.shadowBlur=4*dpr;
-    if(kind==='sys'){const w=s*0.86,h=s*1.0,x=tx-w/2,y=ty-h/2;ctx.beginPath();ctx.rect(x,y,w,h);ctx.stroke();ctx.beginPath();ctx.moveTo(x+w*0.62,y);ctx.lineTo(x+w*0.62,y+h*0.3);ctx.lineTo(x+w,y+h*0.3);ctx.stroke();
-      for(let r=0;r<3;r++){ctx.beginPath();ctx.moveTo(x+w*0.16,y+h*(0.44+r*0.16));ctx.lineTo(x+w*(r===1?0.6:0.84),y+h*(0.44+r*0.16));ctx.stroke();}}
-    else if(kind==='tool'){ctx.beginPath();ctx.arc(tx-s*0.2,ty-s*0.14,s*0.24,0.6,5.6);ctx.stroke();ctx.beginPath();ctx.moveTo(tx-s*0.02,ty+s*0.04);ctx.lineTo(tx+s*0.42,ty+s*0.42);ctx.stroke();
-      ctx.beginPath();ctx.arc(tx+s*0.42,ty+s*0.42,2.6*dpr,0,7);ctx.fill();ctx.font='700 '+(s*0.4)+'px Consolas,monospace';ctx.textAlign='left';ctx.fillText('>_',tx-s*0.5,ty+s*0.52);}
-    else if(kind==='ctx'){for(let r=0;r<3;r++){const yy=ty-s*0.3+r*s*0.28;ctx.beginPath();ctx.moveTo(tx-s*0.5,yy);ctx.lineTo(tx,yy-s*0.2);ctx.lineTo(tx+s*0.5,yy);ctx.stroke();}}
-    else{const a0=t*1.6;for(let k=0;k<2;k++){const a=a0+k*Math.PI;ctx.beginPath();ctx.arc(tx,ty,s*0.36,a,a+3.9);ctx.stroke();
-      const ex=tx+Math.cos(a+3.9)*s*0.36,ey=ty+Math.sin(a+3.9)*s*0.36,ea=a+3.9+Math.PI/2;ctx.beginPath();ctx.moveTo(ex,ey);ctx.lineTo(ex-Math.cos(ea-0.4)*s*0.16,ey-Math.sin(ea-0.4)*s*0.16);ctx.lineTo(ex-Math.cos(ea+0.4)*s*0.16,ey-Math.sin(ea+0.4)*s*0.16);ctx.closePath();ctx.fill();}}
-    ctx.restore();
-  }
-  function drawModule(c,cen,t,hi,dpr,pulse){
-    const f=cen.f,sc=hi?1.1*pulse:1;const w=2.2*f*sc,bh=1.3*f*sc,ox=0.46*f*sc,oy=-0.32*f*sc;
-    const x=cen.x,y=cen.y-(hi?13*dpr:0);const fx0=x-w/2,fy0=y-bh/2;
-    ctx.beginPath();ctx.ellipse(x,y+bh*0.66,w*0.54,w*0.13,0,0,7);ctx.fillStyle='rgba(0,0,0,.45)';ctx.fill();
-    if(hi){const hg=ctx.createRadialGradient(x,y,w*0.2,x,y,w*1.0);hg.addColorStop(0,'rgba(245,182,56,.42)');hg.addColorStop(1,'rgba(245,182,56,0)');ctx.beginPath();ctx.arc(x,y,w*1.0,0,7);ctx.fillStyle=hg;ctx.fill();}
-    const sg=ctx.createLinearGradient(0,fy0,0,fy0+bh);if(hi){sg.addColorStop(0,'#6ea8ec');sg.addColorStop(1,'#2c60ad');}else{sg.addColorStop(0,'#4d84c8');sg.addColorStop(1,'#23447a');}
-    ctx.fillStyle=sg;ctx.fillRect(fx0,fy0,w,bh);
-    ctx.fillStyle='rgba(255,255,255,.16)';ctx.fillRect(fx0,fy0,w,2.2*dpr);
-    const tg=ctx.createLinearGradient(fx0,fy0+oy,fx0,fy0);if(hi){tg.addColorStop(0,'#ffe6a8');tg.addColorStop(1,'#c78f1f');}else{tg.addColorStop(0,'#9cc2f2');tg.addColorStop(1,'#3f7ac2');}
-    ctx.beginPath();ctx.moveTo(fx0,fy0);ctx.lineTo(fx0+w,fy0);ctx.lineTo(fx0+w+ox,fy0+oy);ctx.lineTo(fx0+ox,fy0+oy);ctx.closePath();ctx.fillStyle=tg;ctx.fill();
-    ctx.beginPath();ctx.moveTo(fx0+w,fy0);ctx.lineTo(fx0+w+ox,fy0+oy);ctx.lineTo(fx0+w+ox,fy0+oy+bh);ctx.lineTo(fx0+w,fy0+bh);ctx.closePath();ctx.fillStyle=hi?'#24447a':'#182c4c';ctx.fill();
-    ctx.lineWidth=(hi?2.6:1.4)*dpr;ctx.strokeStyle=hi?'#ffffff':'rgba(6,10,16,.65)';
-    ctx.beginPath();ctx.moveTo(fx0,fy0);ctx.lineTo(fx0+w,fy0);ctx.lineTo(fx0+w,fy0+bh);ctx.lineTo(fx0,fy0+bh);ctx.closePath();ctx.stroke();
-    ctx.beginPath();ctx.moveTo(fx0,fy0);ctx.lineTo(fx0+w,fy0);ctx.lineTo(fx0+w+ox,fy0+oy);ctx.lineTo(fx0+ox,fy0+oy);ctx.closePath();ctx.stroke();
-    glyph(c.key||'sys',fx0+w/2+ox/2,fy0+oy/2,0.4*f*sc,dpr,t);
-    const hh2=Math.max(20*dpr,0.3*f*sc);roundRect(fx0+10*dpr,fy0+9*dpr,w-20*dpr,hh2,6*dpr);ctx.fillStyle='rgba(6,10,16,.55)';ctx.fill();
-    ctx.font='700 '+(18*dpr)+'px Consolas,monospace';ctx.textAlign='left';ctx.fillStyle='#fff';ctx.fillText(c.abbr,fx0+18*dpr,fy0+9*dpr+hh2*0.72);
-    const leds=['#7bd88f','#f5b638','#5b9ae6'];leds.forEach((col,k)=>{const lx=fx0+w-20*dpr-k*15*dpr,ly=fy0+9*dpr+hh2/2;const on=hi||k!==2||Math.sin(t*3+k)>0;ctx.beginPath();ctx.arc(lx,ly,4.4*dpr,0,7);ctx.fillStyle=col;ctx.globalAlpha=on?1:0.3;ctx.fill();ctx.globalAlpha=1;if(hi||on){ctx.save();ctx.shadowColor=col;ctx.shadowBlur=8*dpr;ctx.fill();ctx.restore();}});
-    ctx.fillStyle='rgba(255,255,255,.26)';roundRect(fx0+12*dpr,fy0+bh*0.5,w*0.7,7*dpr,3.5*dpr);ctx.fill();
-    ctx.fillStyle='rgba(255,255,255,.15)';roundRect(fx0+12*dpr,fy0+bh*0.5+13*dpr,w*0.5,7*dpr,3.5*dpr);ctx.fill();
-    const frac=[0,0.68,0.55,0.6,0.75][c.id]||0.6;roundRect(fx0+12*dpr,fy0+bh-20*dpr,w-24*dpr,9*dpr,4.5*dpr);ctx.fillStyle='rgba(0,0,0,.5)';ctx.fill();
-    if(frac>0){const lg=ctx.createLinearGradient(fx0,0,fx0+w,0);lg.addColorStop(0,'#ffe19a');lg.addColorStop(1,hi?'#f5b638':'#c78f1f');roundRect(fx0+12*dpr,fy0+bh-20*dpr,(w-24*dpr)*frac,9*dpr,4.5*dpr);ctx.fillStyle=lg;ctx.fill();}
-    [[fx0+6*dpr,fy0+6*dpr],[fx0+w-6*dpr,fy0+6*dpr],[fx0+6*dpr,fy0+bh-6*dpr],[fx0+w-6*dpr,fy0+bh-6*dpr]].forEach(([sx,sy])=>{ctx.beginPath();ctx.arc(sx,sy,2.6*dpr,0,7);ctx.fillStyle='rgba(0,0,0,.55)';ctx.fill();});
-    if(hi){ctx.strokeStyle='#f5b638';ctx.lineWidth=3*dpr;const L=15*dpr,O=7*dpr;
-      ctx.beginPath();ctx.moveTo(fx0-O,fy0-O+L);ctx.lineTo(fx0-O,fy0-O);ctx.lineTo(fx0-O+L,fy0-O);ctx.stroke();
-      ctx.beginPath();ctx.moveTo(fx0+w+O-L,fy0-O);ctx.lineTo(fx0+w+O,fy0-O);ctx.lineTo(fx0+w+O,fy0-O+L);ctx.stroke();
-      ctx.beginPath();ctx.moveTo(fx0-O,fy0+bh+O-L);ctx.lineTo(fx0-O,fy0+bh+O);ctx.lineTo(fx0-O+L,fy0+bh+O);ctx.stroke();
-      ctx.beginPath();ctx.moveTo(fx0+w+O-L,fy0+bh+O);ctx.lineTo(fx0+w+O,fy0+bh+O);ctx.lineTo(fx0+w+O,fy0+bh+O-L);ctx.stroke();}
-    return{top:fy0+oy-12*dpr,bot:fy0+bh+10*dpr,w:w};
-  }
-  function drawProxy(c,cen,t,hi,dpr,pulse){
-    const f=cen.f,sc=hi?1.08*pulse:1;const w=4.5*f*sc,bh=0.82*f*sc,ox=0.56*f*sc,oy=-0.4*f*sc;
-    const x=cen.x,y=cen.y;const fx0=x-w/2,fy0=y-bh/2;
-    ctx.beginPath();ctx.ellipse(x,y+bh*0.9,w*0.56,w*0.12,0,0,7);ctx.fillStyle='rgba(0,0,0,.5)';ctx.fill();
-    if(hi){const hg=ctx.createRadialGradient(x,y,w*0.15,x,y,w*0.7);hg.addColorStop(0,'rgba(245,182,56,.5)');hg.addColorStop(1,'rgba(245,182,56,0)');ctx.beginPath();ctx.arc(x,y,w*0.7,0,7);ctx.fillStyle=hg;ctx.fill();}
-    const tg=ctx.createLinearGradient(0,fy0+oy,0,fy0);tg.addColorStop(0,'#ffe19a');tg.addColorStop(1,hi?'#e8ab2e':'#c78f1f');
-    ctx.beginPath();ctx.moveTo(fx0,fy0);ctx.lineTo(fx0+w,fy0);ctx.lineTo(fx0+w+ox,fy0+oy);ctx.lineTo(fx0+ox,fy0+oy);ctx.closePath();ctx.fillStyle=tg;ctx.fill();
-    ctx.strokeStyle='rgba(70,48,8,.5)';ctx.lineWidth=1.2*dpr;ctx.beginPath();
-    for(let k=1;k<5;k++){const gx=fx0+ox+(w-ox)*k/5;ctx.moveTo(gx,fy0+oy+(oy?0:0));ctx.lineTo(gx-w*0.02,fy0);} 
-    ctx.stroke();
-    const fg=ctx.createLinearGradient(0,fy0,0,fy0+bh);fg.addColorStop(0,hi?'#e0a52e':'#c78f1f');fg.addColorStop(1,'#7c5a12');
-    ctx.fillStyle=fg;ctx.fillRect(fx0,fy0,w,bh);
-    ctx.lineWidth=(hi?2.8:1.6)*dpr;ctx.strokeStyle=hi?'#ffffff':'rgba(40,26,4,.7)';ctx.strokeRect(fx0,fy0,w,bh);
-    roundRect(fx0+13*dpr,fy0+11*dpr,w-26*dpr,bh-22*dpr,8*dpr);ctx.fillStyle='rgba(8,10,6,.74)';ctx.fill();
-    ctx.font='600 '+(14.5*dpr)+'px Consolas,monospace';ctx.textAlign='center';ctx.fillStyle='#ffe19a';
-    ctx.fillText('req · tok · ms',fx0+w/2,fy0+30*dpr);
-    const n=10,bw=(w-52*dpr)/n;for(let k=0;k<n;k++){const hh3=(0.3+0.7*Math.abs(Math.sin(t*2.1+k*0.85)))*(bh-58*dpr);const bx=fx0+26*dpr+k*bw+1.5*dpr;const col=k<6?'#7bd88f':(k<8?'#f5b638':'#ef6b6b');
-      roundRect(bx,fy0+bh-14*dpr-hh3,bw-3*dpr,hh3,3*dpr);ctx.fillStyle=col;ctx.globalAlpha=hi?1:0.85;ctx.fill();ctx.globalAlpha=1;}
-    [[fx0+7*dpr,fy0+7*dpr],[fx0+w-7*dpr,fy0+7*dpr],[fx0+7*dpr,fy0+bh-7*dpr],[fx0+w-7*dpr,fy0+bh-7*dpr]].forEach(([sx,sy])=>{ctx.beginPath();ctx.arc(sx,sy,3*dpr,0,7);ctx.fillStyle='#3a2a08';ctx.fill();ctx.beginPath();ctx.arc(sx-0.8*dpr,sy-0.8*dpr,1.2*dpr,0,7);ctx.fillStyle='rgba(255,225,154,.8)';ctx.fill();});
-    return{top:fy0+oy-12*dpr,bot:fy0+bh+10*dpr,w:w,fx0:fx0,fy0:fy0};
-  }
-  function draw(){
-    const W=cv.width=cv.clientWidth*devicePixelRatio,Hh=cv.height=cv.clientHeight*devicePixelRatio;
-    const dpr=devicePixelRatio;const LS=Math.max(0.7,Math.min(1.12,W/(980*dpr)));const u=dpr*LS;ctx.clearRect(0,0,W,Hh);
-    if(auto)yaw+=0.0016;
-    const t=performance.now()/1000;const pulse=1+0.1*Math.max(0,1-(performance.now()-h3selAt)/450);
-    paintBG(W,Hh,t,dpr);
-    const items=[];proj.length=0;
-    const gc=P([0,-3.9,0],W,Hh);const e1=P([5,-3.9,0],W,Hh),e2=P([-5,-3.9,0],W,Hh);const rx=Math.abs(e1.x-e2.x)/2,ry=rx*0.3;
-    items.push({z:-101,draw(){ctx.beginPath();ctx.ellipse(gc.x,gc.y,rx*1.12,ry*1.12,0,0,7);ctx.fillStyle='rgba(0,0,0,.3)';ctx.fill();
-      for(let k=0;k<3;k++){ctx.beginPath();ctx.ellipse(gc.x,gc.y,rx*(0.75+k*0.19),ry*(0.75+k*0.19),0,0,7);ctx.strokeStyle=k===1?'rgba(245,182,56,.22)':'rgba(139,152,168,.14)';ctx.lineWidth=(k===1?2:1.2)*dpr;ctx.stroke();}
-      ctx.save();ctx.translate(gc.x,gc.y);for(let k=0;k<36;k++){const a=k/36*Math.PI*2;const c=Math.cos(a),s=Math.sin(a);ctx.beginPath();ctx.moveTo(c*rx*1.12,s*ry*1.12);ctx.lineTo(c*rx*1.2,s*ry*1.2);ctx.strokeStyle='rgba(139,152,168,.3)';ctx.lineWidth=1.4*dpr;ctx.stroke();}ctx.restore();}});
-    const ring=[];for(let a=0;a<=72;a++){const th=a/72*Math.PI*2;ring.push(P([Math.cos(th)*5,0.6,Math.sin(th)*5],W,Hh));}
-    items.push({z:-100,draw(){
-      ctx.save();ctx.lineJoin='round';
-      ctx.beginPath();ring.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.strokeStyle='rgba(245,182,56,.10)';ctx.lineWidth=11*dpr;ctx.stroke();
-      ctx.beginPath();ring.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.strokeStyle='rgba(245,182,56,.78)';ctx.lineWidth=3*dpr;ctx.setLineDash([16*dpr,12*dpr]);ctx.lineDashOffset=-t*44*dpr;ctx.stroke();ctx.setLineDash([]);
-      ctx.beginPath();for(let a=0;a<=72;a++){const th=a/72*Math.PI*2;const p=P([Math.cos(th)*4.2,0.6,Math.sin(th)*4.2],W,Hh);a?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y);}ctx.strokeStyle='rgba(139,152,168,.2)';ctx.lineWidth=1.4*dpr;ctx.stroke();
-      for(let k=0;k<12;k++){const a=k/12*Math.PI*2+t*0.22;const p=P([Math.cos(a)*5,0.6,Math.sin(a)*5],W,Hh);ctx.save();ctx.shadowColor='#f5b638';ctx.shadowBlur=10*dpr;ctx.beginPath();ctx.arc(p.x,p.y,3.2*dpr,0,7);ctx.fillStyle='#ffe19a';ctx.fill();ctx.restore();}
-      const lp=P([-4.4,0.6,-2.4],W,Hh);const lpx=Math.max(150*dpr,Math.min(W-150*dpr,lp.x));ctx.fillStyle='rgba(245,182,56,.92)';ctx.font='700 '+(19*u)+'px Archivo,sans-serif';ctx.textAlign='center';ctx.fillText('◆  harness · andaime do agente',lpx,lp.y-16*dpr);
-      ctx.restore();}});
-    const coreP=P([0,0,0],W,Hh);
-    H3.forEach((c,i)=>{if(!i)return;const b=P(c.pos,W,Hh);const hi=h3sel===i;
-      const m={x:(coreP.x+b.x)/2,y:(coreP.y+b.y)/2-46*dpr};
-      items.push({z:(coreP.z+b.z)/2-0.02,draw(){
-        ctx.save();
-        if(hi){ctx.shadowColor='rgba(245,182,56,.8)';ctx.shadowBlur=16*dpr;}
-        const lg=ctx.createLinearGradient(coreP.x,coreP.y,b.x,b.y);
-        if(hi){lg.addColorStop(0,'rgba(255,225,154,.95)');lg.addColorStop(1,'rgba(245,182,56,.95)');}else{lg.addColorStop(0,'rgba(139,152,168,.15)');lg.addColorStop(0.5,'rgba(139,152,168,.45)');lg.addColorStop(1,i===5?'rgba(123,216,143,.6)':'rgba(91,154,230,.55)');}
-        ctx.beginPath();ctx.moveTo(coreP.x,coreP.y);ctx.quadraticCurveTo(m.x,m.y,b.x,b.y);ctx.strokeStyle=lg;ctx.lineWidth=(hi?4:2)*dpr;ctx.setLineDash([9*dpr,8*dpr]);ctx.lineDashOffset=-t*36*dpr;ctx.stroke();ctx.setLineDash([]);ctx.restore();
-        for(let k=0;k<2;k++){const u=((t*0.3+k*0.5+i*0.17)%1);const dir=(i%2?u:1-u);const q=quad(coreP,m,b,dir);
-          ctx.save();ctx.shadowColor=hi?'#f5b638':(i===5?'#7bd88f':'#5b9ae6');ctx.shadowBlur=(hi?12:7)*dpr;ctx.beginPath();ctx.arc(q.x,q.y,(hi?5.6:3.8)*dpr,0,7);ctx.fillStyle=hi?'#ffe19a':'#e8edf2';ctx.fill();ctx.restore();}}});
-    });
-    const beamA=P([0,-2.85,0.9],W,Hh),beamB=P([0,-1.0,0],W,Hh);
-    items.push({z:-50,draw(){ctx.save();const lg=ctx.createLinearGradient(0,beamA.y,0,beamB.y);lg.addColorStop(0,'rgba(245,182,56,.9)');lg.addColorStop(1,'rgba(255,225,154,.15)');
-      ctx.strokeStyle=lg;ctx.lineWidth=3*dpr;ctx.shadowColor='rgba(245,182,56,.7)';ctx.shadowBlur=10*dpr;ctx.beginPath();ctx.moveTo(beamA.x,beamA.y);ctx.lineTo(beamB.x,beamB.y);ctx.stroke();ctx.restore();
-      const u=(t*0.75)%1;const px=beamA.x+(beamB.x-beamA.x)*u,py=beamA.y+(beamB.y-beamA.y)*u;
-      ctx.save();ctx.shadowColor='#ffe19a';ctx.shadowBlur=12*dpr;ctx.beginPath();ctx.arc(px,py,5*dpr,0,7);ctx.fillStyle='#fff3d0';ctx.fill();ctx.restore();}});
-    const labels=[];const geom={};
-    H3.forEach((c,i)=>{const hi=h3sel===i;const cen=P(c.pos,W,Hh);
-      if(c.sphere){const R=coreP.f*1.18*(hi?1.1*pulse:1);proj[i]={x:coreP.x,y:coreP.y,r:R*1.25};
-        items.push({z:coreP.z,draw(){drawCore(coreP.x,coreP.y,R,t,hi,dpr,hi?pulse:1);}});geom[i]={top:coreP.y-R*1.95,bot:coreP.y+R*1.9};return;}
-      if(c.flat){geom[i]=drawProxyWrap(c,cen,t,hi,dpr,pulse);proj[i]={x:cen.x,y:cen.y,r:geom[i].w*0.55};return;}
-      geom[i]=drawModuleWrap(c,cen,t,hi,dpr,pulse);proj[i]={x:cen.x,y:cen.y-(hi?13*dpr:0),r:geom[i].w*0.72};
-    });
-    function drawModuleWrap(c,cen,t,hi,dpr,pulse){let out=null;items.push({z:cen.z,draw(){out=drawModule(c,cen,t,hi,dpr,pulse);}});const f=cen.f;return{get top(){return out?out.top:cen.y-60*dpr;},get bot(){return out?out.bot:cen.y+60*dpr;},w:2.2*f*(hi?1.1*pulse:1)};}
-    function drawProxyWrap(c,cen,t,hi,dpr,pulse){let out=null;items.push({z:cen.z,draw(){out=drawProxy(c,cen,t,hi,dpr,pulse,W,Hh);}});const f=cen.f;return{get top(){return out?out.top:cen.y-40*dpr;},get bot(){return out?out.bot:cen.y+40*dpr;},w:4.5*f*(hi?1.08*pulse:1)};}
-    items.sort((a,b)=>a.z-b.z).forEach(it=>it.draw());
-    H3.forEach((c,i)=>{const hi=h3sel===i;const cen=P(c.pos,W,Hh);const rawY=c.flat?geom[i].bot+30*dpr:geom[i].top-14*dpr;
-      const prev=labCache[i];const hx=Math.max(150*dpr,Math.min(W-150*dpr,cen.x));
-      labels.push({hi,i,abbr:c.abbr,name:c.name.replace(/<[^>]+>/g,''),x:prev?prev.x:hx,y:prev?prev.y:rawY,hx:hx,hy:rawY,ax:cen.x,ay:cen.y,bw:200*u,bh:34*u});});
-    labels.forEach(l=>{ctx.font=(l.hi?'700 ':'600 ')+(21*u)+'px Archivo,sans-serif';l.bw=ctx.measureText(l.i+'  '+l.name).width+76*u;l.bh=34*u;});
-    for(let it=0;it<80;it++){let moved=false;
-      for(let a=0;a<labels.length;a++)for(let b=a+1;b<labels.length;b++){const A=labels[a],B=labels[b];
-        const ox=(A.bw+B.bw)/2+14*u-Math.abs(A.x-B.x),oy=(A.bh+B.bh)/2+10*u-Math.abs(A.y-B.y);
-        if(ox>0&&oy>0){if(ox<oy){const s=(A.x<=B.x?-1:1)*ox*0.2;A.x-=s;B.x+=s;}else{const s=(A.y<=B.y?-1:1)*oy*0.2;A.y-=s;B.y+=s;}moved=true;}}
-      labels.forEach(l=>{l.x+=(l.hx-l.x)*0.1;l.y+=(l.hy-l.y)*0.1;});
-      labels.forEach(l=>{l.x=Math.max(l.bw/2+8*u,Math.min(W-l.bw/2-8*u,l.x));l.y=Math.max(l.bh,Math.min(Hh-14*u,l.y));});
-      if(!moved)break;}
-    labels.forEach(l=>{const p=labCache[l.i]||(labCache[l.i]={x:l.x,y:l.y});
-      p.x+=(l.x-p.x)*0.25;p.y+=(l.y-p.y)*0.25;
-      p.x=Math.max(l.bw/2+8*u,Math.min(W-l.bw/2-8*u,p.x));p.y=Math.max(l.bh,Math.min(Hh-14*u,p.y));
-      l.x=p.x;l.y=p.y;});
-    window.h3labels=labels; // exposto para testes de estabilidade automatizados
-    labels.sort((a,b)=>(a.hi?1:0)-(b.hi?1:0));
-    labels.forEach(l=>{
-      ctx.save();
-      ctx.strokeStyle=l.hi?'rgba(245,182,56,.85)':'rgba(232,237,242,.22)';ctx.lineWidth=1.4*u;ctx.beginPath();ctx.moveTo(l.ax,l.ay+(l.hi?-30*u:-20*u));ctx.lineTo(l.x,l.y+6*u);ctx.stroke();
-      ctx.font=(l.hi?'700 ':'600 ')+(21*u)+'px Archivo,sans-serif';
-      const bw=l.bw,bh=l.bh;const bx=l.x-bw/2,by=l.y-bh*0.72;
-      ctx.shadowColor=l.hi?'rgba(245,182,56,.5)':'rgba(0,0,0,.5)';ctx.shadowBlur=l.hi?16*u:8*u;
-      if(l.hi){const g=ctx.createLinearGradient(0,by,0,by+bh);g.addColorStop(0,'#ffe19a');g.addColorStop(1,'#f5b638');ctx.fillStyle=g;}
-      else{ctx.fillStyle='rgba(10,15,22,.88)';}
-      roundRect(bx,by,bw,bh,10*u);ctx.fill();ctx.shadowBlur=0;
-      if(!l.hi){ctx.strokeStyle='rgba(139,152,168,.5)';ctx.lineWidth=1.4*u;ctx.stroke();}
-      const cx=bx+24*u,cy=by+bh/2;ctx.beginPath();ctx.arc(cx,cy,13*u,0,7);
-      ctx.fillStyle=l.hi?'#241a05':(l.i===5?'#7bd88f':(l.i===0?'#f5b638':'#5b9ae6'));ctx.fill();
-      ctx.fillStyle=l.hi?'#ffe19a':'#0b0f14';ctx.font='700 '+(19*u)+'px Consolas,monospace';ctx.textAlign='center';ctx.fillText(String(l.i),cx,cy+6.5*u);
-      ctx.textAlign='left';ctx.font=(l.hi?'700 ':'600 ')+(21*u)+'px Archivo,sans-serif';ctx.fillStyle=l.hi?'#241a05':'#e8edf2';
-      ctx.fillText(l.name,bx+44*u,by+bh*0.7);
-      ctx.restore();});
-    if(slides[S('s-h3d')].classList.contains('active'))raf=requestAnimationFrame(draw);
-  }
-  function hexRGB(h){return[1,3,5].map(i=>parseInt(h.substr(i,2),16));}
-  cv.addEventListener('pointerdown',e=>{drag={x:e.clientX,y:e.clientY,moved:false};auto=false;try{cv.setPointerCapture(e.pointerId);}catch(_){/* eventos sintéticos não têm ponteiro ativo */}});
-  cv.addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-drag.x,dy=e.clientY-drag.y;if(Math.abs(dx)+Math.abs(dy)>3)drag.moved=true;yaw+=dx*0.008;pitch=Math.max(-1.2,Math.min(1.2,pitch+dy*0.008));drag.x=e.clientX;drag.y=e.clientY;});
-  cv.addEventListener('pointerup',e=>{if(drag&&!drag.moved){const r=cv.getBoundingClientRect();const x=(e.clientX-r.left)/r.width*cv.width,y=(e.clientY-r.top)/r.height*cv.height;let best=-1,bd=1e9;proj.forEach((p,i)=>{if(!p)return;const d=Math.hypot(p.x-x,p.y-y);if(d<p.r&&d<bd){bd=d;best=i;}});if(best>=0)h3select(best);}drag=null;});
-  cv.addEventListener('wheel',e=>{e.preventDefault();dist=Math.max(9,Math.min(24,dist+e.deltaY*0.01));},{passive:false});
-  hooks.enter[S('s-h3d')]=()=>{auto=true;cancelAnimationFrame(raf);draw();};
-  hooks.leave[S('s-h3d')]=()=>cancelAnimationFrame(raf);
-  window.h3fallback=()=>{cancelAnimationFrame(raf);cv.style.display='none';fallback2d();};
-  function fallback2d(){const s=document.getElementById('fallback2d');s.style.display='block';s.innerHTML=`<circle cx="450" cy="300" r="190" fill="rgba(245,182,56,.06)" stroke="#f5b638" stroke-dasharray="12 9" stroke-width="3"/><circle cx="450" cy="300" r="150" fill="none" stroke="rgba(139,152,168,.3)" stroke-width="1.5"/><text x="450" y="92" fill="#f5b638" text-anchor="middle" font-size="21" font-weight="bold">◆ harness · andaime do agente</text>
-   <circle cx="450" cy="300" r="64" fill="#101825" stroke="#ffe19a" stroke-width="2.5"/><circle cx="450" cy="300" r="48" fill="#f5b638"/><text x="450" y="296" text-anchor="middle" font-size="20" font-weight="bold" fill="#241a05">LLM</text><text x="450" y="318" text-anchor="middle" font-size="17" fill="rgba(36,26,5,.85)">modelo</text>
-   ${[['1 Prompt de sistema · SYS',280,175],['2 Ferramentas · TOOL',620,175],['3 Middleware de contexto · CTX',280,425],['4 Laço de execução · LOOP',620,425],['5 Proxy externo · PROXY',450,560]].map(([n,x,y],i)=>`<line x1="450" y1="300" x2="${x}" y2="${y}" stroke="${i==4?'rgba(123,216,143,.6)':'rgba(91,154,230,.55)'}" stroke-width="2" stroke-dasharray="7 6"/><g class="fb" data-i="${i+1}" tabindex="0" role="button" aria-label="${n}" style="cursor:pointer"><rect x="${x-128}" y="${y-30}" width="256" height="60" rx="14" fill="#131c29" stroke="${i==4?'#7bd88f':'#5b9ae6'}" stroke-width="2.5"/><circle cx="${x-100}" cy="${y}" r="13" fill="${i==4?'#7bd88f':(i==4?'#7bd88f':'#5b9ae6')}"/><text x="${x-100}" y="${y+6}" text-anchor="middle" fill="#0b0f14" font-size="18" font-weight="bold">${i+1}</text><text x="${x+2}" y="${y+6}" text-anchor="middle" fill="#fff" font-size="18">${n.split(' · ')[0]}</text></g>`).join('')}`;
-    s.querySelectorAll('.fb').forEach(g=>{const go=()=>h3select(+g.dataset.i);g.addEventListener('click',go);g.addEventListener('keydown',e=>{if(e.key==='Enter')go();});});}
+  H3.forEach((c,i)=>{const b=document.createElement('button');b.className='chip'+(i===0?' on':'');b.dataset.k=c.key;b.setAttribute('aria-label','Destacar '+c.name);b.innerHTML='<span class="dot" aria-hidden="true"></span><span><span class="n">'+i+' · '+c.abbr+'</span><br>'+c.name+'</span>';b.onclick=()=>h3select(i);chips.appendChild(b);});
+  // poeira: posições fixas por semente, sem reposicionar por quadro
+  const dust=document.getElementById('h3dust');
+  let seed=7;const rnd=()=>{seed=(seed*16807)%2147483647;return seed/2147483647;};
+  for(let k=0;k<60;k++){const d=el('circle',{cx:(rnd()*1020).toFixed(1),cy:(rnd()*760).toFixed(1),r:(0.8+rnd()*1.6).toFixed(2),fill:'#dce8f5'},dust);d.style.animationDelay=(-rnd()*3).toFixed(2)+'s';}
+  const core=H3[0],links=document.getElementById('h3links'),nodes=document.getElementById('h3nodes');
+  // conexões núcleo → módulo, atrás dos cartões
+  H3.forEach(c=>{if(!c.id)return;el('line',{x1:core.x,y1:core.y,x2:c.x,y2:c.y,class:'h3link'+(c.proxy?' proxy':''),'data-i':c.id},links);});
+  // núcleo
+  const g=el('g',{id:'h3core','data-i':0,tabindex:0,role:'button','aria-label':'Destacar Modelo de linguagem'},nodes);
+  el('circle',{class:'halo',cx:core.x,cy:core.y,r:150,fill:'url(#h3halo)'},g);
+  el('circle',{class:'rim',cx:core.x,cy:core.y,r:104,fill:'#101825',stroke:'rgba(255,225,154,.6)','stroke-width':2.5},g);
+  el('circle',{cx:core.x,cy:core.y,r:88,fill:'url(#h3core)'},g);
+  el('text',{x:core.x,y:core.y+2,'text-anchor':'middle',class:'lab'},g).textContent='LLM';
+  el('text',{x:core.x,y:core.y+30,'text-anchor':'middle',class:'sub'},g).textContent='modelo';
+  // módulos e proxy
+  H3.forEach(c=>{if(!c.id)return;const w=c.proxy?420:322,h=c.proxy?80:92;const x=c.x-w/2,y=c.y-h/2;
+    const n=el('g',{class:'h3node','data-i':c.id,tabindex:0,role:'button','aria-label':'Destacar '+c.name},nodes);
+    el('rect',{class:'box',x,y,width:w,height:h,rx:16},n);
+    el('circle',{class:'num'+(c.proxy?' proxy':''),cx:x+34,cy:c.y,r:16},n);
+    el('text',{class:'numt',x:x+34,y:c.y+7,'text-anchor':'middle'},n).textContent=c.id;
+    el('text',{class:'abbr',x:x+64,y:c.y-11},n).textContent=c.abbr;
+    el('text',{class:'name',x:x+64,y:c.y+17},n).textContent=c.name;
+    if(c.proxy)el('text',{class:'abbr',x:x+w-22,y:c.y+6,'text-anchor':'end'},n).textContent='req · tok · ms';
+    else ['#7bd88f','#f5b638','#5b9ae6'].forEach((col,k)=>el('circle',{cx:x+w-22-k*14,cy:y+16,r:4,fill:col},n));
+  });
+  const go=e=>{const t=e.target.closest('[data-i]');if(t)h3select(+t.dataset.i);};
+  nodes.addEventListener('click',go);
+  nodes.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go(e);}});
+  h3select(0);
+  window.h3fallback=()=>{}; // SVG já é o caminho único: nada a rebaixar
 })();
 
 // ---------- slide 5: anel dos objetivos ----------
@@ -689,30 +589,15 @@ function h3select(i){
   document.querySelectorAll('#objs li').forEach(li=>obs.observe(li,{attributes:true}));
 })();
 
-// ---------- slide 6: pi → oh-my-pi (Camada 1, layer1/data) ----------
-const L1={pi:{first:5676,tok:1228,schemas:4,steps:[5676,6231,6786,7341,7896]},omp:{first:64945,tok:16714,schemas:11,steps:[64945,65273,65898,66523,67148]}};
+// ---------- slide 6: pi vs OpenCode (FrontierHarness, Runta 2026; Earendil 2026) ----------
 (function(){
   const s=document.getElementById('forksvg');
-  const fmt=n=>n.toLocaleString('pt-BR');
-  let h=`<defs><marker id="arr" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12z" fill="#f5b638"/></marker></defs>
-  <rect x="40" y="40" width="300" height="110" rx="16" fill="#121923" stroke="#3b7bd6" stroke-width="3"/><text x="190" y="85" text-anchor="middle" fill="#fff" font-size="34" font-weight="700">pi</text><text x="190" y="125" text-anchor="middle" fill="#8b98a8" font-size="22">${fmt(L1.pi.first)} bytes · ${L1.pi.schemas} esquemas</text>
-  <line x1="345" y1="95" x2="440" y2="95" stroke="#f5b638" stroke-width="4" marker-end="url(#arr)"/><text x="392" y="70" text-anchor="middle" fill="#f5b638" font-size="20">fork</text>
-  <rect x="460" y="40" width="300" height="110" rx="16" fill="#121923" stroke="#f5b638" stroke-width="3"/><text x="610" y="85" text-anchor="middle" fill="#fff" font-size="34" font-weight="700">oh-my-pi</text><text x="610" y="125" text-anchor="middle" fill="#8b98a8" font-size="22">${fmt(L1.omp.first)} bytes · ${L1.omp.schemas} esquemas</text>
-  <text x="400" y="200" text-anchor="middle" fill="#e8edf2" font-size="26">1ª requisição: <tspan fill="#f5b638" font-weight="700">11,4×</tspan> os bytes, <tspan fill="#f5b638" font-weight="700">13,6×</tspan> os tokens (16.714 vs 1.228)</text>`;
-  // gráfico de crescimento por passo
-  const x0=90,y0=500,w=660,hh=240,max=70000;
-  h+=`<text x="400" y="245" text-anchor="middle" fill="#8b98a8" font-size="22">bytes por requisição, passos 0–4 (medição própria, Camada 1)</text>`;
-  for(const v of[0,20000,40000,60000]){const y=y0-v/max*hh;h+=`<line x1="${x0}" y1="${y}" x2="${x0+w}" y2="${y}" stroke="#243040"/><text x="${x0-8}" y="${y+7}" text-anchor="end" fill="#8b98a8" font-size="18">${v/1000}k</text>`;}
-  for(const[k,col]of[['pi','#3b7bd6'],['omp','#f5b638']]){const pts=L1[k].steps.map((v,i)=>[x0+40+i*(w-80)/4,y0-v/max*hh]);
-    h+=`<polyline class="grow" points="${pts.map(p=>p.join(',')).join(' ')}" fill="none" stroke="${col}" stroke-width="5" stroke-dasharray="1000" stroke-dashoffset="1000"/>`;pts.forEach((p,i)=>h+=`<circle cx="${p[0]}" cy="${p[1]}" r="7" fill="${col}"/><text x="${p[0]}" y="${y0+30}" text-anchor="middle" fill="#8b98a8" font-size="18">${i}</text>`);
-    h+=`<text x="${pts[4][0]}" y="${pts[4][1]+(k==='pi'?-16:34)}" text-anchor="end" fill="${col}" font-size="22">${k==='pi'?'pi':'oh-my-pi'}</text>`;}
-  s.innerHTML=h;
-  hooks.enter[S('s-hip')]=()=>s.querySelectorAll('.grow').forEach(p=>{p.style.transition='none';p.style.strokeDashoffset=1000;setTimeout(()=>{p.style.transition='stroke-dashoffset 1.6s';p.style.strokeDashoffset=0;},80);});
+  hooks.enter[S('s-hip')]=()=>s.querySelectorAll('.grow').forEach(r=>{r.style.transition='none';r.setAttribute('width','0');setTimeout(()=>{r.style.transition='width 1.2s cubic-bezier(.2,.8,.2,1)';r.setAttribute('width',r.dataset.w);},80);});
 })();
 
 // ---------- slide 7: linha do tempo ----------
 const TL=[
- ['2022','Yao <em>et al.</em> · ReAct','O laço observar/agir mínimo. É um <em>harness</em> legítimo, o mais raso; ponto de partida do <em>harness</em> zero.'],
+ ['2022','Yao <em>et al.</em> · ReAct','O laço observar/agir mínimo. É um <em>harness</em> legítimo, o mais raso; o pi, com quatro ferramentas, fica perto dele.'],
  ['2024','Yang <em>et al.</em> · SWE-agent','A interface entre modelo e ambiente é objeto de projeto desde aqui: melhora sem tocar nos pesos.'],
  ['2024','Kapoor <em>et al.</em> · AI agents that matter','A avaliação de agentes ignora o custo e por isso erra sobre a origem dos ganhos.'],
  ['2025','Kapoor <em>et al.</em> · HAL','Avaliações raramente relatam custo; comparações entre <em>harnesses</em> são raras. Anthropic vai melhor com BrowserUse, OpenAI com SeeAct: efeito específico do modelo.'],
@@ -726,7 +611,7 @@ const TL=[
 let tlI=0;
 (function(){
   const s=document.getElementById('timeline');let h='<line x1="60" y1="150" x2="1620" y2="150" stroke="#243040" stroke-width="6"/>';
-  TL.forEach((n,i)=>{const x=110+i*(1500/(TL.length-1));const up=i%2===0;h+=`<g class="tln" data-i="${i}" tabindex="0" role="button" style="cursor:pointer"><circle cx="${x}" cy="150" r="20" fill="#121923" stroke="#8b98a8" stroke-width="4"/><text x="${x}" y="${up?95:225}" text-anchor="middle" fill="#8b98a8" font-size="24" font-weight="700">${n[0]}</text><text x="${x}" y="${up?60:260}" text-anchor="middle" fill="#8b98a8" font-size="20">${n[1].replace(/<[^>]+>/g,'').split(' · ')[0]}</text></g>`;});
+  TL.forEach((n,i)=>{const x=110+i*(1500/(TL.length-1));const up=i%2===0;h+=`<g class="tln" data-i="${i}" tabindex="0" role="button" style="cursor:pointer"><circle cx="${x}" cy="150" r="20" fill="#121923" stroke="#8b98a8" stroke-width="4"/><text x="${x}" y="${up?95:225}" text-anchor="middle" fill="#8b98a8" font-size="24" font-weight="700">${n[0]}</text><text x="${x}" y="${up?60:260}" text-anchor="${i===0?'start':(i===TL.length-1?'end':'middle')}" fill="#8b98a8" font-size="20">${n[1].replace(/<[^>]+>/g,'').split(' · ')[0]}</text></g>`;});
   s.innerHTML=h;
   s.querySelectorAll('.tln').forEach(g=>{g.onclick=()=>tlShow(+g.dataset.i);g.onkeydown=e=>{if(e.key==='Enter')tlShow(+g.dataset.i);};});
   hooks.enter[S('s-tl')]=()=>tlShow(0);
@@ -753,7 +638,7 @@ let layer=1,flowRaf=null,tokCount=0;
   s.innerHTML=h;
   function setLayer(l){layer=l;tokCount=0;
     document.getElementById('ltitle').textContent=l===1?'Camada 1 · endpoint simulado':'Camada 2 · modelo real';
-    document.getElementById('lsub').textContent=l===1?'nada chega ao modelo · conta esquemas, bytes de prompt e tokens por passo · determinística':'desfecho da tarefa · proxy reverso conta cada requisição · estocástica, n ≥ 3 por célula';
+    document.getElementById('lsub').textContent=l===1?'nada chega ao modelo · conta esquemas, bytes de prompt e tokens por passo · determinística':'construção do produto · proxy reverso conta cada requisição · estocástica, n ≥ 3 por célula';
     document.getElementById('mocklbl').textContent=l===1?'substituído por endpoint simulado':'';
     const m=document.querySelector('#fn-model rect');m.setAttribute('stroke',l===1?'#7bd88f':'#f5b638');m.setAttribute('stroke-dasharray',l===1?'14 10':'');
     document.querySelector('#fn-model .lbl').textContent=l===1?'Mock':'Modelo';
@@ -778,30 +663,30 @@ let layer=1,flowRaf=null,tokCount=0;
 
 // ---------- slide 9: matriz ----------
 (function(){
-  const arms=['harness zero','pi','oh-my-pi','terceiros…'];const tasks=8,tiers=['nível primário','nível de robustez'];
-  const m=document.getElementById('matrix');m.style.gridTemplateColumns='190px repeat(8,1fr)';
-  let h='';tiers.forEach((tier,ti)=>{h+=`<div class="hdr" style="grid-column:1/-1;justify-content:flex-start;color:#f5b638">${tier}</div><div class="hdr"></div>`;for(let t=1;t<=tasks;t++)h+=`<div class="hdr">T${t}</div>`;
-    arms.forEach((a,ai)=>{h+=`<div class="hdr" style="justify-content:flex-end;padding-right:10px;color:${ai?'#e8edf2':'#f5b638'}">${a}</div>`;for(let t=1;t<=tasks;t++)h+=`<button class="cell${ai?'':' ctrl'}" data-a="${a}" data-t="${t}" data-tier="${tier}" aria-label="${a}, tarefa ${t}, ${tier}">n ≥ 3</button>`;});});
+  const arms=['OpenCode','pi'];const tasks=9,tiers=['nível primário','nível de robustez'];
+  const m=document.getElementById('matrix');m.style.gridTemplateColumns='190px repeat(9,1fr)';
+  let h='';tiers.forEach((tier,ti)=>{h+=`<div class="hdr" style="grid-column:1/-1;justify-content:flex-start;color:#f5b638">${tier}</div><div class="hdr"></div>`;for(let t=1;t<=tasks;t++)h+=`<div class="hdr">U${t}</div>`;
+    arms.forEach((a,ai)=>{h+=`<div class="hdr" style="justify-content:flex-end;padding-right:10px;color:#e8edf2">${a}</div>`;for(let t=1;t<=tasks;t++)h+=`<button class="cell" data-a="${a}" data-t="${t}" data-tier="${tier}" aria-label="${a}, unidade ${t}, ${tier}">n ≥ 3</button>`;});});
   m.innerHTML=h;
-  m.querySelectorAll('.cell').forEach(c=>c.onclick=()=>{m.querySelectorAll('.cell').forEach(x=>x.classList.remove('sel'));c.classList.add('sel');document.getElementById('cellinfo').innerHTML=`Célula (<b>${c.dataset.a}</b>, tarefa ${c.dataset.t}, ${c.dataset.tier}): n ≥ 3 execuções completas após descartes; mediana com dispersão; ${c.classList.contains('ctrl')?'controle: define o envelope de referência (relógio de parede 3× a mediana).':'comparada ao harness zero e ao par pi / oh-my-pi por tarefa.'}`;});
+  m.querySelectorAll('.cell').forEach(c=>c.onclick=()=>{m.querySelectorAll('.cell').forEach(x=>x.classList.remove('sel'));c.classList.add('sel');document.getElementById('cellinfo').innerHTML=`Célula (<b>${c.dataset.a}</b>, ${c.dataset.tier}), unidade U${c.dataset.t}: n ≥ 3 construções completas após descartes; tokens da unidade como mediana com dispersão; pareada com a mesma unidade do outro braço no mesmo nível.`;});
   hooks.enter[S('s-matrix')]=()=>{const cells=[...m.querySelectorAll('.cell')];cells.forEach(c=>c.classList.remove('on'));cells.forEach((c,i)=>setTimeout(()=>c.classList.add('on'),i*18));};
 })();
 
 // ---------- slide 10: Succ/Mtok + Wilcoxon (simulação) ----------
 (function(){
   const $=id=>document.getElementById(id);
-  const diff=[0.6,0.8,0.9,1.0,1.1,1.25,1.4,1.7]; // multiplicadores de dificuldade, ilustrativos
+  const diff=[0.6,0.8,0.9,1.0,1.1,1.25,1.4,1.55,1.7]; // multiplicadores de dificuldade, ilustrativos
   function succ(p,tk){return p*1e6/(tk*1000);}
   function wilcoxon(d){const nz=d.filter(x=>Math.abs(x)>1e-9);const ranked=nz.map(x=>({x,a:Math.abs(x)})).sort((a,b)=>a.a-b.a);let i=0;while(i<ranked.length){let j=i;while(j<ranked.length-1&&Math.abs(ranked[j+1].a-ranked[i].a)<1e-9)j++;const r=(i+j)/2+1;for(let k=i;k<=j;k++)ranked[k].r=r;i=j+1;}
     let wp=0,wm=0;ranked.forEach(o=>o.x>0?wp+=o.r:wm+=o.r);return{W:Math.min(wp,wm),n:nz.length};}
-  const CRIT={8:3,7:2,6:0}; // bilateral, α=0,05
+  const CRIT={9:5,8:3,7:2,6:0}; // bilateral, α=0,05
   function upd(){const pa=$('pa').value/100,pb=$('pb').value/100,ta=+$('ta').value,tb=+$('tb').value;
     $('pav').textContent=pa.toFixed(2).replace('.',',');$('pbv').textContent=pb.toFixed(2).replace('.',',');$('tav').textContent=ta+' k';$('tbv').textContent=tb+' k';
     const sa=succ(pa,ta),sb=succ(pb,tb);$('sa').textContent=sa.toFixed(2).replace('.',',');$('sb').textContent=sb.toFixed(2).replace('.',',');
     const A=diff.map(d=>sa/d),B=diff.map(d=>sb/d),D=A.map((a,i)=>a-B[i]);const w=wilcoxon(D);const crit=CRIT[w.n]??-1;const sig=w.n>=6&&w.W<=crit;
     $('wres').innerHTML=w.n<6?'n &lt; 6':`W = ${w.W}, ${sig?'<span style="color:#7bd88f">p &lt; 0,05</span>':'<span style="color:#ef6b6b">não significativo</span>'}`;
-    const s=$('wsvg');const mx=Math.max(...A,...B,0.01);let h='<text x="380" y="30" text-anchor="middle" fill="#8b98a8" font-size="22">Succ/Mtok por tarefa · A (âmbar) vs B (azul)</text>';
-    for(let i=0;i<8;i++){const y=70+i*54;const xa=120+A[i]/mx*560,xb=120+B[i]/mx*560;h+=`<text x="100" y="${y+8}" text-anchor="end" fill="#8b98a8" font-size="22">T${i+1}</text><line x1="${xa}" y1="${y}" x2="${xb}" y2="${y}" stroke="${D[i]>0?'#7bd88f':'#ef6b6b'}" stroke-width="6"/><circle cx="${xa}" cy="${y}" r="10" fill="#f5b638"/><circle cx="${xb}" cy="${y}" r="10" fill="#3b7bd6"/>`;}
+    const s=$('wsvg');const mx=Math.max(...A,...B,0.01);let h='<text x="380" y="30" text-anchor="middle" fill="#8b98a8" font-size="22">Succ/Mtok por unidade · A (âmbar) vs B (azul)</text>';
+    for(let i=0;i<9;i++){const y=64+i*49;const xa=120+A[i]/mx*560,xb=120+B[i]/mx*560;h+=`<text x="100" y="${y+8}" text-anchor="end" fill="#8b98a8" font-size="22">U${i+1}</text><line x1="${xa}" y1="${y}" x2="${xb}" y2="${y}" stroke="${D[i]>0?'#7bd88f':'#ef6b6b'}" stroke-width="6"/><circle cx="${xa}" cy="${y}" r="10" fill="#f5b638"/><circle cx="${xb}" cy="${y}" r="10" fill="#3b7bd6"/>`;}
     h+=`<text x="380" y="512" text-anchor="middle" fill="#8b98a8" font-size="20">segmento verde: A &gt; B · vermelho: A &lt; B · postos sinalizados das diferenças</text>`;s.innerHTML=h;}
   ['pa','pb','ta','tb'].forEach(id=>$(id).oninput=upd);upd();
 })();
@@ -823,7 +708,7 @@ let layer=1,flowRaf=null,tokCount=0;
 const GANTT=[
  ['Leitura e levantamento bibliográfico',[1,1,0,0,0,0]],
  ['Definição do tema, do problema e das hipóteses',[1,1,0,0,0,0]],
- ['Construção do instrumento e do harness zero',[0,0,1,1,0,0]],
+ ['Instrumento, especificação e testes de aceitação',[0,0,1,1,0,0]],
  ['Escrevendo introdução',[1,1,0,0,0,0]],
  ['Escrevendo referencial teórico',[1,1,0,0,0,0]],
  ['Escrevendo material e método',[1,1,0,0,0,0]],
@@ -838,29 +723,6 @@ const GANTT=[
   g.querySelectorAll('.gantt-row[data-i]').forEach(r=>{r.querySelector('.ph').onclick=()=>{g.querySelectorAll('.gantt-row').forEach(x=>{x.classList.remove('hi');x.querySelectorAll('.m.x').forEach(m=>m.classList.remove('hi'));});r.classList.add('hi');r.querySelectorAll('.m.x').forEach(m=>m.classList.add('hi'));};
     new MutationObserver(()=>{if(r.classList.contains('on'))r.querySelectorAll('.m').forEach((m,k)=>setTimeout(()=>m.classList.add('on'),k*90));else r.querySelectorAll('.m').forEach(m=>m.classList.remove('on'));}).observe(r,{attributes:true});});
 })();
-
-// ---------- slide 13: referências ----------
-const REFS=[
- 'ALIER FORMENT, M. <em>et al.</em> <b>The scaffolding matters more than the interface</b>. arXiv:2608.08654, 2026. <em>Preprint</em>.',
- 'BRASIL. CNPq. <b>Portaria CNPq nº 2.664, de 6 de março de 2026</b>. Política de Integridade na Atividade Científica. DOU, 11 mar. 2026.',
- 'DATACURVE. <b>Pier</b>: a Harbor fork built for DeepSWE. 2026. Repositório de código.',
- 'GIL, A. C. <b>Como elaborar projetos de pesquisa</b>. 7. ed. São Paulo: Atlas, 2022.',
- 'HUANG, W. <em>et al.</em> <b>DeepSWE</b>: measuring frontier coding agents on original, long-horizon engineering tasks. arXiv:2607.07946, 2026. <em>Preprint</em>.',
- 'JIMENEZ, C. E. <em>et al.</em> <b>SWE-bench</b>: can language models resolve real-world GitHub issues? ICLR, 2024.',
- 'KAPOOR, S. <em>et al.</em> <b>AI agents that matter</b>. arXiv:2407.01502, 2024. <em>Preprint</em>.',
- 'KAPOOR, S. <em>et al.</em> <b>Holistic Agent Leaderboard</b>. arXiv:2510.11977, 2025. <em>Preprint</em>.',
- 'LEE, Y. <em>et al.</em> <b>Meta-Harness</b>: end-to-end optimization of model harnesses. arXiv:2603.28052, 2026. <em>Preprint</em>.',
- 'LIN, J. <em>et al.</em> <b>Agentic harness engineering</b>. arXiv:2604.25850, 2026. <em>Preprint</em>.',
- 'MILLER, E. <b>Adding error bars to evals</b>. arXiv:2411.00640, 2024. <em>Preprint</em>.',
- 'NING, X. <em>et al.</em> <b>Code as agent harness</b>. arXiv:2605.18747, 2026. <em>Preprint</em>.',
- 'PRODANOV, C. C.; FREITAS, E. C. de. <b>Metodologia do trabalho científico</b>. 2. ed. Novo Hamburgo: Feevale, 2013.',
- 'RUNTA. <b>Introducing the FrontierHarness eval</b>. 2026. Blogue institucional.',
- 'WANG, R. <em>et al.</em> <b>Harness Handbook</b>. arXiv:2607.13285, 2026. <em>Preprint</em>.',
- 'YANG, J. <em>et al.</em> <b>SWE-agent</b>: agent-computer interfaces enable automated software engineering. NeurIPS, 2024.',
- 'YAO, S. <em>et al.</em> <b>ReAct</b>: synergizing reasoning and acting in language models. ICLR, 2023.',
- 'YUUKIFST. <b>harness-bench</b>: runner, dados brutos e scripts de análise deste projeto. 2026. Repositório de código.',
- 'ZHANG, Y. <em>et al.</em> <b>Stop comparing LLM agents without disclosing the harness</b>. arXiv:2605.23950, 2026. <em>Preprint</em>.'];
-document.getElementById('refs').innerHTML=REFS.map(r=>'<p>'+r+'</p>').join('');
 
 // ---------- início ----------
 const start=parseInt((location.hash||'#1').slice(1),10);

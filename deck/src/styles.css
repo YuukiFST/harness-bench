@@ -309,6 +309,12 @@ svg text {
   position: relative;
   z-index: 1;
 }
+/* .cover-inner is the positioning context, so the absolute .denom landed on
+   top of the author line; keep it in flow under the last line instead. */
+.cover .denom {
+  position: static;
+  margin-top: 48px;
+}
 .cover .inst {
   font-size: 26px;
   letter-spacing: 0.08em;
@@ -546,7 +552,7 @@ input[type="range"] {
 /* gantt */
 .gantt-row {
   display: grid;
-  grid-template-columns: 520px repeat(5, 1fr);
+  grid-template-columns: 520px repeat(6, 1fr);
   gap: 6px;
   align-items: center;
   font-size: 22px;

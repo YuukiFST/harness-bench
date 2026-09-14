@@ -1,6 +1,6 @@
 """Dump and rewrite the prose of a .docx without a generator.
 
-`tools/build_pcc.py` stopped reproducing `dist/projeto-pcc.docx` at cd30dbe
+`tools/legacy/build_pcc.py` (retired 2026-09-14) stopped reproducing `dist/projeto-pcc.docx` at cd30dbe
 (docs/research/estrutura-do-projeto-e-revisao-do-pcc.md §3.7), so the document
 is edited in place. This script is the editing surface: `dump` prints every
 non-empty paragraph as `[index] text` with `*italic*` / `**bold**` markup, and

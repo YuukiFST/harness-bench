@@ -4,9 +4,11 @@ type: query
 summary: Mapa das 26 referencias do PCC, PDFs baixados e paginas da wiki
 tags: [referencias, dist, mapa]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-14
 sources: [wiki/sources/agentic-harness-engineering-lin-2026.md, wiki/sources/deepswe-huang-2026.md, wiki/sources/frontierharness-runta-2026.md, wiki/sources/scaffolding-matters-alier-forment-2026.md]
 ---
+
+> Histórico: descreve o desenho anterior a 2026-09-14 (harness zero, oh-my-pi, DeepSWE). O desenho vigente está em `docs/spec/11-experimental-protocol.md`.
 
 # Referencias do `dist/` e base de conhecimento — as of 2026-09-10
 
@@ -28,7 +30,7 @@ sources: [wiki/sources/agentic-harness-engineering-lin-2026.md, wiki/sources/dee
 
 ## Fundacoes e bracos
 
-[[swe-bench-jimenez-2023]], [[swe-agent-yang-2024]], [[react-yao-2022]], [[lost-in-the-middle-liu-2023]]; [[pi-coding-agent]], [[oh-my-pi]], [[opencode]], [[cline]], [[harness-zero]]; [[datacurve]], [[runta]], [[pier-datacurve-2026]], [[zen-opencode-2026]], [[harnessrank-2026]].
+[[swe-bench-jimenez-2023]], [[swe-agent-yang-2024]], [[react-yao-2022]], [[lost-in-the-middle-liu-2023]]; [[pi-coding-agent]], oh-my-pi (pagina retirada em 2026-09-14), [[opencode]], cline (pagina retirada em 2026-09-14), harness-zero (pagina retirada em 2026-09-14); datacurve (pagina retirada em 2026-09-14), [[runta]], [[pier-datacurve-2026]], [[zen-opencode-2026]], [[harnessrank-2026]].
 
 ## Normas e aula
 
@@ -36,4 +38,4 @@ sources: [wiki/sources/agentic-harness-engineering-lin-2026.md, wiki/sources/dee
 
 ## Pendencias (ver `_review.md`)
 
-Denominadores NAO ESTABELECIDOS herdados de `docs/research` (n/datas de Zhang/HAL); ordem de autoria Lakatos/Marconi; data de entrega (cronograma); reconciliar `tools/build_pcc.py`.
+Todas fechadas em 2026-09-14: denominadores de Zhang/HAL conferidos nos PDFs ([[stop-comparing-harness-zhang-2026]], [[holistic-agent-leaderboard-kapoor-2025]]); Lakatos/Marconi nao esta na lista; data de entrega resolvida em 2026-09-10; `tools/build_pcc.py` aposentado em `tools/legacy/`.

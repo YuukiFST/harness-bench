@@ -19,13 +19,6 @@ export interface HarnessNode {
   flat?: boolean;
 }
 
-export interface Layer1Arm {
-  first: number;
-  tok: number;
-  schemas: number;
-  steps: [number, number, number, number, number];
-}
-
 export interface TimelineNode {
   year: string;
   title: string;
@@ -34,7 +27,7 @@ export interface TimelineNode {
 
 export interface GanttRow {
   phase: string;
-  months: [number, number, number, number, number];
+  months: [number, number, number, number, number, number];
 }
 
 export const FH: FrontierRow[] = [
@@ -52,7 +45,7 @@ export const FH_META = {
   subtitle:
     "FrontierHarness (Runta, 2026): 12 configurações de 9 <em>harnesses</em>, modelo Kimi K3, 30 tarefas, 1 tentativa por célula, set. 2026",
   denom:
-    "Aprovação 50,0–66,7 % e US$ 1,05–18,34 nas 12 configurações; o gráfico mostra as 7 com valor no texto do post. Razão 17,5× calculada pelo autor. Blogue institucional, não revisado por pares.",
+    "Aprovação 50,0–66,7 % e US$ 1,05–18,34 nas 12 configurações; o gráfico mostra as 7 com valor no texto do post; Pi e OpenCode, em âmbar, são os dois braços deste projeto. Razão 17,5× calculada pelo autor. Blogue institucional, não revisado por pares.",
 } as const;
 
 export const H3: HarnessNode[] = [
@@ -68,7 +61,7 @@ export const H3: HarnessNode[] = [
   {
     id: 1,
     name: "Prompt de sistema",
-    text: "Molda o estilo de trabalho. Na Camada 1, pi envia 2.499 bytes; oh-my-pi, 25.395 (10,2×).",
+    text: "Molda o estilo de trabalho. Na Camada 1, pi envia 2.499 bytes; OpenCode, 9.738 (3,9×).",
     src: "Lin <em>et al.</em> (2026, §1); layer1/data, 28 ago. 2026",
     pos: [-3.6, 0.6, 0.9],
     color: "#3b7bd6",
@@ -76,7 +69,7 @@ export const H3: HarnessNode[] = [
   {
     id: 2,
     name: "Ferramentas",
-    text: "Expõem sistema de arquivos e shell ao modelo. Esquemas viajam a cada requisição: 4 no pi, 11 no oh-my-pi.",
+    text: "Expõem sistema de arquivos e shell ao modelo. Esquemas viajam a cada requisição: 4 no pi, 9 no OpenCode.",
     src: "Lin <em>et al.</em> (2026, §1); layer1/data",
     pos: [3.6, 0.6, 0.9],
     color: "#3b7bd6",
@@ -100,7 +93,7 @@ export const H3: HarnessNode[] = [
   {
     id: 5,
     name: "Proxy externo",
-    text: "Fora do <em>harness</em>: instrumento do projeto. Conta requisições, tokens e latência igual para todos os braços.",
+    text: "Fora do <em>harness</em>: instrumento do projeto. Conta requisições, tokens e latência igual para os dois braços.",
     src: "Projeto, §3 [63]; objetivo 1",
     pos: [0, -3.3, 0],
     color: "#7bd88f",
@@ -108,17 +101,12 @@ export const H3: HarnessNode[] = [
   },
 ];
 
-export const L1: { pi: Layer1Arm; omp: Layer1Arm } = {
-  pi: { first: 5676, tok: 1228, schemas: 4, steps: [5676, 6231, 6786, 7341, 7896] },
-  omp: { first: 64945, tok: 16714, schemas: 11, steps: [64945, 65273, 65898, 66523, 67148] },
-};
-
 export const TL: TimelineNode[] = [
   {
     year: "2022",
     title: "Yao <em>et al.</em> · ReAct",
     claim:
-      "O laço observar/agir mínimo. É um <em>harness</em> legítimo, o mais raso; ponto de partida do <em>harness</em> zero.",
+      "O laço observar/agir mínimo. É um <em>harness</em> legítimo, o mais raso; o pi, com quatro ferramentas, fica perto dele.",
   },
   {
     year: "2024",
@@ -173,65 +161,64 @@ export const TL: TimelineNode[] = [
   },
 ];
 
-export const GANTT_MONTHS: string[] = ["Set", "Out", "Nov", "Dez", "Jan"];
+export const GANTT_MONTHS: string[] = ["Ago", "Set", "Out", "Nov", "Dez", "Jan"];
 
 export const GANTT: GanttRow[] = [
-  { phase: "Leitura e levantamento bibliográfico", months: [1, 1, 0, 0, 0] },
-  { phase: "Definição do tema, do problema e das hipóteses", months: [1, 1, 0, 0, 0] },
-  { phase: "Construção do instrumento e do harness zero", months: [0, 1, 1, 0, 0] },
-  { phase: "Escrevendo introdução", months: [0, 0, 1, 0, 0] },
-  { phase: "Escrevendo referencial teórico", months: [0, 0, 1, 0, 0] },
-  { phase: "Escrevendo material e método", months: [0, 0, 1, 1, 0] },
-  { phase: "Execução da matriz de experimentos", months: [0, 0, 0, 1, 1] },
-  { phase: "Análise dos resultados", months: [0, 0, 0, 0, 1] },
-  { phase: "Elaborando as referências", months: [0, 0, 0, 0, 1] },
-  { phase: "Revisão final e preparação da apresentação", months: [0, 0, 0, 0, 1] },
+  { phase: "Leitura e levantamento bibliográfico", months: [1, 1, 0, 0, 0, 0] },
+  { phase: "Definição do tema, do problema e das hipóteses", months: [1, 1, 0, 0, 0, 0] },
+  { phase: "Instrumento, especificação e testes de aceitação", months: [0, 0, 1, 1, 0, 0] },
+  { phase: "Escrevendo introdução", months: [1, 1, 0, 0, 0, 0] },
+  { phase: "Escrevendo referencial teórico", months: [1, 1, 0, 0, 0, 0] },
+  { phase: "Escrevendo material e método", months: [1, 1, 0, 0, 0, 0] },
+  { phase: "Execução da matriz de experimentos", months: [0, 0, 0, 0, 1, 1] },
+  { phase: "Análise dos resultados", months: [0, 0, 0, 0, 0, 1] },
+  { phase: "Elaborando as referências", months: [1, 1, 0, 0, 0, 0] },
+  { phase: "Revisão final e preparação da apresentação", months: [0, 1, 0, 0, 0, 0] },
 ];
 
 export const REFS: string[] = [
   "ALIER FORMENT, M. <em>et al.</em> <b>The scaffolding matters more than the interface</b>. arXiv:2608.08654, 2026. <em>Preprint</em>.",
   "BRASIL. CNPq. <b>Portaria CNPq nº 2.664, de 6 de março de 2026</b>. Política de Integridade na Atividade Científica. DOU, 11 mar. 2026.",
-  "DATACURVE. <b>Pier</b>: a Harbor fork built for DeepSWE. 2026. Repositório de código.",
-  "GIL, A. C. <b>Como elaborar projetos de pesquisa</b>. 7. ed. São Paulo: Atlas, 2022.",
-  "HUANG, W. <em>et al.</em> <b>DeepSWE</b>: measuring frontier coding agents on original, long-horizon engineering tasks. arXiv:2607.07946, 2026. <em>Preprint</em>.",
-  "JIMENEZ, C. E. <em>et al.</em> <b>SWE-bench</b>: can language models resolve real-world GitHub issues? ICLR, 2024.",
+  "EARENDIL. <b>Pi, minimal and performant</b>. 2026. Blogue institucional.",
   "KAPOOR, S. <em>et al.</em> <b>AI agents that matter</b>. arXiv:2407.01502, 2024. <em>Preprint</em>.",
   "KAPOOR, S. <em>et al.</em> <b>Holistic Agent Leaderboard</b>. arXiv:2510.11977, 2025. <em>Preprint</em>.",
+  "KARPATHY, A. <b>LLM Wiki</b>: a pattern for building personal knowledge bases using LLMs. 2026. Gist (GitHub).",
   "LEE, Y. <em>et al.</em> <b>Meta-Harness</b>: end-to-end optimization of model harnesses. arXiv:2603.28052, 2026. <em>Preprint</em>.",
   "LIN, J. <em>et al.</em> <b>Agentic harness engineering</b>. arXiv:2604.25850, 2026. <em>Preprint</em>.",
   "MILLER, E. <b>Adding error bars to evals</b>. arXiv:2411.00640, 2024. <em>Preprint</em>.",
   "NING, X. <em>et al.</em> <b>Code as agent harness</b>. arXiv:2605.18747, 2026. <em>Preprint</em>.",
-  "PRODANOV, C. C.; FREITAS, E. C. de. <b>Metodologia do trabalho científico</b>. 2. ed. Novo Hamburgo: Feevale, 2013.",
+  "OPENCODE. <b>OpenCode</b>: the open source coding agent. 2026a. Repositório de código.",
   "RUNTA. <b>Introducing the FrontierHarness eval</b>. 2026. Blogue institucional.",
   "WANG, R. <em>et al.</em> <b>Harness Handbook</b>. arXiv:2607.13285, 2026. <em>Preprint</em>.",
   "YANG, J. <em>et al.</em> <b>SWE-agent</b>: agent-computer interfaces enable automated software engineering. NeurIPS, 2024.",
   "YAO, S. <em>et al.</em> <b>ReAct</b>: synergizing reasoning and acting in language models. ICLR, 2023.",
-  "YUUKIFST. <b>harness-bench</b>: runner, dados brutos e scripts de análise deste projeto. 2026. Repositório de código.",
+  "YUUKIFST. <b>Finn</b>: SaaS universal de financeiro por voz. 2026a. Repositório de código.",
+  "YUUKIFST. <b>harness-bench</b>: executor, prompts, testes de aceitação, dados brutos e scripts de análise deste projeto. 2026b. Repositório de código.",
   "ZHANG, Y. <em>et al.</em> <b>Stop comparing LLM agents without disclosing the harness</b>. arXiv:2605.23950, 2026. <em>Preprint</em>.",
 ];
 
-export const MATRIX_ARMS: string[] = ["harness zero", "pi", "oh-my-pi", "terceiros…"];
+export const MATRIX_ARMS: string[] = ["OpenCode", "pi"];
 export const MATRIX_TIERS: string[] = ["nível primário", "nível de robustez"];
-export const MATRIX_TASKS = 8;
+export const MATRIX_TASKS = 9;
 
 export const CLASS_AXES: { k: string; v: string; w: string }[] = [
   { k: "Natureza", v: "aplicada", w: "produto: critério de escolha" },
-  { k: "Abordagem", v: "quanti + quali", w: "medir custo e sucesso; atribuir a decisão" },
-  { k: "Objetivos", v: "exploratória", w: "linhagem fixa sem precedente" },
+  { k: "Abordagem", v: "quanti + quali", w: "medir tokens e sucesso; atribuir à carga fixa ou aos passos" },
+  { k: "Objetivos", v: "exploratória", w: "mesmo produto completo, dois <em>harnesses</em>, sem precedente" },
   {
     k: "Procedimentos",
     v: "experimental",
-    w: "VI: <em>harness</em> · controladas: modelo, tarefa, limites · grupo de controle",
+    w: "VI: <em>harness</em> · controladas: modelo, especificação, espaço de trabalho inicial, limites",
   },
   { k: "Método", v: "dedutivo", w: "hipóteses antes da coleta" },
 ];
 
 export const OBJECTIVES: string[] = [
   "<b>1</b> Instrumento externo: requisições, tokens, latência",
-  "<b>2</b> Suíte com objetivos numerados e <em>oracle</em> próprio",
-  "<b>3</b> <em>Harness</em> zero em laço ReAct (controle)",
-  "<b>4</b> Mesma suíte, mesmo modelo, todos os braços, com repetição",
+  "<b>2</b> Especificação do Finn em 9 unidades, com testes de aceitação do autor",
+  "<b>3</b> Espaço de trabalho inicial idêntico: só a especificação e a pilha",
+  "<b>4</b> Construção completa nos dois <em>harnesses</em>, mesmo modelo e <em>prompts</em>, n ≥ 3",
   "<b>5</b> Segundo modelo: a ordenação se mantém ou inverte?",
-  "<b>6</b> Custo relatado × custo medido no <em>proxy</em>",
-  "<b>7</b> Publicar <em>runner</em>, dados e scripts, custo zero",
+  "<b>6</b> Tokens relatados × tokens medidos no <em>proxy</em>",
+  "<b>7</b> Publicar executor, <em>prompts</em>, testes, dados e scripts, custo zero",
 ];

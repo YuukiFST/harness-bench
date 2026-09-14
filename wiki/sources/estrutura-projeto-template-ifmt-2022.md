@@ -4,7 +4,7 @@ type: source
 summary: Sumario fixo 1-6, blocos da introducao e teto de 12 linhas da justificativa
 tags: [abnt, estrutura, template, nbr-15287, justificativa]
 created: 2026-09-10
-updated: 2026-09-11
+updated: 2026-09-14
 dated: unknown
 sources: []
 ---
@@ -27,9 +27,9 @@ Sumario fixo: 1 Introducao, 2 Referencial Teorico, 3 Material e Metodo, 4 Orcame
 ## Divergencias conhecidas (ver `docs/research/estrutura-do-projeto-e-revisao-do-pcc.md`)
 
 - NBR 15287:2025 tornou a capa opcional e a folha de rosto obrigatoria; o template (2022) mostra o inverso — o PCC traz ambos.
-- Objetivos especificos do PCC tem 2-3 linhas (gabarito pede 1) — pendente.
-- Marcadores `[A MEDIR/A VERIFICAR/A DEFINIR]` pendentes; cronograma em meses relativos (data nao confirmada).
-- `tools/build_pcc.py` desatualizado (parado em cc15d7b): rodar sobrescreve o `.docx` — fonte da verdade e o `.docx`.
+- Objetivos especificos do PCC tem 2-3 linhas (gabarito pede 1). Decisao do autor em 2026-09-14: ficam com 2-3 linhas, porque cada objetivo nomeia o artefato e a condicao que o torna verificavel; encurtar a uma linha perderia a condicao.
+- Marcadores `[A MEDIR/A VERIFICAR/A DEFINIR]` e cronograma: resolvidos em 2026-09-10 (ver `log.md`).
+- `tools/build_pcc.py` aposentado em 2026-09-14 (`tools/legacy/build_pcc.py`); a superficie de edicao e `tools/docx_prose.py dump | apply`; fonte da verdade e o `.docx`.
 
 ## Uso no PCC
 

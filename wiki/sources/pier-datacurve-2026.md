@@ -4,7 +4,7 @@ type: source
 summary: Fork Harbor para DeepSWE; docker ou modal, custo zero, agentes CLI isolados
 tags: [pier, executor, docker, deepswe, air-gapped]
 created: 2026-09-10
-updated: 2026-09-11
+updated: 2026-09-14
 dated: 2026-08-28
 sources: []
 ---
@@ -31,6 +31,8 @@ Framework compativel com tarefas Harbor para avaliar agentes de codigo em *sandb
 - Trials em `jobs/<ts>/<trial_id>/`; datasets Harbor via download previo.
 
 ## Uso no PCC
+
+- Retirada da lista de referencias em 2026-09-14: o executor do DeepSWE nao faz parte do desenho com o [[finn]].
 
 ### Auditoria de conteudo 2026-09-11
 

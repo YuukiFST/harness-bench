@@ -4,7 +4,7 @@ type: source
 summary: 9 harnesses x Kimi K3 fixo; pass 50-66,7% e custo 17x por pass
 tags: [harness, leaderboard, custo-por-pass, kimi-k3, pi, oh-my-pi]
 created: 2026-09-10
-updated: 2026-09-11
+updated: 2026-09-14
 dated: 2026-09-01
 sources: []
 ---
@@ -32,6 +32,14 @@ RUNTA. Introducing the FrontierHarness eval. 2026. Publicacao de blogue instituc
 - Codex 66,7%/$3,47; DSH Creator 63,3%/$3,28; Claude Code 63,3%/**$18,34 (5,6x o DSH Creator no mesmo pass)**; Pi 60,0%/$2,43; Exo $1,05/53,3%; OpenCode 50,0%/$3,24; oh-my-pi 56,7%/$4,75.
 - Tarefa-exemplo (python-statemachine, pass oficial 38%): Pi passa a **$2,50 em 90 turnos**; Claude Code passa a **$64,36 em 381 turnos (26x)**; 68% dos tokens do Claude Code numa so celula (cache 15,7% vs 98%+ dos demais).
 - Cache hit mediano != custo: falha de 300 turnos cacheada queima mais que acerto curto sem cache.
+
+## Origem de cada numero (2026-09-14)
+
+Tres superficies publicam o FrontierHarness; o PCC cita o blogue (entrada RUNTA, 2026) e o repositorio, e nao cita o site.
+
+- **Blogue** (https://runta.com/blog/introducing-frontierharness-eval/, relido em 14 set 2026): tabela "Pass Rate / Median Cost Per Pass" com as 12 configuracoes (Codex 66,7%/$3,47; DSH Creator 63,3%/$3,28; Claude Code 63,3%/$18,34; Pi 60,0%/$2,43; DSH Standard 60,0%/$3,46; DSH PTC 60,0%/$4,58; Kimi Code 56,7%/$3,65; DSH Minimal 56,7%/$4,72; Oh My Pi 56,7%/$4,75; Exo Harness 53,3%/$1,05; Hermes 50,0%/$2,90; OpenCode 50,0%/$3,24). Em prosa: "Claude Code and DSH Creator both pass 19 tasks. One costs $3.28 per pass, the other $18.34."; "Claude Code paid 5.6x more per pass"; "Claude Code's cache hit rate is 25.0% token-weighted and 67.8% by median cell."; "Pi and Claude Code both passed, with a 26x difference in price." Todos os numeros usados no PCC ([26], [52], [55]) vem daqui; 17,5x e 5,3x sao razoes calculadas pelo autor sobre a tabela.
+- **Repositorio** (github.com/frontier-harness-eval/eval): tarefas, `results/eval-data.json` e a metrica `effective_cost_per_pass`; fonte das versoes dos *harnesses* (Pi v0.84.2, oh-my-pi v17.4.0, OpenCode v1.18.19, Claude Code v2.1.237, Codex v0.148.0) e do protocolo de restauracao.
+- **Site** (frontierharness.org): tabela "median cost per successful task" ($0,06-$0,29) com base e unidade nao documentadas, incompativel com a tabela do blogue. Nao reconciliada contra `eval-data.json`; nao entra no PCC nem em pagina alguma da wiki como numero.
 
 ## Caveat (verbatim na essencia)
 

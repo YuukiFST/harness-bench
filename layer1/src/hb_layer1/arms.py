@@ -1,7 +1,8 @@
 """How each arm is pointed at the mock, headlessly, in two environment profiles.
 
 Every invocation here is the one verified end to end in `docs/research/`:
-pi in doc 10, oh-my-pi in doc 07, OpenCode in doc 06.
+pi in doc 10, OpenCode in doc 06. (The oh-my-pi arm left with the 2026-09-14
+redesign; its rows in `data/` are kept as the record of that measurement.)
 
 Two profiles, and the difference between them *is* the ambient-state
 measurement of #37:
@@ -193,63 +194,6 @@ class PiArm(Arm):
         )
 
 
-class OmpArm(Arm):
-    name = "omp"
-    binary = "omp"
-
-    def prepare(self, sandbox, workspace, base_url, profile, prompt) -> Invocation:
-        agent_dir = sandbox / "agent"
-        agent_dir.mkdir(parents=True, exist_ok=True)
-        # OMP reads models.yml, not pi's models.json, and accepts `auth: none`
-        # (doc 07). Written literally rather than via a YAML library so the
-        # instrument keeps a stdlib-only dependency set.
-        (agent_dir / "models.yml").write_text(
-            "\n".join(
-                [
-                    "providers:",
-                    f"  {PROVIDER_ID}:",
-                    f"    baseUrl: {base_url}",
-                    "    api: openai-completions",
-                    "    auth: none",
-                    "    models:",
-                    f"      - id: {MODEL_ID}",
-                    "        name: Layer 1 mock",
-                    "        api: openai-completions",
-                    "        reasoning: false",
-                    "        input: [text]",
-                    "        cost: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 }",
-                    f"        contextWindow: {CONTEXT_WINDOW}",
-                    f"        maxTokens: {MAX_TOKENS}",
-                    "        compat:",
-                    "          supportsDeveloperRole: false",
-                    "          supportsReasoningEffort: false",
-                    "",
-                ]
-            ),
-            encoding="utf-8",
-        )
-        env = _env_for(profile, sandbox / "home")
-        env["PI_CODING_AGENT_DIR"] = str(agent_dir)
-        return Invocation(
-            command=[
-                resolve_binary(self.binary),
-                "--mode",
-                "json",
-                "--no-session",
-                "--auto-approve",
-                "--max-time",
-                "180",
-                "--cwd",
-                str(workspace),
-                "--model",
-                f"{PROVIDER_ID}/{MODEL_ID}",
-                prompt,
-            ],
-            env=env,
-            cwd=workspace,
-        )
-
-
 class OpenCodeArm(Arm):
     name = "opencode"
     binary = "opencode"
@@ -306,4 +250,4 @@ class OpenCodeArm(Arm):
         return Invocation(command=command, env=env, cwd=workspace)
 
 
-ARMS: dict[str, Arm] = {arm.name: arm for arm in (PiArm(), OmpArm(), OpenCodeArm())}
+ARMS: dict[str, Arm] = {arm.name: arm for arm in (PiArm(), OpenCodeArm())}

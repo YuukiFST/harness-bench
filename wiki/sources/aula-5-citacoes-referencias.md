@@ -4,7 +4,7 @@ type: source
 summary: Quatro tipos de citacao e NBR 10520:2023 e 6023:2025 como ensinadas
 tags: [abnt, citacao, referencia, nbr-10520, nbr-6023]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-14
 dated: unknown
 sources: []
 ---
@@ -14,7 +14,7 @@ sources: []
 ## Identificacao
 
 - Material da disciplina: `files/Aula 5- Citacoes e referencias.odt` (66 paragrafos). Humano, escrito para a disciplina — serve de linha de base de prosa (63 sentencas, media 10,5 palavras).
-- Cobre NBR 10520:2023 e NBR 6023:2025 com as emendas.
+- Cobre NBR 10520:2023 e NBR 6023:2025 com as emendas. Paginas das normas: [[abnt-nbr-10520-2023]], [[abnt-nbr-6023-2025]], [[abnt-nbr-15287-2025]].
 
 ## Quatro tipos (com exemplos do material)
 

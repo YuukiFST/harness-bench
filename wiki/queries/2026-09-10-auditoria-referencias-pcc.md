@@ -4,9 +4,11 @@ type: query
 summary: 26 refs conferem citacao a citacao; numeros batem; tema alinhado com 2 lacunas
 tags: [auditoria, referencias, tema, nbr]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-14
 sources: [wiki/sources/scaffolding-matters-alier-forment-2026.md, wiki/sources/frontierharness-runta-2026.md, wiki/sources/agentic-harness-engineering-lin-2026.md, wiki/sources/deepswe-huang-2026.md, wiki/sources/pi-earendil-2026.md]
 ---
+
+> Histórico: descreve o desenho anterior a 2026-09-14 (harness zero, oh-my-pi, DeepSWE). O desenho vigente está em `docs/spec/11-experimental-protocol.md`.
 
 # Auditoria das referencias do PCC — as of 2026-09-10
 
@@ -29,4 +31,4 @@ FrontierHarness 50,0-66,7% e 17x ($1,05-$18,34); Alier 139x e 5,0-28x; Lin 24,7 
 
 ## Tema vs intencao do autor: alinhado, 2 lacunas
 
-Custo por tarefa + taxa de sucesso com modelo fixo, desenvolvedor como destinatario, Claude Code e Codex cobertos pelo FrontierHarness. Lacunas: **Cursor** sem evidencia em nenhuma fonte (so adaptador do Pier); "vagas pedem" sem fonte (manter como motivacao ou mini-survey).
+Custo por tarefa + taxa de sucesso com modelo fixo, desenvolvedor como destinatario, Claude Code e Codex cobertos pelo FrontierHarness. Lacunas: **Cursor** sem evidencia em nenhuma fonte (so adaptador do Pier); "vagas pedem" sem fonte, retirada do texto e da wiki em 2026-09-14.

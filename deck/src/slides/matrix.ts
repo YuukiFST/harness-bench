@@ -4,15 +4,15 @@ import { S, hooks } from "../deck";
 export function initMatrix(): void {
   const m = document.getElementById("matrix");
   if (m === null) return;
-  m.style.gridTemplateColumns = "190px repeat(8,1fr)";
+  m.style.gridTemplateColumns = "190px repeat(9,1fr)";
   let h = "";
   MATRIX_TIERS.forEach((tier) => {
     h += `<div class="hdr" style="grid-column:1/-1;justify-content:flex-start;color:#f5b638">${tier}</div><div class="hdr"></div>`;
-    for (let t = 1; t <= MATRIX_TASKS; t++) h += `<div class="hdr">T${t}</div>`;
-    MATRIX_ARMS.forEach((a, ai) => {
-      h += `<div class="hdr" style="justify-content:flex-end;padding-right:10px;color:${ai !== 0 ? "#e8edf2" : "#f5b638"}">${a}</div>`;
+    for (let t = 1; t <= MATRIX_TASKS; t++) h += `<div class="hdr">U${t}</div>`;
+    MATRIX_ARMS.forEach((a) => {
+      h += `<div class="hdr" style="justify-content:flex-end;padding-right:10px;color:#e8edf2">${a}</div>`;
       for (let t = 1; t <= MATRIX_TASKS; t++)
-        h += `<button class="cell${ai !== 0 ? "" : " ctrl"}" data-a="${a}" data-t="${t}" data-tier="${tier}" aria-label="${a}, tarefa ${t}, ${tier}">n ≥ 3</button>`;
+        h += `<button class="cell" data-a="${a}" data-t="${t}" data-tier="${tier}" aria-label="${a}, unidade ${t}, ${tier}">n ≥ 3</button>`;
     });
   });
   m.innerHTML = h;
@@ -23,11 +23,7 @@ export function initMatrix(): void {
       cell.classList.add("sel");
       const info = document.getElementById("cellinfo");
       if (info !== null) {
-        info.innerHTML =
-          `Célula (<b>${cell.dataset.a}</b>, tarefa ${cell.dataset.t}, ${cell.dataset.tier}): n ≥ 3 execuções completas após descartes; mediana com dispersão; ` +
-          (cell.classList.contains("ctrl")
-            ? "controle: define o envelope de referência (relógio de parede 3× a mediana)."
-            : "comparada ao harness zero e ao par pi / oh-my-pi por tarefa.");
+        info.innerHTML = `Célula (<b>${cell.dataset.a}</b>, ${cell.dataset.tier}), unidade U${cell.dataset.t}: n ≥ 3 construções completas após descartes; tokens da unidade como mediana com dispersão; pareada com a mesma unidade do outro braço no mesmo nível.`;
       }
     };
   });

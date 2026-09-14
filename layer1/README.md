@@ -17,14 +17,13 @@ cd layer1
 uv venv && uv pip install -e . --group dev
 export HB_ARMS_DIR=C:/hbarms
 npm i --prefix "$HB_ARMS_DIR" @earendil-works/pi-coding-agent@0.80.10 \
-                              @oh-my-pi/pi-coding-agent@17.2.10 \
                               opencode-ai@1.17.9
 ```
 
 The arms are resolved from `$HB_ARMS_DIR/node_modules/.bin` first and from
 `PATH` only as a fallback, because an install under the dev's home ends up in
 the measurement (see below). `HB_ARMS_DIR` defaults to `layer1/.arms`, which is
-fine for `omp` and `opencode` but not for `pi`. The first run fetches the
+fine for `opencode` but not for `pi`. The first run fetches the
 `cl100k_base` BPE file once and caches it.
 
 ## Run

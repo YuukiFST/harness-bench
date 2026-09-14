@@ -4,7 +4,7 @@ type: entity
 summary: Execution layer; FrontierHarness com modelo fixo e custo por pass
 tags: [runta, frontierharness, leaderboard]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-14
 sources: [wiki/sources/frontierharness-runta-2026.md]
 ---
 
@@ -14,7 +14,7 @@ Empresa (agent execution layer: eficiencia de tokens, segredos, acesso governado
 
 ## No PCC
 
-Fonte de pratica para H1 (passar vs passar barato); ponto externo para o par Pi/oh-my-pi; modelo de protocolo (checkpoint dourado, 1 tentativa/celula).
+Fonte de pratica para H1 (passar vs passar barato); ponto externo para os dois bracos do PCC (Pi 60,0%/$2,43; OpenCode 50,0%/$3,24); modelo de protocolo (checkpoint dourado, 1 tentativa/celula).
 
 ## Contradictions
 

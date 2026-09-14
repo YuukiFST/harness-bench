@@ -4,7 +4,7 @@ type: source
 summary: Gateway de modelos do OpenCode; dois niveis gratuitos no mesmo gateway
 tags: [opencode, zen, gateway, modelos, niveis]
 created: 2026-09-10
-updated: 2026-09-11
+updated: 2026-09-14
 dated: 2026-09-10
 sources: []
 ---
@@ -30,6 +30,6 @@ OPENCODE. **Zen**. 2026. Documentacao do produto. Disponivel em: https://opencod
 
 ### Auditoria de conteudo 2026-09-11
 
-- Citada em: §3 [61].
+- Citada em: §3 [61]; desde 2026-09-14 como Opencode (2026b) em [62], ao lado do repositorio OpenCode (2026a) em [60].
 - Afirmacao sustentada: gateway com modelos gratuitos listados; sem cota publicada.
 - Veredito: CONCRETA. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].

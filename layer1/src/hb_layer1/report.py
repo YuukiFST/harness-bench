@@ -4,7 +4,7 @@
 
 Four tables, in the order the argument needs them: what each arm sends on the
 first request, what the machine's ambient state adds to that, how the request
-grows over the scripted steps, and the pi vs oh-my-pi ratio that is the flagship
+grows over the scripted steps, and the pi vs OpenCode ratio that is the flagship
 instance of #9's question.
 """
 
@@ -221,7 +221,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--report", type=Path, default=None)
     parser.add_argument("--task", default="probe")
     parser.add_argument("--left", default="pi")
-    parser.add_argument("--right", default="omp")
+    parser.add_argument("--right", default="opencode")
     args = parser.parse_args(argv)
 
     out_dir = args.out

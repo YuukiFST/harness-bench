@@ -4,9 +4,11 @@ type: query
 summary: Gate de entrega: 4 marcadores, cronograma, objetivos, slop; o resto confere
 tags: [gate, entrega, atividade, pcc, checklist]
 created: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-14
 sources: [wiki/sources/estrutura-projeto-template-ifmt-2022.md, wiki/sources/aula-5-citacoes-referencias.md]
 ---
+
+> Histórico: descreve o desenho anterior a 2026-09-14 (harness zero, oh-my-pi, DeepSWE). O desenho vigente está em `docs/spec/11-experimental-protocol.md`.
 
 # Checklist de prontidao (`dist/`) — as of 2026-09-10
 
@@ -22,7 +24,7 @@ Capa e folha de rosto (autor, titulo, natureza, orientadora, cidade, ano); sumar
 2. ~~**Cronograma relativo** (MES 1-5).~~ 5 colunas SETEMBRO-JANEIRO, trabalho futuro a partir da entrega.
 3. **Objetivos com 1,3-2,7 linhas** (gabarito pede 1): cortar ou confirmar com a orientadora que o detalhe fica.
 4. **Pass no-ai-slop**: 12 `porque`, 5 `ja que`, 6 `por isso`, 30 dois-pontos, 10 contrastes ainda la (regra permanente do `AGENTS.md`).
-5. **Nao rodar `tools/build_pcc.py`**: parado em cc15d7b, sobrescreve o `.docx` (fonte da verdade). Reconciliar ou aposentar.
+5. **Nao rodar `tools/legacy/build_pcc.py`** (aposentado em 2026-09-14): parado em cc15d7b, sobrescreve o `.docx` (fonte da verdade). Reconciliar ou aposentar.
 
 ## Bloqueante — atividade
 

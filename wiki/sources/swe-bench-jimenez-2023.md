@@ -4,7 +4,7 @@ type: source
 summary: 2.294 issues reais em 12 repos Python; Claude 2 resolve 1,96%
 tags: [benchmark, swe-bench, github-issues, baseline]
 created: 2026-09-10
-updated: 2026-09-11
+updated: 2026-09-14
 dated: 2024-11-11
 sources: []
 ---
@@ -37,6 +37,8 @@ JIMENEZ, Carlos E.; YANG, John; WETTIG, Alexander; YAO, Shunyu; PEI, Kexin; PRES
 So Python; baselines intencionalmente mais simples (retrieval, sem agentes — convite a agentes); testes de execucao sozinhos nao garantem qualidade (legibilidade, eficiencia).
 
 ## Uso no PCC
+
+- Retirada da lista de referencias em 2026-09-14 junto com o DeepSWE (era so comparador de tamanho de patch).
 
 - Contraste fixo: teto nao-interativo ~2-4% define o piso que qualquer *harness* precisa bater com interacao.
 - Split fail-to-pass/pass-to-pass como modelo de atribuicao ao *harness*.

@@ -73,7 +73,7 @@ export function initFlow(): void {
       sub.textContent =
         l === 1
           ? "nada chega ao modelo · conta esquemas, bytes de prompt e tokens por passo · determinística"
-          : "desfecho da tarefa · proxy reverso conta cada requisição · estocástica, n ≥ 3 por célula";
+          : "construção do produto · proxy reverso conta cada requisição · estocástica, n ≥ 3 por célula";
     if (mock !== null) mock.textContent = l === 1 ? "substituído por endpoint simulado" : "";
     const m = document.querySelector("#fn-model rect");
     m?.setAttribute("stroke", l === 1 ? "#7bd88f" : "#f5b638");

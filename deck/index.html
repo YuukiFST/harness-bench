@@ -16,9 +16,6 @@
               Instituto Federal de Mato Grosso · Campus Octayde Jorge da Silva · Sistemas para Internet
             </div>
             <h1 class="split">O <em>harness</em> como decisão do desenvolvedor</h1>
-            <div style="font-size: 38px; color: var(--mute); max-width: 1500px">
-              custo por tarefa concluída e taxa de sucesso de agentes de codificação sob um mesmo modelo
-            </div>
             <div class="who">
               <b>Fausto Yuuki T. A. Freire</b> &nbsp;·&nbsp; Orientadora: Profa. Inara Silva
             </div>
@@ -66,7 +63,8 @@
           <div id="barstooltip" class="tooltip" role="status" aria-live="polite"></div>
           <div class="denom">
             Aprovação 50,0–66,7 % e US$ 1,05–18,34 nas 12 configurações; o gráfico mostra as 7 com valor no
-            texto do post. Razão 17,5× calculada pelo autor. Blogue institucional, não revisado por pares.
+            texto do post; Pi e OpenCode, em âmbar, são os dois braços deste projeto. Razão 17,5× calculada
+            pelo autor. Blogue institucional, não revisado por pares.
           </div>
         </section>
 
@@ -104,37 +102,374 @@
           <div class="row" style="flex-direction: column; gap: 22px">
             <div class="card frag glass">
               <b class="acc">Justificativa</b> · quem paga é o desenvolvedor, na assinatura, e a empresa, em
-              escala. As comparações publicadas contrastam equipes diferentes e não dizem qual decisão de
-              projeto pesa.
+              escala. As comparações publicadas usam tarefas isoladas e não dizem quanto custa entregar um
+              produto inteiro com uma ferramenta em vez de outra.
             </div>
             <div class="card frag glass">
               <b class="acc">Tema</b> · a escolha do <em>harness</em> como decisão de engenharia: efeito sobre
-              custo por tarefa concluída e taxa de sucesso, modelo fixo.
+              tokens consumidos e taxa de sucesso na construção de um mesmo produto, modelo fixo.
             </div>
             <div class="card frag glass">
-              <b class="acc">Problema</b> · com o modelo já escolhido, quanto do custo e do sucesso vem do
-              <em>harness</em>? Quais decisões de projeto explicam a diferença?
+              <b class="acc">Problema</b> · com o modelo já escolhido, quantos tokens a mais ou a menos custa
+              construir o mesmo software com um <em>harness</em> em vez de outro? Quanto vem da carga fixa por
+              requisição?
             </div>
             <div class="card frag hi glass">
-              <b class="acc">Objetivo geral</b> · medir esse efeito, isolar decisões pela comparação
-              <em>harness</em> × <em>fork</em> direto, entregar critério de escolha reproduzível.
+              <b class="acc">Objetivo geral</b> · medir a diferença de tokens e de sucesso entre OpenCode e pi
+              construindo o mesmo SaaS a partir da mesma especificação; separar a parte que vem da carga fixa;
+              entregar critério reproduzível.
             </div>
           </div>
         </section>
+        <!-- 5 FINN -->
+        <section class="slide" id="s-finn" data-title="Finn: o produto">
+          <h2>
+            Finn: o produto que os dois <em>harnesses</em> vão construir<small
+              >um SaaS de verdade, não um <em>benchmark</em> de tarefas soltas</small
+            >
+          </h2>
+          <div class="row" style="flex: none; gap: 40px">
+            <div
+              class="col"
+              style="flex: 0 0 600px; display: flex; flex-direction: column; gap: 20px; font-size: 25px"
+            >
+              <div class="card frag glass" style="padding: 24px 30px">
+                <b class="acc">O que é</b> · financeiro por voz para pequenas empresas: o dono fala pelo
+                WhatsApp ou pelo app e recebe lançamento, relatório e aviso no celular. Multiempresa em um
+                banco só.
+              </div>
+              <div class="card frag glass" style="padding: 24px 30px">
+                <b class="acc">Já decidido antes do experimento</b> · 21 <em>issues</em> fechadas pelo autor
+                (#1–#22) fixam produto e pilha: TypeScript, TanStack Start, tRPC, Drizzle, PostgreSQL, Vitest.
+                Os agentes não escolhem nada disso.
+              </div>
+            </div>
+            <div
+              class="col card frag"
+              style="
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 18px;
+                font-size: 23px;
+              "
+            >
+              <div class="mute">
+                Um só <em>pipeline</em>, sete passos na <em>issue</em> #14 (executar e negar juntos aqui);
+                toda escrita confirma antes de valer (#5, #20).
+              </div>
+              <svg
+                viewBox="0 0 1000 170"
+                style="width: 100%; height: 170px"
+                aria-label="pipeline de voz do Finn em seis passos"
+              >
+                <defs>
+                  <marker id="finarr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                    <path d="M0,0 L10,5 L0,10z" fill="#f5b638" />
+                  </marker>
+                </defs>
+                <rect
+                  x="0"
+                  y="20"
+                  width="140"
+                  height="84"
+                  rx="14"
+                  fill="#121923"
+                  stroke="#3b7bd6"
+                  stroke-width="3"
+                />
+                <text x="70" y="58" text-anchor="middle" fill="#fff" font-size="26" font-weight="700">1</text>
+                <text x="70" y="88" text-anchor="middle" fill="#e8edf2" font-size="22">áudio</text>
+                <text x="70" y="138" text-anchor="middle" fill="#8b98a8" font-size="17">WhatsApp ou app</text>
+                <line
+                  x1="146"
+                  y1="62.0"
+                  x2="164"
+                  y2="62.0"
+                  stroke="#f5b638"
+                  stroke-width="3"
+                  marker-end="url(#finarr)"
+                />
+                <rect
+                  x="172"
+                  y="20"
+                  width="140"
+                  height="84"
+                  rx="14"
+                  fill="#121923"
+                  stroke="#3b7bd6"
+                  stroke-width="3"
+                />
+                <text x="242" y="58" text-anchor="middle" fill="#fff" font-size="26" font-weight="700">
+                  2
+                </text>
+                <text x="242" y="88" text-anchor="middle" fill="#e8edf2" font-size="22">texto</text>
+                <text x="242" y="138" text-anchor="middle" fill="#8b98a8" font-size="17">Whisper local</text>
+                <line
+                  x1="318"
+                  y1="62.0"
+                  x2="336"
+                  y2="62.0"
+                  stroke="#f5b638"
+                  stroke-width="3"
+                  marker-end="url(#finarr)"
+                />
+                <rect
+                  x="344"
+                  y="20"
+                  width="140"
+                  height="84"
+                  rx="14"
+                  fill="#121923"
+                  stroke="#3b7bd6"
+                  stroke-width="3"
+                />
+                <text x="414" y="58" text-anchor="middle" fill="#fff" font-size="26" font-weight="700">
+                  3
+                </text>
+                <text x="414" y="88" text-anchor="middle" fill="#e8edf2" font-size="22">intenção</text>
+                <text x="414" y="138" text-anchor="middle" fill="#8b98a8" font-size="17">palavras-chave</text>
+                <line
+                  x1="490"
+                  y1="62.0"
+                  x2="508"
+                  y2="62.0"
+                  stroke="#f5b638"
+                  stroke-width="3"
+                  marker-end="url(#finarr)"
+                />
+                <rect
+                  x="516"
+                  y="20"
+                  width="140"
+                  height="84"
+                  rx="14"
+                  fill="#121923"
+                  stroke="#f5b638"
+                  stroke-width="3"
+                />
+                <text x="586" y="58" text-anchor="middle" fill="#fff" font-size="26" font-weight="700">
+                  4
+                </text>
+                <text x="586" y="88" text-anchor="middle" fill="#e8edf2" font-size="22">gate</text>
+                <text x="586" y="138" text-anchor="middle" fill="#8b98a8" font-size="17">papel × ação</text>
+                <line
+                  x1="662"
+                  y1="62.0"
+                  x2="680"
+                  y2="62.0"
+                  stroke="#f5b638"
+                  stroke-width="3"
+                  marker-end="url(#finarr)"
+                />
+                <rect
+                  x="688"
+                  y="20"
+                  width="140"
+                  height="84"
+                  rx="14"
+                  fill="#121923"
+                  stroke="#3b7bd6"
+                  stroke-width="3"
+                />
+                <text x="758" y="58" text-anchor="middle" fill="#fff" font-size="26" font-weight="700">
+                  5
+                </text>
+                <text x="758" y="88" text-anchor="middle" fill="#e8edf2" font-size="22">executar</text>
+                <text x="758" y="138" text-anchor="middle" fill="#8b98a8" font-size="17">ou negar</text>
+                <line
+                  x1="834"
+                  y1="62.0"
+                  x2="852"
+                  y2="62.0"
+                  stroke="#f5b638"
+                  stroke-width="3"
+                  marker-end="url(#finarr)"
+                />
+                <rect
+                  x="860"
+                  y="20"
+                  width="140"
+                  height="84"
+                  rx="14"
+                  fill="#121923"
+                  stroke="#3b7bd6"
+                  stroke-width="3"
+                />
+                <text x="930" y="58" text-anchor="middle" fill="#fff" font-size="26" font-weight="700">
+                  6
+                </text>
+                <text x="930" y="88" text-anchor="middle" fill="#e8edf2" font-size="22">resposta</text>
+                <text x="930" y="138" text-anchor="middle" fill="#8b98a8" font-size="17">push</text>
+              </svg>
+              <div class="mute">
+                Custo zero por padrão: Whisper local; IA por API atrás de <em>flag</em> por empresa, desligada
+                (#4, #12, #17).
+              </div>
+            </div>
+          </div>
+          <div class="card frag hi glass" style="margin-top: 24px; padding: 22px 30px; font-size: 26px">
+            <b class="acc">A especificação</b> · as 9 <em>issues</em> técnicas (#14–#22) viram as 9 unidades
+            de uma especificação única, congelada por hash; cada unidade tem testes de aceitação escritos pelo
+            autor.
+            <div style="margin-top: 16px">
+              <span
+                style="
+                  display: inline-block;
+                  padding: 6px 20px;
+                  margin: 0 10px 8px 0;
+                  border: 2px solid #3b7bd6;
+                  border-radius: 999px;
+                  font-size: 23px;
+                "
+                >U1 tenant</span
+              ><span
+                style="
+                  display: inline-block;
+                  padding: 6px 20px;
+                  margin: 0 10px 8px 0;
+                  border: 2px solid #3b7bd6;
+                  border-radius: 999px;
+                  font-size: 23px;
+                "
+                >U2 governança</span
+              ><span
+                style="
+                  display: inline-block;
+                  padding: 6px 20px;
+                  margin: 0 10px 8px 0;
+                  border: 2px solid #3b7bd6;
+                  border-radius: 999px;
+                  font-size: 23px;
+                "
+                >U3 flags</span
+              ><span
+                style="
+                  display: inline-block;
+                  padding: 6px 20px;
+                  margin: 0 10px 8px 0;
+                  border: 2px solid #f5b638;
+                  border-radius: 999px;
+                  font-size: 23px;
+                "
+                >U4 pipeline de voz</span
+              ><span
+                style="
+                  display: inline-block;
+                  padding: 6px 20px;
+                  margin: 0 10px 8px 0;
+                  border: 2px solid #3b7bd6;
+                  border-radius: 999px;
+                  font-size: 23px;
+                "
+                >U5 confirmação</span
+              ><span
+                style="
+                  display: inline-block;
+                  padding: 6px 20px;
+                  margin: 0 10px 8px 0;
+                  border: 2px solid #3b7bd6;
+                  border-radius: 999px;
+                  font-size: 23px;
+                "
+                >U6 log</span
+              ><span
+                style="
+                  display: inline-block;
+                  padding: 6px 20px;
+                  margin: 0 10px 8px 0;
+                  border: 2px solid #3b7bd6;
+                  border-radius: 999px;
+                  font-size: 23px;
+                "
+                >U7 relatório</span
+              ><span
+                style="
+                  display: inline-block;
+                  padding: 6px 20px;
+                  margin: 0 10px 8px 0;
+                  border: 2px solid #3b7bd6;
+                  border-radius: 999px;
+                  font-size: 23px;
+                "
+                >U8 agendador</span
+              ><span
+                style="
+                  display: inline-block;
+                  padding: 6px 20px;
+                  margin: 0 10px 8px 0;
+                  border: 2px solid #3b7bd6;
+                  border-radius: 999px;
+                  font-size: 23px;
+                "
+                >U9 cobrança</span
+              >
+            </div>
+          </div>
+          <div class="denom">
+            Finn (YuukiFST, 2026a): github.com/YuukiFST/Finn. Decisões de produto nas <em>issues</em> #2–#10;
+            decisões técnicas em #11–#22. Em âmbar, a unidade do <em>pipeline</em> desenhado acima.
+          </div>
+        </section>
 
-        <!-- 5 OBJETIVOS ESPECÍFICOS -->
+        <!-- 6 COMO O PROJETO FUNCIONA -->
+        <section class="slide" id="s-como" data-title="Como o projeto funciona">
+          <h2>Como o projeto funciona<small>o mesmo produto, construído duas vezes</small></h2>
+          <div class="row" style="flex: none; gap: 30px; font-size: 26px">
+            <div class="card col frag glass">
+              <b class="acc">1 · Uma especificação</b> · Finn, SaaS de financeiro por voz, descrito em 9
+              unidades a partir das <em>issues</em>, cada uma com testes de aceitação escritos pelo autor.
+            </div>
+            <div class="card col frag glass">
+              <b class="acc">2 · Dois <em>harnesses</em></b> · OpenCode e pi recebem a mesma especificação, os
+              mesmos <em>prompts</em>, o mesmo espaço de trabalho vazio e o mesmo modelo, e constroem o
+              produto do zero, unidade a unidade.
+            </div>
+            <div class="card col frag glass">
+              <b class="acc">3 · Um contador externo</b> · um <em>proxy</em> entre o <em>harness</em> e o
+              modelo conta requisições, tokens e latência da mesma forma para os dois; n ≥ 3 construções por
+              célula.
+            </div>
+            <div class="card col frag glass">
+              <b class="acc">4 · Um critério</b> · tokens por construção, ao lado da fração de testes
+              aprovados, e Succ/Mtok, comparados por teste pareado por unidade; a Camada 1 separa a parte que
+              é carga fixa por requisição.
+            </div>
+          </div>
+          <div class="card frag hi glass" style="margin-top: 30px; font-size: 28px">
+            <b class="acc">Por que isso justifica o tema</b> · quem paga é o desenvolvedor, na assinatura, e a
+            empresa, em escala; conhecer o <em>harness</em> virou parte do ofício. As comparações publicadas
+            usam tarefas isoladas e não dizem quanto custa entregar um produto inteiro com uma ferramenta em
+            vez de outra. Este projeto mede esse custo.
+          </div>
+          <div class="denom">
+            Finn: github.com/YuukiFST/Finn (YuukiFST, 2026a), <em>issues</em> #1–#22. Braços: OpenCode 1.17.9
+            e pi 0.80.10, código aberto, sem interface. Método detalhado nos slides seguintes.
+          </div>
+        </section>
+
+        <!-- 6 OBJETIVOS ESPECÍFICOS -->
         <section class="slide" data-title="Objetivos específicos">
           <h2>Sete objetivos específicos</h2>
           <div class="row">
             <div class="col">
               <ul class="big" id="objs">
                 <li class="frag"><b>1</b> Instrumento externo: requisições, tokens, latência</li>
-                <li class="frag"><b>2</b> Suíte com objetivos numerados e <em>oracle</em> próprio</li>
-                <li class="frag"><b>3</b> <em>Harness</em> zero em laço ReAct (controle)</li>
-                <li class="frag"><b>4</b> Mesma suíte, mesmo modelo, todos os braços, com repetição</li>
+                <li class="frag">
+                  <b>2</b> Especificação do Finn em 9 unidades, com testes de aceitação do autor
+                </li>
+                <li class="frag">
+                  <b>3</b> Espaço de trabalho inicial idêntico: só a especificação e a pilha
+                </li>
+                <li class="frag">
+                  <b>4</b> Construção completa nos dois <em>harnesses</em>, mesmo modelo e <em>prompts</em>, n
+                  ≥ 3
+                </li>
                 <li class="frag"><b>5</b> Segundo modelo: a ordenação se mantém ou inverte?</li>
-                <li class="frag"><b>6</b> Custo relatado × custo medido no <em>proxy</em></li>
-                <li class="frag"><b>7</b> Publicar <em>runner</em>, dados e scripts, custo zero</li>
+                <li class="frag"><b>6</b> Tokens relatados × tokens medidos no <em>proxy</em></li>
+                <li class="frag">
+                  <b>7</b> Publicar executor, <em>prompts</em>, testes, dados e scripts, custo zero
+                </li>
               </ul>
             </div>
             <div
@@ -152,25 +487,146 @@
           <div class="row">
             <div class="col">
               <div class="card frag glass" style="margin-bottom: 26px">
-                <b class="acc">H1</b> · entre <em>harnesses</em> distintos no mesmo modelo, a diferença de
-                custo por tarefa é relevante para quem paga, comparável a trocar de modelo.
+                <b class="acc">H1</b> · entre OpenCode e pi no mesmo modelo, a diferença de tokens para
+                construir o Finn a partir da mesma especificação é relevante para quem paga, comparável a
+                trocar de modelo.
                 <span class="mute"
-                  >Refutada se os intervalos de Succ/Mtok se sobrepuserem em toda a suíte.</span
+                  >Refutada se os intervalos de tokens por construção se sobrepuserem e o teste pareado por
+                  unidade não apontar diferença.</span
                 >
               </div>
               <div class="card frag glass">
-                <b class="acc">H2</b> · a diferença persiste entre um <em>harness</em> e seu
-                <em>fork</em> direto: decisões isoláveis, não acúmulo de bases distintas.
-                <span class="mute">Refutada se pi e oh-my-pi não diferirem em Succ/Mtok.</span>
+                <b class="acc">H2</b> · a carga fixa por requisição (<em>prompt</em> de sistema e esquemas,
+                Camada 1) explica a maior parte da diferença; o número de passos, a parte menor.
+                <span class="mute">Refutada se o número de passos explicar a maior parte.</span>
               </div>
             </div>
             <div class="col" style="flex: 0 0 800px">
-              <svg id="forksvg" viewBox="0 0 800 560" style="width: 100%; height: 100%"></svg>
+              <svg id="forksvg" viewBox="0 0 800 560" style="width: 100%; height: 100%">
+                <rect
+                  x="40"
+                  y="30"
+                  width="330"
+                  height="110"
+                  rx="16"
+                  fill="#121923"
+                  stroke="#3b7bd6"
+                  stroke-width="3"
+                />
+                <text x="205" y="75" text-anchor="middle" fill="#fff" font-size="34" font-weight="700">
+                  pi
+                </text>
+                <text x="205" y="115" text-anchor="middle" fill="#8b98a8" font-size="21">
+                  60,0 % · US$ 2,43 por aprovada
+                </text>
+                <text x="400" y="93" text-anchor="middle" fill="#8b98a8" font-size="26">vs</text>
+                <rect
+                  x="430"
+                  y="30"
+                  width="330"
+                  height="110"
+                  rx="16"
+                  fill="#121923"
+                  stroke="#f5b638"
+                  stroke-width="3"
+                />
+                <text x="595" y="75" text-anchor="middle" fill="#fff" font-size="34" font-weight="700">
+                  OpenCode
+                </text>
+                <text x="595" y="115" text-anchor="middle" fill="#8b98a8" font-size="21">
+                  50,0 % · US$ 3,24 por aprovada
+                </text>
+                <text x="400" y="185" text-anchor="middle" fill="#e8edf2" font-size="25">
+                  <tspan fill="#f5b638" font-weight="700">H1</tspan>
+                  · mesmo modelo: OpenCode paga
+                  <tspan fill="#f5b638" font-weight="700">1,33×</tspan>
+                  por tarefa aprovada
+                </text>
+                <text x="400" y="218" text-anchor="middle" fill="#e8edf2" font-size="25">
+                  e aprova
+                  <tspan fill="#f5b638" font-weight="700">10 pp</tspan>
+                  a menos (cálculo do autor)
+                </text>
+                <text x="216" y="266" text-anchor="end" fill="#8b98a8" font-size="21">aprovação</text>
+                <rect
+                  class="grow"
+                  x="230"
+                  y="243"
+                  width="0"
+                  height="26"
+                  rx="6"
+                  fill="#3b7bd6"
+                  data-w="240.0"
+                />
+                <text x="482.0" y="262" fill="#e8edf2" font-size="21">pi 60,0 %</text>
+                <rect
+                  class="grow"
+                  x="230"
+                  y="275"
+                  width="0"
+                  height="26"
+                  rx="6"
+                  fill="#f5b638"
+                  data-w="200.0"
+                />
+                <text x="442.0" y="294" fill="#e8edf2" font-size="21">OpenCode 50,0 %</text>
+                <text x="216" y="341" text-anchor="end" fill="#8b98a8" font-size="21">US$ / aprovada</text>
+                <rect
+                  class="grow"
+                  x="230"
+                  y="318"
+                  width="0"
+                  height="26"
+                  rx="6"
+                  fill="#3b7bd6"
+                  data-w="243.0"
+                />
+                <text x="485.0" y="337" fill="#e8edf2" font-size="21">pi 2,43</text>
+                <rect
+                  class="grow"
+                  x="230"
+                  y="350"
+                  width="0"
+                  height="26"
+                  rx="6"
+                  fill="#f5b638"
+                  data-w="324.0"
+                />
+                <text x="566.0" y="369" fill="#e8edf2" font-size="21">OpenCode 3,24</text>
+                <text x="400" y="400" text-anchor="middle" fill="#8b98a8" font-size="19">
+                  FrontierHarness (Runta, 2026) · Kimi K3 · 30 tarefas · 1 tentativa por célula
+                </text>
+                <rect
+                  x="40"
+                  y="420"
+                  width="720"
+                  height="130"
+                  rx="16"
+                  fill="#121923"
+                  stroke="#243040"
+                  stroke-width="2"
+                />
+                <text x="70" y="458" fill="#e8edf2" font-size="23">
+                  <tspan fill="#f5b638" font-weight="700">H2</tspan>
+                  · carga por requisição, fonte externa
+                </text>
+                <text x="70" y="493" fill="#8b98a8" font-size="19">
+                  pi: 4 ferramentas;
+                  <tspan fill="#e8edf2">prompt e definições abaixo de 1.000 tokens</tspan>
+                  (Earendil, 2026)
+                </text>
+                <text x="70" y="526" fill="#8b98a8" font-size="19">
+                  Databricks apud Earendil (2026):
+                  <tspan fill="#e8edf2">«3x less context per turn»,</tspan>
+                  custo &gt; 2×
+                </text>
+              </svg>
             </div>
           </div>
           <div class="denom">
-            Camada 1, medição própria: primeira requisição da mesma tarefa, endpoint simulado, n = 1
-            (determinístico), tokenizador cl100k_base, 28 ago. 2026. pi 0.80.10, oh-my-pi 17.2.10.
+            H1: FrontierHarness (Runta, 2026), blogue institucional, 1 set. 2026; Kimi K3 via Fireworks, 30
+            tarefas, 1 tentativa por célula, pi v0.84.2, OpenCode v1.18.19; 1,33× e 10 pp calculados pelo
+            autor. H2: Earendil (2026), blogue institucional, 4 ago. 2026; Databricks apud Earendil (2026).
           </div>
         </section>
 
@@ -185,8 +641,7 @@
           <div id="tlcard" class="card glass" style="flex: 1; margin: 20px 0 50px">
             <h3 class="acc" style="margin: 0 0 12px; font-size: 36px">Yao <em>et al.</em> (2022) · ReAct</h3>
             <p style="margin: 0; font-size: 30px">
-              O laço observar/agir mínimo. É um <em>harness</em> legítimo, o mais raso; ponto de partida do
-              <em>harness</em> zero.
+              O laço observar/agir mínimo. É um <em>harness</em> legítimo, o mais raso; o pi fica perto dele.
             </p>
           </div>
           <div class="denom">
@@ -197,9 +652,7 @@
 
         <!-- 8 CLASSIFICAÇÃO DA PESQUISA -->
         <section class="slide" id="s-class" data-title="Classificação da pesquisa e uso de IA">
-          <h2>
-            Classificação da pesquisa<small>Gil (2022); Prodanov e Freitas (2013) · → revela cada eixo</small>
-          </h2>
+          <h2>Classificação da pesquisa<small>→ revela cada eixo</small></h2>
           <div class="axes">
             <div class="card frag flip">
               <span class="k">Natureza</span><span class="v">aplicada</span
@@ -207,16 +660,17 @@
             </div>
             <div class="card frag flip">
               <span class="k">Abordagem</span><span class="v">quanti + quali</span
-              ><span class="w">medir custo e sucesso; atribuir a decisão</span>
+              ><span class="w">medir tokens e sucesso; atribuir à carga fixa ou aos passos</span>
             </div>
             <div class="card frag flip">
               <span class="k">Objetivos</span><span class="v">exploratória</span
-              ><span class="w">linhagem fixa sem precedente</span>
+              ><span class="w">mesmo produto completo, dois <em>harnesses</em>, sem precedente</span>
             </div>
             <div class="card frag flip">
               <span class="k">Procedimentos</span><span class="v">experimental</span
               ><span class="w"
-                >VI: <em>harness</em> · controladas: modelo, tarefa, limites · grupo de controle</span
+                >VI: <em>harness</em> · controladas: modelo, especificação, espaço de trabalho inicial,
+                limites</span
               >
             </div>
             <div class="card frag flip">
@@ -236,9 +690,10 @@
                 </div>
               </div>
               <div style="font-size: 28px">
-                Levantamento e auditoria das fontes com um <em>LLM Wiki</em> no repositório do projeto. A
-                ferramenta foi o Claude Code e a finalidade foi a síntese e a conferência de fontes. O autor
-                curou as fontes, conferiu cada citação na obra original e responde pelo texto final.
+                Levantamento e auditoria das fontes com um <em>LLM Wiki</em> (Karpathy, 2026) no repositório
+                do projeto. A ferramenta foi o Claude Code e a finalidade foi a síntese e a conferência de
+                fontes. O autor curou as fontes, conferiu cada citação na obra original e responde pelo texto
+                final.
               </div>
             </div>
             <svg id="wikiflow" viewBox="0 0 1560 120" style="width: 100%; height: 120px" aria-hidden="true">
@@ -338,15 +793,15 @@
           <div class="row" style="flex: none; gap: 30px; margin-top: 10px">
             <div class="card col glass" id="l1card">
               <b class="acc">Camada 1</b> · forma da requisição contra endpoint simulado. Esquemas, bytes de
-              prompt, tokens por passo. Determinística, sem cota.
+              prompt, tokens por passo. Determinística, sem cota. Dá a carga fixa de H2.
             </div>
             <div class="card col glass" id="l2card">
-              <b class="acc">Camada 2</b> · desfecho das tarefas no modelo real via <em>proxy</em> reverso.
+              <b class="acc">Camada 2</b> · construção do produto no modelo real via <em>proxy</em> reverso.
               Estocástica, consome cota, n ≥ 3.
             </div>
           </div>
           <div class="denom">
-            O <em>proxy</em> conta tokens sobre os bytes transmitidos, um só tokenizador para todos os braços;
+            O <em>proxy</em> conta tokens sobre os bytes transmitidos, um só tokenizador para os dois braços;
             o relatório do <em>gateway</em> fica para verificação cruzada.
           </div>
         </section>
@@ -354,9 +809,9 @@
         <!-- 10 BRAÇOS E MATRIZ -->
         <section class="slide" id="s-matrix" data-title="Braços e matriz experimental">
           <h2>
-            Braços e matriz (braço × tarefa × nível)<small
-              >clique ou navegue com Tab em uma célula · cada célula recebe n ≥ 3 execuções após
-              descartes</small
+            Braços e matriz (braço × nível, 9 unidades por construção)<small
+              >clique ou navegue com Tab em uma unidade · cada célula (braço, nível) recebe n ≥ 3 construções
+              após descartes</small
             >
           </h2>
           <div class="row">
@@ -366,10 +821,12 @@
                 Célula: selecione.
               </div>
               <div class="card glass" style="padding: 18px 28px; font-size: 24px">
-                <b class="acc">Cada execução recebe uma classe</b> ·
-                <span style="color: var(--bad)">falhada</span>: agente não cumpriu; é resultado, escore zero
-                (estouro do relógio incluído). <span class="mute">descartada</span>: medição inconfiável;
-                registrada, sem reparo nem repetição. Classe lida do registro do <em>proxy</em>.
+                <b class="acc">Cada unidade recebe uma classe</b> ·<span style="color: var(--bad)"
+                  >não concluída</span
+                >: agente não concluiu a unidade; é resultado, entra com a fração de testes aprovada e a
+                construção segue (estouro do relógio incluído). <span class="mute">descartada</span>: medição
+                inconfiável descarta a construção; registrada, sem reparo nem repetição. Classe lida do
+                registro do <em>proxy</em>.
               </div>
             </div>
             <div
@@ -377,24 +834,28 @@
               style="flex: 0 0 640px; font-size: 25px; display: flex; flex-direction: column; gap: 14px"
             >
               <div class="card hi glass" style="padding: 20px 30px">
-                <b class="acc"><em>Harness</em> zero</b> · controle. Laço observar/agir, 3 ferramentas, &lt;
-                400 linhas de Python, sem planejamento, compactação ou <em>retry</em>.
+                <b class="acc">Braços</b> · OpenCode e pi: código aberto, sem interface (<code
+                  >opencode run</code
+                >, <code>pi --mode json</code>), URL base OpenAI-compatível. Nenhum <em>harness</em> escrito
+                pelo projeto.
               </div>
               <div class="card glass" style="padding: 20px 30px">
-                <b class="acc">Suíte</b> · 8 tarefas Python do DeepSWE, fixadas por <em>commit</em> e SHA-256.
-                Crédito parcial: fração de testes do verificador.
+                <b class="acc">Especificação</b> · Finn em 9 unidades, congelada por SHA-256; espaço de
+                trabalho inicial vazio, o agente carrega o próprio código de uma unidade à seguinte. Escore:
+                fração dos testes de aceitação do autor, <em>held-out</em>.
               </div>
               <div class="card glass" style="padding: 20px 30px">
-                <b class="acc">Limite único</b> · relógio de parede 3× a mediana do <em>harness</em> zero nas
-                tarefas-piloto. Sem teto de passos, já que o teto seria uma decisão de projeto do
+                <b class="acc">Limite único</b> · relógio de parede por unidade, 3× a maior mediana dos braços
+                nas unidades-piloto. Sem teto de passos, já que o teto seria uma decisão de projeto do
                 <em>harness</em>. Saída máxima idêntica via <em>proxy</em>.
               </div>
             </div>
           </div>
           <div class="denom">
-            DeepSWE (Huang <em>et al.</em>, 2026): 113 tarefas, 91 repositórios; soluções de referência com
-            668 linhas em média, contra 32,8 no SWE-bench. Braços provisórios até os portões de
-            confiabilidade.
+            Finn (YuukiFST, 2026a): SaaS multiempresa de financeiro por voz, 21 <em>tickets</em> fechados
+            antes do experimento; pilha fixa TypeScript, TanStack Start, tRPC, Drizzle, PostgreSQL, Vitest.
+            Unidades em ordem de dependência: U1 tenant · U2 governança · U3 <em>flags</em> · U4
+            <em>pipeline</em> de voz · U5 confirmação · U6 log · U7 relatório · U8 agendador · U9 cobrança.
           </div>
         </section>
 
@@ -459,7 +920,7 @@
                   <div class="big-num" id="sb">–</div>
                 </div>
                 <div>
-                  <div class="mute">Wilcoxon (8 pares)</div>
+                  <div class="mute">Wilcoxon (9 pares)</div>
                   <div class="big-num" id="wres" style="font-size: 40px">–</div>
                 </div>
               </div>
@@ -469,8 +930,10 @@
             </div>
           </div>
           <div class="denom">
-            Teste de Wilcoxon dos postos sinalizados, bilateral, α = 0,05, pareado por tarefa. Com n = 3 por
-            célula e 8 tarefas, diferença mínima detectável ≈ 0,81σ.
+            Teste de Wilcoxon dos postos sinalizados, bilateral, α = 0,05, pareado por unidade. Com n = 3 por
+            célula e 9 unidades, diferença mínima detectável ≈ 0,76σ. O mesmo teste roda sobre os tokens por
+            unidade; a medida principal, tokens por construção, é relatada ao lado da fração de testes
+            aprovados.
           </div>
         </section>
 
@@ -494,16 +957,17 @@
               objetivo 5 testa isso.
             </div>
             <div class="card frag glass lim" style="flex: 1 1 45%; align-self: flex-start">
-              <b class="acc">Modelos pequenos</b> · fora do escopo: o único viável foi treinado dentro de um
-              braço.
+              <b class="acc">Um produto, uma pilha</b> · o resultado vale para tarefas dessa família; outras
+              pilhas ficam como trabalho futuro.
             </div>
             <div class="card frag glass lim" style="flex: 1 1 45%; align-self: flex-start">
-              <b class="acc">Sem comparação ao placar público</b> · linhas de base do DeepSWE usam
-              <em>harness</em> de ferramenta única. Válido: braço × braço.
+              <b class="acc">Especificação humana e trajetória própria</b> · o autor escreve a especificação,
+              e cada braço carrega os próprios erros de uma unidade à seguinte; mitigação: mesma entrada e
+              mesmo início vazio para os dois, comparação pareada por unidade.
             </div>
             <div class="card frag glass lim" style="flex: 1 1 45%; align-self: flex-start">
-              <b class="acc">Custo em dinheiro</b> · contrafactual de ordem de grandeza sobre tarifas pagas,
-              rotulado como tal.
+              <b class="acc">Sem placar público</b> · suíte própria, válido só braço × braço; custo em
+              dinheiro como contrafactual rotulado.
             </div>
           </div>
           <div class="denom">
@@ -515,7 +979,7 @@
         <!-- 13 ORÇAMENTO E CRONOGRAMA -->
         <section class="slide" id="s-gantt" data-title="Orçamento e cronograma">
           <h2>
-            Orçamento R$ 0,00 · cronograma set. 2026 – jan. 2027<small
+            Orçamento R$ 0,00 · cronograma ago. 2026 – jan. 2027<small
               >clique em uma fase; → revela as fases</small
             >
           </h2>
@@ -524,10 +988,8 @@
               <span class="mute">Inferência (dois níveis, gratuito)</span><br /><b class="acc">R$ 0,00</b>
             </div>
             <div class="card glass" style="flex: 1; padding: 18px 26px">
-              <span class="mute">Executor e <em>benchmark</em> (Pier, DeepSWE; Apache-2.0)</span><br /><b
-                class="acc"
-                >R$ 0,00</b
-              >
+              <span class="mute"><em>Harnesses</em> e ferramentas (OpenCode, pi; Node.js, PostgreSQL)</span
+              ><br /><b class="acc">R$ 0,00</b>
             </div>
             <div class="card glass" style="flex: 1; padding: 18px 26px">
               <span class="mute">Máquinas (NixOS e Windows, já disponíveis)</span><br /><b class="acc"
@@ -538,7 +1000,8 @@
           <div id="gantt" style="flex: 1"></div>
           <div class="denom">
             Tabelas 1 e 2 do projeto. <em>Gateway</em>: OpenCode Zen. Limite vinculante: cota gratuita, um
-            lote da matriz por dia; folga concentrada na execução da matriz e nos portões de confiabilidade.
+            lote da matriz por dia; folga concentrada na execução da matriz e na escrita da especificação e
+            dos testes de aceitação.
           </div>
         </section>
 
@@ -546,7 +1009,7 @@
         <section class="slide" data-title="Referências citadas nos slides">
           <h2>
             Referências citadas nos slides<small
-              >formato ABNT abreviado; lista completa com 25 entradas no projeto, seção 6</small
+              >formato ABNT abreviado; lista completa com 20 entradas no projeto, seção 6</small
             >
           </h2>
           <div class="refs three" id="refs"></div>
@@ -558,12 +1021,13 @@
           <div class="cover-inner">
             <div class="inst">Pergunta que o projeto responde</div>
             <h1 class="split" style="font-size: 60px">
-              Quanto do que o desenvolvedor paga por tarefa vem do <em>harness</em>, e de qual decisão de
-              projeto?
+              Quanto pesa, para o desenvolvedor que já escolheu o modelo, conhecer o <em>harness</em> antes de
+              pagar por ele?
             </h1>
             <div class="who">Obrigado. Perguntas?</div>
             <div class="denom">
-              Repositório do projeto: github.com/YuukiFST/harness-bench (YuukiFST, 2026).
+              Repositórios: github.com/YuukiFST/harness-bench (YuukiFST, 2026b) e github.com/YuukiFST/Finn
+              (YuukiFST, 2026a).
             </div>
           </div>
         </section>
