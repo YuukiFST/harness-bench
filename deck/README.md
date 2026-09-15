@@ -49,3 +49,10 @@ barra de progresso, `hooks.enter/leave/step`, índice por `id` via `S('s-...')`,
 Sem `UnrealBloomPass`: o brilho vem de emissivo + sprites aditivos, para manter
 60 fps em GPU integrada. `pixelRatio` limitado a 1.5, `rAF` só no slide ativo,
 neblina e sombras 1024px. Medir com `perf-start`/`perf-stop` nos slides com 3D.
+
+## Deck explicativo (cópia visual, 2026-09-15)
+
+`dist/apresentacao-explainer/index.html` é um segundo deck, gerado por
+`python tools/apresentacao_explainer/build.py` a partir do mesmo conteúdo, com os
+gráficos das fontes do projeto (FrontierHarness, Lin 2026, HAL, Alier Forment 2026,
+Camada 1). Não passa pelo Vite; o deck deste diretório continua sendo o oficial.
