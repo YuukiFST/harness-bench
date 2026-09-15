@@ -20,7 +20,7 @@ sources: []
 - PDF: `raw/sources/2604.25850-lin-agentic-harness-engineering.pdf`. HTML: <https://arxiv.org/html/2604.25850v4>.
 - Extraido com `bin/pdf-to-md.py` (PyMuPDF, duas colunas) e conferido contra o HTML v4. Tudo abaixo refere-se a **v4**.
 
-## Referencia ABNT (como citada no PCC)
+## Referencia ABNT (como citada no projeto)
 
 LIN, Jiahang; LIU, Shichun; PAN, Chengjun; LIN, Lizhi; DOU, Shihan; XI, Zhiheng; HUANG, Xuanjing; YAN, Hang; HAN, Zhenhua; GUI, Tao; JIANG, Yu-Gang. **Agentic harness engineering**: observability-driven automatic evolution of coding-agent harnesses. arXiv:2604.25850, 2026. *Preprint*, nao revisado por pares. Disponivel em: https://arxiv.org/abs/2604.25850. Acesso em: 28 ago. 2026.
 
@@ -36,7 +36,7 @@ Metodo: loop fechado AHE com tres pilares de observabilidade — (1) observabili
 - Tese (Secao 1): "Harness design materially shifts task completion on long-horizon coding benchmarks, even with the base model held fixed, making harness engineering a first-class lever for improving coding agents."
 - Especificidade (Secao 1): "the optimal harness is model-specific: a harness tuned for one base model often underperforms on another and must be re-adapted as the base model changes."
 - Sete componentes (Secao 3.1, NexAU): system prompt, tool description, tool implementation, middleware, skill, sub-agent configuration, long-term memory.
-- Semente minima (Secao 3.1): "Our seed harness is deliberately minimal: a single shell-execution tool, no middleware, no skills, no sub-agents." Justificativa metodologica pronta para o *harness* zero deste PCC.
+- Semente minima (Secao 3.1): "Our seed harness is deliberately minimal: a single shell-execution tool, no middleware, no skills, no sub-agents." Justificativa metodologica pronta para o *harness* zero deste projeto.
 
 ## Numeros aproveitaveis (denominador completo)
 
@@ -50,16 +50,16 @@ Metodo: loop fechado AHE com tres pilares de observabilidade — (1) observabili
 
 ## Metrica Succ/Mtok
 
-Definida na Eq. (2), Apendice A: `pass@1 x 10^6 / media de tokens por execucao`. Aparece so na Tabela 5 do apendice. E a metrica primaria adotada pelo PCC (custo por tarefa concluida).
+Definida na Eq. (2), Apendice A: `pass@1 x 10^6 / media de tokens por execucao`. Aparece so na Tabela 5 do apendice. E a metrica primaria adotada pelo projeto (custo por tarefa concluida).
 
 ## Limitacoes declaradas (verbatim)
 
 - "This work studies a promising but high-variance setting, and the scope of our claims should be interpreted accordingly."
 - Orcamento de passos e timeout ajustados ao GPT-5.4: numeros cross-model confundem portabilidade com acoplamento ao ponto de operacao.
-- Sem desvio-padrao, sem barras de erro, k=2 por tarefa. O PCC faz melhor: n>=3 e dispersao reportada (source: [[adding-error-bars-miller-2024]]).
+- Sem desvio-padrao, sem barras de erro, k=2 por tarefa. O projeto faz melhor: n>=3 e dispersao reportada (source: [[adding-error-bars-miller-2024]]).
 - Nao reporta dolares, wall-clock por execucao, contagem de turnos ou de chamadas de ferramenta.
 
-## Uso no PCC
+## Uso no projeto
 
 - Justificativa: dispersao de 24,7 pp com modelo congelado (Tabela 1).
 - Referencial: definicao operacional de *harness* e tese da alavanca de primeira classe.
@@ -70,7 +70,7 @@ Definida na Eq. (2), Apendice A: `pass@1 x 10^6 / media de tokens por execucao`.
 
 - Citada em: §2 [49]-[50], [52], [55].
 - Afirmacao sustentada: definicao §1 verbatim; Tabela 1 (OpenCode 47,2% / Codex 71,9%, TB2, 89 tarefas, GPT-5.4); Succ/Mtok no Apendice A.
-- Veredito: CONCRETA; 24,7 pp e diferenca calculada da Tabela 1, nao frase do artigo. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
+- Veredito: CONCRETA; 24,7 pp e diferenca calculada da Tabela 1, nao frase do artigo. Detalhe em [[2026-09-11-auditoria-conteudo-referencias]].
 
 ## Contradictions
 

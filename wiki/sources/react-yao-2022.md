@@ -18,7 +18,7 @@ sources: []
 - arXiv:2210.03629v3 [cs.CL], 10 mar 2023. Publicado na **ICLR 2023**.
 - PDF: `raw/sources/2210.03629-yao-react.pdf`.
 
-## Referencia ABNT (como citada no PCC)
+## Referencia ABNT (como citada no projeto)
 
 YAO, Shunyu; ZHAO, Jeffrey; YU, Dian; DU, Nan; SHAFRAN, Izhak; NARASIMHAN, Karthik; CAO, Yuan. **ReAct**: synergizing reasoning and acting in language models. arXiv:2210.03629, 2022. Trabalho apresentado na International Conference on Learning Representations (ICLR), 2023. Disponivel em: https://arxiv.org/abs/2210.03629. Acesso em: 28 ago. 2026.
 
@@ -38,7 +38,7 @@ Pensamento (thought) nao afeta o ambiente (sem observacao); acao busca informaca
 
 Gargalo de demonstracoes (contexto de in-context learning); runs principais em PaLM-540B nao-publico; intercalacao reduz flexibilidade (loops); riscos de acao no ambiente.
 
-## Uso no PCC
+## Uso no projeto
 
 - Laco de controle cientifico: pensamento-acao-observacao com LM congelado = logica exata de *harness* fixo / ACI variavel; baseline a ablar.
 - Prova de que desenho de interface supera escala de treino com modelo fixo (precedente de H1).
@@ -48,5 +48,5 @@ Gargalo de demonstracoes (contexto de in-context learning); runs principais em P
 
 - Citada em: §2 [49].
 - Afirmacao sustentada: espaco de acao aumentado com pensamentos (§2).
-- Veredito: CONCRETA. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
+- Veredito: CONCRETA. Detalhe em [[2026-09-11-auditoria-conteudo-referencias]].
 

@@ -18,7 +18,7 @@ sources: []
 - arXiv:2310.06770v3 [cs.CL], 11 nov 2024. Publicado na **ICLR 2024** (conferencia revisada por pares).
 - PDF: `raw/sources/2310.06770-jimenez-swe-bench.pdf`.
 
-## Referencia ABNT (como citada no PCC)
+## Referencia ABNT (como citada no projeto)
 
 JIMENEZ, Carlos E.; YANG, John; WETTIG, Alexander; YAO, Shunyu; PEI, Kexin; PRESS, Ofir; NARASIMHAN, Karthik. **SWE-bench**: can language models resolve real-world GitHub issues? arXiv:2310.06770, 2023. Trabalho apresentado na International Conference on Learning Representations (ICLR), 2024. Disponivel em: https://arxiv.org/abs/2310.06770. Acesso em: 28 ago. 2026.
 
@@ -36,7 +36,7 @@ JIMENEZ, Carlos E.; YANG, John; WETTIG, Alexander; YAO, Shunyu; PEI, Kexin; PRES
 
 So Python; baselines intencionalmente mais simples (retrieval, sem agentes — convite a agentes); testes de execucao sozinhos nao garantem qualidade (legibilidade, eficiencia).
 
-## Uso no PCC
+## Uso no projeto
 
 - Retirada da lista de referencias em 2026-09-14 junto com o DeepSWE (era so comparador de tamanho de patch).
 
@@ -48,5 +48,5 @@ So Python; baselines intencionalmente mais simples (retrieval, sem agentes — c
 
 - Citada em: §3 [60] (comparador).
 - Afirmacao sustentada: 2.294 instancias, 32,8 linhas por patch de referencia.
-- Veredito: CONCRETA, uso minimo. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
+- Veredito: CONCRETA, uso minimo. Detalhe em [[2026-09-11-auditoria-conteudo-referencias]].
 

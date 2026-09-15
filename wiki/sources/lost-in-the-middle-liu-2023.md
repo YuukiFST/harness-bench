@@ -18,7 +18,7 @@ sources: []
 - arXiv:2307.03172v3 [cs.CL], 20 nov 2023. Publicado em **TACL**.
 - PDF: `raw/sources/2307.03172-liu-lost-in-the-middle.pdf`.
 
-## Referencia ABNT (como citada no PCC)
+## Referencia ABNT (como citada no projeto)
 
 LIU, Nelson F.; LIN, Kevin; HEWITT, John; PARANJAPE, Ashwin; BEVILACQUA, Michele; PETRONI, Fabio; LIANG, Percy. **Lost in the middle**: how language models use long contexts. arXiv:2307.03172, 2023. Publicado em Transactions of the Association for Computational Linguistics (TACL). Disponivel em: https://arxiv.org/abs/2307.03172. Acesso em: 28 ago. 2026.
 
@@ -36,7 +36,7 @@ Modelos usam melhor o inicio (primazia) e o fim (recencia); o meio degrada mesmo
 - Flan-UL2 dentro da janela de treino: so 1,9 pp best-worst (robusto); fora, vira U.
 - Open-domain: >20 docs agregam ~1-1,5 pp ao leitor e muito custo/latencia — leitor satura antes do recall.
 
-## Uso no PCC
+## Uso no projeto
 
 - Camada 1 mediu compactacao silenciosa do oh-my-pi (troca de resultado antigo por referencia de 54 bytes no passo 5 sem pressao): este artigo da o mecanismo pelo qual isso pode custar desempenho alem do custo.
 - Justifica condicoes de compactacao/truncacao e o padrao de reportar melhor/pior por posicao, nao so media.
@@ -46,5 +46,5 @@ Modelos usam melhor o inicio (primazia) e o fim (recencia); o meio degrada mesmo
 
 - Citada em: nenhuma.
 - Afirmacao sustentada: (nenhuma; gancho da Camada 1 removido em 2026-09-11).
-- Veredito: NÃO CITADA; fora do tema. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
+- Veredito: NÃO CITADA; fora do tema. Detalhe em [[2026-09-11-auditoria-conteudo-referencias]].
 

@@ -19,7 +19,7 @@ sources: []
 - *Preprint*, nao revisado por pares.
 - PDF: `raw/sources/2510.11977-kapoor-holistic-agent-leaderboard.pdf`.
 
-## Referencia ABNT (como citada no PCC)
+## Referencia ABNT (como citada no projeto)
 
 KAPOOR, Sayash *et al.* **Holistic Agent Leaderboard**: the missing infrastructure for AI agent evaluation. arXiv:2510.11977, 2025. *Preprint*, nao revisado por pares. Disponivel em: https://arxiv.org/abs/2510.11977. Acesso em: 28 ago. 2026.
 
@@ -49,19 +49,19 @@ Conferido em `raw/sources/2510.11977-kapoor-holistic-agent-leaderboard.pdf` (pdf
 
 Majoritariamente single-run sem IC (custo); provedores trocam pesos por tras do endpoint; niveis de reasoning incomparaveis; latencia nao medida sob paralelismo; 142/186 matriz (Opus 4.1 Mind2Web omitido por ~$20k).
 
-## Uso no PCC
+## Uso no projeto
 
 - Precedente de H1 em fronteira custo: Pareto USD + tokens; o mais barato domina a fronteira.
 - Desenho fatorial modelo x *scaffold* x benchmark com contraste generalista — prefigura H2; priors de effect-size.
 - Taxonomia failed/discarded/tampered + auditoria de trajetorias (licao TAU/HuggingFace).
 - Checklist de ameacas: pinar endpoints, datar precos, pre-registrar n, nao comparar reasoning cross-provider.
-- Ressalva permanente do PCC (efeito especifico do modelo, pode inverter): BrowserUse x SeeAct.
+- Ressalva permanente do projeto (efeito especifico do modelo, pode inverter): BrowserUse x SeeAct.
 
 ### Auditoria de conteudo 2026-09-11
 
 - Citada em: §2 [54], [55].
 - Afirmacao sustentada: custos raramente relatados, comparacoes entre *scaffolds* raras (§1); Claude melhor com BrowserUse, OpenAI com SeeAct em Online Mind2Web (§4.1).
-- Veredito: CONCRETA. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
+- Veredito: CONCRETA. Detalhe em [[2026-09-11-auditoria-conteudo-referencias]].
 
 ## Contradictions
 

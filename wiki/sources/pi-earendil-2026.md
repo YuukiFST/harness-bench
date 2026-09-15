@@ -17,7 +17,7 @@ sources: []
 - Blogue institucional: https://earendil.com/posts/pi-autoresearch-and-databricks/
 - Verbatim do projeto (pi.dev): "Pi is a minimal agent harness."
 
-## Referencia ABNT (como citada no PCC)
+## Referencia ABNT (como citada no projeto)
 
 EARENDIL. **Pi, minimal and performant**. 2026. Publicacao de blogue institucional. Disponivel em: https://earendil.com/posts/pi-autoresearch-and-databricks/. Acesso em: 28 ago. 2026.
 
@@ -29,7 +29,7 @@ EARENDIL. **Pi, minimal and performant**. 2026. Publicacao de blogue institucion
 - Economia fim-a-fim: Haiku 4.5 em workflow complexo saiu mais caro que Sonnet 4.6 (mais turnos); modelo forte + *harness* performante pode sair mais barato que o inverso.
 - Modelos locais: disciplina de contexto preserva prefixo de cache (prefill caro); prompt minimo + sem mudanca nao pedida.
 
-## Uso no PCC
+## Uso no projeto
 
 - Desde 2026-09-14 e a referencia do braco pi (Earendil, 2026) em §3 [60]: 4 ferramentas, <1K tokens, sem MCP/subagentes/plan.
 - Justificativa: 2x Databricks com qualidade igual (fonte de pratica; citar como *apud* quando via este post).
@@ -39,5 +39,5 @@ EARENDIL. **Pi, minimal and performant**. 2026. Publicacao de blogue institucion
 
 - Citada em: §2 [52] (*apud* Databricks).
 - Afirmacao sustentada: custo por tarefa >2x "in some cases" com mesma qualidade.
-- Veredito: CONCRETA; projeto omite "em alguns casos". Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
+- Veredito: CONCRETA; projeto omite "em alguns casos". Detalhe em [[2026-09-11-auditoria-conteudo-referencias]].
 

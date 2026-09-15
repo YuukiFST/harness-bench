@@ -20,7 +20,7 @@ Gargalo central (source: [[code-as-agent-harness-ning-2026]], Secao 5.2.1): "*or
 - Verificacao e camada V do ETCSOVG a divulgar (source: [[stop-comparing-harness-zhang-2026]]).
 - Regra de [[scaffolding-matters-alier-forment-2026]]: nunca perguntar ao agente se venceu; inspecionar o estado.
 
-## Resposta do PCC
+## Resposta do projeto
 
 Oraculo proprio executado pelo runner, nunca a suite do agente (modelo que alucina API escreve testes que mocam a alucinacao). Desde 2026-09-14: testes de aceitacao Vitest escritos pelo autor por unidade da especificacao do [[finn]], antes da execucao, mantidos fora do espaco de trabalho (held-out) e rodados sobre uma copia dele ao fim de cada unidade; a fracao aprovada e o escore e todos aprovados = *ticket* concluido. Auditoria de logs; taxonomia nao-concluida/descartada/adulterada. Holdouts no nivel certo de generalidade (source: [[ai-agents-that-matter-kapoor-2024]]).
 

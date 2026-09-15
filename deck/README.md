@@ -1,8 +1,8 @@
-# Apresentação PCC — deck reconstruído
+# Apresentação do projeto de pesquisa — deck reconstruído
 
 Deck da apresentação oral do projeto de pesquisa "O harness como decisão do desenvolvedor"
-(Metodologia Científica, IFMT). Conteúdo (textos, números, notas, ordem dos 17 slides)
-auditado contra `../dist/projeto-pcc.docx` em 2026-09-14 (experimento Finn:
+(Metodologia Científica, IFMT). Conteúdo (textos, números, notas, ordem dos 18 slides)
+auditado contra `../dist/projeto-de-pesquisa.docx` em 2026-09-14 (experimento Finn:
 OpenCode vs pi): não alterar palavras nem números. Mudança de conteúdo passa por
 `tools/slides_edits_<data>.py`, com o roteiro em `tools/roteiro_edits_<data>.py`.
 
@@ -16,7 +16,7 @@ OpenCode vs pi): não alterar palavras nem números. Mudança de conteúdo passa
 - Fontes locais OFL: Space Grotesk (display) + Inter (texto), via `@fontsource`
 
 Sem CDN, sem fonte/imagem/biblioteca por rede. Build com `base: './'`: abre por
-duplo clique em `../dist/apresentacao-pcc/index.html`, offline.
+duplo clique em `../dist/apresentacao/index.html`, offline.
 
 ## Comando único: construir e verificar
 
@@ -24,19 +24,19 @@ duplo clique em `../dist/apresentacao-pcc/index.html`, offline.
 npm run build
 ```
 
-Depois abrir `../dist/apresentacao-pcc/index.html` com `?v=<aleatório>` para forçar
-recarga em `file://`. O deck antigo de arquivo único (`dist/apresentacao-pcc.html`) foi
+Depois abrir `../dist/apresentacao/index.html` com `?v=<aleatório>` para forçar
+recarga em `file://`. O deck antigo de arquivo único (um único `.html` em `dist/`) foi
 removido em 2026-09-14; está no histórico do git.
 
 ## Verificação (Chrome, 1920×1080)
 
 ```powershell
-chrome-devtools-axi open file:///C:/Users/Desenvolvimento/Desktop/harness-bench/dist/apresentacao-pcc/index.html?v=1
+chrome-devtools-axi open file:///C:/Users/Desenvolvimento/Desktop/harness-bench/dist/apresentacao/index.html?v=1
 chrome-devtools-axi resize 1920 1080
 chrome-devtools-axi eval "document.querySelectorAll('.slide').length"
 chrome-devtools-axi console
 chrome-devtools-axi perf-start
-# percorrer os 17 slides com a seta, interagir no slide 3, tecla N nas notas
+# percorrer os 18 slides com a seta, interagir no slide 3, tecla N nas notas
 chrome-devtools-axi perf-stop
 ```
 

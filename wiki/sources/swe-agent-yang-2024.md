@@ -18,7 +18,7 @@ sources: []
 - arXiv:2405.15793v3 [cs.SE], 11 nov 2024. Publicado na **NeurIPS 2024** (38th, revisada por pares).
 - PDF: `raw/sources/2405.15793-yang-swe-agent.pdf` (118 paginas com apendices).
 
-## Referencia ABNT (como citada no PCC)
+## Referencia ABNT (como citada no projeto)
 
 YANG, John; JIMENEZ, Carlos E.; WETTIG, Alexander; LIERET, Kilian; YAO, Shunyu; NARASIMHAN, Karthik; PRESS, Ofir. **SWE-agent**: agent-computer interfaces enable automated software engineering. arXiv:2405.15793, 2024. Trabalho apresentado na Conference on Neural Information Processing Systems (NeurIPS), 2024. Disponivel em: https://arxiv.org/abs/2405.15793. Acesso em: 28 ago. 2026.
 
@@ -42,7 +42,7 @@ O ACI especifica comandos disponiveis e como o estado volta ao modelo. Loop em R
 
 Toolkit pequeno; desenho do ACI manual (automatizar e futuro); escopo so em tarefas programaticas.
 
-## Uso no PCC
+## Uso no projeto
 
 - Primeira evidencia *harness*-como-interface com LM fixo: 2,67% -> 11% -> 18% no Lite isolam a contribuicao do *harness* (H1).
 - Reagentes de custo para H2 (Succ/Mtok, pass@1 por dolar).
@@ -52,5 +52,5 @@ Toolkit pequeno; desenho do ACI manual (automatizar e futuro); escopo so em tare
 
 - Citada em: §2 [52].
 - Afirmacao sustentada: ACI como objeto de projeto sem mudar pesos (§1); 11,00% -> 18,00% Lite com GPT-4 Turbo (Tabela 1).
-- Veredito: CONCRETA. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
+- Veredito: CONCRETA. Detalhe em [[2026-09-11-auditoria-conteudo-referencias]].
 

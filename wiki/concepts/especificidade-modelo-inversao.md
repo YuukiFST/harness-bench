@@ -10,7 +10,7 @@ sources: [wiki/sources/agentic-harness-engineering-lin-2026.md, wiki/sources/hol
 
 # Especificidade de Modelo e Inversao
 
-Ressalva permanente do PCC: o efeito e especifico do modelo e pode inverter de sinal (source: [[agentic-harness-engineering-lin-2026]]: "a harness tuned for one base model often underperforms on another").
+Ressalva permanente do projeto: o efeito e especifico do modelo e pode inverter de sinal (source: [[agentic-harness-engineering-lin-2026]]: "a harness tuned for one base model often underperforms on another").
 
 ## Evidencias
 
@@ -19,7 +19,7 @@ Ressalva permanente do PCC: o efeito e especifico do modelo e pode inverter de s
 - Zhang: H3 (verificacao/recuperacao) expoe diferencas ocultas — variancia cross-model maior em H3 que H2 (source: [[stop-comparing-harness-zhang-2026]]).
 - AHE: evolucao ajustada ao GPT-5.4 confunde portabilidade com ponto de operacao.
 
-## Resposta do PCC
+## Resposta do projeto
 
 Dois niveis (primario + robustez), mesmo gateway (source: [[zen-opencode-2026]]), relatados em separado, nunca medios. Se a ordenacao inverter, a inversao e o resultado. Conclusoes enunciadas por nivel. Objetivo (5): a ordenacao OpenCode vs pi se mantem ou inverte no segundo nivel.
 

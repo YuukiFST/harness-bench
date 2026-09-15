@@ -19,7 +19,7 @@ sources: []
 - *Preprint*, nao revisado por pares.
 - PDF: `raw/sources/2608.08654-alier-forment-scaffolding-matters.pdf`. Dataset + *harness*: `github.com/Lamb-Project/mcp-vs-cli-bench`, Zenodo 1.0.0 DOI 10.5281/zenodo.21851992.
 
-## Referencia ABNT (como citada no PCC)
+## Referencia ABNT (como citada no projeto)
 
 ALIER FORMENT, Marc; CASAN GUERRERO, Maria Jose; GARCIA-PENALVO, Francisco Jose; PEREIRA, Juanan. The scaffolding matters more than the interface: a controlled comparison of MCP and CLI tool use across seven agent scaffoldings, five language models, and one software task. arXiv:2608.08654, 2026. *Preprint*, nao revisado por pares. Disponivel em: https://arxiv.org/abs/2608.08654. Acesso em: 9 set. 2026.
 
@@ -51,10 +51,10 @@ Custo condicionado a conclusao; conclusao reportada em separado; verificacao por
 - "One task, in one domain. The task exercises GitHub, a service with both a mature command-line client and an official MCP server."
 - "a difference smaller than roughly twofold cannot be distinguished from run-to-run variation."
 
-## Uso no PCC
+## Uso no projeto
 
 - Justificativa: unica evidencia controlada de custo por tarefa concluida com modelo fixo (20x, 139x) — sustenta H1.
-- Material e metodo: as cinco regras (condicionar, separar, verificar, checar aderencia, repetir) viram protocolo do PCC.
+- Material e metodo: as cinco regras (condicionar, separar, verificar, checar aderencia, repetir) viram protocolo do projeto.
 - H2: pi vs Tau (12% de diferenca, ambos 4/4) mostra que efeito minimalista sobrevive a reimplementacao independente — precedente do teste pi vs oh-my-pi.
 - Limitacoes: mesmas ressalvas de tarefa unica e atribuicao.
 
@@ -62,7 +62,7 @@ Custo condicionado a conclusao; conclusao reportada em separado; verificacao por
 
 - Citada em: §2 [52]; §1 [27].
 - Afirmacao sustentada: 5,0x-28x entre *scaffoldings* sem e com MCP (Abstract); Tau e reimplementacao independente, nao *fork* (§2.3).
-- Veredito: CONCRETA; razao e mediana sobre mix de modelos, nao modelo fixo. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
+- Veredito: CONCRETA; razao e mediana sobre mix de modelos, nao modelo fixo. Detalhe em [[2026-09-11-auditoria-conteudo-referencias]].
 
 ## Contradictions
 

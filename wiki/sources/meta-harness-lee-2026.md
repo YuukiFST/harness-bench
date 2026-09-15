@@ -19,7 +19,7 @@ sources: []
 - *Preprint*, nao revisado por pares.
 - PDF: `raw/sources/2603.28052-lee-meta-harness.pdf`.
 
-## Referencia ABNT (como citada no PCC)
+## Referencia ABNT (como citada no projeto)
 
 LEE, Yoonho; NAIR, Roshen; ZHANG, Qizheng; LEE, Kangwook; KHATTAB, Omar; FINN, Chelsea. Meta-Harness: end-to-end optimization of model harnesses. arXiv:2603.28052, 2026. *Preprint*, nao revisado por pares. Disponivel em: https://arxiv.org/abs/2603.28052. Acesso em: 9 set. 2026.
 
@@ -41,17 +41,17 @@ Objetivo: H* = argmax sobre codigo do *harness*, com modelo M fixo. Tese (Secao 
 
 Busca e avaliacao final no mesmo TerminalBench-2 de 89 tarefas (sem split held-out para codigo); propositor unico forte (Claude Code + Opus-4.6); sem custo/token/variancia nos ganhos de codigo.
 
-## Uso no PCC
+## Uso no projeto
 
 - Referencial: definicao formal e objetivo com M fixo, adotaveis verbatim.
 - Material e metodo: protocolo propose-evaluate-log em filesystem, Pareto acuracia vs custo, validacao leve — modelo para logging de runs/celulas.
-- Cautela: PCC **nao** segue busca=avaliacao; mantem descoberta e confirmacao disjuntas.
+- Cautela: projeto **nao** segue busca=avaliacao; mantem descoberta e confirmacao disjuntas.
 
 ### Auditoria de conteudo 2026-09-11
 
 - Citada em: §2 [53].
 - Afirmacao sustentada: 7,7 pontos com 4x menos tokens de contexto.
-- Veredito: DIVERGENTE: resultado e em classificacao de texto *online* contra ACE, nao em codificacao. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
+- Veredito: DIVERGENTE: resultado e em classificacao de texto *online* contra ACE, nao em codificacao. Detalhe em [[2026-09-11-auditoria-conteudo-referencias]].
 
 ## Contradictions
 

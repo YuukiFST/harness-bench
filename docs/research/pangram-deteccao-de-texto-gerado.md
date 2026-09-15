@@ -1,7 +1,7 @@
 # Pangram — como o detector funciona e o que de fato move o escore
 
 Documento vivo.
-Levantamento sobre o Pangram, o detector que atribuiu +95% de IA ao `dist/projeto-pcc.docx`.
+Levantamento sobre o Pangram, o detector que atribuiu +95% de IA ao `dist/projeto-de-pesquisa.docx`.
 
 **Última atualização:** 31 ago. 2026.
 
@@ -249,7 +249,7 @@ Não existe atalho que seja atalho — o que derruba o escore é escrever.
 
 ## 10. O que isso significa para este projeto
 
-O `dist/projeto-pcc.docx` é um projeto de pesquisa da disciplina de Metodologia Científica do IFMT, sob a NBR 15287:2025, com orientadora nomeada.
+O `dist/projeto-de-pesquisa.docx` é um projeto de pesquisa da disciplina de Metodologia Científica do IFMT, sob a NBR 15287:2025, com orientadora nomeada.
 O conteúdo é autoral e verificável: a Camada 1 está construída, os 11,4x foram medidos em 28 ago. 2026, os dados brutos estão no repositório, o `docs/research/` rastreia cada afirmação até a fonte, e o histórico de *git* tem dezenas de *issues* e PRs com decisões datadas.
 O que veio de LLM é a **prosa**, não a pesquisa.
 
@@ -261,7 +261,7 @@ Isso põe o caso numa posição incomum e favorável:
 
 Isso é trabalho que dá para fazer com apoio: discutir estrutura, apontar onde o argumento está frouxo, checar aderência à ABNT, revisar as citações.
 
-A revisão concreta do documento, contra o material da disciplina em `files/` e com a prosa medida no XML do `.docx`, está em [Estrutura do projeto de pesquisa e revisão do PCC](estrutura-do-projeto-e-revisao-do-pcc.md).
+A revisão concreta do documento, contra o material da disciplina em `files/` e com a prosa medida no XML do `.docx`, está em [Estrutura do projeto de pesquisa e revisão do projeto](estrutura-do-projeto-e-revisao.md).
 Ela confirma a seção 3 deste documento por outro caminho: os traços que mais fazem o texto soar a máquina — 24 conectores causais fechando 25 parágrafos, 61 dois-pontos, 10 construções "X, e não Y", zero citações diretas, zero marcadores de incerteza — são todos legíveis como *defeitos de redação acadêmica*, e a correção deles é a mesma coisa que escrever melhor.
 
 ## 11. Fontes

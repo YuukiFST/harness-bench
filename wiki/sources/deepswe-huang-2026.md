@@ -19,7 +19,7 @@ sources: []
 - *Preprint*, nao revisado por pares.
 - PDF: `raw/sources/2607.07946-huang-deepswe.pdf`.
 
-## Referencia ABNT (como citada no PCC)
+## Referencia ABNT (como citada no projeto)
 
 HUANG, Wenqi; LEE, Charley; TNG, Leonard; GE, Serena. **DeepSWE**: measuring frontier coding agents on original, long-horizon engineering tasks. arXiv:2607.07946, 2026. *Preprint*, nao revisado por pares. Disponivel em: https://arxiv.org/abs/2607.07946. Acesso em: 28 ago. 2026.
 
@@ -37,7 +37,7 @@ Mesmas 10 tarefas SWE-Bench Pro x 3 modelos x 2 *harnesses* (mini-swe-agent vs n
 
 ## Custo vs acuracia
 
-Medianas por trial de output tokens, wall-clock e dolares variam **ordem de grandeza** entre agentes **sem correlacao forte** com pass rate. Nao computa custo por tarefa concluida (o PCC computa).
+Medianas por trial de output tokens, wall-clock e dolares variam **ordem de grandeza** entre agentes **sem correlacao forte** com pass rate. Nao computa custo por tarefa concluida (o projeto computa).
 
 ## Verificacao no PDF (2026-09-14)
 
@@ -55,18 +55,18 @@ Conferido em `raw/sources/2607.07946-huang-deepswe.pdf` (pdftotext); VERIFICADO.
 
 Pass/fail binario sem credito parcial; so correcao funcional; prompts ~2.000 chars; *harness* unico + misturas de esforco; auditoria pequena com juiz falivel; piloto n=10 no SWE-Bench Pro, nao DeepSWE.
 
-## Uso no PCC
+## Uso no projeto
 
 - Ate 2026-09-14 era a suite (8 tarefas Python). Desde entao a suite e o [[finn]] e a obra saiu da lista de referencias; segue como fonte de metodo (abaixo).
 - Metodo: protocolo travado + regra de exclusao + SE run-to-run como modelo de H1/H2.
 - Oraculo: verificadores funcionais + auditoria independente + taxonomia de patologias (vazamento por git log, stubs, testes alheios quebrando).
-- Futuro declarado (§9): decompor escore em modelo vs *scaffolding* — exatamente H2 do PCC.
+- Futuro declarado (§9): decompor escore em modelo vs *scaffolding* — exatamente H2 do projeto.
 
 ### Auditoria de conteudo 2026-09-11
 
 - Citada em: §3 [60]; §4 [75].
 - Afirmacao sustentada: 113/91, 5,5x vs SWE-Bench Pro, §8 sem credito parcial, 34 tarefas Python, mini-swe-agent em toda linha de base.
-- Veredito: CONCRETA; Apache-2.0 so no repositorio; "ordem de grandeza ante SWE-bench" e inferencia (668 vs 32,8 linhas). Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
+- Veredito: CONCRETA; Apache-2.0 so no repositorio; "ordem de grandeza ante SWE-bench" e inferencia (668 vs 32,8 linhas). Detalhe em [[2026-09-11-auditoria-conteudo-referencias]].
 
 ## Contradictions
 

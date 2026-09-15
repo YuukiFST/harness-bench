@@ -19,7 +19,7 @@ sources: []
 - *Preprint*, nao revisado por pares.
 - PDF: `raw/sources/2407.01502-kapoor-ai-agents-that-matter.pdf`.
 
-## Referencia ABNT (como citada no PCC)
+## Referencia ABNT (como citada no projeto)
 
 KAPOOR, Sayash; STROEBL, Benedikt; SIEGEL, Zachary S.; NADGIR, Nitya; NARAYANAN, Arvind. **AI agents that matter**. arXiv:2407.01502, 2024. *Preprint*, nao revisado por pares. Disponivel em: https://arxiv.org/abs/2407.01502. Acesso em: 28 ago. 2026.
 
@@ -37,7 +37,7 @@ KAPOOR, Sayash; STROEBL, Benedikt; SIEGEL, Zachary S.; NADGIR, Nitya; NARAYANAN,
 - Holdouts: 7/17 benchmarks sem holdout; so 5/10 no nivel certo de generalidade.
 - Reprodutibilidade: SWE-bench 2.000+ tarefas x $4 = **>$8.000 por run** (sem repeticao/CI); escores acima do maximo de 5 runs; tarefas descartadas silenciosamente.
 
-## Uso no PCC
+## Uso no projeto
 
 - Precedente central de H1: mesmo modelo, so *harness* muda -> ~100x custo com acuracia empatada; fronteira de Pareto como figura de resultados; Succ/Mtok como metrica conjunta.
 - Medicao: custo em dolar + tokens in/out recalculaveis, nunca proxies (n. parametros).
@@ -47,5 +47,5 @@ KAPOOR, Sayash; STROEBL, Benedikt; SIEGEL, Zachary S.; NADGIR, Nitya; NARAYANAN,
 
 - Citada em: §2 [54].
 - Afirmacao sustentada: foco em acuracia sem custo leva a conclusoes erradas sobre a origem dos ganhos (Abstract).
-- Veredito: CONCRETA. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
+- Veredito: CONCRETA. Detalhe em [[2026-09-11-auditoria-conteudo-referencias]].
 

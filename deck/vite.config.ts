@@ -5,7 +5,7 @@ export default defineConfig({
   base: "./",
   plugins: [viteSingleFile()],
   build: {
-    outDir: "../dist/apresentacao-pcc",
+    outDir: "../dist/apresentacao",
     emptyOutDir: true,
     assetsInlineLimit: 100000000,
     sourcemap: false,

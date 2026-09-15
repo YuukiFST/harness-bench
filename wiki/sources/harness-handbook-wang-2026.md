@@ -19,7 +19,7 @@ sources: []
 - *Preprint*, nao revisado por pares.
 - PDF: `raw/sources/2607.13285-wang-harness-handbook.pdf`.
 
-## Referencia ABNT (como citada no PCC)
+## Referencia ABNT (como citada no projeto)
 
 WANG, Ruhan *et al.* Harness Handbook: making evolving agent harnesses readable, navigable, and editable. arXiv:2607.13285, 2026. *Preprint*, nao revisado por pares. Disponivel em: https://arxiv.org/abs/2607.13285. Acesso em: 9 set. 2026.
 
@@ -38,17 +38,17 @@ O *harness* coordena prompts, estado, ferramentas e execucao (verbatim Secao 1):
 
 So 2 *harnesses*, 60 pedidos, 1 modelo planejador; qualidade de plano por juizes LLM, **sem execucao** ("Do NOT grade the final code diff or execution correctness").
 
-## Uso no PCC
+## Uso no projeto
 
 - Referencial: definicao de *harness* como runtime; evidencia de que internos de *harness* sao distribuidos por arquivos/estagios/estado.
 - Material e metodo: protocolo BGPD como auditoria do diff pi vs oh-my-pi (enumerar todos os sites de leitura/escrita dos registradores mudados).
-- Lacuna que o PCC preenche: executar *fork* vs original com modelo fixo e precificar tarefas concluidas (este artigo nao executa).
+- Lacuna que o projeto preenche: executar *fork* vs original com modelo fixo e precificar tarefas concluidas (este artigo nao executa).
 
 ### Auditoria de conteudo 2026-09-11
 
 - Citada em: §2 [49].
 - Afirmacao sustentada: "constructs prompts, manages state, invokes tools, and coordinates execution" (Abstract).
-- Veredito: CONCRETA; parafrase. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
+- Veredito: CONCRETA; parafrase. Detalhe em [[2026-09-11-auditoria-conteudo-referencias]].
 
 ## Contradictions
 

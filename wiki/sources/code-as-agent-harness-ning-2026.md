@@ -20,7 +20,7 @@ sources: []
 - PDF: `raw/sources/2605.18747-ning-code-as-agent-harness.pdf`. HTML: <https://arxiv.org/html/2605.18747v1>.
 - O Secao 3.5 do survey resume o proprio AHE (citado como `lin2026agentic`): os dois artigos-ancora **nao** sao confirmacoes independentes.
 
-## Referencia ABNT (como citada no PCC)
+## Referencia ABNT (como citada no projeto)
 
 NING, Xuying *et al.* **Code as agent harness**. arXiv:2605.18747, 2026. *Preprint*, nao revisado por pares. Disponivel em: https://arxiv.org/abs/2605.18747. Acesso em: 28 ago. 2026.
 
@@ -44,16 +44,16 @@ Sobre ReAct (Secao 3.1.1): "A lightweight precursor of this pattern is ReAct, wh
 
 > "Useful dimensions include: (i) *trajectory efficiency*, such as number of tool calls, tokens, edits, executions, and wall-clock time; (ii) *verification strength*; (iii) *recovery ability*; (iv) *state consistency*; (v) *safety compliance*; (vi) *replayability*."
 
-Grade de metricas adotada pelo PCC: custo fica em (i), reprodutibilidade em (vi).
+Grade de metricas adotada pelo projeto: custo fica em (i), reprodutibilidade em (vi).
 
 ## Lacunas nomeadas (verbatim)
 
 - Secao 5.2.1: "most existing evaluations measure end-task success... Such metrics conflate the capabilities of the base model, the quality of the harness, the reliability of tools, the informativeness of feedback, and the difficulty of the environment."
 - Secao 5.2.1: "A central bottleneck in this agenda is *oracle adequacy*."
-- Secao 5.2.7: pede "metrics that isolate harness components" — a frase mais curta para justificar o PCC.
+- Secao 5.2.7: pede "metrics that isolate harness components" — a frase mais curta para justificar o projeto.
 - Atribuicao de falhas em lacos longos: precisao 14-53% no nivel de passo.
 
-## Uso no PCC
+## Uso no projeto
 
 - Referencial: definicao canonica de *harness*; distincao dos tres elementos (recorte: capacidades internas constantes, infraestrutura varia).
 - Referencial: lacuna de atribuicao (Secao 5.2.1) e pedido de metricas por componente (Secao 5.2.7) — o par pi/oh-my-pi responde a 5.2.7.
@@ -63,7 +63,7 @@ Grade de metricas adotada pelo PCC: custo fica em (i), reprodutibilidade em (vi)
 
 - Citada em: §2 [49], [53].
 - Afirmacao sustentada: definicao §2 verbatim; conflacao modelo/harness em §5.2.1; "metrics that isolate harness components" em §5.2.7.
-- Veredito: CONCRETA. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
+- Veredito: CONCRETA. Detalhe em [[2026-09-11-auditoria-conteudo-referencias]].
 
 ## Contradictions
 

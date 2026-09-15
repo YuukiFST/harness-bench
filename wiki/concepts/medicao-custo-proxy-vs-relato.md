@@ -10,7 +10,7 @@ sources: [wiki/sources/ai-agents-that-matter-kapoor-2024.md, wiki/sources/scaffo
 
 # Medicao de Custo Proxy vs Relato
 
-A segunda pendencia do PCC e de instrumentacao: o que um *harness* relata diverge do que gasta, e cada um omite um conjunto diferente de chamadas reais (source: [[ai-agents-that-matter-kapoor-2024]]: avaliacoes ignoram custo e erram a origem dos ganhos).
+A segunda pendencia do projeto e de instrumentacao: o que um *harness* relata diverge do que gasta, e cada um omite um conjunto diferente de chamadas reais (source: [[ai-agents-that-matter-kapoor-2024]]: avaliacoes ignoram custo e erram a origem dos ganhos).
 
 ## Vazamentos conhecidos (pesquisa propria, `docs/research/04-measuring-tokens-steps-time.md`)
 
@@ -24,7 +24,7 @@ A segunda pendencia do PCC e de instrumentacao: o que um *harness* relata diverg
 - Condicionar custo a conclusao; conclusao em separado; indefinido onde zero conclusoes (source: [[scaffolding-matters-alier-forment-2026]], Secao 2.8).
 - Verificar comportamento real (aderencia a interface), nao auto-relato (sources: [[scaffolding-matters-alier-forment-2026]], [[frontierharness-runta-2026]]).
 - Tokens sem cache para eficiencia; custo reportado, nao estimado; velocidade fora do ranking (source: [[harnessrank-2026]]).
-- Objetivo (6) do PCC quantifica a divergencia relato-vs-proxy por braco.
+- Objetivo (6) do projeto quantifica a divergencia relato-vs-proxy por braco.
 
 ## Armadilhas
 

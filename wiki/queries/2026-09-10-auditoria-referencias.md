@@ -1,5 +1,5 @@
 ---
-title: Auditoria das referencias do PCC citacao lista e tema
+title: Auditoria das referencias do projeto citacao lista e tema
 type: query
 summary: 26 refs conferem citacao a citacao; numeros batem; tema alinhado com 2 lacunas
 tags: [auditoria, referencias, tema, nbr]
@@ -10,9 +10,9 @@ sources: [wiki/sources/scaffolding-matters-alier-forment-2026.md, wiki/sources/f
 
 > Histórico: descreve o desenho anterior a 2026-09-14 (harness zero, oh-my-pi, DeepSWE). O desenho vigente está em `docs/spec/11-experimental-protocol.md`.
 
-# Auditoria das referencias do PCC — as of 2026-09-10
+# Auditoria das referencias do projeto — as of 2026-09-10
 
-Metodo: paragrafos do corpo extraidos de `word/document.xml` de `dist/projeto-pcc.docx`; cada citacao com ano cruzada com as 26 entradas; cada fato checado contra a wiki.
+Metodo: paragrafos do corpo extraidos de `word/document.xml` de `dist/projeto-de-pesquisa.docx`; cada citacao com ano cruzada com as 26 entradas; cada fato checado contra a wiki.
 
 ## Citacao x lista: 26 de 26, zero orfaos
 
