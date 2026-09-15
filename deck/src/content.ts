@@ -1,5 +1,5 @@
-// Conteúdo congelado do deck: textos, números e ordem dos 17 slides.
-// Fonte: dist/projeto-pcc.docx (tools/docx_prose.py dump), auditado em 2026-09-14. Não alterar palavras nem números.
+// Conteúdo congelado do deck: textos, números e ordem dos 18 slides.
+// Fonte: dist/projeto-de-pesquisa.docx (tools/docx_prose.py dump), auditado em 2026-09-14. Não alterar palavras nem números.
 // Qualquer correção aparente vai para _review.md, nunca para edição direta.
 
 export interface FrontierRow {
@@ -194,8 +194,9 @@ export const REFS: string[] = [
   "WANG, R. <em>et al.</em> <b>Harness Handbook</b>. arXiv:2607.13285, 2026. <em>Preprint</em>.",
   "YANG, J. <em>et al.</em> <b>SWE-agent</b>: agent-computer interfaces enable automated software engineering. NeurIPS, 2024.",
   "YAO, S. <em>et al.</em> <b>ReAct</b>: synergizing reasoning and acting in language models. ICLR, 2023.",
-  "YUUKIFST. <b>Finn</b>: SaaS universal de financeiro por voz. 2026a. Repositório de código.",
-  "YUUKIFST. <b>harness-bench</b>: executor, prompts, testes de aceitação, dados brutos e scripts de análise deste projeto. 2026b. Repositório de código.",
+  "YUUKIFST. <b>agent-dotfiles</b>: skill Helmsman, mapa de decisões para agentes de codificação. 2026a. Repositório de código.",
+  "YUUKIFST. <b>Finn</b>: SaaS universal de financeiro por voz. 2026b. Repositório de código.",
+  "YUUKIFST. <b>harness-bench</b>: executor, prompts, testes de aceitação, dados brutos e scripts de análise deste projeto. 2026c. Repositório de código.",
   "ZHANG, Y. <em>et al.</em> <b>Stop comparing LLM agents without disclosing the harness</b>. arXiv:2605.23950, 2026. <em>Preprint</em>.",
 ];
 

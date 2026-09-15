@@ -71,7 +71,7 @@ dd{margin:0}
 
 <h1>Roteiro de estudo da apresentação</h1>
 <p class="sub">Projeto de pesquisa "O <em>harness</em> como decisão do desenvolvedor" · Metodologia Científica · IFMT · setembro de 2026.<br>
-Companheiro de <code>dist/apresentacao-pcc/index.html</code> (17 slides). Leia em voz alta, cronometre, corte o que passar do tempo.</p>
+Companheiro de <code>dist/apresentacao/index.html</code> (18 slides). Leia em voz alta, cronometre, corte o que passar do tempo.</p>
 
 <nav class="nav">
   <a href="#uso">Como usar</a><a href="#pitch">Versões curtas</a><a href="#gloss">Glossário</a><a href="#slides">Slide a slide</a><a href="#perguntas">Banco de perguntas</a><a href="#numeros">Tabela de números</a><a href="#check">Checklist</a>
@@ -80,10 +80,10 @@ Companheiro de <code>dist/apresentacao-pcc/index.html</code> (17 slides). Leia e
 <h2 id="uso">Como usar este roteiro</h2>
 <div class="card">
 <ul>
-  <li><b>Tempo alvo: 12 minutos de fala + perguntas.</b> Cada slide traz um tempo sugerido; a soma dá cerca de 18 min, então já ensaie com cortes. Se a banca der 10 min, pule os slides 7 e 16 e corte o 13 pela metade. Se der 15, pule só o 16.</li>
+  <li><b>Tempo alvo: 12 minutos de fala + perguntas.</b> Cada slide traz um tempo sugerido; a soma dá cerca de 19 min, então já ensaie com cortes. Se a banca der 10 min, pule os slides 7 e 17 e corte o 14 pela metade. Se der 15, pule só o 17.</li>
   <li><b>Blocos por slide:</b> <i>Fale</i> é o texto para dizer, em primeira pessoa, na ordem em que o slide revela. <i>Números</i> traz cada valor com o seu denominador (modelo, benchmark, n, data). <i>Fontes</i> diz de onde veio cada afirmação e o que responder se perguntarem "quem disse isso?". <i>No slide</i> lista as teclas. <i>Se perguntarem</i> antecipa a pergunta mais provável daquele slide.</li>
   <li><b>Regra dos números:</b> nunca diga um número sem o denominador. "17,5×" sozinho é fraco; "17,5× entre doze configurações sobre o mesmo modelo, Kimi K3, 30 tarefas" fecha a porta para a pergunta óbvia.</li>
-  <li><b>Fontes fora do slide:</b> o deck cita autores na tela nos slides 2, 3, 5, 6, 8, 9 (linha do tempo), 10, 12, 13, 15, 16 e 17. Nos outros slides a fonte fica na sua boca. Decore o par autor-ano dos quatro que mais sustentam o trabalho: Runta (2026), Lin et al. (2026), Ning et al. (2026), Kapoor et al. (2025).</li>
+  <li><b>Fontes fora do slide:</b> o deck cita autores na tela nos slides 2, 3, 5, 6, 8, 9 (linha do tempo), 11, 13, 14, 16, 17 e 18. Nos outros slides a fonte fica na sua boca. Decore o par autor-ano dos quatro que mais sustentam o trabalho: Runta (2026), Lin et al. (2026), Ning et al. (2026), Kapoor et al. (2025).</li>
   <li>As notas do apresentador (tecla <kbd>N</kbd> no deck) contêm os índices <code>[n]</code> dos parágrafos do projeto; use para achar o trecho no <code>.docx</code>, não para ler durante a fala.</li>
 </ul>
 </div>
@@ -315,21 +315,39 @@ Companheiro de <code>dist/apresentacao-pcc/index.html</code> (17 slides). Leia e
 </div>
 
 <div class="card slide"><span class="n">10</span>
-<h3>Classificação da pesquisa e uso de IA</h3>
-<p class="meta"><b>60 s</b> · <kbd>→</kbd> revela cada eixo</p>
+<h3>Classificação da pesquisa</h3>
+<p class="meta"><b>40 s</b> · <kbd>→</kbd> revela cada eixo</p>
 <div class="blk"><b>Fale</b><div class="say">
 <p>Natureza aplicada: o produto é um critério de escolha. Abordagem quanti e quali: meço tokens e sucesso, e atribuo a diferença à carga fixa ou aos passos. Objetivos: exploratória, porque comparar dois <em>harnesses</em> construindo o mesmo produto completo do zero, a partir da mesma especificação, não tem precedente publicado. Procedimentos: experimental; variável independente, o <em>harness</em>; controladas, modelo, especificação, espaço de trabalho inicial e limites. Método dedutivo: hipóteses antes da coleta.</p>
-<p>Uso de IA declarado, conforme a Portaria CNPq 2.664 de 2026, que pede ferramenta e finalidade. Ferramenta: Claude Code. Finalidade: entender o tema do projeto e ajudar a buscar mais artigos, num <em>LLM Wiki</em> no repositório, padrão de Karpathy (2026). Eu curei as fontes, conferi cada citação na obra original e respondo pelo texto.</p>
+<p>Exploratória merece uma frase a mais: o que já existe compara <em>harnesses</em> em suítes de tarefas isoladas; ninguém publicou dois <em>harnesses</em> construindo o mesmo produto completo do zero.</p>
 </div></div>
 <div class="blk"><b>Fontes</b><ul class="src">
-<li>A classificação segue sem manual citado: as referências do projeto são só sobre o <em>harness</em>. <b>Brasil (2026)</b>: Portaria CNPq nº 2.664, de 6 de março de 2026, Política de Integridade. <b>Karpathy (2026)</b>: <em>gist</em> "LLM Wiki", o padrão que o repositório instancia.</li>
+<li>A classificação segue sem manual citado: as referências do projeto são sobre o <em>harness</em> e sobre o método de trabalho declarado no slide seguinte.</li>
 </ul></div>
 <div class="blk"><b>Se perguntarem</b><ul class="q">
-<li><b>"O que a IA escreveu?"</b>Nada do texto final. Ela leu fontes e montou resumos numa wiki; cada afirmação que entrou no projeto eu conferi no original.</li>
+<li><b>"Por que não cita Gil ou Prodanov?"</b>Porque a lista de referências fica no tema; a classificação é a da disciplina e não precisa de citação para se sustentar.</li>
 </ul></div>
 </div>
 
 <div class="card slide"><span class="n">11</span>
+<h3>Uso de IA declarado: dois métodos</h3>
+<p class="meta"><b>75 s</b> · <kbd>→</kbd> revela o cartão da esquerda, depois o da direita</p>
+<div class="blk"><b>Fale</b><div class="say">
+<p>A Portaria CNPq 2.664 de 2026 pede que o uso de IA generativa seja declarado com ferramenta e finalidade. A ferramenta foi o Claude Code. Usei dois métodos, e nos dois o papel é o mesmo: eu decido e confiro, o agente escreve.</p>
+<p>Para as fontes, um <em>LLM Wiki</em>, padrão de Karpathy (2026). As fontes brutas ficam guardadas sem alteração; eu escolho o que entra. O agente escreve uma página de síntese por fonte e liga entidades e conceitos. Cada operação entra num registro cronológico, e quando duas fontes se contradizem, a dúvida vai para uma fila que eu resolvo. Cada afirmação que entrou no texto eu conferi na obra original. Foram 29 fontes e 46 páginas; nenhuma frase do projeto foi escrita pelo agente.</p>
+<p>Para a especificação do Finn, o Helmsman, uma rotina que eu mesmo escrevi. A ideia solta vira um mapa de decisões no rastreador de issues: 21 <em>tickets</em> sob um mapa. Cada pergunta passa por um teste: muda o que a pessoa que usa o sistema vive, ou o que o negócio ganha? Se sim, é minha, e o agente só me pergunta isso, em conversa: foram 9. Se não, é dele: 12 decisões técnicas que ele tomou sozinho, cada uma registrada com as alternativas, o critério e o que trava para as seguintes. Quando a decisão dependia de um fato de fora, como a cobrança do WhatsApp ou o modelo de voz em português, o agente abriu subagentes de pesquisa, esperou o resultado e só então decidiu: 3 <em>tickets</em>. O mapa fechou sem nada a decidir, e é a base da especificação congelada que os dois braços recebem.</p>
+</div></div>
+<div class="blk"><b>Fontes</b><ul class="src">
+<li><b>Brasil (2026)</b>: Portaria CNPq nº 2.664, de 6 de março de 2026, Política de Integridade; pede ferramenta e finalidade. <b>Karpathy (2026)</b>: <em>gist</em> "LLM Wiki", o padrão que o repositório (YuukiFST, 2026c) instancia. <b>YuukiFST (2026a)</b>: repositório agent-dotfiles, pasta <code>skills/helmsman</code>; o mapa do Finn é a issue #1 do repositório Finn (YuukiFST, 2026b), com os <em>tickets</em> #2–#22 fechados.</li>
+</ul></div>
+<div class="blk"><b>Se perguntarem</b><ul class="q">
+<li><b>"O que a IA escreveu?"</b>Nada do texto final. Ela leu fontes e montou resumos numa wiki, e tomou decisões técnicas do Finn que eu revisei; cada afirmação que entrou no projeto eu conferi no original.</li>
+<li><b>"O agente decidiu a pilha do Finn sozinho?"</b>Não. A pilha foi uma preferência minha registrada no mapa antes de qualquer <em>ticket</em>; o agente decidiu como usá-la, e cada decisão está aberta em uma issue com as alternativas rejeitadas.</li>
+<li><b>"Isso não contamina o experimento?"</b>A especificação é a mesma para os dois braços, e as decisões foram tomadas antes de qualquer execução. O experimento mede o custo de construir a partir dela; o custo de escrevê-la fica fora da medida.</li>
+</ul></div>
+</div>
+
+<div class="card slide"><span class="n">12</span>
 <h3>Método: duas camadas de medição</h3>
 <p class="meta"><b>75 s</b> · <kbd>→</kbd> alterna Camada 1 e Camada 2</p>
 <div class="blk"><b>Fale</b><div class="say">
@@ -343,7 +361,7 @@ Companheiro de <code>dist/apresentacao-pcc/index.html</code> (17 slides). Leia e
 </ul></div>
 </div>
 
-<div class="card slide"><span class="n">12</span>
+<div class="card slide"><span class="n">13</span>
 <h3>Braços e matriz experimental</h3>
 <p class="meta"><b>90 s</b> · clique numa unidade ou navegue com <kbd>Tab</kbd>; <kbd>→</kbd> preenche a matriz</p>
 <div class="blk"><b>Fale</b><div class="say">
@@ -367,7 +385,7 @@ Companheiro de <code>dist/apresentacao-pcc/index.html</code> (17 slides). Leia e
 </ul></div>
 </div>
 
-<div class="card slide"><span class="n">13</span>
+<div class="card slide"><span class="n">14</span>
 <h3>Succ/Mtok e teste pareado</h3>
 <p class="meta"><b>60 s</b> · simulação: mova os controles. Dizer em voz alta que os valores não são dados.</p>
 <div class="blk"><b>Fale</b><div class="say">
@@ -389,7 +407,7 @@ Companheiro de <code>dist/apresentacao-pcc/index.html</code> (17 slides). Leia e
 </ul></div>
 </div>
 
-<div class="card slide"><span class="n">14</span>
+<div class="card slide"><span class="n">15</span>
 <h3>Limitações e ameaças à validade</h3>
 <p class="meta"><b>60 s</b> · <kbd>→</kbd> revela cada limitação; gráfico de inversão é ilustrativo</p>
 <div class="blk"><b>Fale</b><div class="say">
@@ -405,7 +423,7 @@ Companheiro de <code>dist/apresentacao-pcc/index.html</code> (17 slides). Leia e
 </ul></div>
 </div>
 
-<div class="card slide"><span class="n">15</span>
+<div class="card slide"><span class="n">16</span>
 <h3>Orçamento e cronograma</h3>
 <p class="meta"><b>45 s</b> · clique numa fase; <kbd>→</kbd> revela as fases</p>
 <div class="blk"><b>Fale</b><div class="say">
@@ -417,7 +435,7 @@ Companheiro de <code>dist/apresentacao-pcc/index.html</code> (17 slides). Leia e
 </ul></div>
 </div>
 
-<div class="card slide"><span class="n">16</span>
+<div class="card slide"><span class="n">17</span>
 <h3>Referências</h3>
 <p class="meta"><b>20 s</b> · sem interação; pular se faltar tempo</p>
 <div class="blk"><b>Fale</b><div class="say">
@@ -429,7 +447,7 @@ Companheiro de <code>dist/apresentacao-pcc/index.html</code> (17 slides). Leia e
 </ul></div>
 </div>
 
-<div class="card slide"><span class="n">17</span>
+<div class="card slide"><span class="n">18</span>
 <h3>Fecho</h3>
 <p class="meta"><b>20 s</b></p>
 <div class="blk"><b>Fale</b><div class="say">
@@ -449,7 +467,7 @@ Companheiro de <code>dist/apresentacao-pcc/index.html</code> (17 slides). Leia e
 <li><b>"O que significa 'carga fixa'?"</b><em>Prompt</em> de sistema e esquemas de ferramentas, que vão em toda requisição, independentemente da tarefa. Medida na Camada 1: 5.676 bytes no pi, 29.997 no OpenCode, na primeira requisição.</li>
 <li><b>"Qual o tamanho do efeito esperado?"</b>Não declaro um número. H1 diz "comparável a trocar de modelo" e o segundo nível dá a régua. O MDE de 0,76σ diz o que o desenho consegue ver.</li>
 <li><b>"Se H2 for refutada, o projeto falhou?"</b>Não. Se os passos explicarem mais que a carga fixa, o resultado diz que a diferença está no laço, não no <em>prompt</em>. É um desfecho previsto e reportável.</li>
-<li><b>"Onde entra a IA generativa no seu trabalho?"</b>Declarado conforme a Portaria CNPq 2.664/2026: Claude Code, para entender o tema e buscar mais artigos num <em>LLM Wiki</em>, padrão de Karpathy (2026). O texto e as citações são meus e conferidos no original.</li>
+<li><b>"Onde entra a IA generativa no seu trabalho?"</b>Declarado conforme a Portaria CNPq 2.664/2026: Claude Code, em dois métodos. Um <em>LLM Wiki</em> (Karpathy, 2026) para entender o tema e buscar artigos, e o Helmsman, rotina minha, para registrar as decisões do Finn antes do experimento: eu respondi o que o sistema faz, o agente decidiu como construir e pesquisou com subagentes o que dependia de fato externo. O texto e as citações são meus e conferidos no original.</li>
 </ul>
 </div>
 
@@ -485,12 +503,12 @@ Companheiro de <code>dist/apresentacao-pcc/index.html</code> (17 slides). Leia e
 <h2 id="check">Checklist do dia</h2>
 <div class="card">
 <ul class="check">
-<li>Abrir <code>dist/apresentacao-pcc/index.html</code> no Chrome; testar <kbd>→</kbd>, <kbd>F</kbd>, <kbd>0</kbd>–<kbd>5</kbd> no slide 3, clique nos nós do slide 9.</li>
+<li>Abrir <code>dist/apresentacao/index.html</code> no Chrome; testar <kbd>→</kbd>, <kbd>F</kbd>, <kbd>0</kbd>–<kbd>5</kbd> no slide 3, clique nos nós do slide 9.</li>
 <li>Confirmar que <kbd>N</kbd> (notas) está desligado e <kbd>O</kbd> (visão geral) fecha com <kbd>Esc</kbd>.</li>
 <li>Fontes Space Grotesk/Inter vêm embutidas no deck; não dependem de internet. Testar mesmo assim.</li>
 <li>Ensaiar o slide 9 com o cronômetro: é o mais longo (2 min) e o que mais tem nomes de autores.</li>
 <li>Ter na ponta da língua: 17,5×; 2.499 vs 9.738; 4 vs 9; n ≥ 3; 0,76σ; R$ 0,00.</li>
-<li>Se a banca cortar tempo: pular o 7 (objetivos estão implícitos no 11 e 12) e o 16, e fazer o 13 sem mover os controles.</li>
+<li>Se a banca cortar tempo: pular o 7 (objetivos estão implícitos no 12 e 13) e o 17, e fazer o 14 sem mover os controles.</li>
 </ul>
 </div>
 
