@@ -22,7 +22,7 @@ Sete tipos ortogonais (NexAU, source: [[agentic-harness-engineering-lin-2026]]):
 
 Interface (raciocinio/acao/ambiente), mecanismos (planejamento, memoria, ferramenta, controle PEV, otimizacao), escala (multiagente). O laco ReAct minimo e *harness* legitimo, o mais raso (source: [[react-yao-2022]]).
 
-## O que varia no PCC
+## O que varia no projeto
 
 Com o modelo fixo, varia so o *harness*: prompt de sistema, numero/tamanho dos schemas, compactacao, permissoes, verificacao. Ver [[atribuicao-harness-vs-modelo]], [[medicao-custo-proxy-vs-relato]] e [[desenho-experimental-harness-fixo]].
 

@@ -1,14 +1,14 @@
 """Dump and rewrite the prose of a .docx without a generator.
 
-`tools/legacy/build_pcc.py` (retired 2026-09-14) stopped reproducing `dist/projeto-pcc.docx` at cd30dbe
-(docs/research/estrutura-do-projeto-e-revisao-do-pcc.md §3.7), so the document
+`tools/legacy/build_projeto.py` (retired 2026-09-14) stopped reproducing `dist/projeto-de-pesquisa.docx` at cd30dbe
+(docs/research/estrutura-do-projeto-e-revisao.md §3.7), so the document
 is edited in place. This script is the editing surface: `dump` prints every
 non-empty paragraph as `[index] text` with `*italic*` / `**bold**` markup, and
 `apply` rewrites the paragraphs named in a JSON file using the same markup.
 
 Usage:
-    python tools/docx_prose.py dump dist/projeto-pcc.docx > /tmp/prose.txt
-    python tools/docx_prose.py apply dist/projeto-pcc.docx edits.json
+    python tools/docx_prose.py dump dist/projeto-de-pesquisa.docx > /tmp/prose.txt
+    python tools/docx_prose.py apply dist/projeto-de-pesquisa.docx edits.json
 
 edits.json:
     {

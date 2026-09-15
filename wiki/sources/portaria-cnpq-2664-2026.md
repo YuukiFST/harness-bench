@@ -18,7 +18,7 @@ sources: []
 - Texto oficial: http://memoria2.cnpq.br/web/guest/view/-/journal_content/56_INSTANCE_0oED/10157/23142775 (copia em `raw/sources/portaria-cnpq-2664-2026.txt`, baixada em 2026-09-11).
 - `dated` = data do ato (6 mar. 2026); a publicacao e de 11 mar. 2026.
 
-## Referencia ABNT (como citada no PCC)
+## Referencia ABNT (como citada no projeto)
 
 BRASIL. Conselho Nacional de Desenvolvimento Científico e Tecnológico. Portaria CNPq nº 2.664, de 6 de março de 2026. Institui a Política de Integridade na Atividade Científica do CNPq. Diário Oficial da União: seção 1, Brasília, DF, p. 4, 11 mar. 2026. Disponível em: http://memoria2.cnpq.br/web/guest/view/-/journal_content/56_INSTANCE_0oED/10157/23142775. Acesso em: 11 set. 2026.
 
@@ -37,13 +37,13 @@ Norma completa (40 artigos, 8 capitulos): principios, codigo de boas praticas, d
 
 ## O que acrescenta a wiki
 
-Primeira norma brasileira de agencia de fomento com regra explicita de declaracao de IAG. E o amparo do paragrafo de §3 do PCC que declara o *LLM Wiki* como metodo de levantamento e auditoria de fontes: ferramenta e finalidade nomeadas, autor responsavel pelo texto.
+Primeira norma brasileira de agencia de fomento com regra explicita de declaracao de IAG. E o amparo do paragrafo de §3 do projeto que declara o *LLM Wiki* como metodo de levantamento e auditoria de fontes: ferramenta e finalidade nomeadas, autor responsavel pelo texto.
 
-## Uso no PCC
+## Uso no projeto
 
 - §3 [58]: declara o uso do *LLM Wiki* deste repositorio (padrao de [[llm-wiki-karpathy-2026]]), nomeia a ferramenta e a finalidade e afirma a responsabilidade do autor, como pede o Art. 9º, I, c-d-f.
 - Fora do tema do *harness*; entra na lista por excecao autorizada pelo autor em 2026-09-11 (`AGENTS.md`, Project documents).
-- Nao lida: o PCC nao e fomento CNPq, entao a norma nao obriga o autor; ela e citada como referencia de boa pratica, nao como obrigacao. O paragrafo de §3 diz "pede", nao "obriga".
+- Nao lida: o projeto nao e fomento CNPq, entao a norma nao obriga o autor; ela e citada como referencia de boa pratica, nao como obrigacao. O paragrafo de §3 diz "pede", nao "obriga".
 
 ## Contradictions
 

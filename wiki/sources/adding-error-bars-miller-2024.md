@@ -19,7 +19,7 @@ sources: []
 - *Preprint*, nao revisado por pares.
 - PDF: `raw/sources/2411.00640-miller-adding-error-bars.pdf`.
 
-## Referencia ABNT (como citada no PCC)
+## Referencia ABNT (como citada no projeto)
 
 MILLER, Evan. **Adding error bars to evals**: a statistical approach to language model evaluations. arXiv:2411.00640, 2024. *Preprint*, nao revisado por pares. Disponivel em: https://arxiv.org/abs/2411.00640. Acesso em: 28 ago. 2026.
 
@@ -35,7 +35,7 @@ MILLER, Evan. **Adding error bars to evals**: a statistical approach to language
 - Poder: exemplo ω2=1/9, δ=0,03 => **n≈969 (~1.000 questoes)**; com n=198 fixo, K=1->10 corta MDE de 13,2% para 7,5%.
 - **Nao** mexer na temperatura para reduzir variancia (pode triplicar/quintuplicar a variancia e deslocar a media).
 
-## Uso no PCC
+## Uso no projeto
 
 - Licenca estatistica do teste de Wilcoxon pareado por tarefa sobre Succ/Mtok (α=0,05, bilateral): analisar diferencas por tarefa, reportar SE pareado + correlacao + IC95% no formato Tabela 5.
 - Reportar media (SE) + n (+ clusters), MDE pre-registrada (~0,81σ com n=3 e 8 tarefas).
@@ -45,5 +45,5 @@ MILLER, Evan. **Adding error bars to evals**: a statistical approach to language
 
 - Citada em: §3 [63], [64], [65].
 - Afirmacao sustentada: nao mexer na temperatura (§3.3); reamostragem (§3.1); diferenca pareada por questao (§1, §4.2).
-- Veredito: CONCRETA. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
+- Veredito: CONCRETA. Detalhe em [[2026-09-11-auditoria-conteudo-referencias]].
 

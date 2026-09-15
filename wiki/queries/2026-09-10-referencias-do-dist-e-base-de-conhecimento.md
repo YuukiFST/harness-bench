@@ -1,7 +1,7 @@
 ---
 title: 2026-09-10 referencias do dist e base de conhecimento
 type: query
-summary: Mapa das 26 referencias do PCC, PDFs baixados e paginas da wiki
+summary: Mapa das 26 referencias do projeto, PDFs baixados e paginas da wiki
 tags: [referencias, dist, mapa]
 created: 2026-09-10
 updated: 2026-09-14
@@ -14,7 +14,7 @@ sources: [wiki/sources/agentic-harness-engineering-lin-2026.md, wiki/sources/dee
 
 ## O que foi feito
 
-`dist/projeto-pcc.docx` (26 refs) e `dist/atividade-introducao-e-citacoes.docx` (17 refs) extraidos do XML; fonte da verdade e o `.docx` (gerador parado em cc15d7b). 14 arXiv + e-book Feevale baixados para `raw/sources/` (PDFs validos, ~50 MB); conversao fiel via `bin/pdf-to-md.py` (PyMuPDF, duas colunas, tabelas). Wiki Omoikane instalada na raiz: `AGENTS.md` (com Dominio PCC), `prompts/`, `bin/wiki-*.py`, `.opencode/command`, `.claude/skills`, `index.md`, `log.md`, `_review.md`.
+`dist/projeto-de-pesquisa.docx` (26 refs) e `dist/atividade-introducao-e-citacoes.docx` (17 refs) extraidos do XML; fonte da verdade e o `.docx` (gerador parado em cc15d7b). 14 arXiv + e-book Feevale baixados para `raw/sources/` (PDFs validos, ~50 MB); conversao fiel via `bin/pdf-to-md.py` (PyMuPDF, duas colunas, tabelas). Wiki Omoikane instalada na raiz: `AGENTS.md` (com Dominio PCC), `prompts/`, `bin/wiki-*.py`, `.opencode/command`, `.claude/skills`, `index.md`, `log.md`, `_review.md`.
 
 ## Artigos-ancora
 

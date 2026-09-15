@@ -10,7 +10,7 @@
 /layer1/.pytest_cache/
 /layer1/data/runs/
 
-# Word writes a lock file next to an open document, and build_pcc.py fails on
+# Word writes a lock file next to an open document, and build_projeto.py fails on
 # it with PermissionError.
 ~$*.docx
 

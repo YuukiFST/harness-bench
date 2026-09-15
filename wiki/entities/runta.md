@@ -12,9 +12,9 @@ sources: [wiki/sources/frontierharness-runta-2026.md]
 
 Empresa (agent execution layer: eficiencia de tokens, segredos, acesso governado). Publica o [[frontierharness-runta-2026]]: 30 tarefas x 9 *harnesses* (12 configs, 360 trials) com Kimi K3 fixo — pass 50,0-66,7%, custo por pass $1,05-$18,34.
 
-## No PCC
+## No projeto
 
-Fonte de pratica para H1 (passar vs passar barato); ponto externo para os dois bracos do PCC (Pi 60,0%/$2,43; OpenCode 50,0%/$3,24); modelo de protocolo (checkpoint dourado, 1 tentativa/celula).
+Fonte de pratica para H1 (passar vs passar barato); ponto externo para os dois bracos do projeto (Pi 60,0%/$2,43; OpenCode 50,0%/$3,24); modelo de protocolo (checkpoint dourado, 1 tentativa/celula).
 
 ## Contradictions
 

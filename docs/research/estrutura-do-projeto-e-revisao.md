@@ -1,9 +1,9 @@
-# Estrutura do projeto de pesquisa e revisão do `projeto-pcc.docx`
+# Estrutura do projeto de pesquisa e revisão do `projeto-de-pesquisa.docx`
 
 > Histórico: descreve o desenho anterior a 2026-09-14 (harness zero, oh-my-pi, DeepSWE). O desenho vigente está em `docs/spec/11-experimental-protocol.md`.
 
 Documento vivo.
-Confere o `dist/projeto-pcc.docx` contra o material da disciplina em `files/` e contra o que se mede na própria prosa.
+Confere o `dist/projeto-de-pesquisa.docx` contra o material da disciplina em `files/` e contra o que se mede na própria prosa.
 
 **Última atualização:** 11 set. 2026.
 Complementa [Pangram — como o detector funciona](pangram-deteccao-de-texto-gerado.md).
@@ -138,19 +138,19 @@ A Aula 3 explica o que ela responderia: "Onde você espera achar as informaçõe
 O documento responde isso disperso pela seção 3 (DeepSWE, gateway, proxy, duas estações).
 Baixa prioridade — o gabarito manda —, mas vale confirmar com a orientadora, porque é gratuito acrescentar e caro descobrir depois.
 
-### 3.7 `tools/build_pcc.py` não reproduz mais o `.docx`
+### 3.7 `tools/build_projeto.py` não reproduz mais o `.docx`
 
 Não é não conformidade com a disciplina; é com o repositório, e é a de maior risco.
 
-Os dois últimos commits que tocaram o documento — `cd30dbe` e `3791e1a` — alteram apenas `dist/projeto-pcc.docx`, sem tocar em `tools/build_pcc.py`.
+Os dois últimos commits que tocaram o documento — `cd30dbe` e `3791e1a` — alteram apenas `dist/projeto-de-pesquisa.docx`, sem tocar em `tools/build_projeto.py`.
 O gerador ficou parado em `cc15d7b`: ele ainda tem o título antigo ("HARNESSES DE AGENTES DE CODIFICAÇÃO…"), a justificativa antiga, a seção 2 antiga e a lista de referências sem as quatro fontes que `cd30dbe` acrescentou.
 
-Consequência dura: **rodar `python tools/build_pcc.py` hoje desfaz os dois commits.** O script escreve em `dist/projeto-pcc.docx` e sobrescreve tudo.
+Consequência dura: **rodar `python tools/build_projeto.py` hoje desfaz os dois commits.** O script escreve em `dist/projeto-de-pesquisa.docx` e sobrescreve tudo.
 
 Por isso as correções de 10 set. 2026 foram aplicadas em `word/document.xml` dentro do `.docx`, e não no gerador.
 Reconciliar os dois é trabalho próprio, e enquanto não acontecer o `.docx` é a fonte da verdade e o gerador é uma armadilha.
 
-Desde 11 set. 2026 a edição em `word/document.xml` tem ferramenta: `python tools/docx_prose.py dump dist/projeto-pcc.docx` lista os parágrafos com índice e marcação `*itálico*`, e `apply` reescreve os parágrafos nomeados em um JSON.
+Desde 11 set. 2026 a edição em `word/document.xml` tem ferramenta: `python tools/docx_prose.py dump dist/projeto-de-pesquisa.docx` lista os parágrafos com índice e marcação `*itálico*`, e `apply` reescreve os parágrafos nomeados em um JSON.
 Os dois lotes de edição daquele dia estão em `tools/pcc_edits_2026-09-11.py` e `tools/pcc_humanizer_2026-09-11.py`, com os índices que valiam em cada momento.
 As páginas do sumário foram conferidas no Word (COM) depois da edição, não estimadas.
 
@@ -164,7 +164,7 @@ Não há, portanto, corpus verbatim pré-2020 citável nesta revisão. Fica como
 O que existe é uma amostra pré-LLM legítima e à mão: o próprio material da professora.
 Ele foi escrito para a disciplina, é humano, e serve de linha de base medida:
 
-| | `projeto-pcc.docx` (prosa) | Aula 5 (professora) |
+| | `projeto-de-pesquisa.docx` (prosa) | Aula 5 (professora) |
 |---|---|---|
 | Sentenças medidas | 171 | 63 |
 | Palavras por sentença, média | 17,5 | 10,5 |
@@ -173,7 +173,7 @@ Ele foi escrito para a disciplina, é humano, e serve de linha de base medida:
 | Sentenças longas | 7% com ≥ 35 palavras | 2% |
 
 A prosa acadêmica brasileira de graduação é mais curta, mais chã e mais repetitiva do que a do documento.
-Ela também **retoma**: "Ou seja", "Quer dizer", "Isto é" — o material da professora faz isso o tempo todo, e o `projeto-pcc.docx` não faz nenhuma vez.
+Ela também **retoma**: "Ou seja", "Quer dizer", "Isto é" — o material da professora faz isso o tempo todo, e o `projeto-de-pesquisa.docx` não faz nenhuma vez.
 Um autor humano que acabou de escrever uma frase densa a explica de novo mais simples. O documento nunca se explica duas vezes.
 
 ## 5. O que se mede na prosa do documento
@@ -258,7 +258,7 @@ Por retorno, do maior para o menor:
 1. ~~Escrever a **contribuição social e acadêmica** na justificativa (§3.1).~~ Feito em 10 set. 2026.
 2. ~~Inserir **citações diretas** no Referencial Teórico (§3.3).~~ Feito em 10 set. 2026: duas diretas curtas, uma direta longa e uma citação de citação.
 3. ~~Cortar os **objetivos específicos a uma linha** cada (§3.2).~~ Decisão do autor em 14 set. 2026: ficam com 2-3 linhas.
-3b. ~~Reconciliar `tools/build_pcc.py` com o `.docx`, ou aposentá-lo (§3.7).~~ Aposentado em 14 set. 2026: movido para `tools/legacy/build_pcc.py`; a edição é só por `tools/docx_prose.py`.
+3b. ~~Reconciliar `tools/build_projeto.py` com o `.docx`, ou aposentá-lo (§3.7).~~ Aposentado em 14 set. 2026: movido para `tools/legacy/build_projeto.py`; a edição é só por `tools/docx_prose.py`.
 4. ~~Perguntar à orientadora a data de entrega; resolver os três **marcadores editoriais** e o cronograma (§3.4, §3.5).~~ Data: setembro de 2026; cronograma em SETEMBRO-JANEIRO e marcadores virados em prosa.
 5. Reescrever os fechos de parágrafo: manter cinco justificativas, soltar as outras (§5.1). Parcial em 11 set. 2026: `porque` 12, `já que` 6, `por isso` 4 nos 71 parágrafos do corpo.
 6. ~~Marcar o tempo futuro na Metodologia e na seção 3 (§5.5).~~ Feito em 11 set. 2026.
@@ -280,4 +280,4 @@ De 1 a 4 o documento fica conforme à disciplina. De 5 a 7 ele passa a soar como
 - IFMT. *Aula 3 — Estrutura do Projeto de Pesquisa* — `files/Estrutura do projeto de pesquisa-aula3.pdf`. **No repositório.**
 - IFMT. *Aula 5 — Citações e referências* — `files/Aula 5- Citacoes e referencias.odt`. **No repositório.**
 - ABNT NBR 15287, NBR 6023, NBR 10520, NBR 14724, conforme reproduzidas no material acima.
-- Medições de prosa: extraídas de `dist/projeto-pcc.docx`, `word/document.xml`, em 31 ago. 2026.
+- Medições de prosa: extraídas de `dist/projeto-de-pesquisa.docx`, `word/document.xml`, em 31 ago. 2026.

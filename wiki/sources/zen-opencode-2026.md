@@ -16,20 +16,20 @@ sources: []
 - *Zen*: lista curada de modelos/provedores do OpenCode. Documentacao do produto: https://opencode.ai/docs/zen/ (atualizada 10 set 2026).
 - Documentacao de fabricante (nao revisada por pares).
 
-## Referencia ABNT (como citada no PCC)
+## Referencia ABNT (como citada no projeto)
 
 OPENCODE. **Zen**. 2026. Documentacao do produto. Disponivel em: https://opencode.ai/docs/zen/. Acesso em: 28 ago. 2026.
 
-## Relevante ao PCC
+## Relevante ao projeto
 
 - Os dois niveis de modelo do experimento (primario + robustez) sao ambos gratuitos e **no mesmo gateway** (Zen), relatados em separado.
 - Endpoints por familia (`/v1/responses` OpenAI, `/v1/messages` Anthropic, `/v1/chat/completions` openai-compatible, `/v1/models/...` Google); modelos gratuitos listados (incl. tiers limitados).
 - Precos por 1M tokens publicados na pagina (base do contrafactual de ordem de grandeza; custo monetario real do experimento: R$ 0,00).
 
-## Uso no PCC
+## Uso no projeto
 
 ### Auditoria de conteudo 2026-09-11
 
 - Citada em: §3 [61]; desde 2026-09-14 como Opencode (2026b) em [62], ao lado do repositorio OpenCode (2026a) em [60].
 - Afirmacao sustentada: gateway com modelos gratuitos listados; sem cota publicada.
-- Veredito: CONCRETA. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
+- Veredito: CONCRETA. Detalhe em [[2026-09-11-auditoria-conteudo-referencias]].

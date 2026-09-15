@@ -407,7 +407,7 @@
             </div>
           </div>
           <div class="denom">
-            Finn (YuukiFST, 2026a): github.com/YuukiFST/Finn. Decisões de produto nas <em>issues</em> #2–#10;
+            Finn (YuukiFST, 2026b): github.com/YuukiFST/Finn. Decisões de produto nas <em>issues</em> #2–#10;
             decisões técnicas em #11–#22. Em âmbar, a unidade do <em>pipeline</em> desenhado acima.
           </div>
         </section>
@@ -443,7 +443,7 @@
             vez de outra. Este projeto mede esse custo.
           </div>
           <div class="denom">
-            Finn: github.com/YuukiFST/Finn (YuukiFST, 2026a), <em>issues</em> #1–#22. Braços: OpenCode 1.17.9
+            Finn: github.com/YuukiFST/Finn (YuukiFST, 2026b), <em>issues</em> #1–#22. Braços: OpenCode 1.17.9
             e pi 0.80.10, código aberto, sem interface. Método detalhado nos slides seguintes.
           </div>
         </section>
@@ -648,7 +648,7 @@
           </div>
         </section>
         <!-- 10 CLASSIFICAÇÃO DA PESQUISA -->
-        <section class="slide" id="s-class" data-title="Classificação da pesquisa e uso de IA">
+        <section class="slide" id="s-class" data-title="Classificação da pesquisa">
           <h2>Classificação da pesquisa<small>→ revela cada eixo</small></h2>
           <div class="axes">
             <div class="card frag flip">
@@ -675,115 +675,59 @@
               ><span class="w">hipóteses antes da coleta</span>
             </div>
           </div>
-          <div
-            class="card frag glass"
-            style="flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 26px"
-          >
-            <div style="display: flex; gap: 40px; align-items: center">
-              <div style="flex: 0 0 420px">
-                <b class="acc" style="font-size: 36px">Uso de IA declarado</b>
-                <div class="mute" style="font-size: 24px; margin-top: 8px">
-                  Portaria CNPq nº 2.664/2026 (Brasil, 2026)
-                </div>
-              </div>
-              <div style="font-size: 28px">
-                Levantamento e auditoria das fontes com um <em>LLM Wiki</em> (Karpathy, 2026) no repositório
-                do projeto. A ferramenta foi o Claude Code e a finalidade foi entender o tema do projeto e
-                ajudar a buscar mais artigos sobre ele. O autor curou as fontes, conferiu cada citação na obra
-                original e responde pelo texto final.
-              </div>
+          <div class="card frag glass" style="flex: 1; display: flex; align-items: center; padding: 40px 56px; margin-bottom: 70px">
+            <div style="font-size: 34px; line-height: 1.45">
+              <b class="acc">Por que exploratória.</b> A comparação de dois <em>harnesses</em> construindo o
+              mesmo produto completo do zero, a partir da mesma especificação, não tem precedente publicado.
+              O que já existe compara <em>harnesses</em> em suítes de tarefas isoladas.
             </div>
-            <svg id="wikiflow" viewBox="0 0 1560 120" style="width: 100%; height: 120px" aria-hidden="true">
-              <defs>
-                <marker id="a3" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-                  <path d="M0,0 L10,5 L0,10z" fill="#8b98a8" />
-                </marker>
-              </defs>
-              <g font-size="24" text-anchor="middle">
-                <rect
-                  x="10"
-                  y="20"
-                  width="340"
-                  height="80"
-                  rx="14"
-                  fill="#0b0f14"
-                  stroke="#3b7bd6"
-                  stroke-width="3"
-                />
-                <text x="180" y="54" fill="#fff" font-weight="700">fontes brutas</text>
-                <text x="180" y="84" fill="#8b98a8">imutáveis, curadas pelo autor</text>
-                <line
-                  x1="355"
-                  y1="60"
-                  x2="405"
-                  y2="60"
-                  stroke="#8b98a8"
-                  stroke-width="3"
-                  marker-end="url(#a3)"
-                />
-                <rect
-                  x="410"
-                  y="20"
-                  width="340"
-                  height="80"
-                  rx="14"
-                  fill="#0b0f14"
-                  stroke="#f5b638"
-                  stroke-width="3"
-                />
-                <text x="580" y="54" fill="#fff" font-weight="700">páginas de síntese</text>
-                <text x="580" y="84" fill="#8b98a8">escritas pelo agente</text>
-                <line
-                  x1="755"
-                  y1="60"
-                  x2="805"
-                  y2="60"
-                  stroke="#8b98a8"
-                  stroke-width="3"
-                  marker-end="url(#a3)"
-                />
-                <rect
-                  x="810"
-                  y="20"
-                  width="340"
-                  height="80"
-                  rx="14"
-                  fill="#0b0f14"
-                  stroke="#7bd88f"
-                  stroke-width="3"
-                />
-                <text x="980" y="54" fill="#fff" font-weight="700">registro cronológico</text>
-                <text x="980" y="84" fill="#8b98a8">cada operação registrada</text>
-                <line
-                  x1="1155"
-                  y1="60"
-                  x2="1205"
-                  y2="60"
-                  stroke="#8b98a8"
-                  stroke-width="3"
-                  marker-end="url(#a3)"
-                />
-                <rect
-                  x="1210"
-                  y="20"
-                  width="340"
-                  height="80"
-                  rx="14"
-                  fill="#0b0f14"
-                  stroke="#ef6b6b"
-                  stroke-width="3"
-                />
-                <text x="1380" y="54" fill="#fff" font-weight="700">fila de revisão</text>
-                <text x="1380" y="84" fill="#8b98a8">dúvidas para o autor decidir</text>
-              </g>
-            </svg>
+          </div>
+          <div class="denom">Projeto, §3, parágrafo de classificação [57]; sem manual citado.</div>
+        </section>
+        <!-- 11 USO DE IA -->
+        <section class="slide" id="s-ia" data-title="Uso de IA declarado: dois métodos">
+          <h2>
+            Uso de IA declarado<small
+              >Portaria CNPq nº 2.664/2026 (Brasil, 2026): ferramenta e finalidade · ferramenta: Claude Code ·
+              o autor decide, o agente escreve</small
+            >
+          </h2>
+          <div class="row" style="gap: 34px; margin-bottom: 84px">
+            <div class="card frag glass col ia">
+              <div class="ia-head">
+                <span class="ia-tag" style="background: rgba(59, 123, 214, 0.22); color: #9cc0f2">Fontes</span>
+                <b><em>LLM Wiki</em></b>
+                <span class="mute">padrão de Karpathy (2026), no repositório do projeto</span>
+              </div>
+              <ol class="ia-steps">
+                <li><b>Fontes brutas</b> ficam guardadas sem alteração; o autor escolhe o que entra.</li>
+                <li><b>O agente escreve</b> uma página de síntese por fonte e liga entidades e conceitos.</li>
+                <li><b>Cada operação</b> entra num registro cronológico; contradições viram uma fila de revisão.</li>
+                <li><b>O autor confere</b> cada afirmação citada na obra original antes de entrar no texto.</li>
+              </ol>
+              <div class="ia-foot">29 fontes ingeridas · 46 páginas · nenhuma frase do projeto escrita pelo agente</div>
+            </div>
+            <div class="card frag glass col ia">
+              <div class="ia-head">
+                <span class="ia-tag" style="background: rgba(123, 216, 143, 0.2); color: #a9e9b6">Especificação</span>
+                <b>Helmsman</b>
+                <span class="mute">rotina escrita pelo autor (YuukiFST, 2026a), mapa #1 do Finn</span>
+              </div>
+              <ol class="ia-steps">
+                <li><b>Uma ideia vira um mapa</b> de decisões no rastreador de issues: 21 <em>tickets</em> sob um mapa.</li>
+                <li><b>O que o sistema faz</b>, só o autor responde: 9 <em>tickets</em> de produto, em conversa.</li>
+                <li><b>Como construir</b>, o agente decide sozinho: 12 <em>tickets</em> técnicos, cada um com alternativas e critério.</li>
+                <li><b>Fato externo</b> (preço de API, modelo de voz): subagentes de pesquisa antes de decidir, 3 <em>tickets</em>.</li>
+              </ol>
+              <div class="ia-foot">Mapa fechado: nada a decidir · base da especificação congelada dos dois braços</div>
+            </div>
           </div>
           <div class="denom">
-            Projeto, §3, parágrafos de classificação e de declaração do método (YuukiFST, 2026b; Brasil,
-            2026).
+            Finalidade declarada: entender o tema, buscar artigos e registrar as decisões de produto e de pilha do
+            Finn antes do experimento. Projeto, §3 [58] (Karpathy, 2026; YuukiFST, 2026a, 2026c; Brasil, 2026).
           </div>
         </section>
-        <!-- 11 MÉTODO -->
+        <!-- 12 MÉTODO -->
         <section class="slide" id="s-flow" data-title="Método: duas camadas de medição">
           <h2>Duas camadas de medição<small>→ alterna Camada 1 e Camada 2</small></h2>
           <svg id="flow" viewBox="0 0 1680 520" style="width: 100%; height: 520px"></svg>
@@ -802,7 +746,7 @@
             o relatório do <em>gateway</em> fica para verificação cruzada.
           </div>
         </section>
-        <!-- 12 BRAÇOS E MATRIZ -->
+        <!-- 13 BRAÇOS E MATRIZ -->
         <section class="slide" id="s-matrix" data-title="Braços e matriz experimental">
           <h2>
             Braços e matriz (braço × nível, 9 unidades por construção)<small
@@ -848,13 +792,13 @@
             </div>
           </div>
           <div class="denom">
-            Finn (YuukiFST, 2026a): SaaS multiempresa de financeiro por voz, 21 <em>tickets</em> fechados
+            Finn (YuukiFST, 2026b): SaaS multiempresa de financeiro por voz, 21 <em>tickets</em> fechados
             antes do experimento; pilha fixa TypeScript, TanStack Start, tRPC, Drizzle, PostgreSQL, Vitest.
             Unidades em ordem de dependência: U1 tenant · U2 governança · U3 <em>flags</em> · U4
             <em>pipeline</em> de voz · U5 confirmação · U6 log · U7 relatório · U8 agendador · U9 cobrança.
           </div>
         </section>
-        <!-- 13 SUCC/MTOK -->
+        <!-- 14 SUCC/MTOK -->
         <section class="slide" id="s-succ" data-title="Succ/Mtok e Wilcoxon pareado">
           <h2>
             Succ/Mtok e teste pareado<small
@@ -931,7 +875,7 @@
             aprovados.
           </div>
         </section>
-        <!-- 14 LIMITAÇÕES -->
+        <!-- 15 LIMITAÇÕES -->
         <section class="slide" id="s-lim" data-title="Limitações e ameaças à validade">
           <h2>
             Limitações e ameaças à validade<small
@@ -969,7 +913,7 @@
             com dispersão, reduzir cobertura antes de reduzir repetições.
           </div>
         </section>
-        <!-- 15 ORÇAMENTO E CRONOGRAMA -->
+        <!-- 16 ORÇAMENTO E CRONOGRAMA -->
         <section class="slide" id="s-gantt" data-title="Orçamento e cronograma">
           <h2>
             Orçamento R$ 0,00 · cronograma ago. 2026 – jan. 2027<small
@@ -997,17 +941,17 @@
             especificação e dos testes de aceitação.
           </div>
         </section>
-        <!-- 16 REFERÊNCIAS -->
+        <!-- 17 REFERÊNCIAS -->
         <section class="slide" data-title="Referências">
           <h2>
             Referências<small
-              >formato ABNT abreviado; as 20 entradas do projeto, seção 6, todas sobre o
-              <em>harness</em></small
+              >formato ABNT abreviado; as 21 entradas do projeto, seção 6: 18 sobre o
+              <em>harness</em>, 3 sobre o método de trabalho declarado</small
             >
           </h2>
           <div class="refs three" id="refs"></div>
         </section>
-        <!-- 17 FECHO -->
+        <!-- 18 FECHO -->
         <section class="slide cover" data-title="Fecho">
           <canvas class="cover-bg" id="coverbg2" aria-hidden="true"></canvas>
           <div class="cover-inner">
@@ -1018,8 +962,8 @@
             </h1>
             <div class="who">Obrigado. Perguntas?</div>
             <div class="denom">
-              Repositórios: github.com/YuukiFST/harness-bench (YuukiFST, 2026b) e github.com/YuukiFST/Finn
-              (YuukiFST, 2026a).
+              Repositórios: github.com/YuukiFST/harness-bench (YuukiFST, 2026c) e github.com/YuukiFST/Finn
+              (YuukiFST, 2026b).
             </div>
           </div>
         </section>

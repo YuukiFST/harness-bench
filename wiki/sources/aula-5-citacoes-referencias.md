@@ -29,7 +29,7 @@ sources: []
 - NBR 6023:2025: sem `< >` em URLs; 4+ autores permite `et al.`; destaque (negrito) uniforme; `Anais [...]` com colchetes.
 - Referencias: ordem alfabetica, alinhadas a esquerda, espacamento simples, uma linha em branco entre elas.
 
-## Uso no PCC
+## Uso no projeto
 
 - Secao 2 demonstra os 4 tipos (duas diretas curtas, uma longa, uma `apud` Databricks *apud* Earendil).
-- Nota de rodape do PCC registra a divergencia do template (2022, pre-vigencias) e a precedencia das edicoes vigentes.
+- Nota de rodape do projeto registra a divergencia do template (2022, pre-vigencias) e a precedencia das edicoes vigentes.

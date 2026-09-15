@@ -1,5 +1,5 @@
 ---
-title: Auditoria de conteudo das referencias do PCC
+title: Auditoria de conteudo das referencias do projeto
 type: query
 summary: 21 entradas lidas contra o corpo; 12 concretas, 6 divergentes, 1 fora do tema, 1 nao citada, 6 citacoes orfas
 tags: [auditoria, referencias, conteudo, tema, nbr]
@@ -10,11 +10,11 @@ sources: [wiki/sources/portaria-cnpq-2664-2026.md, wiki/sources/scaffolding-matt
 
 > Histórico: descreve o desenho anterior a 2026-09-14 (harness zero, oh-my-pi, DeepSWE). O desenho vigente está em `docs/spec/11-experimental-protocol.md`.
 
-# Auditoria de conteudo das referencias do PCC — as of 2026-09-11
+# Auditoria de conteudo das referencias do projeto — as of 2026-09-11
 
-Complementa [[2026-09-10-auditoria-referencias-pcc]] (que so cruzou citacao x lista).
+Complementa [[2026-09-10-auditoria-referencias]] (que so cruzou citacao x lista).
 Aqui cada obra foi aberta e o trecho que sustenta cada afirmacao do projeto foi copiado verbatim.
-Indices `[n]` sao os do `python tools/docx_prose.py dump dist/projeto-pcc.docx` de 2026-09-11 (lista em [154]-[174]).
+Indices `[n]` sao os do `python tools/docx_prose.py dump dist/projeto-de-pesquisa.docx` de 2026-09-11 (lista em [154]-[174]).
 
 Estado da lista: a versao em `HEAD` tinha 26 entradas; a versao de trabalho tem 21.
 Sairam ABNT (3), Gil, IFMT e Prodanov/Freitas; entrou Bogdanov.
@@ -44,7 +44,7 @@ As seis que sairam continuam citadas no corpo ([47] e [57]) e viram citacoes orf
 | YANG et al. 2024 (SWE-agent) | §2 [52] | Interface modelo-ambiente e objeto de projeto desde este artigo | "we introduce the concept of the agent-computer interface (ACI) and demonstrate how careful ACI design can substantially improve LM agent performance without modifying the underlying LM's weights" (§1, p. 2); Shell-only 11,00% vs SWE-agent 18,00% no SWE-bench Lite, GPT-4 Turbo (Tabela 1, p. 5) | CONCRETA | `raw/sources/2405.15793-yang-swe-agent.pdf` |
 | YAO et al. 2022 (ReAct) | §2 [49] | Laco ReAct minimo como extremo simples dos bracos | "we augment the agent's action space to Â = A ∪ L, where L is the space of language. An action [...] in the language space, which we will refer to as a thought or a reasoning trace, does not affect the external environment" (§2, p. 2) | CONCRETA | `raw/sources/2210.03629-yao-react.pdf` |
 | YUUKIFST 2026 (harness-bench) | §3 [59] | Adaptadores e *harness* zero serao publicados no repositorio; entrada com "Acesso em: 28 ago. 2026" | `gh repo view`: `"visibility":"PRIVATE"`; `gh api repos/YuukiFST/harness-bench/readme`: 404; WebFetch anonimo: HTTP 404; sem README na raiz | DIVERGENTE. O repositorio existe, mas e privado: a URL da referencia nao abre para o leitor, e a entrada declara acesso. Tornar publico antes da entrega ou retirar a entrada e citar como "em elaboracao" | https://github.com/YuukiFST/harness-bench (gh + WebFetch 2026-09-11) |
-| ZHANG et al. 2026 | §2 [52] | *Binding Constraint Thesis*: em longo horizonte o *harness* determina o desempenho mais que o modelo | "For LLM agents operating on long-horizon tasks with comparable frontier models [...] The Binding Constraint Thesis asserts that, in this regime, HV is often comparable to or larger than MV, and may dominate it in many current long-horizon agent evaluations" (§3, p. 4); "Average HV is 18.48 pp² versus average MV of 2.37 pp², a ratio of 7.80×" (§4, p. 7) | DIVERGENTE (qualificadores). A tese formal e condicionada a "comparable frontier models" e diz "often comparable to or larger than", "may dominate". "Determina mais que o modelo" so aparece na Conclusao (§7). Ja apontado em [[2026-09-10-auditoria-referencias-pcc]] | `raw/sources/2605.23950-zhang-stop-comparing.pdf` |
+| ZHANG et al. 2026 | §2 [52] | *Binding Constraint Thesis*: em longo horizonte o *harness* determina o desempenho mais que o modelo | "For LLM agents operating on long-horizon tasks with comparable frontier models [...] The Binding Constraint Thesis asserts that, in this regime, HV is often comparable to or larger than MV, and may dominate it in many current long-horizon agent evaluations" (§3, p. 4); "Average HV is 18.48 pp² versus average MV of 2.37 pp², a ratio of 7.80×" (§4, p. 7) | DIVERGENTE (qualificadores). A tese formal e condicionada a "comparable frontier models" e diz "often comparable to or larger than", "may dominate". "Determina mais que o modelo" so aparece na Conclusao (§7). Ja apontado em [[2026-09-10-auditoria-referencias]] | `raw/sources/2605.23950-zhang-stop-comparing.pdf` |
 
 ### Citacoes orfas (no corpo, sem entrada na lista de 2026-09-11; todas tinham entrada em `HEAD`)
 
@@ -80,7 +80,7 @@ Corrigir no corpo:
 
 Lista de referencias:
 
-- Recolocar as seis entradas removidas e ainda citadas: ABNT NBR 6023, NBR 10520, NBR 15287, GIL 2022, IFMT 2022, PRODANOV; FREITAS 2013 (texto em `git show HEAD:dist/projeto-pcc.docx`, ¶ [183]-[185], [188], [191], [201]).
+- Recolocar as seis entradas removidas e ainda citadas: ABNT NBR 6023, NBR 10520, NBR 15287, GIL 2022, IFMT 2022, PRODANOV; FREITAS 2013 (texto em `git show HEAD:dist/projeto-de-pesquisa.docx`, ¶ [183]-[185], [188], [191], [201]).
 
 Falta ler (candidatas a ingest via `prompts/ingest.md`; nada em `raw/inbox/`):
 
@@ -90,7 +90,7 @@ Falta ler (candidatas a ingest via `prompts/ingest.md`; nada em `raw/inbox/`):
 
 ## Metodo
 
-1. `python tools/docx_prose.py dump dist/projeto-pcc.docx` em 2026-09-11; lista comparada com `git show HEAD:dist/projeto-pcc.docx`.
+1. `python tools/docx_prose.py dump dist/projeto-de-pesquisa.docx` em 2026-09-11; lista comparada com `git show HEAD:dist/projeto-de-pesquisa.docx`.
 2. Toda citacao autor-data do corpo localizada por indice de paragrafo.
 3. PDFs de `raw/sources/` e `files/` convertidos com `pdftotext -layout`; trechos localizados por `grep`, pagina pelo contador de form-feed conferido com a numeracao impressa.
 4. Obras sem PDF (Bogdanov, Pier, Earendil, HarnessRank, Zen, Runta, harness-bench) lidas por WebFetch na URL da referencia; harness-bench tambem por `gh repo view` e `gh api`.
@@ -100,7 +100,7 @@ Falta ler (candidatas a ingest via `prompts/ingest.md`; nada em `raw/inbox/`):
 
 ## Resolução (2026-09-11)
 
-Aplicado em `dist/projeto-pcc.docx` (indices do dump apos a edicao; PR da issue #70):
+Aplicado em `dist/projeto-de-pesquisa.docx` (indices do dump apos a edicao; PR da issue #70):
 
 - [26] Runta: frase de Bogdanov removida; "doze configuracoes de nove *harnesses*"; 17,5x marcado como calculo do autor.
 - [52] Lin: Tabela 1 citada com denominador (GPT-5.4, Terminal-Bench 2, 89 tarefas), 24,7 pp como calculo do autor. Zhang: "modelos de fronteira comparaveis", "frequentemente comparavel ou maior", "pode domina-la". HarnessRank: ordena por taxa de aprovacao com modelo fixo, custo e tokens ao lado. Runta: 5,3x marcado como calculo do autor. Databricks: "em alguns casos".
@@ -124,6 +124,6 @@ Pendente para o autor (em `_review.md`):
 - ABNT 2025a/2025b: NBR 6023:2025 §9.1 manda ordem crescente dos numerais; NBR 6023 = 2025a, NBR 15287 = 2025b, como esta. Sem troca; `dump` confere ([47], [168], [169]).
 - Rotulos de [57]: mantidos os eixos do livro de Prodanov e Freitas (natureza, abordagem, objetivos, procedimentos, metodo); registrado em [[metodologia-prodanov-freitas-2013]].
 - Bogdanov (2026): fora da lista e do texto, sem excecao em `AGENTS.md`. Liu et al. (2023): fora da lista desde 2026-09-14 (24 entradas). HarnessRank, Runta, Lee e Zhang: texto corrigido em 2026-09-11/14 ([52], [53], [55]).
-- Camada 1 como "estudo piloto": nao volta ao `.docx`. O projeto descreve o que sera feito ([59] apresenta a Camada 1 no futuro); os dados medidos ficam em `layer1/data/`, em `docs/spec/41-layer1-request-shape.md` e no slide 6 de `dist/apresentacao-pcc.html`.
+- Camada 1 como "estudo piloto": nao volta ao `.docx`. O projeto descreve o que sera feito ([59] apresenta a Camada 1 no futuro); os dados medidos ficam em `layer1/data/`, em `docs/spec/41-layer1-request-shape.md` e no slide 6 de `dist/apresentacao.html`.
 - Zhang, HAL e DeepSWE: numeros conferidos nos PDFs de `raw/sources/` (secoes "Verificacao no PDF" nas paginas); HAL corrigido (par "Sonnet 4.5 68->34" nao existe no v1).
 - "Learn Pi in 22 Min" e "vagas pedem Claude Code/Codex/Cursor": retirados da wiki como apoio; nao entram no texto.

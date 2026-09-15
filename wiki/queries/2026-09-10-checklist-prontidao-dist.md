@@ -1,8 +1,8 @@
 ---
-title: Checklist de prontidao atividade e PCC dist
+title: Checklist de prontidao atividade e projeto dist
 type: query
 summary: Gate de entrega: 4 marcadores, cronograma, objetivos, slop; o resto confere
-tags: [gate, entrega, atividade, pcc, checklist]
+tags: [gate, entrega, atividade, projeto, checklist]
 created: 2026-09-10
 updated: 2026-09-14
 sources: [wiki/sources/estrutura-projeto-template-ifmt-2022.md, wiki/sources/aula-5-citacoes-referencias.md]
@@ -12,7 +12,7 @@ sources: [wiki/sources/estrutura-projeto-template-ifmt-2022.md, wiki/sources/aul
 
 # Checklist de prontidao (`dist/`) — as of 2026-09-10
 
-Metodo: XML dos dois `.docx` + `docs/research/estrutura-do-projeto-e-revisao-do-pcc.md` + handouts em `files/`.
+Metodo: XML dos dois `.docx` + `docs/research/estrutura-do-projeto-e-revisao.md` + handouts em `files/`.
 
 ## Ja confere (verificado no XML)
 

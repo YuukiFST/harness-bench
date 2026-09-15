@@ -19,7 +19,7 @@ sources: []
 - *Preprint*, nao revisado por pares.
 - PDF: `raw/sources/2605.23950-zhang-stop-comparing.pdf`.
 
-## Referencia ABNT (como citada no PCC)
+## Referencia ABNT (como citada no projeto)
 
 ZHANG, Yunbei; WANG, Janet; GE, Yingqiang; XU, Weijie; HAMM, Jihun; REDDY, Chandan K. **Stop comparing LLM agents without disclosing the harness**. arXiv:2605.23950, 2026. *Preprint*, nao revisado por pares. Disponivel em: https://arxiv.org/abs/2605.23950. Acesso em: 28 ago. 2026.
 
@@ -54,7 +54,7 @@ Numeros conferidos em `raw/sources/2605.23950-zhang-stop-comparing.pdf` (pdftote
 
 Escopo restrito a longo horizonte + modelos de fronteira comparaveis; HV depende da amostragem de *harnesses*; eta2 com vies positivo em grids pequenos; metricas de trajetoria especificadas mas nao estimadas no grid.
 
-## Uso no PCC
+## Uso no projeto
 
 - Hipoteses/desenho: backbone estatistico de H1 (HV>0 em custo por tarefa concluida) e H2 (contraste *harness* vs *fork* com distancia ETCSOVG minima).
 - Instrumentacao: cartao ETCSOVG como apendice de especificacao dos bracos.
@@ -64,7 +64,7 @@ Escopo restrito a longo horizonte + modelos de fronteira comparaveis; HV depende
 
 - Citada em: §2 [52].
 - Afirmacao sustentada: tese formal condicionada a "comparable frontier models", "often comparable to or larger than", "may dominate" (§3); HV/MV 7,80x (§4).
-- Veredito: DIVERGENTE: projeto omite os qualificadores. Detalhe em [[2026-09-11-auditoria-conteudo-referencias-pcc]].
+- Veredito: DIVERGENTE: projeto omite os qualificadores. Detalhe em [[2026-09-11-auditoria-conteudo-referencias]].
 
 ## Contradictions
 

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Build the class deliverable from dist/projeto-pcc.docx.
+"""Build the class deliverable from dist/projeto-de-pesquisa.docx.
 
 The assignment is a partial delivery: the template filled with the introducao,
 the referencial teorico carrying four citations, and the references those
@@ -18,7 +18,7 @@ import shutil
 import zipfile
 from pathlib import Path
 
-SRC = Path(r"C:\Users\Desenvolvimento\Desktop\harness-bench\dist\projeto-pcc.docx")
+SRC = Path(r"C:\Users\Desenvolvimento\Desktop\harness-bench\dist\projeto-de-pesquisa.docx")
 DST = Path(r"C:\Users\Desenvolvimento\Desktop\harness-bench\dist\atividade-introducao-e-citacoes.docx")
 WORK = Path(r"C:\Users\Desenvolvimento\Desktop\pcc-patch\work-atividade")
 

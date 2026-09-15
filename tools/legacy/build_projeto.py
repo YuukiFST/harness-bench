@@ -1,5 +1,5 @@
-# RETIRED 2026-09-14: stopped reproducing dist/projeto-pcc.docx at cd30dbe; edit the document with tools/docx_prose.py dump | apply (AGENTS.md, "Project documents"). Kept for history only; do not run.
-"""Build dist/projeto-pcc.docx — the IFMT projeto de pesquisa (Metodologia Científica).
+# RETIRED 2026-09-14: stopped reproducing dist/projeto-de-pesquisa.docx at cd30dbe; edit the document with tools/docx_prose.py dump | apply (AGENTS.md, "Project documents"). Kept for history only; do not run.
+"""Build dist/projeto-de-pesquisa.docx — the IFMT projeto de pesquisa (Metodologia Científica).
 
 Structure, page budget and reduction ladder come from docs/spec/14-document-outline.md,
 which is the binding specification. The spine (tema, problema, H1/H2, objetivos) is
@@ -16,7 +16,7 @@ left, including any bare ticket reference that leaked into the body text.
 
 Usage:
     python -m pip install -r tools/requirements.txt
-    python tools/build_pcc.py
+    python tools/legacy/build_projeto.py
 """
 
 from __future__ import annotations
@@ -37,7 +37,7 @@ from docx.oxml import OxmlElement
 from docx.shared import Cm, Pt
 
 REPO = Path(__file__).resolve().parent.parent
-OUT = REPO / "dist" / "projeto-pcc.docx"
+OUT = REPO / "dist" / "projeto-de-pesquisa.docx"
 
 FONT = "Times New Roman"
 BODY_PT = 12

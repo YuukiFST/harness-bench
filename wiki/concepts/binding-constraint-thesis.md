@@ -22,7 +22,7 @@ Enunciado (source: [[stop-comparing-harness-zhang-2026]]): em tarefas de longo h
 
 Vale no regime longo-horizonte + modelos comparaveis; exclui curto-horizonte e pares desequilibrados. HV depende da amostragem de *harnesses* (sem distancia principiologica ainda). Desenho minimo: grid 2x2 com ordem, ambiente, script, API e paradas constantes (source: [[stop-comparing-harness-zhang-2026]]).
 
-## Uso no PCC
+## Uso no projeto
 
 H1 e HV>0 em [[succ-mtok]]; H2 e o contraste *harness* vs *fork* com distancia ETCSOVG minima. Reportar rankings por *harness* + contagens de reversao, nunca ranking unico. Ver [[desenho-experimental-harness-fixo]] e [[especificidade-modelo-inversao]].
 

@@ -1,7 +1,7 @@
 ---
 title: Pi Coding Agent
 type: entity
-summary: Braco do PCC; harness minimo de Mario Zechner, 4 ferramentas, sem MCP nem subagentes
+summary: Braco do projeto; harness minimo de Mario Zechner, 4 ferramentas, sem MCP nem subagentes
 tags: [pi, harness, bracos, minimalismo]
 created: 2026-09-10
 updated: 2026-09-14
@@ -22,9 +22,9 @@ Padrao: `read`, `write`, `edit`, `bash` (+ `grep`, `find`, `ls` disponiveis); sy
 - Alier: pi 14.660 tokens/4-4, mais barato da matriz CLI (source: [[scaffolding-matters-alier-forment-2026]]).
 - FrontierHarness: Pi 60,0%/$2,43; na tarefa-exemplo passa a $2,50 em 90 turnos vs $64,36/381 do Claude Code (source: [[frontierharness-runta-2026]]).
 
-## No PCC
+## No projeto
 
-Um dos dois bracos (com [[opencode]]) desde 2026-09-14: constroi o [[finn]] do zero, da mesma especificacao, unidade a unidade, via `pi --mode json` apontando `models.json` para o *proxy*. Camada 1: 5.676 bytes / 1.228 tokens / 4 schemas na primeira requisicao (pi 0.80.10, 28 ago. 2026), +555 bytes por passo. Referencia no PCC: Earendil (2026). Ver [[atribuicao-harness-vs-modelo]] e [[desenho-experimental-harness-fixo]].
+Um dos dois bracos (com [[opencode]]) desde 2026-09-14: constroi o [[finn]] do zero, da mesma especificacao, unidade a unidade, via `pi --mode json` apontando `models.json` para o *proxy*. Camada 1: 5.676 bytes / 1.228 tokens / 4 schemas na primeira requisicao (pi 0.80.10, 28 ago. 2026), +555 bytes por passo. Referencia no projeto: Earendil (2026). Ver [[atribuicao-harness-vs-modelo]] e [[desenho-experimental-harness-fixo]].
 
 ## Contradictions
 
