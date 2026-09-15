@@ -137,7 +137,7 @@ Companheiro de <code>dist/apresentacao/index.html</code> (18 slides). Leia em vo
 <h3>Capa</h3>
 <p class="meta"><b>30 s</b> · sem interação</p>
 <div class="blk"><b>Fale</b><div class="say">
-<p>Bom dia. Meu nome é Fausto Yuuki, curso Sistemas para Internet, orientadora professora Inara Silva. O projeto se chama "O <em>harness</em> como decisão do desenvolvedor": tokens e taxa de sucesso do OpenCode e do pi construindo um mesmo SaaS sob um mesmo modelo.</p>
+<p>Bom dia. Meu nome é Fausto Yuuki, curso Sistemas para Internet, orientadora professora Inara Silva. O projeto se chama "O <em>harness</em> como decisão do desenvolvedor": efeito sobre tokens e taxa de sucesso de agentes de codificação na construção de um mesmo produto com o modelo de linguagem fixo.</p>
 <p>Vou falar de um custo que a maioria das comparações ignora: o custo do <em>harness</em>, o pedaço do agente que não é o modelo.</p>
 </div></div>
 <div class="blk"><b>No slide</b><p><kbd>→</kbd> avança. <kbd>F</kbd> tela cheia antes de começar. <kbd>N</kbd> deve estar desligado.</p></div>
@@ -204,7 +204,7 @@ Companheiro de <code>dist/apresentacao/index.html</code> (18 slides). Leia em vo
 <p>Justificativa: quem paga é o desenvolvedor, na assinatura, e a empresa, em escala. As comparações publicadas usam tarefas isoladas e não dizem quanto custa entregar um produto inteiro com uma ferramenta em vez de outra.</p>
 <p>Tema: a escolha do <em>harness</em> como decisão de engenharia. Efeito sobre tokens consumidos e taxa de sucesso na construção de um mesmo produto, com o modelo fixo.</p>
 <p>Problema, e vou ler na íntegra: com o modelo já escolhido, quantos tokens a mais ou a menos custa construir o mesmo software com um <em>harness</em> em vez de outro? E quanto dessa diferença vem da carga fixa que cada <em>harness</em> envia em toda requisição?</p>
-<p>Objetivo geral: medir a diferença de tokens e de sucesso entre OpenCode e pi construindo o mesmo SaaS a partir da mesma especificação; separar a parte que vem da carga fixa; entregar um critério reproduzível.</p>
+<p>Objetivo geral: medir a diferença de tokens e de sucesso atribuível ao <em>harness</em> construindo o mesmo produto a partir da mesma especificação, com OpenCode e pi como braços; separar a parte que vem da carga fixa; entregar um critério reproduzível.</p>
 </div></div>
 <div class="blk"><b>Se perguntarem</b><ul class="q">
 <li><b>"Por que tokens e não dólares?"</b>Dólar depende do preço do modelo, do nível de assinatura e do dia. Token é a unidade que o <em>harness</em> controla. Custo em dinheiro entra como contrafactual rotulado, com preços de outros modelos.</li>
@@ -261,7 +261,7 @@ Companheiro de <code>dist/apresentacao/index.html</code> (18 slides). Leia em vo
 <h3>Hipóteses H1 e H2</h3>
 <p class="meta"><b>75 s</b> · painel da direita só com fontes externas; as barras do FrontierHarness crescem ao entrar</p>
 <div class="blk"><b>Fale</b><div class="say">
-<p>H1: entre OpenCode e pi, no mesmo modelo, a diferença de tokens para construir o Finn a partir da mesma especificação é relevante para quem paga, comparável a trocar de modelo. Refutada se os intervalos de tokens por construção se sobrepuserem e o teste pareado por unidade não apontar diferença.</p>
+<p>H1: entre dois <em>harnesses</em> no mesmo modelo (OpenCode e pi), a diferença de tokens para construir o mesmo produto (Finn) a partir da mesma especificação é relevante para quem paga, comparável a trocar de modelo. Refutada se os intervalos de tokens por construção se sobrepuserem e o teste pareado por unidade não apontar diferença.</p>
 <p>H2: a carga fixa por requisição explica a maior parte da diferença; o número de passos, a parte menor. Refutada se o número de passos explicar a maior parte. Esse desfecho é possível e reportável: um <em>harness</em> com mais ferramentas pode compensar a carga extra concluindo a unidade em menos passos.</p>
 <p>O painel usa só fontes externas. Para H1, as duas linhas do FrontierHarness: pi 60,0 % a US$ 2,43 por tarefa aprovada; OpenCode 50,0 % a US$ 3,24. Mesmo modelo, e o OpenCode paga 1,33× por tarefa aprovada e aprova 10 pontos a menos; as duas contas são minhas. Para H2, o Earendil: o pi tem 4 ferramentas, <em>prompt</em> de sistema e definições abaixo de 1.000 tokens; e a Databricks, citada pelo Earendil, mediu «3x less context per turn», com custo por tarefa acima de 2× e qualidade igual. Isso é o que H2 quer explicar, agora com a minha medição.</p>
 </div></div>
