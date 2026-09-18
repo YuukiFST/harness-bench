@@ -93,12 +93,12 @@ UNITS: list[tuple[str, str, str]] = [
 ]
 
 OBJECTIVES: list[tuple[str, str]] = [
-    ("Instrumento externo", "requisições, tokens, latência, idêntico para os dois braços"),
+    ("Instrumento externo", "requisições, tokens e latência por braço"),
     ("Especificação do Finn", "9 unidades, com testes de aceitação do autor"),
-    ("Espaço de trabalho inicial idêntico", "só a especificação e a pilha, congelado por hash"),
-    ("Construção completa nos dois <em>harnesses</em>", "mesmo modelo e <em>prompts</em>, n ≥ 3"),
+    ("Espaço de trabalho inicial idêntico", "para os dois braços, congelado por hash"),
+    ("Finn nos dois <em>harnesses</em>", "mesmo modelo e <em>prompts</em>, com repetição (n ≥ 3)"),
     ("Segundo modelo", "a ordenação se mantém ou inverte?"),
-    ("Tokens relatados × medidos", "divergência entre relato do <em>harness</em> e <em>proxy</em>"),
+    ("Tokens relatados × medidos", "divergência entre o relato do <em>harness</em> e o instrumento"),
     ("Publicar tudo", "executor, <em>prompts</em>, testes, dados e scripts, custo zero"),
 ]
 
