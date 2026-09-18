@@ -37,7 +37,9 @@ from pathlib import Path
 PARA = re.compile(r"<w:p[ >].*?</w:p>", re.S)
 TABLE = re.compile(r"<w:tbl>.*?</w:tbl>", re.S)
 RUN_TEXT = re.compile(r"<w:t(?: [^>]*)?>(.*?)</w:t>", re.S)
-RUN = re.compile(r"<w:r>.*?</w:r>", re.S)
+# Word adds attributes (w:rsidR...) to runs it touches; match them too, or
+# every paragraph the author edited in Word dumps empty (2026-09-18).
+RUN = re.compile(r"<w:r(?: [^>]*)?>.*?</w:r>", re.S)
 RPR = re.compile(r"<w:rPr>.*?</w:rPr>", re.S)
 MARKUP = re.compile(r"(\*\*.+?\*\*|\*.+?\*|\[\[FN\]\])")
 FOOTNOTE_ID = 2
