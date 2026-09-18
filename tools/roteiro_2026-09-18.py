@@ -282,10 +282,10 @@ def slide_card(i: int, s: tuple) -> str:
 
 def main() -> None:
     total = sum(int(s[1].split()[0]) for s in SLIDES)
-    skip12 = [4, 12, 15, 16, 17, 23, 32]
-    skip10 = skip12 + [11, 14, 22]
-    t12 = total - sum(int(SLIDES[i - 1][1].split()[0]) for i in skip12)
-    t10 = total - sum(int(SLIDES[i - 1][1].split()[0]) for i in skip10)
+    # The cut list is derived from the "pular se faltar tempo" markers so the
+    # two never disagree; the marked slides alone do not reach a 12-minute slot.
+    skip = [i for i, s in enumerate(SLIDES, 1) if len(s) > 6 and "pular" in s[6]]
+    t_skip = total - sum(int(SLIDES[i - 1][1].split()[0]) for i in skip)
     body = f"""
 <h1>Roteiro de estudo da apresentação</h1>
 <p class="sub">Projeto de pesquisa "{TITLE}" · Metodologia Científica · IFMT · setembro de 2026.<br>
@@ -298,7 +298,7 @@ Companheiro de <code>dist/apresentacao-explainer/index.html</code> (33 slides, o
 <h2 id="uso">Como usar este roteiro</h2>
 <div class="card">
 <ul>
-  <li><b>Tempo.</b> Falando tudo, cerca de {total // 60} min {total % 60:02d} s. Com 12 min, pule os slides {", ".join(map(str, skip12))} ({t12 // 60} min {t12 % 60:02d} s). Com 10 min, pule também {", ".join(map(str, skip10[len(skip12):]))} ({t10 // 60} min {t10 % 60:02d} s). Os cortáveis estão marcados "pular se faltar tempo".</li>
+  <li><b>Tempo.</b> Falando tudo, cerca de {total // 60} min {total % 60:02d} s. Pulando os {len(skip)} slides marcados "pular se faltar tempo" ({", ".join(map(str, skip))}), {t_skip // 60} min {t_skip % 60:02d} s.</li>
   <li><b>Blocos por slide:</b> <i>Fale</i> é o texto para dizer, em primeira pessoa, na ordem em que o slide revela. <i>Números</i> traz cada valor com o seu denominador. <i>Fontes</i> diz de onde veio cada afirmação. <i>Se perguntarem</i> antecipa a pergunta mais provável.</li>
   <li><b>Regra dos números:</b> nunca diga um número sem o denominador. "17,5×" sozinho é fraco; "17,5× entre doze configurações sobre o mesmo modelo, Kimi K3, 30 tarefas" fecha a pergunta óbvia.</li>
   <li><b>Ordem do documento.</b> O deck segue o projeto: capa, seção 1 (justificativa, tema, problema, objetivos, hipóteses), seção 2, seção 3, seções 4 a 6. Os índices <code>[n]</code> nas notas do deck (tecla <kbd>N</kbd>) e neste roteiro são os parágrafos do <code>.docx</code> no dump de 18 set. 2026.</li>
