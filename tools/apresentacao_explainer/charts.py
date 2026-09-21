@@ -68,11 +68,6 @@ def frontier_scatter(rows: Sequence[tuple[str, float, float, str]]) -> str:
         weight = "600" if arm in ("pi", "oc") else "400"
         cls = "lbl" if arm in ("pi", "oc") else "dim"
         out.append(f'<text class="{cls}" x="{cx+dx:.1f}" y="{cy+dy+6:.1f}" text-anchor="{anchor}" font-size="17" font-weight="{weight}">{name} · {fmt(pas)} % · US$ {fmt(cost,2)}</text>')
-    exo = next(r for r in rows if r[0] == "Exo Harness")
-    cc = next(r for r in rows if r[0] == "Claude Code")
-    y_arrow = sy(46.6)
-    out.append(f'<line class="s-acc" x1="{sx(exo[2]):.1f}" y1="{y_arrow:.1f}" x2="{sx(cc[2]):.1f}" y2="{y_arrow:.1f}" stroke-width="2" stroke-dasharray="6 6"/>')
-    out.append(f'<text class="f-acc" x="{(sx(exo[2])+sx(cc[2]))/2:.1f}" y="{y_arrow-10:.1f}" text-anchor="middle" font-size="18" font-weight="600">17,5× entre o mais barato e o mais caro (cálculo do autor)</text>')
     out.append("</svg>")
     return "".join(out)
 

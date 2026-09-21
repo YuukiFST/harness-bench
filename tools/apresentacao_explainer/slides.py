@@ -99,31 +99,31 @@ def s_capa() -> str:
 <div class="title-decor">{title_decor()}</div>
 <div class="reveal">
 <p class="title-inst">Instituto Federal de Mato Grosso · Campus Octayde Jorge da Silva · Sistemas para Internet</p>
-<h1 class="slide__display">O <em>harness</em> como decisão do desenvolvedor</h1>
+<h1 class="slide__display">Como o <em>harness</em> altera o custo e o desempenho do modelo</h1>
 <div class="title-rule"></div>
 <p class="title-who"><b>Fausto Yuuki T. A. Freire</b> · Orientadora: Profa. Inara Silva<br>
 <span class="slide__subtitle">Projeto de pesquisa · Metodologia Científica · Cuiabá, 2026</span></p>
 </div>"""
-    notes = "<b>Capa.</b> Título, autor e orientadora [4][5][12]. Projeto de pesquisa da disciplina de Metodologia Científica, curso de Sistemas para Internet, IFMT Campus Octayde Jorge da Silva [11]. Deck explicativo: mesma fala, gráficos das fontes do projeto."
+    notes = "<b>Capa.</b> Título, autor e orientadora [21][22][24]. Projeto de pesquisa da disciplina de Metodologia Científica, curso de Sistemas para Internet, IFMT Campus Octayde Jorge da Silva [23]. Deck explicativo: mesma fala, gráficos das fontes do projeto."
     return sec("title", "Capa", inner, notes)
 
 
 def s_kpis() -> str:
-    inner = head("O problema em uma tela", "Mesmo modelo, custo por tarefa <em>17,5×</em> diferente",
+    inner = head("O problema em uma tela", "Mesmo modelo, custo por tarefa aprovada de <em>US$ 1,05 a US$ 18,34</em>",
                  "FrontierHarness (Runta, 2026): 12 configurações de 9 <em>harnesses</em>, modelo Kimi K3, 30 tarefas, 1 tentativa por célula, set. 2026")
     inner += """
 <div class="kpis">
 <div class="kpi reveal"><div class="kpi__v">12</div><div class="kpi__l">configurações</div><div class="kpi__d">9 <em>harnesses</em> sobre o mesmo modelo, mesmas 30 tarefas, mesmo gateway</div></div>
 <div class="kpi reveal"><div class="kpi__v kpi__v--long">50,0–66,7 %</div><div class="kpi__l">taxa de aprovação</div><div class="kpi__d">17 pontos percentuais entre a pior e a melhor configuração</div></div>
 <div class="kpi reveal"><div class="kpi__v kpi__v--long">US$ 1,05–18,34</div><div class="kpi__l">custo por tarefa aprovada</div><div class="kpi__d">mediana por configuração; o modelo não mudou, só o <em>harness</em></div></div>
-<div class="kpi reveal"><div class="kpi__v">17,5×</div><div class="kpi__l">razão de custo</div><div class="kpi__d">calculada pelo autor sobre a tabela do post; Claude Code e DSH Creator aprovam as mesmas 19 tarefas</div></div>
+<div class="kpi reveal"><div class="kpi__v">5,6×</div><div class="kpi__l">mesmo pass, outro custo</div><div class="kpi__d">Claude Code e DSH Creator aprovam as mesmas 19 tarefas; razão declarada no post</div></div>
 </div>
 <div class="cards c2">
 <div class="card card--pi reveal"><span class="card__k">pi · braço deste projeto</span><span class="card__v num">60,0 % · US$ 2,43</span><span class="mute">4 ferramentas, prompt de sistema abaixo de 1.000 tokens (Earendil, 2026)</span></div>
 <div class="card card--oc reveal"><span class="card__k">OpenCode · braço deste projeto</span><span class="card__v num">50,0 % · US$ 3,24</span><span class="mute">planejamento, compactação, subagentes e permissões</span></div>
 </div>"""
-    inner += source("Runta (2026), blogue institucional, não revisado por pares; tabela «Pass Rate / Median Cost Per Pass». Quem paga é o desenvolvedor, na assinatura, e a empresa, em escala [27].")
-    notes = "<b>Justificativa [26].</b> «No FrontierHarness (Runta, 2026), doze configurações de nove harnesses sobre o mesmo modelo ficam entre 50,0% e 66,7% de aprovação, e o custo por tarefa concluída vai de US$ 1,05 a US$ 18,34, uma razão de 17,5x calculada pelo autor.» Os dois braços deste projeto estão no mesmo post: pi 60,0% a US$ 2,43, OpenCode 50,0% a US$ 3,24 [26]. Também [52]: Codex 66,7% a US$ 3,47; Claude Code 63,3% a US$ 18,34 (5,3x). Quem paga é o desenvolvedor e a empresa [27]."
+    inner += source("Runta (2026), blogue institucional, não revisado por pares; tabela «Pass Rate / Median Cost Per Pass». Quem paga é o desenvolvedor, na assinatura, e a empresa, em escala [44].")
+    notes = "<b>Justificativa [43].</b> «No FrontierHarness (Runta, 2026), doze configurações de nove harnesses sobre o mesmo modelo ficam entre 50,0% e 66,7% de aprovação, e o custo por tarefa concluída vai de US$ 1,05 a US$ 18,34.» Os dois braços deste projeto estão no mesmo post: pi 60,0% a US$ 2,43, OpenCode 50,0% a US$ 3,24 [43]. Também [69]: Codex 66,7% a US$ 3,47; Claude Code 63,3% a US$ 18,34 (5,3x). Quem paga é o desenvolvedor e a empresa [44]."
     return sec("dashboard", "O problema em números", inner, notes)
 
 
@@ -150,24 +150,24 @@ def s_anatomy() -> str:
 <li class="reveal"><b>Ning <em>et al.</em> (2026, §2)</b> · um <em>harness</em> «converte um modelo de linguagem sem estado em um agente funcional ao ancorar suas saídas em execução externa, estado persistente e realimentação verificável».</li>
 <li class="reveal"><b>Wang <em>et al.</em> (2026)</b> · monta os <em>prompts</em>, gerencia o estado, invoca as ferramentas e coordena o laço.</li>
 <li class="reveal"><b>Lee <em>et al.</em> (2026, §3)</b> · «um programa com estado que envolve um modelo de linguagem e determina que contexto o modelo vê a cada passo».</li>
-<li class="reveal"><b>Neste projeto</b> · o modelo é fixo em todos os braços; o <em>proxy</em> fica fora do <em>harness</em> e é o instrumento [63].</li>
+<li class="reveal"><b>Neste projeto</b> · o modelo é fixo em todos os braços; o <em>proxy</em> fica fora do <em>harness</em> e é o instrumento [80].</li>
 </ul>
 </div>
 </div>"""
     inner += source("Lin <em>et al.</em> (2026, §1); Ning <em>et al.</em> (2026, §2); Wang <em>et al.</em> (2026); Lee <em>et al.</em> (2026, §3). Todos <em>preprints</em>, não revisados por pares.")
-    notes = "<b>Referencial [49][50].</b> Ning et al. (2026, §2): definição citada. Wang et al. (2026): monta os prompts, gerencia o estado, invoca as ferramentas e coordena o laço. Lin et al. (2026, §1): prompt de sistema, ferramentas, middleware de contexto; «conjunto de componentes externos ao modelo e editáveis». [49]: os dois braços ficam em pontos distantes dessa camada: pi perto do ReAct mínimo com quatro ferramentas; OpenCode com planejamento, compactação, subagentes e permissões. O proxy externo é o instrumento [63], fora do harness."
+    notes = "<b>Referencial [66][67].</b> Ning et al. (2026, §2): definição citada. Wang et al. (2026): monta os prompts, gerencia o estado, invoca as ferramentas e coordena o laço. Lin et al. (2026, §1): prompt de sistema, ferramentas, middleware de contexto; «conjunto de componentes externos ao modelo e editáveis». [66]: os dois braços ficam em pontos distantes dessa camada: pi perto do ReAct mínimo com quatro ferramentas; OpenCode com planejamento, compactação, subagentes e permissões. O proxy externo é o instrumento [80], fora do harness."
     return sec("content", "O que é um harness", inner, notes)
 
 
 def s_components() -> str:
     inner = head("Componentes", "Quatro peças editáveis, dois braços em pontos distantes",
-                 "o pi fica perto do laço ReAct mínimo; o OpenCode carrega planejamento, compactação, subagentes e permissões [49]")
+                 "o pi fica perto do laço ReAct mínimo; o OpenCode carrega planejamento, compactação, subagentes e permissões [66]")
     rows = [
         ("Prompt de sistema", "Molda o estilo de trabalho. Viaja inteiro em toda requisição.", "2.499 bytes", "9.738 bytes", "Lin <em>et al.</em> (2026, §1); layer1/data"),
         ("Ferramentas", "Expõem sistema de arquivos e shell ao modelo. Esquemas viajam a cada requisição.", "4 esquemas", "9 esquemas", "Lin <em>et al.</em> (2026, §1); layer1/data"),
         ("Middleware de contexto", "Controla contexto, execução e recuperação: compactação, memória, permissões, verificação.", "não tem, por decisão", "tem", "Lin <em>et al.</em> (2026, §1); Ning <em>et al.</em> (2026, §2); Earendil (2026)"),
         ("Laço de execução", "Monta <em>prompts</em>, gerencia estado, invoca ferramentas, coordena o laço.", "ReAct mínimo", "planejamento e subagentes", "Wang <em>et al.</em> (2026); Yao <em>et al.</em> (2022)"),
-        ("Proxy externo", "Fora do <em>harness</em>: instrumento do projeto. Conta requisições, tokens e latência igual para os dois braços.", "o mesmo", "o mesmo", "Projeto, §3 [63]; objetivo 1"),
+        ("Proxy externo", "Fora do <em>harness</em>: instrumento do projeto. Conta requisições, tokens e latência igual para os dois braços.", "o mesmo", "o mesmo", "Projeto, §3 [80]; objetivo 1"),
     ]
     trs = "".join(
         f'<tr><td class="k">{k}</td><td>{d}</td><td class="n pi">{p}</td><td class="n oc">{o}</td><td class="mute" style="font-size:0.8em">{s}</td></tr>'
@@ -193,53 +193,52 @@ def s_layer1() -> str:
                  f"o que cada braço envia em toda requisição, medido contra um endpoint simulado: {fmt(tot[1]/tot[0])}× mais bytes e {fmt(pt[1]/pt[0])}× mais tokens de <em>prompt</em> no OpenCode")
     inner += f"""
 <div class="slide__inner" style="grid-template-columns:3fr 1.2fr;align-items:stretch">
-{figure(hbars(rows, " bytes", dec=0, aria="Bytes por requisição: prompt de sistema, esquemas de ferramentas e requisição inteira, pi contra OpenCode", height_per_row=68), "Primeira requisição de cada braço, mesma tarefa, mesmo endpoint simulado; determinístico, sem cota. É a carga fixa por requisição de que H2 depende [59].")}
+{figure(hbars(rows, " bytes", dec=0, aria="Bytes por requisição: prompt de sistema, esquemas de ferramentas e requisição inteira, pi contra OpenCode", height_per_row=68), "Primeira requisição de cada braço, mesma tarefa, mesmo endpoint simulado; determinístico, sem cota. É a carga fixa por requisição de que H2 depende [76].")}
 <div class="cards" style="grid-template-columns:1fr;align-content:center">
 <div class="card card--pi reveal"><span class="card__k">pi 0.80.10</span><span class="card__v num">{fmt_int(pt[0])} tokens</span><span class="mute">{sc[0]} esquemas de ferramenta · {fmt_int(tot[0])} bytes</span></div>
 <div class="card card--oc reveal"><span class="card__k">OpenCode 1.17.9</span><span class="card__v num">{fmt_int(pt[1])} tokens</span><span class="mute">{sc[1]} esquemas de ferramenta · {fmt_int(tot[1])} bytes</span></div>
-<div class="card reveal"><span class="card__k">o que isso não diz</span>«Mais bytes por requisição não significam, por si, resultado pior.» A Camada 2 mede se o <em>harness</em> com mais ferramentas compensa a carga concluindo em menos passos [59].</div>
+<div class="card reveal"><span class="card__k">o que isso não diz</span>«A Camada 2 também diz quanto dessa carga por requisição pesa no resultado.» A Camada 2 mede se o <em>harness</em> com mais ferramentas compensa a carga concluindo em menos passos [76].</div>
 </div>
 </div>"""
     inner += source("layer1/data/first_request.csv, 28 ago. 2026 (YuukiFST, 2026c). Tokens de <em>prompt</em> contados pelo endpoint simulado com um único tokenizador. Precedente externo: Databricks apud Earendil (2026), «Pi sent about 3x less context per turn».")
-    notes = "Camada 1 é medição própria, determinística, sem cota. Os valores estão no repositório (layer1/data). A razão 5,3x de bytes é conta sobre o CSV. Se perguntarem se isso já responde H2: não; H2 precisa do número de passos da Camada 2, porque o harness com mais ferramentas pode concluir a unidade em menos passos [46]."
+    notes = "Camada 1 é medição própria, determinística, sem cota. Os valores estão no repositório (layer1/data). A razão 5,3x de bytes é conta sobre o CSV. Se perguntarem se isso já responde H2: não; H2 precisa do número de passos da Camada 2, porque o harness com mais ferramentas pode concluir a unidade em menos passos [63]."
     return sec("chart", "Camada 1: carga fixa medida", inner, notes)
 
 
 # ---------------------------------------------------------------- tema, problema, objetivos
 
 def s_tema() -> str:
-    inner = head("Justificativa e tema", "Conhecer o <em>harness</em> virou parte do ofício",
-                 "as comparações publicadas usam tarefas isoladas e não dizem quanto custa entregar um produto inteiro com uma ferramenta em vez de outra [27]")
+    inner = head("Justificativa e tema", "Escolher o modelo deixou de bastar",
+                 "os modelos avançam, e com eles os <em>harnesses</em> e as ferramentas feitas para agentes; o <em>harness</em> é a parte dessa escolha que ninguém mediu em um produto inteiro [44]")
     inner += """
 <div class="cards c2">
-<div class="card reveal"><span class="card__k">Justificativa</span>Quem paga é o desenvolvedor, na assinatura, e a empresa, em escala. Os placares publicados comparam <em>harnesses</em> em suítes de tarefas soltas; nenhum mede o custo de construir um produto completo com um <em>harness</em> em vez de outro.</div>
-<div class="card reveal"><span class="card__k">Tema</span>A escolha do <em>harness</em> como decisão de engenharia: efeito sobre tokens consumidos e taxa de sucesso na construção de um mesmo produto, com o modelo fixo.</div>
-<div class="card card--hi reveal" style="grid-column:1/-1"><span class="card__k">Como o projeto mede isso [27]</span>«Este projeto medirá esse custo construindo o mesmo produto duas vezes: o Finn, um SaaS de financeiro por voz, será construído com o OpenCode e com o pi, sobre o mesmo modelo e a partir da mesma especificação, e os tokens que cada braço gastar até entregar o produto serão contados fora do <em>harness</em>.»</div>
+<div class="card reveal"><span class="card__k">Justificativa</span>Os agentes de codificação avançam em duas frentes: o modelo e o <em>harness</em> em volta dele. Next.js, TanStack e Effect se adaptam ao trabalho de agentes. Quem paga é o desenvolvedor, na assinatura, e a empresa, em escala; as comparações publicadas usam tarefas isoladas.</div>
+<div class="card reveal"><span class="card__k">Tema</span>O efeito do <em>harness</em> sobre o custo e o desempenho de um modelo de linguagem fixo: quantos tokens e que taxa de sucesso o mesmo modelo entrega ao construir o mesmo produto sob dois <em>harnesses</em>.</div>
+<div class="card card--hi reveal" style="grid-column:1/-1"><span class="card__k">Como o projeto mede isso [44]</span>«Este projeto mede esse custo construindo o Finn duas vezes, com o OpenCode e com o pi, sobre o mesmo modelo e a mesma especificação, com os tokens contados fora do <em>harness</em>.»</div>
 </div>"""
-    inner += source("Projeto, §1: justificativa [26]–[27], tema [29].")
-    notes = "<b>Justificativa [27], tema [29].</b> Ler o trecho [27] na íntegra. Se perguntarem por que não deixar o OpenCode construir e gerar a especificação para o pi: entrada desigual; o pi receberia um documento destilado de um sistema pronto e a diferença deixaria de ser atribuível ao harness."
+    inner += source("Projeto, §1: justificativa [43]–[44], tema [46].")
+    notes = "<b>Justificativa [43]–[44], tema [46].</b> Ler o tema [46] na íntegra. Se perguntarem por que não deixar o OpenCode construir e gerar a especificação para o pi: entrada desigual; o pi receberia um documento destilado de um sistema pronto e a diferença deixaria de ser atribuível ao harness."
     return sec("content", "Justificativa e tema", inner, notes)
 
 
 def s_problema() -> str:
     inner = """
-<div class="quote-mark reveal" aria-hidden="true">“</div>
-<blockquote class="reveal">Com o modelo já escolhido, <b>quantos tokens</b> a mais ou a menos custa construir o mesmo software com um <em>harness</em> em vez de outro? E <b>quanto dessa diferença</b> vem da carga fixa que cada <em>harness</em> envia em toda requisição?</blockquote>
-<cite class="reveal">Problema de pesquisa · Projeto, §1 [31]</cite>"""
-    notes = "<b>Problema [31].</b> Ler na íntegra. A segunda pergunta é H2; a primeira é H1. Objetivo geral [33]: medir a diferença de tokens e de sucesso atribuível ao harness construindo o mesmo produto a partir da mesma especificação, com OpenCode e pi como braços; separar a parte que vem da carga fixa; entregar critério reproduzível."
+<blockquote class="reveal">«Com o modelo já escolhido, <b>quanto mudam o custo em tokens e a taxa de sucesso</b> ao construir o mesmo software com um <em>harness</em> em vez de outro, e <b>quanto dessa diferença</b> vem da carga fixa que cada <em>harness</em> envia em toda requisição?»</blockquote>
+<cite class="reveal">Problema de pesquisa · Projeto, §1 [48]</cite>"""
+    notes = "<b>Problema [48].</b> Ler na íntegra. A segunda metade é H2; a primeira é H1. Objetivo geral [50]: medir a diferença de tokens e de sucesso atribuível ao harness construindo o mesmo produto a partir da mesma especificação, com OpenCode e pi como braços; separar a parte que vem da carga fixa; entregar critério reproduzível."
     return sec("quote", "Problema de pesquisa", inner, notes)
 
 
 def s_objetivos() -> str:
     inner = head("Objetivos", "Um objetivo geral, sete específicos",
-                 "medir a diferença de tokens e de sucesso atribuível ao <em>harness</em> construindo o mesmo produto, com OpenCode e pi como braços; separar a parte que vem da carga fixa; entregar critério reproduzível [33]")
+                 "medir a diferença de tokens e de sucesso atribuível ao <em>harness</em> construindo o mesmo produto, com OpenCode e pi como braços; separar a parte que vem da carga fixa; entregar critério reproduzível [50]")
     trs = "".join(
         f'<tr><td class="n" style="color:var(--accent);font-weight:600">{i+1}</td><td class="k">{k}</td><td>{d}</td></tr>'
         for i, (k, d) in enumerate(OBJECTIVES)
     )
     inner += f'<div class="table-wrap reveal"><table class="data"><tbody>{trs}</tbody></table></div>'
-    inner += source("Projeto, §1, objetivos específicos [35]–[41]. O objetivo 5 existe porque o efeito do <em>harness</em> é específico do modelo e pode inverter (Kapoor <em>et al.</em>, 2025; Lin <em>et al.</em>, 2026).")
-    notes = "<b>Objetivos específicos [35]–[41].</b> 1 instrumento externo idêntico; 2 especificação do Finn em nove unidades, testes de aceitação do autor independentes dos testes do agente; 3 espaço inicial idêntico, congelado por hash; 4 construção completa nos dois harnesses, unidade a unidade, mesmo modelo e prompts, repetição e dispersão; 5 segundo modelo, ordenação mantida ou invertida; 6 tokens relatados vs medidos; 7 publicar executor, prompts, testes, dados e scripts a custo zero."
+    inner += source("Projeto, §1, objetivos específicos [52]–[58]. O objetivo 5 existe porque o efeito do <em>harness</em> é específico do modelo e pode inverter (Kapoor <em>et al.</em>, 2025; Lin <em>et al.</em>, 2026).")
+    notes = "<b>Objetivos específicos [52]–[58].</b> 1 instrumento externo idêntico; 2 especificação do Finn em nove unidades, testes de aceitação do autor independentes dos testes do agente; 3 espaço inicial idêntico, congelado por hash; 4 construção completa nos dois harnesses, unidade a unidade, mesmo modelo e prompts, repetição e dispersão; 5 segundo modelo, ordenação mantida ou invertida; 6 tokens relatados vs medidos; 7 publicar executor, prompts, testes, dados e scripts a custo zero."
     return sec("table", "Objetivos", inner, notes)
 
 
@@ -247,7 +246,7 @@ def s_hipoteses() -> str:
     pi = next(r for r in FRONTIER if r[3] == "pi")
     oc = next(r for r in FRONTIER if r[3] == "oc")
     inner = head("Hipóteses", "H1: a diferença é relevante para quem paga. H2: a maior parte é carga fixa",
-                 "as duas com critério de refutação declarado antes da coleta [45][46]")
+                 "as duas com critério de refutação declarado antes da coleta [62][63]")
     inner += f"""
 <div class="slide__inner" style="grid-template-columns:1.1fr 1fr">
 <div class="cards" style="grid-template-columns:1fr">
@@ -257,7 +256,7 @@ def s_hipoteses() -> str:
 {figure(pair_bars((pi[1], pi[2]), (oc[1], oc[2])), "Ponto externo para H1: os dois braços no mesmo protocolo do FrontierHarness (Runta, 2026). Para H2: pi com 4 ferramentas e prompt abaixo de 1.000 tokens (Earendil, 2026); Databricks apud Earendil (2026), custo por tarefa acima de 2× em alguns casos com qualidade igual.")}
 </div>"""
     inner += source("H1: Runta (2026), blogue institucional, 1 set. 2026; Kimi K3 via Fireworks, 30 tarefas, 1 tentativa por célula; 1,33× e 10 pp calculados pelo autor. H2: Earendil (2026), blogue institucional, 4 ago. 2026.")
-    notes = "<b>Hipóteses [45][46].</b> H1 refutada se os intervalos de tokens por construção se sobrepuserem e o teste pareado por unidade não apontar diferença. H2 refutada se o número de passos explicar a maior parte, «desfecho possível e reportável». Painel da direita é fonte externa; a Camada 1 (medição própria) está na seção 3, depois das duas camadas."
+    notes = "<b>Hipóteses [62][63].</b> H1 refutada se os intervalos de tokens por construção se sobrepuserem e o teste pareado por unidade não apontar diferença. H2 refutada se o número de passos explicar a maior parte, «desfecho possível e reportável». Painel da direita é fonte externa; a Camada 1 (medição própria) está na seção 3, depois das duas camadas."
     return sec("content", "Hipóteses H1 e H2", inner, notes)
 
 
@@ -276,7 +275,7 @@ def s_timeline_a() -> str:
                  "quatro trabalhos que definem o laço, a interface e a lacuna de custo")
     inner += timeline_cards(TIMELINE_A, 4)
     inner += source("ReAct (ICLR 2023) e SWE-agent (NeurIPS 2024) têm revisão por pares; Kapoor <em>et al.</em> (2024, 2025) são <em>preprints</em>.")
-    notes = "<b>Referencial [49]–[55], parte 1.</b> Yang 2024: interface modelo-ambiente como objeto de projeto. Kapoor 2024/2025: custo ignorado, comparações entre harnesses raras; Anthropic melhor com BrowserUse, OpenAI com SeeAct (efeito específico do modelo, base do objetivo 5)."
+    notes = "<b>Referencial [66]–[72], parte 1.</b> Yang 2024: interface modelo-ambiente como objeto de projeto. Kapoor 2024/2025: custo ignorado, comparações entre harnesses raras; Anthropic melhor com BrowserUse, OpenAI com SeeAct (efeito específico do modelo, base do objetivo 5)."
     return sec("content", "Referencial 2022–2025", inner, notes)
 
 
@@ -285,7 +284,7 @@ def s_timeline_b() -> str:
                  "seis trabalhos do ano: definição, tese, otimização e o placar que motivou o projeto")
     inner += timeline_cards(TIMELINE_B, 3)
     inner += source("Todos <em>preprints</em> não revisados por pares, exceto o FrontierHarness (blogue institucional).")
-    notes = "<b>Referencial, parte 2.</b> Lin 2026 Tabela 1: 47,2% a 71,9%, GPT-5.4, Terminal-Bench 2, 89 tarefas, 24,7 pp (cálculo do autor). Zhang 2026: Binding Constraint Thesis. Lee 2026 Tabela 7: 76,4% vs 74,7%. Ning 2026 §5.2.1/§5.2.7: lacuna de atribuição, pede métricas por componente; este projeto responde pelo lado da medição, separando carga fixa de conversa [53]. Runta 2026: cache 25,0% vs 67,8%."
+    notes = "<b>Referencial, parte 2.</b> Lin 2026 Tabela 1: 47,2% a 71,9%, GPT-5.4, Terminal-Bench 2, 89 tarefas, 24,7 pp (cálculo do autor). Zhang 2026: Binding Constraint Thesis. Lee 2026 Tabela 7: 76,4% vs 74,7%. Ning 2026 §5.2.1/§5.2.7: lacuna de atribuição, pede métricas por componente; este projeto responde pelo lado da medição, separando carga fixa de conversa [70]. Runta 2026: cache 25,0% vs 67,8%."
     return sec("content", "Referencial 2026", inner, notes)
 
 
@@ -325,7 +324,7 @@ def s_ev_alier() -> str:
 </div>
 </div>"""
     inner += source("Alier Forment <em>et al.</em> (2026), arXiv:2608.08654, <em>preprint</em>; preços OpenRouter de 3 ago. 2026; verificação por estado do repositório, nunca auto-relato. As cinco regras (condicionar, separar, verificar, checar aderência, repetir) viram protocolo deste projeto.")
-    notes = "Alier Forment 2026: sem MCP 5,0x a 28x mais barato; pi o mais barato da matriz [52]. A razão 20x do abstract mistura modelos; a de 28x é o braço CLI. Regras adotadas: custo condicionado à conclusão, conclusão reportada em separado, verificação por estado. Escala linear no gráfico: a barra do pi fica em 3,6 % da do Claude Code, e essa desproporção é o ponto."
+    notes = "Alier Forment 2026: sem MCP 5,0x a 28x mais barato; pi o mais barato da matriz [69]. A razão 20x do abstract mistura modelos; a de 28x é o braço CLI. Regras adotadas: custo condicionado à conclusão, conclusão reportada em separado, verificação por estado. Escala linear no gráfico: a barra do pi fica em 3,6 % da do Claude Code, e essa desproporção é o ponto."
     return sec("chart", "Evidência: Alier Forment et al. (2026)", inner, notes)
 
 
@@ -355,7 +354,7 @@ Taxa de acerto de cache do Claude Code: 25,0 % ponderada por tokens contra 67,8 
 <span class="mute">TerminalBench-2, 89 tarefas, sem repetições nem variância: pelo critério de ~2× de Alier Forment, +1,7 pp não se distingue de ruído. Por isso este projeto reporta dispersão.</span></div>
 </div>"""
     inner += source("HarnessRank (2026), site, acesso em 28 ago. 2026, relido em 15 set. 2026; Runta (2026), blogue institucional; Lee <em>et al.</em> (2026), arXiv:2603.28052, <em>preprint</em>. Miller (2024) fundamenta o teste pareado e as barras de erro.")
-    notes = "HarnessRank [52]: ordena por aprovação com modelo fixo e publica custo e tokens ao lado. Ainda sem linhas publicadas (conferido em 15 set. 2026), por isso é precedente de método: timeout como resultado, descarte documentado, tokens sem cache, custo reportado e não estimado. Runta: cache 25,0% ponderado vs 67,8% na célula mediana [55]. Lee 2026: 76,4% vs 74,7%, sem variância."
+    notes = "HarnessRank [69]: ordena por aprovação com modelo fixo e publica custo e tokens ao lado. Ainda sem linhas publicadas (conferido em 15 set. 2026), por isso é precedente de método: timeout como resultado, descarte documentado, tokens sem cache, custo reportado e não estimado. Runta: cache 25,0% ponderado vs 67,8% na célula mediana [72]. Lee 2026: 76,4% vs 74,7%, sem variância."
     return sec("content", "Evidência: regras de medição", inner, notes)
 
 
@@ -370,8 +369,8 @@ def s_como() -> str:
     ]
     inner = head("Como o projeto funciona", "O mesmo produto, construído duas vezes", "a ordem importa: especificação, dois braços do zero, <em>proxy</em>, critério")
     inner += pipeline(steps)
-    inner += source("Projeto, §1 [27] e §3 [59]–[66]. Braços: OpenCode (Opencode, 2026a) e pi (Earendil, 2026), código aberto, sem interface. «Este projeto não escreve <em>harness</em> algum; escreve o instrumento, os <em>prompts</em> e os testes de aceitação» [60].")
-    notes = "<b>Como o projeto funciona [27][43][59][61].</b> Dizer em voz alta a ordem: especificação → dois braços do zero → proxy → critério. Camada 1 e Camada 2, matriz e limites vêm nos slides seguintes; aqui só a visão geral. Classificação e uso de IA já foram ditos, na ordem do projeto [57][58]."
+    inner += source("Projeto, §1 [44] e §3 [76]–[83]. Braços: OpenCode (Opencode, 2026a) e pi (Earendil, 2026), código aberto, sem interface. «O projeto escreve apenas o instrumento, os <em>prompts</em> e os testes de aceitação» [77].")
+    notes = "<b>Como o projeto funciona [44][60][76][78].</b> Dizer em voz alta a ordem: especificação → dois braços do zero → proxy → critério. Camada 1 e Camada 2, matriz e limites vêm nos slides seguintes; aqui só a visão geral. Classificação e uso de IA já foram ditos, na ordem do projeto [74][75]."
     return sec("content", "Como o projeto funciona", inner, notes)
 
 
@@ -386,7 +385,7 @@ def s_finn() -> str:
 <div class="card reveal"><span class="card__k">Custo zero por padrão</span>Whisper local; IA por API atrás de <em>flag</em> por empresa, desligada (#4, #12, #17). Toda escrita confirma antes de valer (#5, #20). O <em>pipeline</em> de sete passos da <em>issue</em> #14 aparece com executar e negar juntos.</div>
 </div>"""
     inner += source("Finn (YuukiFST, 2026b): github.com/YuukiFST/Finn. Decisões de produto nas <em>issues</em> #2–#10; decisões técnicas em #11–#22. Em ferrugem, o passo que a unidade U4 implementa.")
-    notes = "<b>Finn (YuukiFST, 2026b) [61].</b> Apresentar o produto antes de usá-lo como suíte: SaaS de financeiro por voz para pequenas empresas, do próprio autor, especificado em 21 issues fechadas antes do experimento. Ponto a dizer: é um produto de verdade, com pilha fixa, não uma suíte de tarefas isoladas como as das comparações publicadas."
+    notes = "<b>Finn (YuukiFST, 2026b) [78].</b> Apresentar o produto antes de usá-lo como suíte: SaaS de financeiro por voz para pequenas empresas, do próprio autor, especificado em 21 issues fechadas antes do experimento. Ponto a dizer: é um produto de verdade, com pilha fixa, não uma suíte de tarefas isoladas como as das comparações publicadas."
     return sec("content", "Finn: o produto", inner, notes)
 
 
@@ -404,8 +403,8 @@ def s_spec() -> str:
 <div class="card reveal"><span class="card__k">Escore</span>Fração dos testes de aceitação do autor, <em>held-out</em>, rodados sobre uma cópia do espaço ao fim de cada unidade. Unidade concluída quando todos os seus testes passam; construção concluída quando todos passam ao fim.</div>
 <div class="card reveal"><span class="card__k">Executor</span>Invoca o <em>harness</em> uma vez por unidade, em ordem, com <em>prompt</em> idêntico; o que o agente construiu em uma unidade é o ponto de partida da seguinte.</div>
 </div>"""
-    inner += source("Projeto, §3 [61]. Ordem: #15 tenant, #16 governança, #17 flags, #14 pipeline de voz, #20 confirmação, #21 log, #19 relatório, #18 agendador, #22 cobrança.")
-    notes = "<b>Suíte [61].</b> O autor escreve, antes de qualquer execução, uma especificação única congelada por SHA-256: produto, pilha, restrições gerais e nove unidades em ordem de dependência. Escore: fração dos testes de aceitação do autor, held-out. Unidades não são independentes: a seguinte parte do que o mesmo braço construiu; essa dependência é custo do harness e é reportada por unidade."
+    inner += source("Projeto, §3 [78]. Ordem: #15 tenant, #16 governança, #17 flags, #14 pipeline de voz, #20 confirmação, #21 log, #19 relatório, #18 agendador, #22 cobrança.")
+    notes = "<b>Suíte [78].</b> O autor escreve, antes de qualquer execução, uma especificação única congelada por SHA-256: produto, pilha, restrições gerais e nove unidades em ordem de dependência. Escore: fração dos testes de aceitação do autor, held-out. Unidades não são independentes: a seguinte parte do que o mesmo braço construiu; essa dependência é custo do harness e é reportada por unidade."
     return sec("content", "A especificação em 9 unidades", inner, notes)
 
 
@@ -421,8 +420,8 @@ def s_classificacao() -> str:
 <div class="table-wrap reveal"><table class="data"><tbody>{trs}</tbody></table></div>
 <div class="card card--hi reveal"><span class="card__k">Por que exploratória</span>A comparação de dois <em>harnesses</em> construindo o mesmo produto completo do zero, a partir da mesma especificação, não tem precedente publicado. O que já existe compara <em>harnesses</em> em suítes de tarefas isoladas.</div>
 </div>"""
-    inner += source("Projeto, §3, parágrafo de classificação [57]; sem manual de metodologia citado: as referências são só sobre o <em>harness</em>.")
-    notes = "<b>Classificação [43][57].</b> Aplicada; quantitativa (tokens e sucesso) e qualitativa (atribuição à carga fixa ou aos passos); exploratória «porque a comparação de dois harnesses construindo o mesmo produto completo do zero, a partir da mesma especificação, não tem precedente publicado»; experimental, VI o harness; dedutiva."
+    inner += source("Projeto, §3, parágrafo de classificação [74]; sem manual de metodologia citado: as referências são só sobre o <em>harness</em>.")
+    notes = "<b>Classificação [60][74].</b> Aplicada; quantitativa (tokens e sucesso) e qualitativa (atribuição à carga fixa ou aos passos); exploratória «porque a comparação de dois harnesses construindo o mesmo produto completo do zero, a partir da mesma especificação, não tem precedente publicado»; experimental, VI o harness; dedutiva."
     return sec("table", "Classificação da pesquisa", inner, notes)
 
 
@@ -448,8 +447,8 @@ def s_ia() -> str:
 </ol>
 <span class="mute" style="display:block;margin-top:8px">Mapa fechado: nada a decidir · base da especificação congelada dos dois braços</span></div>
 </div>"""
-    inner += source("Finalidade declarada: entender o tema, buscar artigos e registrar as decisões de produto e de pilha do Finn antes do experimento. Projeto, §3 [58] (Karpathy, 2026; YuukiFST, 2026a, 2026c; Brasil, 2026).")
-    notes = "<b>Uso de IA [58].</b> LLM Wiki instanciado no repositório (YuukiFST, 2026c). Helmsman: #2–#10 perguntas de produto que só o autor respondeu; #11–#22 decisões técnicas do agente, cada uma com alternativas, critério e o que trava para as seguintes; #11–#13 dependiam de fato externo e foram resolvidas por subagentes de pesquisa. O autor responde pelo texto final e por cada decisão de produto."
+    inner += source("Finalidade declarada: entender o tema, buscar artigos e registrar as decisões de produto e de pilha do Finn antes do experimento. Projeto, §3 [75] (Karpathy, 2026; YuukiFST, 2026a, 2026c; Brasil, 2026).")
+    notes = "<b>Uso de IA [75].</b> LLM Wiki instanciado no repositório (YuukiFST, 2026c). Helmsman: #2–#10 perguntas de produto que só o autor respondeu; #11–#22 decisões técnicas do agente, cada uma com alternativas, critério e o que trava para as seguintes; #11–#13 dependiam de fato externo e foram resolvidas por subagentes de pesquisa. O autor responde pelo texto final e por cada decisão de produto."
     return sec("content", "Uso de IA declarado", inner, notes)
 
 
@@ -460,10 +459,10 @@ def s_camadas() -> str:
     inner += """
 <div class="cards c2">
 <div class="card reveal"><span class="card__k">Camada 1</span>Forma da requisição contra endpoint simulado: esquemas, bytes de <em>prompt</em>, tokens por passo. Determinística, sem cota. «Fornece a carga fixa por requisição de que H2 depende.»</div>
-<div class="card reveal"><span class="card__k">Camada 2</span>Construção do produto no modelo real via <em>proxy</em>. Estocástica, consome cota, n ≥ 3 por célula. Limite único: relógio de parede por unidade, 3× a maior mediana dos braços nas unidades-piloto; sem teto de passos, porque o teto seria decisão de projeto do <em>harness</em> [64].</div>
+<div class="card reveal"><span class="card__k">Camada 2</span>Construção do produto no modelo real via <em>proxy</em>. Estocástica, consome cota, n ≥ 3 por célula. Limite único: relógio de parede por unidade, 3× a maior mediana dos braços nas unidades-piloto; sem teto de passos, porque o teto seria decisão de projeto do <em>harness</em> [81].</div>
 </div>"""
-    inner += source("O <em>proxy</em> conta tokens sobre os bytes transmitidos, um só tokenizador para os dois braços; o <em>gateway</em> injeta conteúdo, deslocamento aditivo por requisição que não se cancela em razão, por isso o relatório do <em>gateway</em> fica para verificação cruzada [63].")
-    notes = "<b>Método [59][63][64].</b> Camada 1: determinística, sem cota. Camada 2: estocástica, consome cota. «Mais bytes por requisição não significam, por si, resultado pior.» Proxy reverso força o relatório de uso, conta tokens sobre os bytes transmitidos com um único tokenizador; o gateway injeta conteúdo, deslocamento aditivo que não se cancela em razão [63]. Limite único: relógio de parede por unidade [64]."
+    inner += source("O <em>proxy</em> conta tokens sobre os bytes transmitidos, um só tokenizador para os dois braços; o <em>gateway</em> injeta conteúdo, deslocamento aditivo por requisição que não se cancela em razão, por isso o relatório do <em>gateway</em> fica para verificação cruzada [80].")
+    notes = "<b>Método [76][80][81].</b> Camada 1: determinística, sem cota. Camada 2: estocástica, consome cota. «A Camada 2 também diz quanto dessa carga por requisição pesa no resultado.» Proxy reverso força o relatório de uso, conta tokens sobre os bytes transmitidos com um único tokenizador; o gateway injeta conteúdo, deslocamento aditivo que não se cancela em razão [80]. Limite único: relógio de parede por unidade [81]."
     return sec("chart", "Duas camadas de medição", inner, notes)
 
 
@@ -488,11 +487,11 @@ def s_matriz() -> str:
 <div class="cards" style="grid-template-columns:1fr">
 <div class="card card--hi reveal"><span class="card__k">Braços</span>OpenCode e pi: código aberto, sem interface (<code>opencode run</code>, <code>pi --mode json</code>), URL base OpenAI-compatível. Nenhum <em>harness</em> escrito pelo projeto.</div>
 <div class="card reveal"><span class="card__k">Segundo nível de modelo</span>Responde ao objetivo 5: a ordenação entre os braços se mantém ou inverte quando o modelo muda? Conclusões por nível.</div>
-<div class="card reveal"><span class="card__k">Ameaça principal</span>Variância entre execuções no nível gratuito. Resposta: n ≥ 3, mediana com dispersão, reduzir cobertura antes de reduzir repetições [65].</div>
+<div class="card reveal"><span class="card__k">Ameaça principal</span>Variância entre execuções no nível gratuito. Resposta: n ≥ 3, mediana com dispersão, reduzir cobertura antes de reduzir repetições [82].</div>
 </div>
 </div>"""
-    inner += source("Projeto, §3: braços [60], células [65], classes [67]. Pilha fixa TypeScript, TanStack Start, tRPC, Drizzle, PostgreSQL, Vitest.")
-    notes = "<b>Braços [60], células [65], classes [67].</b> Células (braço, nível) com n ≥ 3 construções; dois níveis gratuitos no mesmo gateway [62]. Classes: não concluída = resultado com a fração aprovada, a construção segue; descartada = medição inconfiável descarta a construção."
+    inner += source("Projeto, §3: braços [77], células [82], classes [84]. Pilha fixa TypeScript, TanStack Start, tRPC, Drizzle, PostgreSQL, Vitest.")
+    notes = "<b>Braços [77], células [82], classes [84].</b> Células (braço, nível) com n ≥ 3 construções; dois níveis gratuitos no mesmo gateway [79]. Classes: não concluída = resultado com a fração aprovada, a construção segue; descartada = medição inconfiável descarta a construção."
     return sec("content", "Braços e matriz experimental", inner, notes)
 
 
@@ -505,8 +504,8 @@ def s_estatistica() -> str:
 <div class="card reveal"><span class="card__k">Teste</span><span class="card__v">Wilcoxon dos postos sinalizados</span>Bilateral, α = 0,05, pareado por unidade, sobre tokens por unidade e Succ/Mtok por unidade. Não paramétrico porque nove pares não sustentam suposição distribucional; pareado porque a dificuldade da unidade é o maior fator de perturbação (Miller, 2024).</div>
 <div class="card reveal"><span class="card__k">Poder</span><span class="card__v num">MDE ≈ 0,76σ</span>Com n = 3 por célula e 9 unidades. Valor crítico de W para k = 9 pares, bilateral, α = 0,05: 5. Unidades não são independentes (a seguinte parte do que o mesmo braço construiu): essa dependência é custo do <em>harness</em> e é reportada por unidade.</div>
 </div>"""
-    inner += source("Projeto, §3 [55][66]. Miller (2024), arXiv:2411.00640, <em>preprint</em>: barras de erro e teste pareado em avaliações de modelos.")
-    notes = "<b>Métrica e estatística [55][66].</b> Medida principal: tokens por construção, contados no proxy, sempre ao lado da fração final de testes aprovados. Wilcoxon bilateral, α = 0,05, pareado por unidade. MDE ≈ 0,76σ com n = 3 e 9 unidades. O deck original tinha uma simulação interativa aqui; este mostra só a regra."
+    inner += source("Projeto, §3 [72][83]. Miller (2024), arXiv:2411.00640, <em>preprint</em>: barras de erro e teste pareado em avaliações de modelos.")
+    notes = "<b>Métrica e estatística [72][83].</b> Medida principal: tokens por construção, contados no proxy, sempre ao lado da fração final de testes aprovados. Wilcoxon bilateral, α = 0,05, pareado por unidade. MDE ≈ 0,76σ com n = 3 e 9 unidades. O deck original tinha uma simulação interativa aqui; este mostra só a regra."
     return sec("content", "Succ/Mtok e teste pareado", inner, notes)
 
 
@@ -520,8 +519,8 @@ def s_limitacoes() -> str:
 <div class="card reveal"><span class="card__k">Especificação humana e trajetória própria</span>O autor escreve a especificação, e cada braço carrega os próprios erros de uma unidade à seguinte. Mitigação: mesma entrada e mesmo início vazio para os dois, comparação pareada por unidade.</div>
 <div class="card reveal"><span class="card__k">Sem placar público</span>Suíte própria, válido só braço × braço; valores absolutos sem placar; dólares externos de outros modelos e níveis pagos entram como contrafactual rotulado.</div>
 </div>"""
-    inner += source("Projeto, §3 [69]; variância como principal ameaça [65]. Evidência de inversão: Kapoor <em>et al.</em> (2025), §4.1.")
-    notes = "<b>Limitações [69].</b> Quatro declaradas: efeito específico do modelo (objetivo 5); um único produto sobre uma única pilha; especificação escrita pelo autor e cada braço carregando os próprios erros; valores absolutos sem placar público. Variância como principal ameaça [65]. A evidência real de inversão é Kapoor et al. (2025) [55]."
+    inner += source("Projeto, §3 [86]; variância como principal ameaça [82]. Evidência de inversão: Kapoor <em>et al.</em> (2025), §4.1.")
+    notes = "<b>Limitações [86].</b> Quatro declaradas: efeito específico do modelo (objetivo 5); um único produto sobre uma única pilha; especificação escrita pelo autor e cada braço carregando os próprios erros; valores absolutos sem placar público. Variância como principal ameaça [82]. A evidência real de inversão é Kapoor et al. (2025) [72]."
     return sec("content", "Limitações", inner, notes)
 
 
@@ -535,8 +534,8 @@ def s_orcamento() -> str:
 <div class="kpi reveal"><div class="kpi__v">R$ 0,00</div><div class="kpi__l">máquinas</div><div class="kpi__d">estação NixOS e estação Windows, já disponíveis</div></div>
 </div>
 <div class="card card--hi reveal"><span class="card__k">O que limita de fato</span>A cota gratuita: um lote da matriz por dia, ao longo de dias. Por isso o cronograma reserva dois meses para a matriz e a análise vem só depois.</div>"""
-    inner += source("Projeto, §4, Tabela 1 [71]–[83].")
-    notes = "<b>Orçamento [71]–[83]:</b> inferência R$ 0,00 (nível gratuito do gateway), harnesses e ferramentas R$ 0,00, máquinas R$ 0,00. Cota gratuita é o limite vinculante; lotes ao longo de dias."
+    inner += source("Projeto, §4, Tabela 1 [88]–[100].")
+    notes = "<b>Orçamento [88]–[100]:</b> inferência R$ 0,00 (nível gratuito do gateway), harnesses e ferramentas R$ 0,00, máquinas R$ 0,00. Cota gratuita é o limite vinculante; lotes ao longo de dias."
     return sec("dashboard", "Orçamento", inner, notes)
 
 
@@ -550,8 +549,8 @@ def s_cronograma() -> str:
     inner = head("Cronograma", "Ago. 2026 a jan. 2027",
                  "toda a escrita concluída em set. 2026 (teal); instrumento, especificação e testes em out–nov; matriz em dez–jan; análise em jan")
     inner += f'<div class="gantt">{hdr}{"".join(rows)}</div>'
-    inner += source("Projeto, §5, Tabela 2 [85]–[163]. Experimentos práticos a partir de outubro; revisão final e apresentação em setembro.")
-    notes = "<b>Cronograma [85]–[163]:</b> ago–set leitura, definição do tema e toda a escrita (concluída em set. 2026); out–nov instrumento, especificação e testes de aceitação; matriz dez–jan; análise em jan; revisão final e apresentação em set."
+    inner += source("Projeto, §5, Tabela 2 [102]–[180]. Experimentos práticos a partir de outubro; revisão final e apresentação em setembro.")
+    notes = "<b>Cronograma [102]–[180]:</b> ago–set leitura, definição do tema e toda a escrita (concluída em set. 2026); out–nov instrumento, especificação e testes de aceitação; matriz dez–jan; análise em jan; revisão final e apresentação em set."
     return sec("content", "Cronograma", inner, notes)
 
 
@@ -561,7 +560,7 @@ def s_refs() -> str:
     inner = head("Referências", "As 21 entradas da seção 6",
                  "formato ABNT abreviado; 18 sobre o <em>harness</em>, 3 sobre o método de trabalho declarado (Portaria CNPq, LLM Wiki, Helmsman)")
     inner += '<div class="refs reveal">' + "".join(f"<p>{r}</p>" for r in REFS) + "</div>"
-    notes = "<b>Referências [166]–[186].</b> Lista completa com 21 entradas: 18 sobre o harness, 3 sobre o método de trabalho declarado; normas e manuais de metodologia saíram em 14 set. 2026. Preprints marcados. HarnessRank (2026) está na lista e é citado em §2 [52]."
+    notes = "<b>Referências [183]–[203].</b> Lista completa com 21 entradas: 18 sobre o harness, 3 sobre o método de trabalho declarado; normas e manuais de metodologia saíram em 14 set. 2026. Preprints marcados. HarnessRank (2026) está na lista e é citado em §2 [69]."
     return sec("content", "Referências", inner, notes)
 
 
@@ -575,7 +574,7 @@ def s_fecho() -> str:
 <p class="end-thanks">Obrigado. Perguntas?</p>
 <p class="slide__subtitle">github.com/YuukiFST/harness-bench (YuukiFST, 2026c) · github.com/YuukiFST/Finn (YuukiFST, 2026b)</p>
 </div>"""
-    notes = "<b>Fecho.</b> Retomar o problema [31] e o produto [57]: um critério de escolha que um desenvolvedor ou uma empresa poderá aplicar. Repositórios YuukiFST/Finn [184] e YuukiFST/harness-bench [185]."
+    notes = "<b>Fecho.</b> Retomar o problema [48] e o produto [74]: um critério de escolha que um desenvolvedor ou uma empresa poderá aplicar. Repositórios YuukiFST/Finn [201] e YuukiFST/harness-bench [202]."
     return sec("end", "Fecho", inner, notes)
 
 
@@ -585,7 +584,7 @@ def all_slides() -> str:
     # dos parágrafos [n] do dump (tools/docx_prose.py dump).
     parts = [
         s_capa(),
-        divider("01", "Seção 1", "Introdução", "Justificativa, tema, problema, objetivos e hipóteses. Mesmo modelo, mesmas tarefas: o custo por tarefa concluída muda 17,5× conforme o <em>harness</em>."),
+        divider("01", "Seção 1", "Introdução", "O <em>harness</em> muda o que o mesmo modelo custa e entrega: por que isso importa, a pergunta que abre e o que o projeto promete medir."),
         s_kpis(),
         s_frontier(),
         s_tema(),
