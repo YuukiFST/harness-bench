@@ -20,13 +20,13 @@ SLIDES = [
    "A ideia em uma frase: na era dos agentes, o modelo não avança sozinho. O <em>harness</em> em volta dele avança junto, e é ele que eu meço."],
   [], [], [], "<kbd>→</kbd> avança. <kbd>F</kbd> tela cheia antes de começar. <kbd>N</kbd> (notas) desligado."),
  ("Seção 1 · Introdução", "10 s", [
-   "Seção 1, na ordem do documento: justificativa, tema, problema, objetivos, metodologia e hipóteses. Começo pelo número que motivou tudo: mesmo modelo, mesmas tarefas, custo por tarefa 17,5 vezes diferente."],
+   "Seção 1. O <em>harness</em> muda o que o mesmo modelo custa e entrega. Vou mostrar por que isso importa, a pergunta que abre e o que o projeto promete medir."],
   [], [], [], "só passar"),
  ("O problema em números", "60 s", [
    "FrontierHarness, setembro de 2026: doze configurações de nove <em>harnesses</em>, todas sobre o mesmo modelo, o Kimi K3, 30 tarefas, uma tentativa por célula.",
-   "A taxa de aprovação fica entre 50,0 % e 66,7 %. O custo por tarefa aprovada vai de US$ 1,05 a US$ 18,34. Razão de 17,5 vezes, cálculo meu sobre a tabela do post. O modelo não mudou; o que mudou foi o <em>harness</em>.",
+   "A taxa de aprovação fica entre 50,0 % e 66,7 %. O custo por tarefa aprovada vai de US$ 1,05 a US$ 18,34. Claude Code e DSH Creator aprovam as mesmas 19 tarefas e um custa 5,6 vezes o outro, razão que o próprio post declara. O modelo não mudou; o que mudou foi o <em>harness</em>.",
    "Os dois cartões de baixo são os meus braços: pi, 60,0 % a US$ 2,43; OpenCode, 50,0 % a US$ 3,24. Quem paga essa conta é o desenvolvedor, na assinatura, e a empresa, em escala."],
-  [("17,5×", "US$ 18,34 ÷ US$ 1,05; cálculo do autor"), ("50,0–66,7 %", "aprovação, 12 configurações, Kimi K3, 30 tarefas, 1 tentativa"), ("pi US$ 2,43", "60,0 % de aprovação, mesmo post"), ("OpenCode US$ 3,24", "50,0 % de aprovação, mesmo post")],
+  [("US$ 1,05–18,34", "custo por tarefa aprovada, 12 configurações, Kimi K3, 30 tarefas, 1 tentativa"), ("5,6×", "Claude Code vs DSH Creator, mesma aprovação de 63,3 %; razão declarada no post"), ("50,0–66,7 %", "aprovação, 12 configurações, Kimi K3, 30 tarefas, 1 tentativa"), ("pi US$ 2,43", "60,0 % de aprovação, mesmo post"), ("OpenCode US$ 3,24", "50,0 % de aprovação, mesmo post")],
   ["Runta (2026), <i>Introducing the FrontierHarness eval</i>, blogue institucional de 1 set. 2026, não revisado por pares. Diga isso antes que perguntem."],
   [("Isso é fonte confiável?", "É a única medição pública que fixa o modelo e varia o <em>harness</em> em escala. Uso como motivação. A evidência revisada por pares está no slide 12: SWE-agent, NeurIPS 2024."),
    ("Uma tentativa por célula não é pouco?", "É. Por isso o meu desenho pede n ≥ 3 por célula e reporta mediana com dispersão.")],
@@ -239,7 +239,7 @@ QA = [
 ]
 
 NUMS = [
- ("17,5×", "razão de custo por tarefa concluída", "12 configurações, 9 harnesses, Kimi K3, 30 tarefas, 1 tentativa, set. 2026", "Runta (2026); cálculo do autor"),
+ ("5,6×", "Claude Code vs DSH Creator, mesma aprovação de 63,3 %", "12 configurações, 9 harnesses, Kimi K3, 30 tarefas, 1 tentativa, set. 2026", "Runta (2026); razão declarada no post"),
  ("50,0–66,7 %", "faixa de aprovação", "idem", "Runta (2026)"),
  ("US$ 1,05–18,34", "custo por tarefa concluída", "idem", "Runta (2026)"),
  ("US$ 2,43 / 60,0 %", "pi", "idem", "Runta (2026)"),
@@ -300,7 +300,7 @@ Companheiro de <code>dist/apresentacao-explainer/index.html</code> (33 slides, o
 <ul>
   <li><b>Tempo.</b> Falando tudo, cerca de {total // 60} min {total % 60:02d} s. Pulando os {len(skip)} slides marcados "pular se faltar tempo" ({", ".join(map(str, skip))}), {t_skip // 60} min {t_skip % 60:02d} s.</li>
   <li><b>Blocos por slide:</b> <i>Fale</i> é o texto para dizer, em primeira pessoa, na ordem em que o slide revela. <i>Números</i> traz cada valor com o seu denominador. <i>Fontes</i> diz de onde veio cada afirmação. <i>Se perguntarem</i> antecipa a pergunta mais provável.</li>
-  <li><b>Regra dos números:</b> nunca diga um número sem o denominador. "17,5×" sozinho é fraco; "17,5× entre doze configurações sobre o mesmo modelo, Kimi K3, 30 tarefas" fecha a pergunta óbvia.</li>
+  <li><b>Regra dos números:</b> nunca diga um número sem o denominador. "5,6×" sozinho é fraco; "5,6× entre dois harnesses com a mesma aprovação, sobre o mesmo modelo, Kimi K3, 30 tarefas" fecha a pergunta óbvia.</li>
   <li><b>Ordem do documento.</b> O deck segue o projeto: capa, seção 1 (justificativa, tema, problema, objetivos, hipóteses), seção 2, seção 3, seções 4 a 6. Os índices <code>[n]</code> nas notas do deck (tecla <kbd>N</kbd>) e neste roteiro são os parágrafos do <code>.docx</code> no dump de 18 set. 2026.</li>
   <li><b>Decore quatro pares autor-ano:</b> Runta (2026), Lin et al. (2026), Ning et al. (2026), Kapoor et al. (2025).</li>
 </ul>
@@ -312,7 +312,7 @@ Companheiro de <code>dist/apresentacao-explainer/index.html</code> (33 slides, o
 <p class="say">Eu meço como o <em>harness</em> altera o custo em tokens e a taxa de sucesso de um modelo de linguagem fixo, construindo o mesmo SaaS duas vezes, e quanto dessa diferença é carga fixa por requisição.</p>
 <h3>Trinta segundos</h3>
 <div class="say">
-<p>Na era dos agentes o modelo não avança sozinho: o <em>harness</em> em volta dele, e as ferramentas feitas para agentes, avançam junto. Com o mesmo modelo, o custo por tarefa muda até 17,5× só pelo <em>harness</em>, mas as comparações usam tarefas isoladas. Meu projeto constrói o mesmo produto, o Finn, duas vezes, com OpenCode e com pi, a partir da mesma especificação, unidade a unidade, sobre o mesmo modelo, e conta os tokens fora do <em>harness</em>, num <em>proxy</em>. Saída: um critério de escolha para o desenvolvedor e a empresa.</p>
+<p>Na era dos agentes o modelo não avança sozinho: o <em>harness</em> em volta dele, e as ferramentas feitas para agentes, avançam junto. Com o mesmo modelo, o custo por tarefa vai de US$ 1,05 a US$ 18,34 só pelo <em>harness</em>, mas as comparações usam tarefas isoladas. Meu projeto constrói o mesmo produto, o Finn, duas vezes, com OpenCode e com pi, a partir da mesma especificação, unidade a unidade, sobre o mesmo modelo, e conta os tokens fora do <em>harness</em>, num <em>proxy</em>. Saída: um critério de escolha para o desenvolvedor e a empresa.</p>
 </div>
 <h3>Dois minutos</h3>
 <div class="say">
@@ -343,7 +343,7 @@ Companheiro de <code>dist/apresentacao-explainer/index.html</code> (33 slides, o
 <li>Abrir <code>dist/apresentacao-explainer/index.html</code> no Chrome; testar <kbd>→</kbd>, <kbd>F</kbd>, <kbd>O</kbd> (sumário) e <kbd>?</kbd> (ajuda).</li>
 <li>Confirmar que <kbd>N</kbd> (notas) está desligado; <kbd>T</kbd> alterna o tema, deixar no escuro.</li>
 <li>Ensaiar os slides 5, 8 e 13 com o cronômetro: são os que mais têm nomes e números.</li>
-<li>Ter na ponta da língua: 17,5×; 2.499 vs 9.738; 4 vs 9; n ≥ 3; 0,76σ; R$ 0,00.</li>
+<li>Ter na ponta da língua: US$ 1,05 a 18,34; 5,6×; 2.499 vs 9.738; 4 vs 9; n ≥ 3; 0,76σ; R$ 0,00.</li>
 <li>Decidir o corte antes de começar: 12 min ou 10 min, conforme a lista acima.</li>
 </ul></div>
 """
