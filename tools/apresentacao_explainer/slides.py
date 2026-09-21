@@ -109,21 +109,21 @@ def s_capa() -> str:
 
 
 def s_kpis() -> str:
-    inner = head("O problema em uma tela", "Mesmo modelo, custo por tarefa <em>17,5×</em> diferente",
+    inner = head("O problema em uma tela", "Mesmo modelo, custo por tarefa aprovada de <em>US$ 1,05 a US$ 18,34</em>",
                  "FrontierHarness (Runta, 2026): 12 configurações de 9 <em>harnesses</em>, modelo Kimi K3, 30 tarefas, 1 tentativa por célula, set. 2026")
     inner += """
 <div class="kpis">
 <div class="kpi reveal"><div class="kpi__v">12</div><div class="kpi__l">configurações</div><div class="kpi__d">9 <em>harnesses</em> sobre o mesmo modelo, mesmas 30 tarefas, mesmo gateway</div></div>
 <div class="kpi reveal"><div class="kpi__v kpi__v--long">50,0–66,7 %</div><div class="kpi__l">taxa de aprovação</div><div class="kpi__d">17 pontos percentuais entre a pior e a melhor configuração</div></div>
 <div class="kpi reveal"><div class="kpi__v kpi__v--long">US$ 1,05–18,34</div><div class="kpi__l">custo por tarefa aprovada</div><div class="kpi__d">mediana por configuração; o modelo não mudou, só o <em>harness</em></div></div>
-<div class="kpi reveal"><div class="kpi__v">17,5×</div><div class="kpi__l">razão de custo</div><div class="kpi__d">calculada pelo autor sobre a tabela do post; Claude Code e DSH Creator aprovam as mesmas 19 tarefas</div></div>
+<div class="kpi reveal"><div class="kpi__v">5,6×</div><div class="kpi__l">mesmo pass, outro custo</div><div class="kpi__d">Claude Code e DSH Creator aprovam as mesmas 19 tarefas; razão declarada no post</div></div>
 </div>
 <div class="cards c2">
 <div class="card card--pi reveal"><span class="card__k">pi · braço deste projeto</span><span class="card__v num">60,0 % · US$ 2,43</span><span class="mute">4 ferramentas, prompt de sistema abaixo de 1.000 tokens (Earendil, 2026)</span></div>
 <div class="card card--oc reveal"><span class="card__k">OpenCode · braço deste projeto</span><span class="card__v num">50,0 % · US$ 3,24</span><span class="mute">planejamento, compactação, subagentes e permissões</span></div>
 </div>"""
     inner += source("Runta (2026), blogue institucional, não revisado por pares; tabela «Pass Rate / Median Cost Per Pass». Quem paga é o desenvolvedor, na assinatura, e a empresa, em escala [44].")
-    notes = "<b>Justificativa [43].</b> «No FrontierHarness (Runta, 2026), doze configurações de nove harnesses sobre o mesmo modelo ficam entre 50,0% e 66,7% de aprovação, e o custo por tarefa concluída vai de US$ 1,05 a US$ 18,34, uma razão de 17,5x calculada pelo autor.» Os dois braços deste projeto estão no mesmo post: pi 60,0% a US$ 2,43, OpenCode 50,0% a US$ 3,24 [43]. Também [69]: Codex 66,7% a US$ 3,47; Claude Code 63,3% a US$ 18,34 (5,3x). Quem paga é o desenvolvedor e a empresa [44]."
+    notes = "<b>Justificativa [43].</b> «No FrontierHarness (Runta, 2026), doze configurações de nove harnesses sobre o mesmo modelo ficam entre 50,0% e 66,7% de aprovação, e o custo por tarefa concluída vai de US$ 1,05 a US$ 18,34.» Os dois braços deste projeto estão no mesmo post: pi 60,0% a US$ 2,43, OpenCode 50,0% a US$ 3,24 [43]. Também [69]: Codex 66,7% a US$ 3,47; Claude Code 63,3% a US$ 18,34 (5,3x). Quem paga é o desenvolvedor e a empresa [44]."
     return sec("dashboard", "O problema em números", inner, notes)
 
 
@@ -223,8 +223,7 @@ def s_tema() -> str:
 
 def s_problema() -> str:
     inner = """
-<div class="quote-mark reveal" aria-hidden="true">“</div>
-<blockquote class="reveal">Com o modelo já escolhido, <b>quanto mudam o custo em tokens e a taxa de sucesso</b> ao construir o mesmo software com um <em>harness</em> em vez de outro, e <b>quanto dessa diferença</b> vem da carga fixa que cada <em>harness</em> envia em toda requisição?</blockquote>
+<blockquote class="reveal">«Com o modelo já escolhido, <b>quanto mudam o custo em tokens e a taxa de sucesso</b> ao construir o mesmo software com um <em>harness</em> em vez de outro, e <b>quanto dessa diferença</b> vem da carga fixa que cada <em>harness</em> envia em toda requisição?»</blockquote>
 <cite class="reveal">Problema de pesquisa · Projeto, §1 [48]</cite>"""
     notes = "<b>Problema [48].</b> Ler na íntegra. A segunda metade é H2; a primeira é H1. Objetivo geral [50]: medir a diferença de tokens e de sucesso atribuível ao harness construindo o mesmo produto a partir da mesma especificação, com OpenCode e pi como braços; separar a parte que vem da carga fixa; entregar critério reproduzível."
     return sec("quote", "Problema de pesquisa", inner, notes)
@@ -585,7 +584,7 @@ def all_slides() -> str:
     # dos parágrafos [n] do dump (tools/docx_prose.py dump).
     parts = [
         s_capa(),
-        divider("01", "Seção 1", "Introdução", "Justificativa, tema, problema, objetivos, metodologia e hipóteses. Mesmo modelo, mesmas tarefas: o custo por tarefa concluída muda 17,5× conforme o <em>harness</em>."),
+        divider("01", "Seção 1", "Introdução", "O <em>harness</em> muda o que o mesmo modelo custa e entrega: por que isso importa, a pergunta que abre e o que o projeto promete medir."),
         s_kpis(),
         s_frontier(),
         s_tema(),
