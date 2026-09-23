@@ -128,3 +128,10 @@ Auditoria slide a slide (17) com `CONTEXT.md`, `docs/spec/11` e o dump do docx c
 - A largura das duas colunas vai para os quatro meses; a tabela mantém a largura total. Word: 9 páginas, sumário inalterado.
 - A tabela perdeu 22 parágrafos no dump, então a seção 6 passa de [181]–[194] para [159]–[172]; deck e roteiro citam os números novos.
 - Deck e docx voltam a concordar sobre o cronograma.
+
+## [2026-09-23] edit | Tabela 2 do projeto dentro da mancha de texto
+
+- `tools/docx_edits_2026-09-23c.py`: a Tabela 2 tinha 10021 twips e passava das duas margens; agora usa os 9071 da mancha, como a Tabela 1.
+- Nessa largura SETEMBRO e NOVEMBRO quebravam linha, então o recuo lateral das células desta tabela cai para 2,85 pt e a coluna de fases cede o que o rótulo mais longo não usa.
+- Oito dos 17 X não tinham tamanho e saíam no corpo do texto; agora todos em 9 pt, como o resto da tabela.
+- Word: 9 páginas, nenhuma célula quebra linha.
