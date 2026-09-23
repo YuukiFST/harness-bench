@@ -114,3 +114,10 @@ Auditoria slide a slide (17) com `CONTEXT.md`, `docs/spec/11` e o dump do docx c
 - Visual: cabeço corrido e fólio, índice nas divisórias, fluxo do Finn em linha, fita das nove unidades, orçamento como livro-razão da Tabela 1, cronograma com barras contínuas.
 - Correções de conteúdo: o passo "gate" não era a U4 e não usa mais a cor do OpenCode; `spec.md` não existe no projeto; a classificação perdeu duas glosas que o [73] não dá; o subtítulo das referências não afirma mais que todas tratam do *harness*.
 - Mesma ordem e mesmo total (27), então `dist/roteiro-apresentacao.html` continua alinhado.
+
+## [2026-09-23] edit | Cronograma do deck: matriz e análise em outubro
+
+- Pedido do autor: a execução da matriz de experimentos e a análise dos resultados passam para outubro de 2026 no slide Cronograma de `dist/apresentacao-explainer/index.html`.
+- Dezembro e janeiro ficaram vazios, então o calendário do slide vai de agosto a novembro de 2026; o divisor da seção 4 acompanha.
+- `dist/roteiro-apresentacao.html` regenerado com a mesma fala.
+- A Tabela 2 de `dist/projeto-de-pesquisa.docx` ainda diz dez–jan para a matriz e jan para a análise: deck e docx divergem até o docx ser editado.

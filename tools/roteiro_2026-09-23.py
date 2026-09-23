@@ -159,7 +159,7 @@ SLIDES = [
   ["Projeto, §4 [88]–[99]; Opencode (2026b)."],
   [], "<kbd>→</kbd> revela os cartões"),
  ("Cronograma", "25 s", [
-   "Agosto e setembro: leitura, tema e hipóteses, e toda a escrita. Outubro e novembro: construção do <em>proxy</em> e dos testes. Dezembro e janeiro: execução da matriz. Janeiro: análise. A revisão final e a apresentação ficam em setembro."],
+   "Agosto e setembro: leitura, tema e hipóteses, e toda a escrita. Outubro e novembro: construção do <em>proxy</em> e dos testes. Outubro: execução da matriz e análise. A revisão final e a apresentação ficam em setembro."],
   [], ["Projeto, §5, Tabela 2 [101]–[179]."],
   [], "<kbd>→</kbd> revela as fases"),
  ("Referências", "15 s", [

@@ -414,7 +414,7 @@ def s_cronograma() -> str:
     hdr = '<div></div>' + "".join(f'<div class="gh">{m}</div>' for m in GANTT_MONTHS)
     rows = []
     for phase, months in GANTT:
-        # Cor separa leitura/escrita (ago–set) das fases do experimento (out–jan); nenhum status novo.
+        # Cor separa leitura/escrita (ago–set) das fases do experimento (out–nov); nenhum status novo.
         run = any(months[2:])
         cells = []
         for j, on in enumerate(months):
@@ -430,12 +430,12 @@ def s_cronograma() -> str:
                 cls.append("run")
             cells.append(f'<div class="{" ".join(cls)}"></div>')
         rows.append(f'<div class="gp">{phase}</div>{"".join(cells)}')
-    inner = head("Cronograma", "Ago. 2026 a jan. 2027",
-                 "leitura e escrita em ago–set; <em>proxy</em> e testes em out–nov; matriz em dez–jan; análise em jan")
+    inner = head("Cronograma", "Ago. a nov. 2026",
+                 "leitura e escrita em ago–set; <em>proxy</em> e testes em out–nov; matriz e análise em out")
     inner += f'<div class="gantt reveal">{hdr}{"".join(rows)}</div>'
     inner += '<div class="gantt-legend reveal"><span><i></i>leitura, escrita e revisão</span><span><i class="run"></i><span><em>proxy</em>, testes, execução e análise</span></span></div>'
     inner += source("Projeto, §5, Tabela 2 [101]–[179]. Revisão final e apresentação em setembro.")
-    notes = "<b>Cronograma [101]–[179]:</b> ago–set leitura, tema e hipóteses, e toda a escrita; out–nov construção do proxy e dos testes; dez–jan execução da matriz; jan análise; revisão final e apresentação em set."
+    notes = "<b>Cronograma [101]–[179]:</b> ago–set leitura, tema e hipóteses, e toda a escrita; out–nov construção do proxy e dos testes; out execução da matriz e análise; revisão final e apresentação em set."
     return sec("content", "Cronograma", inner, notes)
 
 
@@ -492,7 +492,7 @@ def all_slides() -> str:
          [s_anatomy(), s_sucesso(), s_pendencia_custo(), s_pendencia_medida()]),
         ("03", "Seção 3", "Material e método", "Classificação, uso de IA declarado, duas camadas de medição, o produto, a matriz, a estatística e as limitações.",
          [s_classificacao(), s_ia(), s_como(), s_camadas(), s_finn(), s_spec(), s_matriz(), s_estatistica(), s_limitacoes()]),
-        ("04", "Seções 4, 5 e 6", "Orçamento, cronograma e referências", f"R$ 0,00, calendário de agosto a janeiro e as {len(REFS)} referências da seção 6.",
+        ("04", "Seções 4, 5 e 6", "Orçamento, cronograma e referências", f"R$ 0,00, calendário de agosto a novembro e as {len(REFS)} referências da seção 6.",
          [s_orcamento(), s_cronograma(), s_refs()]),
     ]
     pages: list[tuple[str, str]] = [(s_capa(), "")]

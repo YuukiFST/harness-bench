@@ -58,19 +58,20 @@ CLASS_AXES: list[tuple[str, str, str]] = [
     ("Método", "dedutivo", ""),
 ]
 
-# Tabela 2 [101]–[179]: X por mês, ago a jan.
-GANTT_MONTHS = ["Ago", "Set", "Out", "Nov", "Dez", "Jan"]
+# Tabela 2 [101]–[179]: X por mês. Em 2026-09-23 o autor moveu a execução da matriz e a análise
+# para outubro (o docx ainda diz dez–jan), o que esvazia dez e jan; o calendário vai de ago a nov.
+GANTT_MONTHS = ["Ago", "Set", "Out", "Nov"]
 GANTT: list[tuple[str, list[int]]] = [
-    ("Leitura e levantamento bibliográfico", [1, 1, 0, 0, 0, 0]),
-    ("Definição do tema e das hipóteses", [1, 1, 0, 0, 0, 0]),
-    ("Construção do <em>proxy</em> e dos testes", [0, 0, 1, 1, 0, 0]),
-    ("Escrevendo introdução", [1, 1, 0, 0, 0, 0]),
-    ("Escrevendo referencial teórico", [1, 1, 0, 0, 0, 0]),
-    ("Escrevendo material e método", [1, 1, 0, 0, 0, 0]),
-    ("Execução da matriz de experimentos", [0, 0, 0, 0, 1, 1]),
-    ("Análise dos resultados", [0, 0, 0, 0, 0, 1]),
-    ("Elaborando as referências", [1, 1, 0, 0, 0, 0]),
-    ("Revisão final e apresentação", [0, 1, 0, 0, 0, 0]),
+    ("Leitura e levantamento bibliográfico", [1, 1, 0, 0]),
+    ("Definição do tema e das hipóteses", [1, 1, 0, 0]),
+    ("Construção do <em>proxy</em> e dos testes", [0, 0, 1, 1]),
+    ("Escrevendo introdução", [1, 1, 0, 0]),
+    ("Escrevendo referencial teórico", [1, 1, 0, 0]),
+    ("Escrevendo material e método", [1, 1, 0, 0]),
+    ("Execução da matriz de experimentos", [0, 0, 1, 0]),
+    ("Análise dos resultados", [0, 0, 1, 0]),
+    ("Elaborando as referências", [1, 1, 0, 0]),
+    ("Revisão final e apresentação", [0, 1, 0, 0]),
 ]
 
 # As 14 entradas da seção 6 [181]–[194], formato abreviado.
