@@ -73,7 +73,7 @@ GANTT: list[tuple[str, list[int]]] = [
     ("Revisão final e apresentação", [0, 1, 0, 0, 0, 0]),
 ]
 
-# As 15 entradas da seção 6 [181]–[194], formato abreviado.
+# As 14 entradas da seção 6 [181]–[194], formato abreviado.
 REFS: list[str] = [
     "BRASIL. CNPq. <b>Portaria CNPq nº 2.664, de 6 de março de 2026</b>. Política de Integridade na Atividade Científica do CNPq. DOU, 11 mar. 2026.",
     "EARENDIL. <b>Pi, minimal and performant</b>. 2026. Blogue institucional.",
