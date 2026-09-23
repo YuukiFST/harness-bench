@@ -160,16 +160,16 @@ SLIDES = [
   [], "<kbd>→</kbd> revela os cartões"),
  ("Cronograma", "25 s", [
    "Agosto e setembro: leitura, tema e hipóteses, e toda a escrita. Outubro e novembro: construção do <em>proxy</em> e dos testes. Outubro: execução da matriz e análise. A revisão final e a apresentação ficam em setembro."],
-  [], ["Projeto, §5, Tabela 2 [101]–[179]."],
+  [], ["Projeto, §5, Tabela 2 [101]–[157]."],
   [], "<kbd>→</kbd> revela as fases"),
  ("Referências", "15 s", [
    "As entradas da seção 6. Todas tratam do <em>harness</em>, exceto as do método declarado: a Portaria do CNPq, o <em>LLM Wiki</em> e o Helmsman. <em>Preprints</em> e blogues estão marcados como não revisados por pares."],
-  [], ["Projeto, §6 [181]–[194]."],
+  [], ["Projeto, §6 [159]–[172]."],
   [("Cadê as normas ABNT e os manuais de metodologia?", "A lista só tem fontes sobre o <em>harness</em>. A formatação segue a ABNT mesmo assim.")],
   "pular se faltar tempo"),
  ("Fecho", "20 s", [
    "A tela repete a pergunta de H1: com o modelo fixo, o <em>harness</em> muda mais o custo do que o sucesso? O projeto responde em tokens e em taxa de sucesso, e separa a parte da carga fixa. Tudo fica público nos dois repositórios. Obrigado. Perguntas?"],
-  [], ["github.com/YuukiFST/harness-bench (2026c) · github.com/YuukiFST/Finn (2026b) [192][193]."], [], ""),
+  [], ["github.com/YuukiFST/harness-bench (2026c) · github.com/YuukiFST/Finn (2026b) [170][171]."], [], ""),
 ]
 
 GLOSS = [

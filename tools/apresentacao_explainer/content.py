@@ -58,8 +58,8 @@ CLASS_AXES: list[tuple[str, str, str]] = [
     ("Método", "dedutivo", ""),
 ]
 
-# Tabela 2 [101]–[179]: X por mês. Em 2026-09-23 o autor moveu a execução da matriz e a análise
-# para outubro (o docx ainda diz dez–jan), o que esvazia dez e jan; o calendário vai de ago a nov.
+# Tabela 2 [101]–[157]: X por mês. Em 2026-09-23 o autor moveu a execução da matriz e a análise
+# para outubro, o que esvazia dez e jan; o calendário vai de ago a nov, como no docx.
 GANTT_MONTHS = ["Ago", "Set", "Out", "Nov"]
 GANTT: list[tuple[str, list[int]]] = [
     ("Leitura e levantamento bibliográfico", [1, 1, 0, 0]),
@@ -74,7 +74,7 @@ GANTT: list[tuple[str, list[int]]] = [
     ("Revisão final e apresentação", [0, 1, 0, 0]),
 ]
 
-# As 14 entradas da seção 6 [181]–[194], formato abreviado.
+# As 14 entradas da seção 6 [159]–[172], formato abreviado.
 REFS: list[str] = [
     "BRASIL. CNPq. <b>Portaria CNPq nº 2.664, de 6 de março de 2026</b>. Política de Integridade na Atividade Científica do CNPq. DOU, 11 mar. 2026.",
     "EARENDIL. <b>Pi, minimal and performant</b>. 2026. Blogue institucional.",

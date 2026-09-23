@@ -121,3 +121,10 @@ Auditoria slide a slide (17) com `CONTEXT.md`, `docs/spec/11` e o dump do docx c
 - Dezembro e janeiro ficaram vazios, então o calendário do slide vai de agosto a novembro de 2026; o divisor da seção 4 acompanha.
 - `dist/roteiro-apresentacao.html` regenerado com a mesma fala.
 - A Tabela 2 de `dist/projeto-de-pesquisa.docx` ainda diz dez–jan para a matriz e jan para a análise: deck e docx divergem até o docx ser editado.
+
+## [2026-09-23] edit | Tabela 2 do projeto: matriz e análise em outubro
+
+- `dist/projeto-de-pesquisa.docx` editado por `tools/docx_edits_2026-09-23b.py`: execução da matriz e análise dos resultados passam para outubro; as colunas de dezembro e janeiro, vazias, saem, como no modelo do curso, que lista só meses com trabalho.
+- A largura das duas colunas vai para os quatro meses; a tabela mantém a largura total. Word: 9 páginas, sumário inalterado.
+- A tabela perdeu 22 parágrafos no dump, então a seção 6 passa de [181]–[194] para [159]–[172]; deck e roteiro citam os números novos.
+- Deck e docx voltam a concordar sobre o cronograma.

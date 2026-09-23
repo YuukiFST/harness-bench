@@ -434,8 +434,8 @@ def s_cronograma() -> str:
                  "leitura e escrita em ago–set; <em>proxy</em> e testes em out–nov; matriz e análise em out")
     inner += f'<div class="gantt reveal">{hdr}{"".join(rows)}</div>'
     inner += '<div class="gantt-legend reveal"><span><i></i>leitura, escrita e revisão</span><span><i class="run"></i><span><em>proxy</em>, testes, execução e análise</span></span></div>'
-    inner += source("Projeto, §5, Tabela 2 [101]–[179]. Revisão final e apresentação em setembro.")
-    notes = "<b>Cronograma [101]–[179]:</b> ago–set leitura, tema e hipóteses, e toda a escrita; out–nov construção do proxy e dos testes; out execução da matriz e análise; revisão final e apresentação em set."
+    inner += source("Projeto, §5, Tabela 2 [101]–[157]. Revisão final e apresentação em setembro.")
+    notes = "<b>Cronograma [101]–[157]:</b> ago–set leitura, tema e hipóteses, e toda a escrita; out–nov construção do proxy e dos testes; out execução da matriz e análise; revisão final e apresentação em set."
     return sec("content", "Cronograma", inner, notes)
 
 
@@ -443,7 +443,7 @@ def s_refs() -> str:
     inner = head("Referências", f"As {len(REFS)} entradas da seção 6",
                  "formato ABNT abreviado; endereços e datas de acesso na seção 6 do projeto")
     inner += '<div class="refs reveal">' + "".join(f"<p>{r}</p>" for r in REFS) + "</div>"
-    notes = "<b>Referências [181]–[194].</b> Lista completa da seção 6. Preprints e blogues marcados como não revisados por pares. As normas ABNT e os manuais de metodologia não entram: a lista fica no tema."
+    notes = "<b>Referências [159]–[172].</b> Lista completa da seção 6. Preprints e blogues marcados como não revisados por pares. As normas ABNT e os manuais de metodologia não entram: a lista fica no tema."
     return sec("content", "Referências", inner, notes)
 
 
@@ -457,7 +457,7 @@ def s_fecho() -> str:
 <p class="end-thanks">Obrigado. Perguntas?</p>
 <p class="end-links">github.com/YuukiFST/harness-bench (YuukiFST, 2026c)<br>github.com/YuukiFST/Finn (YuukiFST, 2026b)</p>
 </div>"""
-    notes = "<b>Fecho.</b> Retomar H1 [61] e o problema [48]: quanto mudam tokens e sucesso, e quanto da diferença de custo é carga fixa. Repositórios YuukiFST/Finn [192] e YuukiFST/harness-bench [193]."
+    notes = "<b>Fecho.</b> Retomar H1 [61] e o problema [48]: quanto mudam tokens e sucesso, e quanto da diferença de custo é carga fixa. Repositórios YuukiFST/Finn [170] e YuukiFST/harness-bench [171]."
     return sec("end", "Fecho", inner, notes)
 
 
