@@ -97,7 +97,7 @@ def harness_anatomy() -> str:
     out.append(f'<line class="s-other" x1="{cx}" y1="{cy+250}" x2="{cx}" y2="{py-44}" stroke-width="2" stroke-dasharray="4 6"/>')
     out.append(f'<rect x="{cx-280}" y="{py-44}" width="560" height="88" rx="12" fill="var(--pi-dim)" stroke="var(--pi)" stroke-width="1.5"/>')
     out.append(f'<text class="f-pi" x="{cx}" y="{py-8}" text-anchor="middle" font-size="21" font-weight="600">Proxy externo (instrumento)</text>')
-    out.append(f'<text class="dim" x="{cx}" y="{py+20}" text-anchor="middle" font-size="14">fora do harness · conta igual para os dois braços</text>')
+    out.append(f'<text class="dim" x="{cx}" y="{py+20}" text-anchor="middle" font-size="14">fora do <tspan font-style="italic">harness</tspan> · conta igual para os dois braços</text>')
     out.append("</svg>")
     return "".join(out)
 
@@ -125,7 +125,7 @@ def layers_flow() -> str:
     arrow(360, 250, 556, 250, "requisição HTTP")
     out.append('<rect x="560" y="160" width="360" height="200" rx="12" fill="var(--pi-dim)" stroke="var(--pi)" stroke-width="2"/>')
     out.append('<text class="f-pi" x="740" y="210" text-anchor="middle" font-size="24" font-weight="600">Proxy reverso</text>')
-    for i, s in enumerate(["conta requisições, tokens e latência", "mesmo tokenizador para os dois braços", "harness/gateway: verificação cruzada", "instrumento do projeto, fora do harness"]):
+    for i, s in enumerate(["conta requisições, tokens e latência", "mesmo tokenizador para os dois braços", "harness/gateway: verificação cruzada", 'instrumento do projeto, fora do <tspan font-style="italic">harness</tspan>']):
         out.append(f'<text class="dim" x="740" y="{246+i*24}" text-anchor="middle" font-size="15">{s}</text>')
     arrow(920, 220, 1076, 110, "Camada 1")
     arrow(920, 300, 1076, 400, "Camada 2")
@@ -143,7 +143,7 @@ def title_decor() -> str:
     for i, r in enumerate((60, 110, 160, 210, 250)):
         op = 0.9 - i * 0.16
         dash = "" if i == 0 else f' stroke-dasharray="{6+i*4} {8+i*3}"'
-        out.append(f'<circle cx="260" cy="260" r="{r}" fill="none" stroke="var(--accent)" stroke-width="{3 if i==0 else 1.5}" opacity="{op:.2f}"{dash}/>')
+        out.append(f'<circle class="ring" cx="260" cy="260" r="{r}" fill="none" stroke="var(--accent)" stroke-width="{3 if i==0 else 1.5}" opacity="{op:.2f}"{dash}/>')
     out.append('<circle cx="260" cy="260" r="34" fill="var(--accent)"/>')
     out.append('<circle cx="260" cy="510" r="7" fill="var(--pi)"/>')
     out.append('<line x1="260" y1="294" x2="260" y2="503" stroke="var(--pi)" stroke-width="2" stroke-dasharray="3 6" opacity="0.8"/>')

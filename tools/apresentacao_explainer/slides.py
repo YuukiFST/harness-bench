@@ -8,6 +8,8 @@ aparecem com a tecla N; os índices [n] referem-se ao dump do .docx via
 
 from __future__ import annotations
 
+import re
+
 from charts import (
     harness_anatomy,
     layers_flow,
@@ -28,6 +30,7 @@ from content import (
 )
 
 
+EN_TERMS = re.compile(r"\b(harness(?:es)?|proxy)\b")
 HEAD_OPEN = '<div class="slide__head reveal">'
 SOURCE_OPEN = '<p class="slide__source reveal">'
 
@@ -54,11 +57,14 @@ def source(text: str) -> str:
     return f'<p class="slide__source reveal">{text}</p>'
 
 
-def divider(num: str, kicker: str, heading: str, sub: str) -> str:
+def divider(num: str, kicker: str, heading: str, sub: str, toc: list[str] | None = None) -> str:
+    """Abertura de seção; `toc` lista os títulos dos slides da seção (preenchido por all_slides)."""
+    items = "".join(f"<li>{EN_TERMS.sub(r'<em>\1</em>', t)}</li>" for t in (toc or []))
+    toc_html = f'<ol class="divider-toc reveal">{items}</ol>' if items else ""
     inner = (
         f'<span class="slide__number" aria-hidden="true">{num}</span>'
         f'<div class="reveal"><p class="divider-kicker">{kicker}</p><h2 class="slide__heading">{heading}</h2>'
-        f'<p class="slide__subtitle">{sub}</p></div>'
+        f'<p class="slide__subtitle">{sub}</p></div>{toc_html}'
     )
     return sec("divider", f"{num} · {heading}", inner)
 
@@ -88,7 +94,7 @@ def s_capa() -> str:
 <div class="reveal">
 <p class="title-inst">Instituto Federal de Mato Grosso · Campus Octayde Jorge da Silva · Sistemas para Internet</p>
 <h1 class="slide__display">O <em>harness</em> no custo e no desempenho de agentes de codificação</h1>
-<p class="slide__subtitle" style="margin-top:32px">Tokens e taxa de sucesso com o modelo fixo</p>
+<p class="title-sub">Tokens e taxa de sucesso com o modelo fixo</p>
 <div class="title-rule"></div>
 <p class="title-who"><b>Fausto Yuuki T. A. Freire</b> · Orientadora: Profa. Inara Silva<br>
 <span class="slide__subtitle">Projeto de pesquisa · Metodologia Científica · Cuiabá, 2026</span></p>
@@ -129,6 +135,7 @@ def s_tema() -> str:
 
 def s_problema() -> str:
     inner = """
+<span class="quote-mark" aria-hidden="true">“</span>
 <blockquote class="reveal">«Com o modelo fixo, <b>quanto mudam o custo em tokens e a taxa de sucesso</b> ao construir o mesmo software com um <em>harness</em> em vez de outro, e <b>quanto da diferença de custo</b> vem da carga fixa que cada <em>harness</em> envia em toda requisição?»</blockquote>
 <cite class="reveal">Problema de pesquisa · Projeto, §1 [48]</cite>"""
     notes = "<b>Problema [48].</b> Ler na íntegra. A primeira metade vira H1; a segunda, H2. Objetivo geral [50]: medir, com o modelo fixo, a diferença de tokens e de taxa de sucesso atribuível ao harness na construção do mesmo produto a partir da mesma especificação, com o OpenCode e o pi como braços, e separar a parcela que vem da carga fixa por requisição."
@@ -139,7 +146,7 @@ def s_objetivos() -> str:
     inner = head("Objetivos", "Um objetivo geral, seis específicos",
                  "medir, com o modelo fixo, a diferença de tokens e de sucesso atribuível ao <em>harness</em>, com o OpenCode e o pi como braços, e separar a parcela da carga fixa por requisição [50]")
     trs = "".join(
-        f'<tr><td class="n" style="color:var(--accent);font-weight:600">{i+1}</td><td class="k">{k}</td><td>{d}</td></tr>'
+        f'<tr><td class="n">{i+1}</td><td class="k">{k}</td><td class="d">{d}</td></tr>'
         for i, (k, d) in enumerate(OBJECTIVES)
     )
     inner += f'<div class="table-wrap reveal"><table class="data"><tbody>{trs}</tbody></table></div>'
@@ -167,7 +174,7 @@ def s_anatomy() -> str:
     inner = head("Definição", "O que é um <em>harness</em>",
                  "os componentes externos ao modelo e editáveis que o cercam (Lin <em>et al.</em>, 2026, §1)")
     inner += f"""
-<div class="slide__inner">
+<div class="slide__inner" style="grid-template-columns:1fr 1.15fr">
 <div class="slide__aside reveal">{harness_anatomy()}</div>
 <div>
 <ul class="slide__bullets">
@@ -230,16 +237,13 @@ def s_pendencia_medida() -> str:
 
 def s_classificacao() -> str:
     trs = "".join(
-        f'<tr><td class="k">{k}</td><td style="color:var(--accent);font-weight:600">{v}</td><td>{w}</td></tr>'
+        f'<tr><td class="k">{k}</td><td class="v">{v}</td><td class="d">{w}</td></tr>'
         for k, v, w in CLASS_AXES
     )
     inner = head("Classificação da pesquisa", "Aplicada, quali-quantitativa, exploratória, experimental, dedutiva",
                  "o <em>harness</em> é a variável manipulada; modelo, especificação, espaço de trabalho inicial e limites ficam controlados")
     inner += f"""
-<div class="slide__inner" style="grid-template-columns:1.4fr 1fr">
-<div class="table-wrap reveal"><table class="data"><tbody>{trs}</tbody></table></div>
-<div class="card card--hi reveal"><span class="card__k">Por que exploratória</span>Não há comparação publicada de <em>harnesses</em> construindo o mesmo produto completo.</div>
-</div>"""
+<div class="table-wrap reveal"><table class="data"><tbody>{trs}</tbody></table></div>"""
     inner += source("Projeto, §1 [59] e §3 [73].")
     notes = "<b>Classificação [59][73].</b> Aplicada quanto à finalidade, quali-quantitativa quanto à abordagem, exploratória quanto aos objetivos, experimental quanto aos procedimentos e dedutiva quanto ao método. Exploratória porque não há comparação publicada de harnesses construindo o mesmo produto completo."
     return sec("table", "Classificação da pesquisa", inner, notes)
@@ -270,7 +274,7 @@ def s_ia() -> str:
 
 def s_como() -> str:
     steps = [
-        ("01 · UMA ESPECIFICAÇÃO", "Finn, em 9 unidades", "Especificação única, congelada por SHA-256, com a pilha e nove unidades em ordem de dependência.", "spec.md · SHA-256"),
+        ("01 · UMA ESPECIFICAÇÃO", "Finn, em 9 unidades", "Especificação única, congelada por SHA-256, com a pilha e nove unidades em ordem de dependência.", "congelada · SHA-256"),
         ("02 · DOIS HARNESSES", "OpenCode e pi", "Mesmo modelo, mesmo <em>prompt</em>, mesmo espaço de trabalho inicial; cada braço constrói do zero.", "opencode run · pi --mode json"),
         ("03 · UM CONTADOR EXTERNO", "<em>Proxy</em> reverso", "Entre o <em>harness</em> e o modelo: conta requisições, tokens e latência da mesma forma para os dois.", "proxy · um tokenizador"),
         ("04 · UM CRITÉRIO", "Tokens ao lado do sucesso", "Tokens, fração de testes aprovados e Succ/Mtok; Wilcoxon pareado por unidade.", "Wilcoxon · Succ/Mtok"),
@@ -297,25 +301,28 @@ def s_camadas() -> str:
 
 
 def s_finn() -> str:
-    steps = [(str(i + 1), n, d, "") for i, (n, d) in enumerate(FINN_PIPELINE)]
+    flow = "".join(
+        f'<div class="flow__step"><div class="flow__dot">{i + 1}</div><div class="flow__name">{n}</div><div class="flow__desc">{d}</div></div>'
+        for i, (n, d) in enumerate(FINN_PIPELINE)
+    )
     inner = head("O produto", "Finn: um SaaS completo, com a pilha já decidida",
                  "SaaS multiempresa em que a empresa cliente fala com o próprio financeiro por voz e recebe lançamento, relatório e aviso no celular [77]")
-    inner += pipeline(steps, {3: "pipeline__step--oc"})
+    inner += f'<div class="flow reveal">{flow}</div>'
     inner += """
-<div class="card reveal"><span class="card__k">Decidido antes do experimento</span>Produto e pilha em 21 <em>tickets</em>: TypeScript, TanStack Start, tRPC, Drizzle ORM, PostgreSQL, Vitest. Os agentes não escolhem nada disso.</div>"""
-    inner += source("Finn (YuukiFST, 2026b): github.com/YuukiFST/Finn. Fluxo de voz da <em>issue</em> #14; em ferrugem, o passo que a unidade U4 implementa. Projeto, §3 [77].")
+<div class="card card--hi reveal"><span class="card__k">Decidido antes do experimento</span>Produto e pilha em 21 <em>tickets</em>: TypeScript, TanStack Start, tRPC, Drizzle ORM, PostgreSQL, Vitest. Os agentes não escolhem nada disso.</div>"""
+    inner += source("Finn (YuukiFST, 2026b): github.com/YuukiFST/Finn. Fluxo de voz da <em>issue</em> #14, que a unidade U4 implementa. Projeto, §3 [77].")
     notes = "<b>Finn (YuukiFST, 2026b) [77].</b> SaaS multiempresa de financeiro por voz. Produto e pilha foram decididos antes do experimento, em 21 tickets. Ponto a dizer: as medições publicadas usam tarefas isoladas [44]; aqui o agente constrói um produto inteiro."
     return sec("content", "Finn: o produto", inner, notes)
 
 
 def s_spec() -> str:
     cells = "".join(
-        f'<div class="card reveal" style="text-align:center;padding:clamp(10px,1.6vh,18px) 8px{";border-top:3px solid var(--oc)" if u == "U4" else ";border-top:3px solid var(--accent)"}"><span class="card__k" style="margin:0">{u}</span><span class="card__v" style="font-size:clamp(15px,1.6vw,22px);margin:4px 0">{n}</span><span class="mute num" style="font-size:0.8em">issue {i}</span></div>'
+        f'<div class="units-tape__u"><span class="units-tape__id">{u}</span><span class="units-tape__n">{n}</span><span class="units-tape__i">issue {i}</span></div>'
         for u, n, i in UNITS
     )
     inner = head("A especificação", "Nove unidades em ordem de dependência, uma especificação congelada",
                  "cada unidade parte do que o agente construiu na anterior [77]")
-    inner += f'<div class="cards" style="grid-template-columns:repeat(9,minmax(0,1fr));gap:8px">{cells}</div>'
+    inner += f'<div class="units-tape reveal">{cells}</div>'
     inner += """
 <div class="cards c3">
 <div class="card reveal"><span class="card__k">Executor</span>Chama o <em>harness</em> uma vez por unidade, com o mesmo <em>prompt</em> nos dois braços. O autor não escreve código no espaço de trabalho.</div>
@@ -389,12 +396,15 @@ def s_orcamento() -> str:
     inner = head("Orçamento", "R$ 0,00",
                  "Tabela 1 do projeto: inferência, <em>harnesses</em> e máquinas sem custo")
     inner += """
-<div class="kpis" style="grid-template-columns:repeat(3,minmax(0,1fr))">
-<div class="kpi reveal"><div class="kpi__v">R$ 0,00</div><div class="kpi__l">inferência</div><div class="kpi__d">dois níveis, nível gratuito do <em>gateway</em> (Opencode, 2026b)</div></div>
-<div class="kpi reveal"><div class="kpi__v">R$ 0,00</div><div class="kpi__l"><em>harnesses</em> e ferramentas</div><div class="kpi__d">código aberto</div></div>
-<div class="kpi reveal"><div class="kpi__v">R$ 0,00</div><div class="kpi__l">máquinas</div><div class="kpi__d">estação pessoal NixOS e estação pessoal Windows, já disponíveis</div></div>
+<div class="slide__inner" style="grid-template-columns:1180px 1fr;align-items:end">
+<div class="ledger reveal">
+<div class="ledger__row"><span class="ledger__item">Inferência dos modelos<small>dois níveis, nível gratuito do <em>gateway</em> (Opencode, 2026b)</small></span><span class="ledger__dots"></span><span class="ledger__v">R$ 0,00</span></div>
+<div class="ledger__row"><span class="ledger__item"><span><em>Harnesses</em> e ferramentas</span><small>código aberto</small></span><span class="ledger__dots"></span><span class="ledger__v">R$ 0,00</span></div>
+<div class="ledger__row"><span class="ledger__item">Máquinas<small>estação pessoal NixOS e estação pessoal Windows</small></span><span class="ledger__dots"></span><span class="ledger__v">R$ 0,00<small>já disponíveis</small></span></div>
+<div class="ledger__row ledger__row--total"><span class="ledger__item">Total</span><span class="ledger__dots"></span><span class="ledger__v">R$ 0,00</span></div>
 </div>
-<div class="card card--hi reveal"><span class="card__k">O risco do custo zero</span>O nível gratuito do <em>gateway</em> pode trocar o modelo ou cortar a cota durante a coleta [86].</div>"""
+<div class="card card--hi reveal"><span class="card__k">O risco do custo zero</span>O nível gratuito do <em>gateway</em> pode trocar o modelo ou cortar a cota durante a coleta [86].</div>
+</div>"""
     inner += source("Projeto, §4, Tabela 1 [88]–[99].")
     notes = "<b>Orçamento [88]–[99]:</b> inferência R$ 0,00 (dois níveis, nível gratuito do gateway), harnesses e ferramentas de código aberto R$ 0,00, máquinas R$ 0,00 (já disponíveis). O risco está nas limitações [86]."
     return sec("dashboard", "Orçamento", inner, notes)
@@ -404,12 +414,26 @@ def s_cronograma() -> str:
     hdr = '<div></div>' + "".join(f'<div class="gh">{m}</div>' for m in GANTT_MONTHS)
     rows = []
     for phase, months in GANTT:
-        done = months[:2] == [1, 1] or phase.startswith("Revisão")
-        cells = "".join(f'<div class="gc {"done" if (on and done) else ("on" if on else "")}"></div>' for on in months)
-        rows.append(f'<div class="gp reveal">{phase}</div>{cells}')
+        # Cor separa leitura/escrita (ago–set) das fases do experimento (out–jan); nenhum status novo.
+        run = any(months[2:])
+        cells = []
+        for j, on in enumerate(months):
+            if not on:
+                cells.append('<div class="gc"></div>')
+                continue
+            cls = ["gc", "on"]
+            if j == 0 or not months[j - 1]:
+                cls.append("start")
+            if j == len(months) - 1 or not months[j + 1]:
+                cls.append("end")
+            if run:
+                cls.append("run")
+            cells.append(f'<div class="{" ".join(cls)}"></div>')
+        rows.append(f'<div class="gp">{phase}</div>{"".join(cells)}')
     inner = head("Cronograma", "Ago. 2026 a jan. 2027",
-                 "leitura e escrita em ago–set (teal); <em>proxy</em> e testes em out–nov; matriz em dez–jan; análise em jan")
-    inner += f'<div class="gantt">{hdr}{"".join(rows)}</div>'
+                 "leitura e escrita em ago–set; <em>proxy</em> e testes em out–nov; matriz em dez–jan; análise em jan")
+    inner += f'<div class="gantt reveal">{hdr}{"".join(rows)}</div>'
+    inner += '<div class="gantt-legend reveal"><span><i></i>leitura, escrita e revisão</span><span><i class="run"></i><span><em>proxy</em>, testes, execução e análise</span></span></div>'
     inner += source("Projeto, §5, Tabela 2 [101]–[179]. Revisão final e apresentação em setembro.")
     notes = "<b>Cronograma [101]–[179]:</b> ago–set leitura, tema e hipóteses, e toda a escrita; out–nov construção do proxy e dos testes; dez–jan execução da matriz; jan análise; revisão final e apresentação em set."
     return sec("content", "Cronograma", inner, notes)
@@ -417,7 +441,7 @@ def s_cronograma() -> str:
 
 def s_refs() -> str:
     inner = head("Referências", f"As {len(REFS)} entradas da seção 6",
-                 "formato ABNT abreviado; todas sobre o <em>harness</em>, exceto as do método declarado (Portaria CNPq, <em>LLM Wiki</em>, Helmsman)")
+                 "formato ABNT abreviado; endereços e datas de acesso na seção 6 do projeto")
     inner += '<div class="refs reveal">' + "".join(f"<p>{r}</p>" for r in REFS) + "</div>"
     notes = "<b>Referências [181]–[194].</b> Lista completa da seção 6. Preprints e blogues marcados como não revisados por pares. As normas ABNT e os manuais de metodologia não entram: a lista fica no tema."
     return sec("content", "Referências", inner, notes)
@@ -431,43 +455,51 @@ def s_fecho() -> str:
 <h2 class="slide__display">Com o modelo fixo, o <em>harness</em> muda mais o custo do que o sucesso?</h2>
 <div class="title-rule"></div>
 <p class="end-thanks">Obrigado. Perguntas?</p>
-<p class="slide__subtitle">github.com/YuukiFST/harness-bench (YuukiFST, 2026c) · github.com/YuukiFST/Finn (YuukiFST, 2026b)</p>
+<p class="end-links">github.com/YuukiFST/harness-bench (YuukiFST, 2026c)<br>github.com/YuukiFST/Finn (YuukiFST, 2026b)</p>
 </div>"""
     notes = "<b>Fecho.</b> Retomar H1 [61] e o problema [48]: quanto mudam tokens e sucesso, e quanto da diferença de custo é carga fixa. Repositórios YuukiFST/Finn [192] e YuukiFST/harness-bench [193]."
     return sec("end", "Fecho", inner, notes)
 
 
+DECK_SHORT = "O <em>harness</em> no custo e no desempenho"
+
+
+def title_of(html: str) -> str:
+    """Lê o data-title que sec() gravou; usado no índice das divisórias."""
+    start = html.index('data-title="') + len('data-title="')
+    return html[start:html.index('"', start)]
+
+
+def with_folio(html: str, section: str, n: int, total: int) -> str:
+    """Cabeço corrido (título curto + seção) e fólio n/total, como numa página impressa."""
+    chrome = (
+        f'<div class="folio-head" aria-hidden="true"><span>{DECK_SHORT}</span><span>{section}</span></div>'
+        f'<div class="folio-num" aria-hidden="true">{n:02d}<span>/ {total}</span></div>'
+    )
+    cut = html.rindex("</section>")
+    return html[:cut] + chrome + html[cut:]
+
+
 def all_slides() -> str:
     # Mesma ordem do projeto (dist/projeto-de-pesquisa.docx): 1 Introdução, 2 Referencial teórico,
     # 3 Material e método, 4 Orçamento, 5 Cronograma, 6 Referências. Dentro de cada seção, a ordem
-    # dos parágrafos [n] do dump (tools/docx_prose.py dump).
-    parts = [
-        s_capa(),
-        divider("01", "Seção 1", "Introdução", "O mesmo modelo custa diferente conforme o <em>harness</em>: a justificativa, o problema, os objetivos e as hipóteses."),
-        s_justificativa(),
-        s_tema(),
-        s_problema(),
-        s_objetivos(),
-        s_hipoteses(),
-        divider("02", "Seção 2", "Referencial teórico", "O que é um <em>harness</em>, o que as fontes dizem sobre sucesso e custo, e as duas pendências: de onde vem o custo e como medi-lo."),
-        s_anatomy(),
-        s_sucesso(),
-        s_pendencia_custo(),
-        s_pendencia_medida(),
-        divider("03", "Seção 3", "Material e método", "Classificação, uso de IA declarado, duas camadas de medição, o produto, a matriz, a estatística e as limitações."),
-        s_classificacao(),
-        s_ia(),
-        s_como(),
-        s_camadas(),
-        s_finn(),
-        s_spec(),
-        s_matriz(),
-        s_estatistica(),
-        s_limitacoes(),
-        divider("04", "Seções 4, 5 e 6", "Orçamento, cronograma e referências", f"R$ 0,00, calendário de agosto a janeiro e as {len(REFS)} referências da seção 6."),
-        s_orcamento(),
-        s_cronograma(),
-        s_refs(),
-        s_fecho(),
+    # dos parágrafos [n] do dump (tools/docx_prose.py dump). A ordem e o total (27) casam com
+    # dist/roteiro-apresentacao.html; mudar um exige mudar o outro.
+    sections = [
+        ("01", "Seção 1", "Introdução", "O mesmo modelo custa diferente conforme o <em>harness</em>: a justificativa, o problema, os objetivos e as hipóteses.",
+         [s_justificativa(), s_tema(), s_problema(), s_objetivos(), s_hipoteses()]),
+        ("02", "Seção 2", "Referencial teórico", "O que é um <em>harness</em>, o que as fontes dizem sobre sucesso e custo, e as duas pendências: de onde vem o custo e como medi-lo.",
+         [s_anatomy(), s_sucesso(), s_pendencia_custo(), s_pendencia_medida()]),
+        ("03", "Seção 3", "Material e método", "Classificação, uso de IA declarado, duas camadas de medição, o produto, a matriz, a estatística e as limitações.",
+         [s_classificacao(), s_ia(), s_como(), s_camadas(), s_finn(), s_spec(), s_matriz(), s_estatistica(), s_limitacoes()]),
+        ("04", "Seções 4, 5 e 6", "Orçamento, cronograma e referências", f"R$ 0,00, calendário de agosto a janeiro e as {len(REFS)} referências da seção 6.",
+         [s_orcamento(), s_cronograma(), s_refs()]),
     ]
-    return "\n".join(parts)
+    pages: list[tuple[str, str]] = [(s_capa(), "")]
+    for num, kicker, heading, sub, body in sections:
+        running = f"<b>{num}</b> · {heading}"
+        pages.append((divider(num, kicker, heading, sub, [title_of(b) for b in body]), running))
+        pages.extend((b, running) for b in body)
+    pages.append((s_fecho(), ""))
+    total = len(pages)
+    return "\n".join(with_folio(html, running, n, total) for n, (html, running) in enumerate(pages, start=1))

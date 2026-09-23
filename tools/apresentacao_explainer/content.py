@@ -49,13 +49,13 @@ OBJECTIVES: list[tuple[str, str]] = [
     ("Publicar", "executor, <em>prompts</em>, testes, dados e scripts de análise"),
 ]
 
-# Classificação [73].
+# Classificação [73]. Só entra explicação que o próprio [73] dá (objetivos, procedimentos).
 CLASS_AXES: list[tuple[str, str, str]] = [
     ("Finalidade", "aplicada", ""),
-    ("Abordagem", "quali-quantitativa", "tokens e testes aprovados; atribuição à carga fixa ou à conversa"),
+    ("Abordagem", "quali-quantitativa", ""),
     ("Objetivos", "exploratória", "não há comparação publicada de <em>harnesses</em> construindo o mesmo produto completo"),
     ("Procedimentos", "experimental", "manipulada: o <em>harness</em> · controladas: modelo, especificação, espaço de trabalho inicial e limites"),
-    ("Método", "dedutivo", "predições registradas antes da coleta [83]"),
+    ("Método", "dedutivo", ""),
 ]
 
 # Tabela 2 [101]–[179]: X por mês, ago a jan.

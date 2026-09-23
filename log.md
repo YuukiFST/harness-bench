@@ -107,3 +107,10 @@ Auditoria slide a slide (17) com `CONTEXT.md`, `docs/spec/11` e o dump do docx c
 - `dist/roteiro-apresentacao.html` gerado por `tools/roteiro_2026-09-23.py`, derivado do roteiro de 2026-09-18.
 - A seção 6 do docx tem 14 entradas, não 15 como diz a entrada anterior; deck e roteiro seguem o docx.
 - `deck/` (Vite, 18 slides) aposentado pelo autor em 2026-09-23: não foi editado e não acompanha o docx.
+
+## [2026-09-23] edit | Deck explicativo no palco fixo 1920×1080 e revisão contra o docx
+
+- `tools/apresentacao_explainer/` passa ao palco fixo do frontend-slides (`viewport-base.css`, um slide ativo, escala única); saem o scroll e os `clamp()` dentro dos slides.
+- Visual: cabeço corrido e fólio, índice nas divisórias, fluxo do Finn em linha, fita das nove unidades, orçamento como livro-razão da Tabela 1, cronograma com barras contínuas.
+- Correções de conteúdo: o passo "gate" não era a U4 e não usa mais a cor do OpenCode; `spec.md` não existe no projeto; a classificação perdeu duas glosas que o [73] não dá; o subtítulo das referências não afirma mais que todas tratam do *harness*.
+- Mesma ordem e mesmo total (27), então `dist/roteiro-apresentacao.html` continua alinhado.
