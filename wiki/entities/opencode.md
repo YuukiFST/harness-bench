@@ -4,8 +4,8 @@ type: entity
 summary: Harness open-source; 47,2% no AHE e vazamento de chamada de titulo
 tags: [opencode, harness, bracos, vazamento]
 created: 2026-09-10
-updated: 2026-09-14
-sources: [wiki/sources/agentic-harness-engineering-lin-2026.md, wiki/sources/frontierharness-runta-2026.md, wiki/sources/zen-opencode-2026.md]
+updated: 2026-09-23
+sources: [wiki/sources/agentic-harness-engineering-lin-2026.md, wiki/sources/frontierharness-runta-2026.md, wiki/sources/zen-opencode-2026.md, wiki/sources/sol-pi-liu-2026.md]
 ---
 
 # OpenCode
@@ -18,6 +18,7 @@ sources: [wiki/sources/agentic-harness-engineering-lin-2026.md, wiki/sources/fro
 - Camada 1: 29.997 bytes / 6.659 tokens (9 schemas) na primeira requisicao; + chamada auxiliar de 2.526 bytes/sessao nao auto-reportada.
 - Vazamentos (`docs/research/04`): titulo toda sessao (1 LLM call invisivel; mitigar `--title`); retries sem teto aparentemente perdidos; compactacao contada.
 - FrontierHarness: 50,0%/$3,24 (source: [[frontierharness-runta-2026]]).
+- EdgeBench, GPT-5.6 Sol, 51 tarefas publicas: *score* medio 29,552, 2,5668 B tokens, $3.422, 2,2704 $/ponto, o pior custo por ponto entre os seis *harnesses* publicos da tabela (Pi: 44,833; $1.339; 0,5855); execucoes por configuracao nao informadas (source: [[sol-pi-liu-2026]]). [[harnesstax-pan-2026]] nao mede OpenCode.
 - Gateway dos dois niveis do projeto (source: [[zen-opencode-2026]]).
 
 ## No projeto
