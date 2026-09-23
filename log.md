@@ -90,3 +90,11 @@ Auditoria slide a slide (17) com `CONTEXT.md`, `docs/spec/11` e o dump do docx c
 - Criada: wiki/sources/sol-pi-liu-2026.md.
 - Atualizadas: wiki/entities/pi-coding-agent.md, wiki/entities/opencode.md, wiki/concepts/binding-constraint-thesis.md, wiki/concepts/especificidade-modelo-inversao.md, wiki/concepts/medicao-custo-proxy-vs-relato.md, _review.md.
 
+## [2026-09-23] edit | Projeto de pesquisa enxuto com HarnessTax e SoL-Pi
+
+- `dist/projeto-de-pesquisa.docx` reescrito por `tools/docx_edits_2026-09-23.py` (reproduz o arquivo a partir de 89fccf9): 12 para 9 páginas no Word, 21 para 15 referências.
+- Justificativa passa a se apoiar em [[harnesstax-pan-2026]]; a primeira pendência do referencial opõe carga fixa (Pan) e conversa ([[sol-pi-liu-2026]]), o que H2 decide.
+- H1 reescrita para cobrir a taxa de sucesso e ser refutável: o *harness* muda mais o custo do que o sucesso.
+- Limitações ganham a dependência entre unidades sob o teste de Wilcoxon e a troca de modelo no nível gratuito.
+- *et al.* em itálico no texto, títulos em negrito em todas as referências, *et al.* nas referências com quatro ou mais autores.
+- Deck e roteiro ainda não acompanham esta versão.
