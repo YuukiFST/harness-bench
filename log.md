@@ -77,3 +77,16 @@ Auditoria slide a slide (17) com `CONTEXT.md`, `docs/spec/11` e o dump do docx c
 - `tools/apresentacao_explainer/slides.py`: `all_slides()` reordenado para seguir as seções do docx (1 Introdução, 2 Referencial teórico, 3 Material e método, 4–6 Orçamento, cronograma e referências). Definição e componentes do *harness* passam para a seção 2 [49][50]; Camada 1 vai para a seção 3, depois das duas camadas [59]; classificação [57] e uso de IA [58] abrem a seção 3. Notas de fala que diziam "slide seguinte/anterior" corrigidas. Deck regenerado: 33 slides.
 - Título do projeto: o subtítulo nomeava o método (OpenCode, pi, SaaS, "sob um mesmo modelo") em vez de delimitar o tema. Novo subtítulo espelha o parágrafo de tema [29]: "EFEITO SOBRE TOKENS E TAXA DE SUCESSO DE AGENTES DE CODIFICAÇÃO NA CONSTRUÇÃO DE UM MESMO PRODUTO COM O MODELO DE LINGUAGEM FIXO". Aplicado em [5] e [10] do docx (`tools/docx_edits_2026-09-15b.py`) e na abertura do roteiro (`tools/roteiro_edits_2026-09-15b.py`). Capas dos dois decks mostram só o título principal e não mudaram.
 - Objetivo geral [33] e H1 [45] reescritos na mesma lógica (`tools/docx_edits_2026-09-15c.py`): primeiro a diferença atribuível ao *harness* com o modelo fixo e o mesmo produto, depois OpenCode, pi e Finn como braços e produto que a instanciam. Roteiro (cartões de objetivo geral e H1) e deck explicativo (notas do problema, subtítulo de objetivos, cartão H1) seguem a nova redação; `deck/` não citava essas frases.
+
+## [2026-09-23] ingest | HarnessTax (Pan et al., 2026)
+
+- Fonte: https://harnesstax.github.io/ (texto do JSON `data/blog/harness-x-model.0af74054a7.json`, HTML removido) salvo em `raw/sources/harnesstax-pan-2026.md`, coletado em 2026-09-23. Blogue de pesquisa, nao revisado por pares.
+- Criada: wiki/sources/harnesstax-pan-2026.md.
+- Atualizadas: wiki/entities/pi-coding-agent.md, wiki/concepts/binding-constraint-thesis.md, wiki/concepts/especificidade-modelo-inversao.md, wiki/concepts/medicao-custo-proxy-vs-relato.md, _review.md.
+
+## [2026-09-23] ingest | SoL-Pi (Liu et al., 2026)
+
+- Fonte: arXiv:2609.20519v1 (17 set. 2026), PDF em `raw/sources/2609.20519-liu-sol-pi.pdf`, lido com `pdftotext`. *Preprint*, nao revisado por pares.
+- Criada: wiki/sources/sol-pi-liu-2026.md.
+- Atualizadas: wiki/entities/pi-coding-agent.md, wiki/entities/opencode.md, wiki/concepts/binding-constraint-thesis.md, wiki/concepts/especificidade-modelo-inversao.md, wiki/concepts/medicao-custo-proxy-vs-relato.md, _review.md.
+
