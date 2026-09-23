@@ -59,7 +59,7 @@ def build() -> Path:
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Como o harness altera o custo e o desempenho do modelo — deck explicativo</title>
+<title>O harness no custo e no desempenho de agentes de codificação — deck explicativo</title>
 <link rel="icon" href="{FAVICON}">
 <!-- Gerado por tools/apresentacao_explainer/build.py. Não editar à mão: edite slides.py, content.py, charts.py ou styles.css e rode o build. -->
 <!-- Fontes: Fraunces, IBM Plex Sans, IBM Plex Mono (SIL OFL), embutidas em base64; sem CDN. -->

@@ -98,3 +98,12 @@ Auditoria slide a slide (17) com `CONTEXT.md`, `docs/spec/11` e o dump do docx c
 - Limitações ganham a dependência entre unidades sob o teste de Wilcoxon e a troca de modelo no nível gratuito.
 - *et al.* em itálico no texto, títulos em negrito em todas as referências, *et al.* nas referências com quatro ou mais autores.
 - Deck e roteiro ainda não acompanham esta versão.
+
+## [2026-09-23] edit | Deck explicativo e roteiro alinhados ao docx de 2026-09-23
+
+- `dist/apresentacao-explainer/index.html` regenerado de `tools/apresentacao_explainer/` (issue #80): 33 para 27 slides, todo número com o parágrafo `[n]` do dump atual.
+- Saíram os slides que só existiam por fontes removidas do docx (FrontierHarness, referencial 2022–2025 e 2026, HAL, Alier Forment, regras de medição) e os que dependiam de números fora do docx (componentes com bytes, Camada 1 medida).
+- Entraram a justificativa com [[harnesstax-pan-2026]], a divergência sobre o sucesso (Lin, Zhang, Pan) e as duas pendências do referencial, com [[sol-pi-liu-2026]].
+- `dist/roteiro-apresentacao.html` gerado por `tools/roteiro_2026-09-23.py`, derivado do roteiro de 2026-09-18.
+- A seção 6 do docx tem 14 entradas, não 15 como diz a entrada anterior; deck e roteiro seguem o docx.
+- `deck/` (Vite, 18 slides) aposentado pelo autor em 2026-09-23: não foi editado e não acompanha o docx.
