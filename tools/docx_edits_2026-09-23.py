@@ -12,7 +12,7 @@ The Cuiabá line stays city-only: NBR 14724 asks for the city alone on the
 folha de rosto, and AGENTS.md makes the NBR win over the course handout.
 
 Passes run in order; indices of each pass come from `docx_prose.py dump`
-after the previous one. The sumário numbers are set after pass 7.
+after the previous one. The sumário numbers are set after the last pass.
 
 Run once on the 89fccf9 docx: python tools/docx_edits_2026-09-23.py
 """
@@ -172,13 +172,13 @@ def set_sumario() -> None:
 
 
 def main() -> None:
-    for number, edits in enumerate(PASSES, start=1):
+    for edits in PASSES:
         with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False, encoding="utf-8") as f:
             json.dump(edits, f, ensure_ascii=False)
         apply(DOCX, Path(f.name))
         Path(f.name).unlink()
-        if number == 7:
-            set_sumario()
+    # Page numbers are only final once every pass has run.
+    set_sumario()
 
 
 if __name__ == "__main__":
