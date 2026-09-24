@@ -4,7 +4,7 @@ type: concept
 summary: Proxy externo conta tudo igual; cada harness omite chamadas diferentes
 tags: [proxy, medicao, tokens, custo, instrumentacao]
 created: 2026-09-10
-updated: 2026-09-23
+updated: 2026-09-24
 sources: [wiki/sources/ai-agents-that-matter-kapoor-2024.md, wiki/sources/scaffolding-matters-alier-forment-2026.md, wiki/sources/harnessrank-2026.md, wiki/sources/frontierharness-runta-2026.md, wiki/sources/harnesstax-pan-2026.md, wiki/sources/sol-pi-liu-2026.md]
 ---
 
@@ -17,7 +17,8 @@ A segunda pendencia do projeto e de instrumentacao: o que um *harness* relata di
 - OpenCode: chamada de titulo (primeiro passo, toda sessao) nunca registrada; retries sem teto aparentemente perdidos; compactacao **contada**.
 - Cline: compactacao agentica descarta o chunk de uso (invisivel em toda superficie); retries contam tokens mas nao passos.
 - PI: superficie de reporte nao verificada.
-- Regra: proxy reverso entre braco e gateway, forca `stream_options: {include_usage: true}`, engole o frame de uso (harness ve stream identico), conta no proxy com um so tokenizador. Passo = um POST /v1/chat/completions 2xx com `finish_reason` terminal.
+- Regra: proxy reverso entre braco e gateway, forca `stream_options: {include_usage: true}`, engole o frame de uso (harness ve stream identico). Passo = um POST /v1/chat/completions 2xx com `finish_reason` terminal.
+- Desde 2026-09-24 a contagem principal e o `usage` que o gateway devolve em cada resposta, lido no proxy e separado em entrada, entrada em *cache* e saida (`docs/spec/11-experimental-protocol.md` §2.1). A recontagem com `cl100k_base` fica so para separar a carga fixa de H2, porque o gateway nao diz quais tokens foram *system prompt*. Mesma linha de [[harnesstax-pan-2026]] (tokens de entrada relatados pelo provedor) e de [[sol-pi-liu-2026]] (trafego em parcelas, com *cache*).
 
 ## Regras de medida (das fontes)
 
@@ -30,7 +31,7 @@ A segunda pendencia do projeto e de instrumentacao: o que um *harness* relata di
 
 ## Armadilhas
 
-- Gateway injeta conteudo e conta a mais (deslocamento aditivo por requisicao nao se cancela em razao); contagens do gateway ficam para verificacao cruzada e custo.
+- Gateway injeta conteudo e conta a mais (deslocamento aditivo por requisicao nao se cancela em razao). Ate 2026-09-24 isso deixava as contagens do gateway so para verificacao cruzada; agora o deslocamento (19 tokens por requisicao no `mimo-v2.5-free` com mensagem de sistema) e relatado como `passos x deslocamento` ao lado dos totais.
 - Temperatura/seed omitidos viram defaults silenciosos distintos; `num_ctx` nao vai por /v1 (fixar `OLLAMA_CONTEXT_LENGTH`, verificar `ollama ps`).
 - Cache: hit mediano != custo; falha longa cacheada queima mais que acerto curto (source: [[frontierharness-runta-2026]]).
 
