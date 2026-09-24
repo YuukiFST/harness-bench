@@ -6,8 +6,9 @@ Depois abrir dist/apresentacao-explainer/index.html (setas navegam; N notas; O s
 
 Estrutura: viewport-base.css (palco fixo 1920×1080, cópia de .claude/skills/frontend-slides)
 + styles.css + engine.js + fontes OFL em base64 embutidos; slides em slides.py;
-gráficos SVG em charts.py; dados em content.py. O deck original (deck/ → dist/apresentacao/)
-fica intacto; este é o experimento visual pedido em 2026-09-15.
+gráficos SVG em charts.py; dados em content.py. Começou em 2026-09-15 como
+experimento visual ao lado do deck Vite (deck/ → dist/apresentacao/), removido em 2026-09-24;
+é o único deck desde então.
 """
 
 from __future__ import annotations

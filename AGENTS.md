@@ -67,7 +67,7 @@ This wiki is the knowledge base of the harness-bench research project (a *projet
 
 ## Slides (apresentação)
 
-Any work on slides or HTML presentation files (`deck/`, built into `dist/apresentacao/index.html`; the single-file deck was removed on 2026-09-14 and the output folder was renamed from `apresentacao-pcc` on 2026-09-15) must first read `.claude/skills/frontend-slides/SKILL.md` (upstream: https://github.com/zarazhangrui/frontend-slides) and follow it, Mode C (enhancement) for existing decks: keep the single self-contained HTML file, keep the fixed 1920×1080 stage scaled as a whole, never reflow slide content per device, max 4–6 bullets per slide (split the slide instead of overflowing), and after any change verify no text overflows its card and no panels overlap.
+Any work on slides or HTML presentation files (source `tools/apresentacao_explainer/`, built by its `build.py` into `dist/apresentacao-explainer/index.html`; the script `dist/roteiro-apresentacao.html` is built by the newest `tools/roteiro_*.py` and follows the deck slide for slide; the Vite deck `deck/` and its output `dist/apresentacao/` were removed on 2026-09-24) must first read `.claude/skills/frontend-slides/SKILL.md` (upstream: https://github.com/zarazhangrui/frontend-slides) and follow it, Mode C (enhancement) for existing decks: keep the single self-contained HTML file, keep the fixed 1920×1080 stage scaled as a whole, never reflow slide content per device, max 4–6 bullets per slide (split the slide instead of overflowing), and after any change verify no text overflows its card and no panels overlap.
 
 ## Project documents
 
