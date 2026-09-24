@@ -81,7 +81,7 @@ def harness_anatomy() -> str:
     out.append(f'<circle class="f-acc" cx="{cx}" cy="{cy}" r="92" opacity="0.95"/>')
     out.append(f'<text x="{cx}" y="{cy-8}" text-anchor="middle" font-size="20" font-weight="600" fill="var(--bg)">MODELO</text>')
     out.append(f'<text x="{cx}" y="{cy+18}" text-anchor="middle" font-size="15" fill="var(--bg)">sem estado · fixo</text>')
-    # Os três componentes que Lin et al. (2026, §1) nomeiam no projeto [66].
+    # Os três componentes que Lin et al. (2026, p. 1) nomeiam no projeto [66].
     nodes = [
         ("System prompt", "molda o estilo de trabalho", -1, -1),
         ("Ferramentas", "expõem o sistema de arquivos e o shell", 1, -1),

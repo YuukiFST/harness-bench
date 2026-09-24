@@ -4,7 +4,7 @@ Texto e números vêm só do projeto (dist/projeto-de-pesquisa.docx); cada slide
 traz o denominador na linha de fonte. Notas do apresentador ficam em `<div class="notes">` e
 aparecem com a tecla N; os índices [n] referem-se ao dump do .docx via
 `python tools/docx_prose.py dump dist/projeto-de-pesquisa.docx` (versão do autor de 2026-09-24,
-com tools/docx_edits_2026-09-24.py e tools/docx_edits_2026-09-24b.py aplicados).
+com tools/docx_edits_2026-09-24.py a 24f aplicados).
 """
 
 from __future__ import annotations
@@ -139,7 +139,7 @@ def s_tema() -> str:
 def s_problema() -> str:
     inner = """
 <span class="quote-mark" aria-hidden="true">“</span>
-<blockquote class="reveal">«Com o modelo fixo, <b>quanto a escolha do <em>harness</em> pode influenciar no custo e na taxa de sucesso</b> ao construir o mesmo software com um <em>harness</em> em vez de outro?»</blockquote>
+<blockquote class="reveal">«Com o modelo fixo, <b>quanto a escolha do <em>harness</em> influencia o custo e a taxa de sucesso</b> na construção do mesmo software?»</blockquote>
 <cite class="reveal">Problema de pesquisa · Projeto, §1 [48]</cite>"""
     notes = "<b>Problema [48].</b> Ler na íntegra. H1 responde a ele; H2 e o objetivo geral acrescentam a parcela da carga fixa. Objetivo geral [50]: medir, com o modelo fixo, a diferença de tokens e de taxa de sucesso atribuível ao harness na construção do mesmo produto a partir da mesma especificação, com o OpenCode e o Pi como braços, e separar a parcela que vem da carga fixa por requisição."
     return sec("quote", "Problema de pesquisa", inner, notes)
@@ -163,11 +163,11 @@ def s_hipoteses() -> str:
                  "as duas com critério de refutação declarado [61][62]")
     inner += """
 <div class="cards c2" style="align-items:stretch">
-<div class="card card--hi reveal"><span class="card__k">H1</span>Com o modelo fixo, os tokens por unidade diferem entre o OpenCode e o Pi, e a fração de testes aprovados fica igual.<br><span class="mute">Refutada se o teste pareado não apontar diferença de tokens ou se a fração final de testes aprovados diferir.</span></div>
+<div class="card card--hi reveal"><span class="card__k">H1</span>Com o modelo fixo, os tokens por unidade diferem entre o OpenCode e o Pi, e a fração de testes aprovados fica igual.<br><span class="mute">Refutada se o teste pareado não apontar diferença de tokens ou se as medianas da fração final de testes aprovados diferirem entre os braços.</span></div>
 <div class="card card--hi reveal"><span class="card__k">H2</span>A carga fixa por requisição (<em>system prompt</em> e esquemas de ferramenta) explica a maior parte da diferença de tokens; o número de passos, a menor.<br><span class="mute">Refutada se os passos ou o conteúdo da conversa explicarem a maior parte.</span></div>
 </div>"""
     inner += source("Projeto, §1, hipóteses [61]–[62].")
-    notes = "<b>Hipóteses [61][62].</b> H1: com o modelo fixo, o harness muda mais o custo do que o sucesso; refutada se o teste pareado não apontar diferença de tokens ou se a fração final de testes aprovados diferir. H2: carga fixa contra passos e conversa; refutada se os passos ou o conteúdo da conversa explicarem a maior parte. As predições são registradas antes da coleta [83]."
+    notes = "<b>Hipóteses [61][62].</b> H1: com o modelo fixo, o harness muda mais o custo do que o sucesso; refutada se o teste pareado não apontar diferença de tokens ou se as medianas da fração final de testes aprovados diferirem entre os braços. H2: carga fixa contra passos e conversa; refutada se os passos ou o conteúdo da conversa explicarem a maior parte. As predições são registradas antes da coleta [83]."
     return sec("content", "Hipóteses H1 e H2", inner, notes)
 
 
@@ -175,20 +175,20 @@ def s_hipoteses() -> str:
 
 def s_anatomy() -> str:
     inner = head("Definição", "O que é um <em>harness</em>",
-                 "os componentes externos ao modelo e editáveis que o cercam (Lin <em>et al.</em>, 2026, §1)")
+                 "os componentes externos ao modelo e editáveis que o cercam (Lin <em>et al.</em>, 2026, p. 1)")
     inner += f"""
 <div class="slide__inner" style="grid-template-columns:1fr 1.15fr">
 <div class="slide__aside reveal">{harness_anatomy()}</div>
 <div>
 <ul class="slide__bullets">
-<li class="reveal"><b>Ning <em>et al.</em> (2026, §2)</b> · um <em>harness</em> «converte um modelo de linguagem sem estado em um agente funcional ao ancorar suas saídas em execução externa, estado persistente e realimentação verificável».</li>
-<li class="reveal"><b>Lin <em>et al.</em> (2026, §1)</b> · o <em>system prompt</em>, as ferramentas que expõem o sistema de arquivos e o shell, e o <em>middleware</em> que controla contexto, execução e recuperação.</li>
-<li class="reveal"><b>Neste projeto</b> · só esse conjunto varia. O Pi envia quatro ferramentas e um <em>system prompt</em> curto; o OpenCode, mais ferramentas, um <em>prompt</em> maior, subagentes e permissões.</li>
+<li class="reveal"><b>Ning <em>et al.</em> (2026, p. 7)</b> · um <em>harness</em> «converte um modelo de linguagem sem estado em um agente funcional ao ancorar suas saídas em execução externa, estado persistente e realimentação verificável».</li>
+<li class="reveal"><b>Lin <em>et al.</em> (2026, p. 1)</b> · o <em>system prompt</em>, as ferramentas que expõem o sistema de arquivos e o shell, e o <em>middleware</em> que controla contexto, execução e recuperação.</li>
+<li class="reveal"><b>Neste projeto</b> · só esse conjunto varia. O Pi envia quatro ferramentas e um <em>system prompt</em> curto; o OpenCode, mais ferramentas, subagentes e permissões (Earendil, 2026; Opencode, 2026a).</li>
 </ul>
 </div>
 </div>"""
-    inner += source("Ning <em>et al.</em> (2026, §2); Lin <em>et al.</em> (2026, §1). <em>Preprints</em>, não revisados por pares. Projeto, §2 [65]–[67].")
-    notes = "<b>Referencial [65]–[67].</b> Ning et al. (2026, §2): definição citada [65]. Lin et al. (2026, §1): citação longa [66], o conjunto de componentes externos ao modelo e editáveis. [67]: só esse conjunto varia entre os braços; o Pi envia quatro ferramentas e um system prompt curto, o OpenCode mais ferramentas, prompt maior, subagentes e permissões. O proxy fica fora do harness e conta igual para os dois braços [59]."
+    inner += source("Ning <em>et al.</em> (2026, p. 7); Lin <em>et al.</em> (2026, p. 1). <em>Preprints</em>, não revisados por pares. Projeto, §2 [65]–[67].")
+    notes = "<b>Referencial [65]–[67].</b> Ning et al. (2026, p. 7): definição citada [65]. Lin et al. (2026, p. 1): citação longa [66], o conjunto de componentes externos ao modelo e editáveis. [67]: só esse conjunto varia entre os braços; o Pi envia quatro ferramentas e um system prompt curto, o OpenCode mais ferramentas, prompt maior, subagentes e permissões. O proxy fica fora do harness e conta igual para os dois braços [59]."
     return sec("content", "O que é um harness", inner, notes)
 
 
@@ -199,8 +199,8 @@ def s_sucesso() -> str:
 <div class="slide__inner" style="grid-template-columns:1fr 1fr;align-items:stretch">
 {figure(vbars(LIN_T1, " %", 80, "Aprovação de harnesses escritos por humanos sobre o GPT-5.4 no Terminal-Bench 2"), "<b>Lin <em>et al.</em> (2026), Tabela 1:</b> <em>harnesses</em> escritos por humanos sobre o GPT-5.4, Terminal-Bench 2.")}
 <div class="cards" style="grid-template-columns:1fr;align-content:center">
-<div class="card reveal"><span class="card__k">Zhang <em>et al.</em> (2026)</span>Entre modelos de fronteira comparáveis, a parcela do desempenho que vem do <em>harness</em> é comparável ou maior que a do modelo.</div>
-<div class="card reveal"><span class="card__k">Pan <em>et al.</em> (2026) · SWE-bench Lite</span><span class="card__v num">±2 % no sucesso</span>O Claude Code custou cerca de 2,0 vezes o Pi.</div>
+<div class="card reveal"><span class="card__k">Zhang <em>et al.</em> (2026)</span>Em tarefas longas e entre modelos de fronteira comparáveis, a variação de desempenho devida ao <em>harness</em> é comparável ou maior que a devida ao modelo.</div>
+<div class="card reveal"><span class="card__k">Pan <em>et al.</em> (2026) · SWE-bench Lite</span><span class="card__v num">efeito médio de ±2 % no sucesso</span>O Claude Code custou, em média, cerca de 2,0 vezes o Pi.</div>
 </div>
 </div>"""
     inner += source("Lin <em>et al.</em> (2026) e Zhang <em>et al.</em> (2026), <em>preprints</em>; Pan <em>et al.</em> (2026), blogue de pesquisa. Projeto, §2 [68].")
@@ -210,15 +210,15 @@ def s_sucesso() -> str:
 
 def s_pendencia_custo() -> str:
     inner = head("Referencial · primeira pendência", "De onde vem a diferença de custo?",
-                 "Pan <em>et al.</em> apontam a primeira requisição; Liu <em>et al.</em>, o resto da conversa [69]")
+                 "Pan <em>et al.</em> apontam a primeira requisição como possível origem; Liu <em>et al.</em>, o resto da conversa [69]")
     inner += """
 <div class="cards c2" style="align-items:stretch">
-<div class="card reveal"><span class="card__k">Pan <em>et al.</em> (2026) · a primeira requisição</span><span class="card__v num">mais de 10× o contexto inicial</span>O contexto inicial do Claude Code passa de dez vezes o do Pi, com número de turnos parecido: 15,3 contra 15,4 no Claude Fable 5.</div>
-<div class="card reveal"><span class="card__k">Liu <em>et al.</em> (2026) · SoL-Pi · a conversa</span><span class="card__v num">44,7 % a 49,0 % menos tokens</span>Mudando só a execução das ações, a compactação de contexto e o tratamento das observações, em relação ao Pi, com 93,7 % a 94,3 % da pontuação dele.</div>
-<div class="card card--hi reveal" style="grid-column:1/-1"><span class="card__k">O que H2 testa</span>Ning <em>et al.</em> (2026, §5.2.7) pedem «métricas que isolem componentes do <em>harness</em>». H2 testa se pesa mais a carga fixa ou a conversa.</div>
+<div class="card reveal"><span class="card__k">Pan <em>et al.</em> (2026) · a primeira requisição</span><span class="card__v num">mais de 10× o contexto inicial</span>Nos sete modelos, o contexto inicial médio do Claude Code passa de dez vezes o do Pi; no Claude Fable 5 os turnos quase se igualam: 15,3 contra 15,4.</div>
+<div class="card reveal"><span class="card__k">Liu <em>et al.</em> (2026) · SoL-Pi · a conversa</span><span class="card__v num">44,7 % a 49,0 % menos tokens</span>Mudando só a execução das ações, a compactação de contexto, o tratamento das observações e a leitura delegada, em relação ao Pi, com 93,7 % a 94,3 % da pontuação dele.</div>
+<div class="card card--hi reveal" style="grid-column:1/-1"><span class="card__k">O que H2 testa</span>Ning <em>et al.</em> (2026, p. 66) pedem «métricas que isolem componentes do <em>harness</em>». H2 testa se pesa mais a carga fixa ou a conversa.</div>
 </div>"""
     inner += source("Pan <em>et al.</em> (2026), blogue de pesquisa; Liu <em>et al.</em> (2026), arXiv:2609.20519, <em>preprint</em>; Ning <em>et al.</em> (2026), <em>preprint</em>. Projeto, §2 [69].")
-    notes = "<b>Primeira pendência [69].</b> Pan: o contexto inicial do Claude Code passa de dez vezes o do Pi, com 15,3 contra 15,4 turnos no Claude Fable 5. Liu (SoL-Pi): mudando só a execução das ações, a compactação e o tratamento das observações, de 44,7% a 49,0% menos tokens que o Pi, mantendo de 93,7% a 94,3% da pontuação dele. Ning (§5.2.7) pede métricas que isolem componentes; H2 responde a isso."
+    notes = "<b>Primeira pendência [69].</b> Pan: o imposto pode começar na primeira requisição; nos sete modelos, o contexto inicial médio do Claude Code passa de dez vezes o do Pi, com 15,3 contra 15,4 turnos no Claude Fable 5. Liu (SoL-Pi): mudando só a execução das ações, a compactação, o tratamento das observações e a leitura delegada, de 44,7% a 49,0% menos tokens que o Pi, mantendo de 93,7% a 94,3% da pontuação dele. Ning (§5.2.7) pede métricas que isolem componentes; H2 responde a isso."
     return sec("content", "Primeira pendência: o custo", inner, notes)
 
 
@@ -229,10 +229,10 @@ def s_pendencia_medida() -> str:
 <div class="cards c3" style="align-items:stretch">
 <div class="card reveal"><span class="card__k">Instrumentação [70]</span>Pan <em>et al.</em> (2026) registram que a definição de turno varia entre os <em>harnesses</em>. O <em>proxy</em> é igual para os dois braços, e o objetivo (5) compara essa medida com o relato de cada <em>harness</em>.</div>
 <div class="card reveal"><span class="card__k">Métricas [71]</span>Tokens por construção, ao lado da fração de testes aprovados, e o Succ/Mtok (sucessos por milhão de tokens) de Lin <em>et al.</em> (2026).</div>
-<div class="card card--hi reveal"><span class="card__k">Dois níveis de modelo [71]</span>O efeito depende do modelo: em nove de doze comparações de Pan <em>et al.</em> (2026), o maior sucesso veio de um <em>harness</em> de outro fornecedor.</div>
+<div class="card card--hi reveal"><span class="card__k">Dois níveis de modelo [71]</span>O efeito depende do modelo: em nove de doze comparações de Pan <em>et al.</em> (2026), o maior sucesso veio de um <em>harness</em> que não é o do fornecedor do modelo.</div>
 </div>"""
     inner += source("Projeto, §2 [70]–[71].")
-    notes = "<b>Segunda pendência [70] e métricas [71].</b> Cada harness conta turnos e tokens do seu jeito, e Pan et al. registram que a definição de turno varia; o proxy externo é igual para os dois braços e o objetivo (5) compara a medida com o relato. Métricas: tokens por construção ao lado da fração de testes aprovados, e o Succ/Mtok de Lin et al. Nove de doze comparações de Pan: o maior sucesso veio de um harness de outro fornecedor; daí os dois níveis de modelo."
+    notes = "<b>Segunda pendência [70] e métricas [71].</b> Cada harness conta turnos e tokens do seu jeito, e Pan et al. registram que a definição de turno varia; o proxy externo é igual para os dois braços e o objetivo (5) compara a medida com o relato. Métricas: tokens por construção ao lado da fração de testes aprovados, e o Succ/Mtok de Lin et al. Nove de doze comparações de Pan: o maior sucesso veio de um harness que não é o do fornecedor do modelo; daí os dois níveis de modelo."
     return sec("content", "Segunda pendência: a medida", inner, notes)
 
 
@@ -248,19 +248,18 @@ def s_classificacao() -> str:
     inner += f"""
 <div class="table-wrap reveal"><table class="data"><tbody>{trs}</tbody></table></div>"""
     inner += source("Projeto, §1 [59] e §3 [73].")
-    notes = "<b>Classificação [59][73].</b> Aplicada quanto à finalidade, quali-quantitativa quanto à abordagem, exploratória quanto aos objetivos, experimental quanto aos procedimentos e dedutiva quanto ao método. Exploratória porque não há comparação publicada de harnesses construindo o mesmo produto completo."
+    notes = "<b>Classificação [59][73].</b> Aplicada quanto à finalidade, quali-quantitativa quanto à abordagem, exploratória quanto aos objetivos, experimental quanto aos procedimentos e dedutiva quanto ao método. Exploratória porque não se encontrou comparação publicada de harnesses construindo o mesmo produto completo."
     return sec("table", "Classificação da pesquisa", inner, notes)
 
 
 def s_ia() -> str:
-    inner = head("Uso de IA declarado", "O agente organiza e especifica; o autor confere e responde",
+    inner = head("Uso de IA declarado", "O Claude Code ajuda nas fontes e no Finn; o autor confere e responde",
                  "ferramenta declarada: Claude Code, no levantamento das fontes, nas decisões do Finn e na sua versão de referência [74]")
     inner += """
 <div class="cards c2">
 <div class="card reveal"><span class="card__k">Levantamento das fontes · <em>LLM Wiki</em> (Karpathy, 2026)</span>
 <ol class="card__steps">
-<li><b>Fontes brutas</b> ficam guardadas sem alteração no repositório (YuukiFST, 2026c).</li>
-<li><b>O agente escreve</b> uma página de síntese por fonte e liga entidades e conceitos.</li>
+<li><b>Levantamento</b> organizado pelo método <em>LLM Wiki</em> no repositório do projeto (YuukiFST, 2026c).</li>
 <li><b>O autor confere</b> cada afirmação citada na obra original.</li>
 </ol></div>
 <div class="card reveal"><span class="card__k">Finn · Helmsman (YuukiFST, 2026a)</span>
@@ -313,7 +312,7 @@ def s_finn() -> str:
     inner += f'<div class="flow reveal">{flow}</div>'
     inner += """
 <div class="card card--hi reveal"><span class="card__k">Decidido em 21 <em>tickets</em></span>A especificação, tirada da versão de referência, traz o produto, a pilha, a interface dos testes e as funcionalidades em JSON.</div>"""
-    inner += source("Finn (YuukiFST, 2026b): github.com/YuukiFST/Finn. Fluxo de voz da <em>issue</em> #14. Projeto, §3 [77].")
+    inner += source("Finn (YuukiFST, 2026b): github.com/YuukiFST/Finn. Fluxo de voz: Finn, <em>issue</em> #14 (produto, não unidade). Projeto, §3 [77].")
     notes = "<b>Finn (YuukiFST, 2026b) [77].</b> SaaS multiempresa de financeiro por voz, decidido em 21 tickets. Da versão de referência sai a especificação: produto, pilha, interface dos testes e funcionalidades em JSON, no formato de Young (2025). Ponto a dizer: as medições publicadas usam tarefas isoladas [44]; aqui o agente constrói um produto inteiro."
     return sec("content", "Finn: o produto", inner, notes)
 
@@ -371,7 +370,7 @@ def s_estatistica() -> str:
     inner += """
 <div class="cards c2" style="align-items:stretch">
 <div class="card card--hi reveal"><span class="card__k">1 · Medir</span><span class="card__v">O <em>gateway</em> conta</span>O <em>proxy</em> guarda os tokens que o <em>gateway</em> informa em cada resposta (entrada, cache e saída) e soma por unidade e por construção [80].</div>
-<div class="card reveal"><span class="card__k">2 · Resumir</span><span class="card__v">Tokens por construção</span>Mediana das três construções de cada braço. Succ/Mtok: sucessos por milhão de tokens (Lin <em>et al.</em>, 2026) [71].</div>
+<div class="card reveal"><span class="card__k">2 · Resumir</span><span class="card__v">Tokens por construção</span>Mediana das construções de cada braço (ao menos três) [82]. Succ/Mtok: sucessos por milhão de tokens (Lin <em>et al.</em>, 2026) [71].</div>
 <div class="card reveal"><span class="card__k">3 · Comparar</span><span class="card__v">Razão das medianas</span>Wilcoxon pareado por unidade, bilateral, α = 0,05, sobre tokens e Succ/Mtok (Miller, 2024). A fração de testes aprovados é relatada sem teste [83].</div>
 <div class="card reveal"><span class="card__k">4 · Explicar (H2)</span><span class="card__v">Carga fixa e conversa</span>Em cada requisição, o <em>proxy</em> separa o <em>system prompt</em> e as ferramentas do resto da conversa [80].</div>
 </div>"""
@@ -438,15 +437,15 @@ def s_cronograma() -> str:
                  "leitura e escrita em ago–set; Finn de referência, <em>proxy</em>, testes, matriz e análise em out")
     inner += f'<div class="gantt reveal">{hdr}{"".join(rows)}</div>'
     inner += '<div class="gantt-legend reveal"><span><i></i>leitura, escrita e revisão</span><span><i class="run"></i><span>referência, <em>proxy</em>, testes, execução e análise</span></span></div>'
-    inner += source("Projeto, §5, Tabela 2 [101]–[157]. Revisão final e apresentação em setembro.")
-    notes = "<b>Cronograma [101]–[157]:</b> três meses, de agosto a outubro. Ago–set: leitura, tema e hipóteses, e toda a escrita. Out: Finn de referência, proxy e testes, execução da matriz e análise. Revisão final e apresentação em set."
+    inner += source("Projeto, §5, Tabela 2 [101]–[146]. Revisão final e apresentação em setembro.")
+    notes = "<b>Cronograma [101]–[146]:</b> três meses, de agosto a outubro. Ago–set: leitura, tema e hipóteses, e toda a escrita. Out: Finn de referência, proxy e testes, execução da matriz e análise. Revisão final e apresentação em set."
     return sec("content", "Cronograma", inner, notes)
 
 
 def s_refs() -> str:
     inner = head("Referências", f"As {len(REFS)} entradas da seção 6")
     inner += '<div class="refs reveal">' + "".join(f"<p>{r}</p>" for r in REFS) + "</div>"
-    notes = "<b>Referências [158]–[172].</b> Lista completa da seção 6. Preprints e blogues marcados como não revisados por pares. As normas ABNT e os manuais de metodologia não entram: a lista fica no tema."
+    notes = "<b>Referências [147]–[161].</b> Lista completa da seção 6. Preprints e blogues marcados como não revisados por pares. As normas ABNT e os manuais de metodologia não entram: a lista fica no tema."
     return sec("content", "Referências", inner, notes)
 
 
@@ -459,7 +458,7 @@ def s_fecho() -> str:
 <div class="title-rule"></div>
 <p class="end-links">github.com/YuukiFST/harness-bench (YuukiFST, 2026c)<br>github.com/YuukiFST/Finn (YuukiFST, 2026b)</p>
 </div>"""
-    notes = "<b>Fecho.</b> Retomar H1 [61] e o problema [48]: quanto a escolha do harness influencia custo e sucesso; H2 [62] pergunta quanto da diferença é carga fixa. Repositórios YuukiFST/Finn [170] e YuukiFST/harness-bench [171]."
+    notes = "<b>Fecho.</b> Retomar H1 [61] e o problema [48]: quanto a escolha do harness influencia custo e sucesso; H2 [62] pergunta quanto da diferença é carga fixa. Repositórios YuukiFST/Finn [159] e YuukiFST/harness-bench [160]."
     return sec("end", "Fecho", inner, notes)
 
 

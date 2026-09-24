@@ -53,15 +53,13 @@ OBJECTIVES: list[tuple[str, str]] = [
 CLASS_AXES: list[tuple[str, str, str]] = [
     ("Finalidade", "aplicada", ""),
     ("Abordagem", "quali-quantitativa", ""),
-    ("Objetivos", "exploratória", "não há comparação publicada de <em>harnesses</em> construindo o mesmo produto completo"),
+    ("Objetivos", "exploratória", "não se encontrou comparação publicada de <em>harnesses</em> construindo o mesmo produto completo"),
     ("Procedimentos", "experimental", "manipulada: o <em>harness</em> · controladas: modelo, especificação, espaço de trabalho inicial e limites"),
     ("Método", "dedutivo", ""),
 ]
 
-# Tabela 2 [101]–[157]: X por mês, lidos das células de word/document.xml (o dump omite as
-# vazias). Desde tools/docx_edits_2026-09-24d.py a tabela tem quatro meses, ago a nov.
-# Em 2026-09-24 o autor corrigiu: Finn de referência, proxy e testes ficam só em outubro e
-# novembro não tem fase, então o deck mostra ago a out; a Tabela 2 do docx ainda marca nov.
+# Tabela 2 [101]–[146]: X por mês, lidos das células de word/document.xml (o dump omite as
+# vazias). Desde tools/docx_edits_2026-09-24e.py a tabela tem três meses, ago a out.
 GANTT_MONTHS = ["Ago", "Set", "Out"]
 GANTT: list[tuple[str, list[int]]] = [
     ("Leitura e levantamento bibliográfico", [1, 1, 0]),
@@ -76,7 +74,7 @@ GANTT: list[tuple[str, list[int]]] = [
     ("Revisão final e apresentação", [0, 1, 0]),
 ]
 
-# As 14 entradas da seção 6 [159]–[172], formato abreviado. BRASIL saiu e YOUNG entrou em 2026-09-24.
+# As 14 entradas da seção 6 [147]–[161], formato abreviado. BRASIL saiu e YOUNG entrou em 2026-09-24.
 REFS: list[str] = [
     "EARENDIL. <b>Pi, minimal and performant</b>. 2026. Blogue institucional.",
     "KARPATHY, A. <b>LLM Wiki</b>: a pattern for building personal knowledge bases using LLMs. 2026. Gist (GitHub).",
