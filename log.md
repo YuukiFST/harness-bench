@@ -177,3 +177,19 @@ Auditoria slide a slide (17) com `CONTEXT.md`, `docs/spec/11` e o dump do docx c
 - Tabela 2: "Finn de referencia, *proxy* e testes" so em outubro; a coluna NOVEMBRO sai.
 - Word: 9 paginas, 6 REFERENCIAS na mesma posicao (p. 8, linha 33).
 - `docs/spec/11-experimental-protocol.md` §2.1, §2.2 e §7 e [[medicao-custo-proxy-vs-relato]] atualizados; deck e roteiro realinhados.
+
+## [2026-09-24] edit | Revisao do projeto, deck e roteiro contra fontes e apostilas
+
+- Apostilas lidas (template, Aula 3, Aula 5). `tools/docx_edits_2026-09-24f.py`: titulo em negrito com *HARNESS* em italico ([9], [22], template); "Cuiaba – MT" ([18], [31], Aula 3: cidade e estado); citacoes diretas com pagina, Ning p. 7 e p. 66, Lin p. 1 ([65], [66], [69], Aula 5); problema sem "influenciar no" nem repeticao ([48]).
+- Conferencia citacao por citacao nas fontes brutas: [67] ganha Earendil (2026) e Opencode (2026a) e perde "um *prompt* maior", sem fonte; [68] Zhang fala de variacao, em tarefas longas, e o 2,0x de Pan e media; [69] Pan diz que o imposto "pode comecar" na primeira requisicao, e Liu mudou quatro mecanismos, com a leitura delegada; [71] "*harness* que nao e o do fornecedor do modelo"; [73] "nao se encontrou"; [83] Miller recomenda o pareamento, sem dizer que a dificuldade e a maior fonte de variacao.
+- Mapa citacao → trecho → prova: [[2026-09-24-mapa-citacoes-projeto]]. 14 citacoes, 14 entradas.
+- Humanizer nos trechos novos. Word: 9 paginas, sumario inalterado (6 REFERENCIAS na p. 5).
+- Deck (`tools/apresentacao_explainer/`) e roteiro (`tools/roteiro_2026-09-24.py`) realinhados: indices [101]–[146], [147]–[161], [159], [160]; "ao menos tres" construcoes; slide 15 sem "o agente especifica"; Q&A do roteiro sem o erro "outros dois bracos" e sem a frase de fecho; mesmas mudancas de texto do docx. Slides 9, 10, 11, 15, 21 e 26 conferidos por captura, sem transbordo.
+- Pendencias em `_review.md`: regra de refutacao de H1, repositorios privados, deck antigo em `dist/apresentacao/`.
+
+## [2026-09-24] edit | Pendencias da revisao resolvidas; Zen gratuito fechado para o Pi
+
+- Decisao do autor: seguir a recomendacao. H1 [61] usa as medianas por celula da fracao final, como `docs/spec/11-experimental-protocol.md`; Word: 9 paginas, sumario inalterado. Deck e roteiro acompanham.
+- `deck/` e `dist/apresentacao/` removidos; `AGENTS.md` e `tools/apresentacao_explainer/build.py` apontam para o deck vigente.
+- Repositorios Finn e harness-bench seguem privados ate ficarem prontos.
+- Achado novo: o Zen recusa `hy3-free` ("not supported") e restringe o nivel gratuito a clientes OpenCode ("free tier can only be used from within OpenCode"). O braco Pi fica sem modelo e [76], [79], [91] ficam falsos ate o autor escolher outro caminho. Registrado em `_review.md`.
