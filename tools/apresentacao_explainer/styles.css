@@ -243,6 +243,10 @@ html.theme-dark .slide::after { mix-blend-mode: screen; opacity: 0.18; }
 .units-tape__id { font: 600 15px/1 var(--font-mono); letter-spacing: 0.1em; color: var(--accent); }
 .units-tape__n { font: 450 25px/1.15 var(--font-display); min-height: 58px; display: flex; align-items: center; justify-content: center; }
 .units-tape__i { font: 400 15px/1 var(--font-mono); color: var(--text-dim); }
+.units-tape--flow { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.units-tape--flow .units-tape__u { padding: 28px 36px 26px; }
+.units-tape--flow .units-tape__n { font-size: 34px; min-height: 0; }
+.units-tape--flow .units-tape__i { font-size: 19px; line-height: 1.45; }
 
 /* === TABELAS === */
 .table-wrap { width: 100%; min-height: 0; border-top: 2px solid var(--text); border-bottom: 2px solid var(--text); }
@@ -310,14 +314,14 @@ figure.chart figcaption b { color: var(--text); font-weight: 500; }
 .matrix .cell { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
 .matrix .cell--pi { border-top: 3px solid var(--pi); }
 .matrix .cell--oc { border-top: 3px solid var(--oc); }
-.matrix .units { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 5px; }
+.matrix .units { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 5px; }
 .matrix .u { font: 500 14px/1 var(--font-mono); text-align: center; padding: 8px 0; border-radius: 3px; }
 .matrix .cell--pi .u { background: var(--pi-dim); color: var(--pi); }
 .matrix .cell--oc .u { background: var(--oc-dim); color: var(--oc); }
 .matrix .n { font: 400 16px/1.3 var(--font-mono); color: var(--text-dim); }
 
 /* === CRONOGRAMA (Tabela 2) === */
-.gantt { display: grid; grid-template-columns: 560px repeat(4, minmax(0, 1fr)); row-gap: 8px; width: 100%; align-items: center; position: relative; }
+.gantt { display: grid; grid-template-columns: 560px repeat(3, minmax(0, 1fr)); row-gap: 8px; width: 100%; align-items: center; position: relative; }
 .gantt .gh { font: 600 15px/1 var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; color: var(--text-dim); text-align: center; padding-bottom: 12px; border-bottom: 1px solid var(--border-bright); }
 .gantt .gh.now { color: var(--accent); }
 .gantt .gp { font-size: 21px; line-height: 1.25; padding-right: 20px; }
@@ -329,6 +333,7 @@ figure.chart figcaption b { color: var(--text); font-weight: 500; }
 .gantt .gc.on.run::before { background: var(--oc); opacity: 0.8; }
 .gantt-legend { display: flex; gap: 36px; font: 400 16px/1 var(--font-mono); color: var(--text-dim); }
 .gantt-legend span { display: inline-flex; align-items: center; gap: 10px; }
+.gantt-legend span span { display: inline; }
 .gantt-legend i { width: 34px; height: 14px; border-radius: 7px; background: var(--accent); opacity: 0.88; }
 .gantt-legend i.run { background: var(--oc); opacity: 0.8; }
 

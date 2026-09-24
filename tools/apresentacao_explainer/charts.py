@@ -75,7 +75,7 @@ def harness_anatomy() -> str:
     """Anel do harness ao redor do modelo, com o proxy externo abaixo."""
     w, h = 900, 760
     cx, cy = 450, 330
-    out = [f'<svg viewBox="0 0 {w} {h}" role="img" aria-label="Anatomia do harness: modelo no centro; prompt de sistema, ferramentas e middleware ao redor; proxy externo fora">']
+    out = [f'<svg viewBox="0 0 {w} {h}" role="img" aria-label="Anatomia do harness: modelo no centro; system prompt, ferramentas e middleware ao redor; proxy externo fora">']
     out.append(f'<circle class="s-acc" cx="{cx}" cy="{cy}" r="250" fill="none" stroke-width="2" stroke-dasharray="8 8" opacity="0.6"/>')
     out.append(f'<text class="f-acc" x="{cx}" y="{cy-268}" text-anchor="middle" font-size="16" letter-spacing="3" font-weight="600">HARNESS · EXTERNO AO MODELO · EDITÁVEL</text>')
     out.append(f'<circle class="f-acc" cx="{cx}" cy="{cy}" r="92" opacity="0.95"/>')
@@ -83,7 +83,7 @@ def harness_anatomy() -> str:
     out.append(f'<text x="{cx}" y="{cy+18}" text-anchor="middle" font-size="15" fill="var(--bg)">sem estado · fixo</text>')
     # Os três componentes que Lin et al. (2026, §1) nomeiam no projeto [66].
     nodes = [
-        ("Prompt de sistema", "molda o estilo de trabalho", -1, -1),
+        ("System prompt", "molda o estilo de trabalho", -1, -1),
         ("Ferramentas", "expõem o sistema de arquivos e o shell", 1, -1),
         ("Middleware", "controla contexto, execução e recuperação", 0, 1),
     ]
@@ -121,15 +121,15 @@ def layers_flow() -> str:
 
     out.append('<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10z" fill="var(--accent)"/></marker></defs>')
     out.append('<text class="f-pi" x="200" y="170" text-anchor="middle" font-size="15" font-weight="600">mesmo executor, prompt e especificação</text>')
-    box(40, 190, 320, 120, "Harness", ["OpenCode ou pi, sem interface", "URL base OpenAI-compatível"])
+    box(40, 190, 320, 120, "Harness", ["OpenCode ou Pi, sem interface", "URL base OpenAI-compatível"])
     arrow(360, 250, 556, 250, "requisição HTTP")
     out.append('<rect x="560" y="160" width="360" height="200" rx="12" fill="var(--pi-dim)" stroke="var(--pi)" stroke-width="2"/>')
     out.append('<text class="f-pi" x="740" y="210" text-anchor="middle" font-size="24" font-weight="600">Proxy reverso</text>')
-    for i, s in enumerate(["conta requisições, tokens e latência", "mesmo tokenizador para os dois braços", "harness/gateway: verificação cruzada", 'instrumento do projeto, fora do <tspan font-style="italic">harness</tspan>']):
+    for i, s in enumerate(["guarda requisições, latência e tokens", "tokens: usage do gateway", "harness: só verificação cruzada", 'fora do <tspan font-style="italic">harness</tspan>']):
         out.append(f'<text class="dim" x="740" y="{246+i*24}" text-anchor="middle" font-size="15">{s}</text>')
     arrow(920, 220, 1076, 110, "Camada 1")
     arrow(920, 300, 1076, 400, "Camada 2")
-    box(1080, 40, 400, 130, "Endpoint simulado", ["esquemas, prompt de sistema, tokens", "carga fixa por requisição (H2)"])
+    box(1080, 40, 400, 130, "Endpoint simulado", ["esquemas, system prompt, tokens", "carga fixa sem tarefa"])
     box(1080, 350, 400, 130, "Modelo real via gateway", ["construção do produto", "ao menos 3 construções por célula"])
     out.append('<text class="dim" x="1280" y="200" text-anchor="middle" font-size="15">o que cada requisição carrega</text>')
     out.append('<text class="dim" x="1280" y="510" text-anchor="middle" font-size="15">tokens por construção ao lado do sucesso (H1)</text>')

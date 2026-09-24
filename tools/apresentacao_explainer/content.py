@@ -9,7 +9,7 @@ no projeto não entra aqui (regra de 2026-09-23, issue #80).
 # (harness, sucesso %, US$ por tentativa, braço)
 HARNESSTAX: list[tuple[str, float, float, str]] = [
     ("Claude Code", 97.8, 1.33, "other"),
-    ("pi", 96.7, 0.67, "pi"),
+    ("Pi", 96.7, 0.67, "pi"),
 ]
 
 # Lin et al. (2026), Tabela 1: harnesses escritos por humanos sobre o GPT-5.4, Terminal-Bench 2; projeto [68].
@@ -27,22 +27,22 @@ FINN_PIPELINE: list[tuple[str, str]] = [
     ("resposta", "push"),
 ]
 
-UNITS: list[tuple[str, str, str]] = [
-    ("U1", "tenant", "#15"),
-    ("U2", "governança", "#16"),
-    ("U3", "flags", "#17"),
-    ("U4", "pipeline de voz", "#14"),
-    ("U5", "confirmação", "#20"),
-    ("U6", "log", "#21"),
-    ("U7", "relatório", "#19"),
-    ("U8", "agendador", "#18"),
-    ("U9", "cobrança", "#22"),
+# De onde vêm as unidades [77]: o autor constrói antes o Finn de referência; em 2026-09-24 as
+# nove unidades tiradas das issues #14-#22 saíram. O número de unidades sai das etapas da
+# referência (ao menos seis) e ainda não é conhecido, então o deck nunca mostra um total.
+SPEC_FLOW: list[tuple[str, str, str]] = [
+    ("1", "Finn de referência", "construído pelo autor · fim de cada etapa marcado no git"),
+    ("2", "Especificação", "congelada por SHA-256 · produto, pilha, interface dos testes, funcionalidades em JSON"),
+    ("3", "Unidades", "uma por etapa · ao menos seis"),
 ]
+
+# Rótulos das unidades na matriz: seis no mínimo, o resto em aberto [77].
+UNIT_LABELS: list[str] = ["U1", "U2", "U3", "U4", "U5", "U6", "…"]
 
 # Objetivos específicos [52]–[57].
 OBJECTIVES: list[tuple[str, str]] = [
     ("<em>Proxy</em>", "conta requisições, tokens e latência por braço"),
-    ("Especificação do Finn", "nove unidades, com testes de aceitação"),
+    ("Finn de referência", "dele saem a especificação e os testes"),
     ("Finn nos dois <em>harnesses</em>", "mesmo modelo, <em>prompt</em> e espaço inicial"),
     ("Segundo modelo", "a ordenação dos braços se mantém?"),
     ("Tokens relatados × medidos", "o relato de cada <em>harness</em> contra o <em>proxy</em>"),
@@ -58,25 +58,26 @@ CLASS_AXES: list[tuple[str, str, str]] = [
     ("Método", "dedutivo", ""),
 ]
 
-# Tabela 2 [101]–[157]: X por mês. Em 2026-09-23 o autor moveu a execução da matriz e a análise
-# para outubro, o que esvazia dez e jan; o calendário vai de ago a nov, como no docx.
-GANTT_MONTHS = ["Ago", "Set", "Out", "Nov"]
+# Tabela 2 [101]–[157]: X por mês, lidos das células de word/document.xml (o dump omite as
+# vazias). Desde tools/docx_edits_2026-09-24d.py a tabela tem quatro meses, ago a nov.
+# Em 2026-09-24 o autor corrigiu: Finn de referência, proxy e testes ficam só em outubro e
+# novembro não tem fase, então o deck mostra ago a out; a Tabela 2 do docx ainda marca nov.
+GANTT_MONTHS = ["Ago", "Set", "Out"]
 GANTT: list[tuple[str, list[int]]] = [
-    ("Leitura e levantamento bibliográfico", [1, 1, 0, 0]),
-    ("Definição do tema e das hipóteses", [1, 1, 0, 0]),
-    ("Construção do <em>proxy</em> e dos testes", [0, 0, 1, 1]),
-    ("Escrevendo introdução", [1, 1, 0, 0]),
-    ("Escrevendo referencial teórico", [1, 1, 0, 0]),
-    ("Escrevendo material e método", [1, 1, 0, 0]),
-    ("Execução da matriz de experimentos", [0, 0, 1, 0]),
-    ("Análise dos resultados", [0, 0, 1, 0]),
-    ("Elaborando as referências", [1, 1, 0, 0]),
-    ("Revisão final e apresentação", [0, 1, 0, 0]),
+    ("Leitura e levantamento bibliográfico", [1, 1, 0]),
+    ("Definição do tema e das hipóteses", [1, 1, 0]),
+    ("Finn de referência, <em>proxy</em> e testes", [0, 0, 1]),
+    ("Escrevendo introdução", [1, 1, 0]),
+    ("Escrevendo referencial teórico", [1, 1, 0]),
+    ("Escrevendo material e método", [1, 1, 0]),
+    ("Execução da matriz de experimentos", [0, 0, 1]),
+    ("Análise dos resultados", [0, 0, 1]),
+    ("Elaborando as referências", [1, 1, 0]),
+    ("Revisão final e apresentação", [0, 1, 0]),
 ]
 
-# As 14 entradas da seção 6 [159]–[172], formato abreviado.
+# As 14 entradas da seção 6 [159]–[172], formato abreviado. BRASIL saiu e YOUNG entrou em 2026-09-24.
 REFS: list[str] = [
-    "BRASIL. CNPq. <b>Portaria CNPq nº 2.664, de 6 de março de 2026</b>. Política de Integridade na Atividade Científica do CNPq. DOU, 11 mar. 2026.",
     "EARENDIL. <b>Pi, minimal and performant</b>. 2026. Blogue institucional.",
     "KARPATHY, A. <b>LLM Wiki</b>: a pattern for building personal knowledge bases using LLMs. 2026. Gist (GitHub).",
     "LIN, J. <em>et al.</em> <b>Agentic harness engineering</b>. arXiv:2604.25850, 2026. <em>Preprint</em>.",
@@ -86,6 +87,7 @@ REFS: list[str] = [
     "OPENCODE. <b>OpenCode</b>: the open source coding agent. 2026a. Repositório de código.",
     "OPENCODE. <b>Zen</b>. 2026b. Documentação do produto.",
     "PAN, M. Z. <em>et al.</em> <b>HarnessTax</b>: how much does the harness matter for coding agents? 2026. Blogue de pesquisa, não revisado por pares.",
+    "YOUNG, J. <b>Effective harnesses for long-running agents</b>. 2025. Blogue de engenharia (Anthropic), não revisado por pares.",
     "YUUKIFST. <b>agent-dotfiles</b>: skill Helmsman, mapa de decisões para agentes de codificação. 2026a. Repositório de código.",
     "YUUKIFST. <b>Finn</b>: SaaS universal de financeiro por voz. 2026b. Repositório de código.",
     "YUUKIFST. <b>harness-bench</b>: executor, prompts, testes de aceitação, dados brutos e scripts de análise deste projeto. 2026c. Repositório de código.",
