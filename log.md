@@ -135,3 +135,45 @@ Auditoria slide a slide (17) com `CONTEXT.md`, `docs/spec/11` e o dump do docx c
 - Nessa largura SETEMBRO e NOVEMBRO quebravam linha, então o recuo lateral das células desta tabela cai para 2,85 pt e a coluna de fases cede o que o rótulo mais longo não usa.
 - Oito dos 17 X não tinham tamanho e saíam no corpo do texto; agora todos em 9 pt, como o resto da tabela.
 - Word: 9 páginas, nenhuma célula quebra linha.
+
+## [2026-09-24] ingest | Effective harnesses for long-running agents (Young, 2025)
+
+- Criada: [[effective-harnesses-young-2025]] (texto em `raw/sources/effective-harnesses-young-2025.md`).
+- Atualizadas: [[finn]], [[desenho-experimental-harness-fixo]], [[adequacao-oraculo]].
+- Nenhuma contradicao registrada.
+
+## [2026-09-24] edit | Finn de referencia substitui as nove unidades
+
+- Pedido do autor: o Finn sera construido primeiro pelo proprio autor, ate ficar como ele quer, e depois reconstruido do zero pelos dois *harnesses*; as nove unidades tiradas das *issues* #14-#22 saem.
+- Desenho: o fim de cada etapa da referencia vira *tag* git e uma unidade (ao menos seis, piso do Wilcoxon bilateral). Da referencia saem `spec.md` (produto, pilha, travas, contrato de interface) e `features.json` (formato de [[effective-harnesses-young-2025]], sem `passes`). Os testes de aceitacao precisam passar na referencia, na *tag* de cada unidade, antes do congelamento. Detalhe em `docs/spec/11-experimental-protocol.md` §1.1.
+- A objecao de 2026-09-14 (entrada desigual quando o OpenCode gerava a especificacao para o pi) nao se aplica: a referencia e do autor e os dois bracos recebem o mesmo documento.
+- `dist/projeto-de-pesquisa.docx`: o autor substituiu o arquivo pela versao atualizada dele (sem a entrada BRASIL, Tabela 2 de agosto a janeiro); `tools/docx_edits_2026-09-24.py` roda sobre essa versao: [53], [59], [74], [77], [78], [86], a linha [123] da Tabela 2 que vira "FINN DE REFERÊNCIA, PROXY E TESTES" e a entrada YOUNG depois de PAN. O autor liberou passar do limite de paginas por referencias; Word: 9 paginas, sumario inalterado.
+- Pendencias do texto do autor, nao alteradas: [74] cita Brasil (2026) sem entrada na secao 6, e YuukiFST (2026b), o Finn, tem entrada sem citacao.
+- `CONTEXT.md` ganha *reference build* e redefine especificacao e unidade; `AGENTS.md` (Domain) registra a mudanca.
+
+## [2026-09-24] edit | Citacoes e lista fechadas no docx do autor
+
+- `tools/docx_edits_2026-09-24b.py`: [74] deixa de citar Brasil (2026), que o autor tirou da lista por estar fora do tema; a declaracao de uso de IA fica, sem a norma. [77] volta a citar YuukiFST (2026b) e [76] volta a citar YuukiFST (2026c): o autor tinha tirado as citacoes e mantido as entradas, e entrada sem citacao quebra a regra da Aula 3.
+- Correcoes de digitacao na revisao do autor: [43] (italico quebrado em *coding agent*, "muda influencia", "nesse *benchmark*" sem antecedente), [48] ("porem", "ao inves de", espaco antes de "?"), [69] ("pi" onde o resto diz "PI").
+- 14 citacoes, 14 entradas. Word: 10 paginas; as referencias passam para a pagina seguinte, o que o autor liberou, e o sumario marca 6 REFERENCIAS na pagina 6.
+- `AGENTS.md`: excecao da Portaria revogada; orcamento de paginas registra a pagina a mais de referencias.
+
+## [2026-09-24] edit | Pi, nao PI
+
+- Pedido do autor: o *harness* se escreve "Pi" na prosa, como no titulo da propria fonte (Earendil, 2026). `tools/docx_edits_2026-09-24c.py` troca a palavra isolada "PI"/"pi" por "Pi" em [43]-[76]; API, SoL-Pi e a URL de [181] ficam. Word: 10 paginas, sem mudanca de layout.
+- `CONTEXT.md` e `AGENTS.md` seguem; `pi` fica so como comando da CLI.
+- Wiki: "pi" vira "Pi" na prosa de 10 paginas; ficam codigo, wikilinks, URLs, caminhos, nomes hifenizados (oh-my-pi, pi-mono, SoL-Pi) e citacoes literais das fontes ("design philosophy behind pi", Alier Forment 2026). Entradas antigas deste log nao foram reescritas.
+- Deck explicativo e roteiro realinhados ao docx final (versao do autor + 24, 24b): Pi, sem Portaria, 14 referencias com YOUNG, orcamento e cronograma de agosto a janeiro, indices [n] do dump atual.
+
+## [2026-09-24] edit | Tabelas e termos do docx do autor
+
+- `tools/docx_edits_2026-09-24d.py`, a pedido do autor: "Fonte: elaborado pelo autor (2026)." volta embaixo das Tabelas 1 e 2 ([99], [157]); a Tabela 2 perde dezembro e janeiro, vazios, e volta a caber na mancha (9071 twips, recuo 2,85 pt, X em 9 pt), como em 23b e 23c; [66], [67] e [75] passam a "*system prompt*", como o [62]; [96] perde o espaco final.
+- Word: 9 paginas, 6 REFERENCIAS de volta na pagina 5 do sumario, nenhuma celula da Tabela 2 quebra linha.
+- A secao 6 passa a [158]–[172]; deck e roteiro sao realinhados aos novos indices.
+
+## [2026-09-24] edit | Medicao de tokens pelo gateway e cronograma ate outubro
+
+- `tools/docx_edits_2026-09-24e.py`, a pedido do autor: [80] a contagem principal passa a ser o `usage` que o *gateway* devolve em cada resposta, lido no *proxy*, com o *cache* a parte; a recontagem por um tokenizador so separa a carga fixa de H2, medida em cada requisicao ([80], [83]) em vez de Camada 1 vezes passos. [83] Wilcoxon so sobre tokens e Succ/Mtok; resultado principal = razao entre as medianas de tokens por construcao; fracao de testes relatada sem teste. [61] e [75] acompanham.
+- Tabela 2: "Finn de referencia, *proxy* e testes" so em outubro; a coluna NOVEMBRO sai.
+- Word: 9 paginas, 6 REFERENCIAS na mesma posicao (p. 8, linha 33).
+- `docs/spec/11-experimental-protocol.md` §2.1, §2.2 e §7 e [[medicao-custo-proxy-vs-relato]] atualizados; deck e roteiro realinhados.

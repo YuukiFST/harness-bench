@@ -4,8 +4,8 @@ type: concept
 summary: Verificador captura a tarefa ou so um proxy executavel estreito
 tags: [oraculo, verificador, gaming, held-out]
 created: 2026-09-10
-updated: 2026-09-14
-sources: [wiki/sources/code-as-agent-harness-ning-2026.md, wiki/sources/deepswe-huang-2026.md, wiki/sources/holistic-agent-leaderboard-kapoor-2025.md, wiki/sources/ai-agents-that-matter-kapoor-2024.md, wiki/sources/scaffolding-matters-alier-forment-2026.md]
+updated: 2026-09-24
+sources: [wiki/sources/effective-harnesses-young-2025.md, wiki/sources/code-as-agent-harness-ning-2026.md, wiki/sources/deepswe-huang-2026.md, wiki/sources/holistic-agent-leaderboard-kapoor-2025.md, wiki/sources/ai-agents-that-matter-kapoor-2024.md, wiki/sources/scaffolding-matters-alier-forment-2026.md]
 ---
 
 # Adequacao do Oraculo
@@ -22,7 +22,7 @@ Gargalo central (source: [[code-as-agent-harness-ning-2026]], Secao 5.2.1): "*or
 
 ## Resposta do projeto
 
-Oraculo proprio executado pelo runner, nunca a suite do agente (modelo que alucina API escreve testes que mocam a alucinacao). Desde 2026-09-14: testes de aceitacao Vitest escritos pelo autor por unidade da especificacao do [[finn]], antes da execucao, mantidos fora do espaco de trabalho (held-out) e rodados sobre uma copia dele ao fim de cada unidade; a fracao aprovada e o escore e todos aprovados = *ticket* concluido. Auditoria de logs; taxonomia nao-concluida/descartada/adulterada. Holdouts no nivel certo de generalidade (source: [[ai-agents-that-matter-kapoor-2024]]).
+Oraculo proprio executado pelo runner, nunca a suite do agente (modelo que alucina API escreve testes que mocam a alucinacao). Desde 2026-09-14: testes de aceitacao Vitest escritos pelo autor por unidade da especificacao do [[finn]], antes da execucao, mantidos fora do espaco de trabalho (held-out) e rodados sobre uma copia dele ao fim de cada unidade; a fracao aprovada e o escore e todos aprovados = unidade concluida. Desde 2026-09-24 o oraculo e validado antes da coleta: os testes das unidades 1..k precisam passar no Finn de referencia do autor na *tag* da unidade k, e um teste que falha la ou que usa identificador fora do contrato de interface da especificacao e lacuna a corrigir antes do congelamento. Isso mostra que todo teste e satisfazivel pela especificacao; nao mostra que os testes cobrem tudo que a especificacao pede. A lista de funcionalidades segue [[effective-harnesses-young-2025]], mas sem o campo `passes`: la o proprio agente marca o que passou, e a fonte relata que ele marcava pronto sem teste ponta a ponta. Auditoria de logs; taxonomia nao-concluida/descartada/adulterada. Holdouts no nivel certo de generalidade (source: [[ai-agents-that-matter-kapoor-2024]]).
 
 ## Contradictions
 

@@ -31,9 +31,9 @@ EARENDIL. **Pi, minimal and performant**. 2026. Publicacao de blogue institucion
 
 ## Uso no projeto
 
-- Desde 2026-09-14 e a referencia do braco pi (Earendil, 2026) em §3 [60]: 4 ferramentas, <1K tokens, sem MCP/subagentes/plan.
+- Desde 2026-09-14 e a referencia do braco Pi (Earendil, 2026) em §3 [60]: 4 ferramentas, <1K tokens, sem MCP/subagentes/plan.
 - Justificativa: 2x Databricks com qualidade igual (fonte de pratica; citar como *apud* quando via este post).
-- Camada 1: precedente dos 5,3x bytes de OpenCode sobre pi (prompt+schemas inchados custam antes do primeiro token).
+- Camada 1: precedente dos 5,3x bytes de OpenCode sobre Pi (prompt+schemas inchados custam antes do primeiro token).
 
 ### Auditoria de conteudo 2026-09-11
 

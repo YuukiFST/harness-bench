@@ -4,7 +4,7 @@ type: source
 summary: Norma do CNPq; Art. 9 I c-f exige declarar ferramenta e finalidade de IAG e mantem o autor responsavel
 tags: [cnpq, integridade, ia-generativa, declaracao-de-uso, norma]
 created: 2026-09-11
-updated: 2026-09-14
+updated: 2026-09-24
 dated: 2026-03-06
 sources: []
 ---
@@ -42,7 +42,7 @@ Primeira norma brasileira de agencia de fomento com regra explicita de declaraca
 ## Uso no projeto
 
 - §3 [58]: declara o uso do *LLM Wiki* deste repositorio (padrao de [[llm-wiki-karpathy-2026]]), nomeia a ferramenta e a finalidade e afirma a responsabilidade do autor, como pede o Art. 9º, I, c-d-f.
-- Fora do tema do *harness*; entra na lista por excecao autorizada pelo autor em 2026-09-11 (`AGENTS.md`, Project documents).
+- Fora do tema do *harness*; entrou na lista por excecao autorizada pelo autor em 2026-09-11 e saiu em 2026-09-24, quando o autor removeu as referencias fora do tema. O paragrafo [74] ainda declara o uso de IA, sem citar a norma (`tools/docx_edits_2026-09-24b.py`).
 - Nao lida: o projeto nao e fomento CNPq, entao a norma nao obriga o autor; ela e citada como referencia de boa pratica, nao como obrigacao. O paragrafo de §3 diz "pede", nao "obriga".
 
 ## Contradictions

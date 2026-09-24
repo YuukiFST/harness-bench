@@ -41,7 +41,7 @@ So 2 *harnesses*, 60 pedidos, 1 modelo planejador; qualidade de plano por juizes
 ## Uso no projeto
 
 - Referencial: definicao de *harness* como runtime; evidencia de que internos de *harness* sao distribuidos por arquivos/estagios/estado.
-- Material e metodo: protocolo BGPD como auditoria do diff pi vs oh-my-pi (enumerar todos os sites de leitura/escrita dos registradores mudados).
+- Material e metodo: protocolo BGPD como auditoria do diff Pi vs oh-my-pi (enumerar todos os sites de leitura/escrita dos registradores mudados).
 - Lacuna que o projeto preenche: executar *fork* vs original com modelo fixo e precificar tarefas concluidas (este artigo nao executa).
 
 ### Auditoria de conteudo 2026-09-11
