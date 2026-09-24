@@ -643,7 +643,7 @@ figure.chart figcaption b { color: var(--text); font-weight: 500; }
 </ul>
 </div>
 </div></div><p class="slide__source reveal">Ning <em>et al.</em> (2026, p. 7); Lin <em>et al.</em> (2026, p. 1). <em>Preprints</em>, não revisados por pares. Projeto, §2 [65]–[67].</p>
-<div class="notes"><b>Referencial [65]–[67].</b> Ning et al. (2026, p. 7): definição citada [65]. Lin et al. (2026, p. 1): citação longa [66], o conjunto de componentes externos ao modelo e editáveis. [67]: só esse conjunto varia entre os braços; o Pi envia quatro ferramentas e um system prompt curto, o OpenCode mais ferramentas, prompt maior, subagentes e permissões. O proxy fica fora do harness e conta igual para os dois braços [59].</div>
+<div class="notes"><b>Referencial [65]–[67].</b> Ning et al. (2026, p. 7): definição citada [65]. Lin et al. (2026, p. 1): citação longa [66], o conjunto de componentes externos ao modelo e editáveis. [67]: só esse conjunto varia entre os braços; o Pi envia quatro ferramentas e um system prompt curto, o OpenCode mais ferramentas, subagentes e permissões (Earendil, 2026; Opencode, 2026a). O proxy fica fora do harness e conta igual para os dois braços [59].</div>
 <div class="folio-head" aria-hidden="true"><span>O <em>harness</em> no custo e no desempenho</span><span><b>02</b> · Referencial teórico</span></div><div class="folio-num" aria-hidden="true">09<span>/ 27</span></div></section>
 
 <section class="slide slide--chart" data-title="Sucesso: as fontes divergem">
@@ -655,7 +655,7 @@ figure.chart figcaption b { color: var(--text); font-weight: 500; }
 <div class="card reveal"><span class="card__k">Pan <em>et al.</em> (2026) · SWE-bench Lite</span><span class="card__v num">efeito médio de ±2 % no sucesso</span>O Claude Code custou, em média, cerca de 2,0 vezes o Pi.</div>
 </div>
 </div></div><p class="slide__source reveal">Lin <em>et al.</em> (2026) e Zhang <em>et al.</em> (2026), <em>preprints</em>; Pan <em>et al.</em> (2026), blogue de pesquisa. Projeto, §2 [68].</p>
-<div class="notes"><b>Referencial [68].</b> Lin et al. (2026), Tabela 1: harnesses escritos por humanos sobre o GPT-5.4 vão de 47,2% no OpenCode a 71,9% no Codex, no Terminal-Bench 2. Zhang et al. (2026): parcela do harness comparável ou maior que a do modelo. Pan et al. (2026) mediram outra coisa: efeito médio do harness sobre o sucesso dentro de ±2%, custo do Claude Code cerca de 2,0 vezes o do Pi. Como as fontes divergem sobre o sucesso, o projeto mede os dois.</div>
+<div class="notes"><b>Referencial [68].</b> Lin et al. (2026), Tabela 1: harnesses escritos por humanos sobre o GPT-5.4 vão de 47,2% no OpenCode a 71,9% no Codex, no Terminal-Bench 2. Zhang et al. (2026): em tarefas longas e entre modelos de fronteira comparáveis, a variação de desempenho devida ao harness é comparável ou maior que a devida ao modelo. Pan et al. (2026) mediram outra coisa: efeito médio do harness sobre o sucesso dentro de ±2%, custo do Claude Code, em média, cerca de 2,0 vezes o do Pi. Como as fontes divergem sobre o sucesso, o projeto mede os dois.</div>
 <div class="folio-head" aria-hidden="true"><span>O <em>harness</em> no custo e no desempenho</span><span><b>02</b> · Referencial teórico</span></div><div class="folio-num" aria-hidden="true">10<span>/ 27</span></div></section>
 
 <section class="slide slide--content" data-title="Primeira pendência: o custo">
@@ -665,7 +665,7 @@ figure.chart figcaption b { color: var(--text); font-weight: 500; }
 <div class="card reveal"><span class="card__k">Liu <em>et al.</em> (2026) · SoL-Pi · a conversa</span><span class="card__v num">44,7 % a 49,0 % menos tokens</span>Mudando só a execução das ações, a compactação de contexto, o tratamento das observações e a leitura delegada, em relação ao Pi, com 93,7 % a 94,3 % da pontuação dele.</div>
 <div class="card card--hi reveal" style="grid-column:1/-1"><span class="card__k">O que H2 testa</span>Ning <em>et al.</em> (2026, p. 66) pedem «métricas que isolem componentes do <em>harness</em>». H2 testa se pesa mais a carga fixa ou a conversa.</div>
 </div></div><p class="slide__source reveal">Pan <em>et al.</em> (2026), blogue de pesquisa; Liu <em>et al.</em> (2026), arXiv:2609.20519, <em>preprint</em>; Ning <em>et al.</em> (2026), <em>preprint</em>. Projeto, §2 [69].</p>
-<div class="notes"><b>Primeira pendência [69].</b> Pan: o imposto pode começar na primeira requisição; nos sete modelos, o contexto inicial médio do Claude Code passa de dez vezes o do Pi, com 15,3 contra 15,4 turnos no Claude Fable 5. Liu (SoL-Pi): mudando só a execução das ações, a compactação, o tratamento das observações e a leitura delegada, de 44,7% a 49,0% menos tokens que o Pi, mantendo de 93,7% a 94,3% da pontuação dele. Ning (§5.2.7) pede métricas que isolem componentes; H2 responde a isso.</div>
+<div class="notes"><b>Primeira pendência [69].</b> Pan: o imposto pode começar na primeira requisição; nos sete modelos, o contexto inicial médio do Claude Code passa de dez vezes o do Pi, com 15,3 contra 15,4 turnos no Claude Fable 5. Liu (SoL-Pi): mudando só a execução das ações, a compactação, o tratamento das observações e a leitura delegada, de 44,7% a 49,0% menos tokens que o Pi, mantendo de 93,7% a 94,3% da pontuação dele. Ning (p. 66) pede métricas que isolem componentes; H2 responde a isso.</div>
 <div class="folio-head" aria-hidden="true"><span>O <em>harness</em> no custo e no desempenho</span><span><b>02</b> · Referencial teórico</span></div><div class="folio-num" aria-hidden="true">11<span>/ 27</span></div></section>
 
 <section class="slide slide--content" data-title="Segunda pendência: a medida">
@@ -932,12 +932,14 @@ SlideEngine.prototype.bindEvents = function () {
   var self = this;
   document.addEventListener('keydown', function (e) {
     if (e.target.closest('input,textarea,[contenteditable]')) return;
+    // Atalhos do navegador (Ctrl+F, Ctrl+T, Cmd+N) passam direto.
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
     if (e.key === 'Escape' && self.overlayOpen()) { e.preventDefault(); self.closeOverlay(); return; }
     if (e.key === 'o' || e.key === 'O') { e.preventDefault(); self.overlayOpen() ? self.closeOverlay() : self.openOverlay('outline'); return; }
     if (e.key === '?') { e.preventDefault(); self.overlayOpen() ? self.closeOverlay() : self.openOverlay('help'); return; }
     if (e.key === 'n' || e.key === 'N') { e.preventDefault(); self.toggleNotes(); return; }
     if (e.key === 't' || e.key === 'T') { e.preventDefault(); self.toggleTheme(); return; }
-    if (e.key === 'f' || e.key === 'F') { e.preventDefault(); document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); return; }
+    if (e.key === 'f' || e.key === 'F') { e.preventDefault(); document.fullscreenElement ? document.exitFullscreen().catch(function () {}) : document.documentElement.requestFullscreen().catch(function () {}); return; }
     if (self.overlayOpen()) return;
     if (['ArrowDown', 'ArrowRight', ' ', 'PageDown'].indexOf(e.key) > -1) { e.preventDefault(); self.next(); }
     else if (['ArrowUp', 'ArrowLeft', 'PageUp'].indexOf(e.key) > -1) { e.preventDefault(); self.prev(); }
@@ -956,6 +958,8 @@ SlideEngine.prototype.bindEvents = function () {
   var tX, tY;
   window.addEventListener('touchstart', function (e) { tX = e.touches[0].clientX; tY = e.touches[0].clientY; }, { passive: true });
   window.addEventListener('touchend', function (e) {
+    // Mesma exclusão da roda: rolar notas ou lista não troca de slide.
+    if (self.overlayOpen() || e.target.closest('.deck-notes,.deck-dots')) return;
     var dx = tX - e.changedTouches[0].clientX, dy = tY - e.changedTouches[0].clientY;
     var d = Math.abs(dx) > Math.abs(dy) ? dx : dy;
     if (Math.abs(d) > 50) { d > 0 ? self.next() : self.prev(); }

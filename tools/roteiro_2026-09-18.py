@@ -281,6 +281,9 @@ def slide_card(i: int, s: tuple) -> str:
 
 
 def main() -> None:
+    # Superseded: rerunning would overwrite dist/roteiro-apresentacao.html with a stale schedule
+    # and stale [n] indices (review of PR #82).
+    raise SystemExit("superseded by tools/roteiro_2026-09-24.py; run that instead")
     total = sum(int(s[1].split()[0]) for s in SLIDES)
     # The cut list is derived from the "pular se faltar tempo" markers so the
     # two never disagree; the marked slides alone do not reach a 12-minute slot.

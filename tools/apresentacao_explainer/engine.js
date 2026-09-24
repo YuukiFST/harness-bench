@@ -108,12 +108,14 @@ SlideEngine.prototype.bindEvents = function () {
   var self = this;
   document.addEventListener('keydown', function (e) {
     if (e.target.closest('input,textarea,[contenteditable]')) return;
+    // Atalhos do navegador (Ctrl+F, Ctrl+T, Cmd+N) passam direto.
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
     if (e.key === 'Escape' && self.overlayOpen()) { e.preventDefault(); self.closeOverlay(); return; }
     if (e.key === 'o' || e.key === 'O') { e.preventDefault(); self.overlayOpen() ? self.closeOverlay() : self.openOverlay('outline'); return; }
     if (e.key === '?') { e.preventDefault(); self.overlayOpen() ? self.closeOverlay() : self.openOverlay('help'); return; }
     if (e.key === 'n' || e.key === 'N') { e.preventDefault(); self.toggleNotes(); return; }
     if (e.key === 't' || e.key === 'T') { e.preventDefault(); self.toggleTheme(); return; }
-    if (e.key === 'f' || e.key === 'F') { e.preventDefault(); document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); return; }
+    if (e.key === 'f' || e.key === 'F') { e.preventDefault(); document.fullscreenElement ? document.exitFullscreen().catch(function () {}) : document.documentElement.requestFullscreen().catch(function () {}); return; }
     if (self.overlayOpen()) return;
     if (['ArrowDown', 'ArrowRight', ' ', 'PageDown'].indexOf(e.key) > -1) { e.preventDefault(); self.next(); }
     else if (['ArrowUp', 'ArrowLeft', 'PageUp'].indexOf(e.key) > -1) { e.preventDefault(); self.prev(); }
@@ -132,6 +134,8 @@ SlideEngine.prototype.bindEvents = function () {
   var tX, tY;
   window.addEventListener('touchstart', function (e) { tX = e.touches[0].clientX; tY = e.touches[0].clientY; }, { passive: true });
   window.addEventListener('touchend', function (e) {
+    // Mesma exclusão da roda: rolar notas ou lista não troca de slide.
+    if (self.overlayOpen() || e.target.closest('.deck-notes,.deck-dots')) return;
     var dx = tX - e.changedTouches[0].clientX, dy = tY - e.changedTouches[0].clientY;
     var d = Math.abs(dx) > Math.abs(dy) ? dx : dy;
     if (Math.abs(d) > 50) { d > 0 ? self.next() : self.prev(); }

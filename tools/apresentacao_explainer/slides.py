@@ -188,7 +188,7 @@ def s_anatomy() -> str:
 </div>
 </div>"""
     inner += source("Ning <em>et al.</em> (2026, p. 7); Lin <em>et al.</em> (2026, p. 1). <em>Preprints</em>, não revisados por pares. Projeto, §2 [65]–[67].")
-    notes = "<b>Referencial [65]–[67].</b> Ning et al. (2026, p. 7): definição citada [65]. Lin et al. (2026, p. 1): citação longa [66], o conjunto de componentes externos ao modelo e editáveis. [67]: só esse conjunto varia entre os braços; o Pi envia quatro ferramentas e um system prompt curto, o OpenCode mais ferramentas, prompt maior, subagentes e permissões. O proxy fica fora do harness e conta igual para os dois braços [59]."
+    notes = "<b>Referencial [65]–[67].</b> Ning et al. (2026, p. 7): definição citada [65]. Lin et al. (2026, p. 1): citação longa [66], o conjunto de componentes externos ao modelo e editáveis. [67]: só esse conjunto varia entre os braços; o Pi envia quatro ferramentas e um system prompt curto, o OpenCode mais ferramentas, subagentes e permissões (Earendil, 2026; Opencode, 2026a). O proxy fica fora do harness e conta igual para os dois braços [59]."
     return sec("content", "O que é um harness", inner, notes)
 
 
@@ -204,7 +204,7 @@ def s_sucesso() -> str:
 </div>
 </div>"""
     inner += source("Lin <em>et al.</em> (2026) e Zhang <em>et al.</em> (2026), <em>preprints</em>; Pan <em>et al.</em> (2026), blogue de pesquisa. Projeto, §2 [68].")
-    notes = "<b>Referencial [68].</b> Lin et al. (2026), Tabela 1: harnesses escritos por humanos sobre o GPT-5.4 vão de 47,2% no OpenCode a 71,9% no Codex, no Terminal-Bench 2. Zhang et al. (2026): parcela do harness comparável ou maior que a do modelo. Pan et al. (2026) mediram outra coisa: efeito médio do harness sobre o sucesso dentro de ±2%, custo do Claude Code cerca de 2,0 vezes o do Pi. Como as fontes divergem sobre o sucesso, o projeto mede os dois."
+    notes = "<b>Referencial [68].</b> Lin et al. (2026), Tabela 1: harnesses escritos por humanos sobre o GPT-5.4 vão de 47,2% no OpenCode a 71,9% no Codex, no Terminal-Bench 2. Zhang et al. (2026): em tarefas longas e entre modelos de fronteira comparáveis, a variação de desempenho devida ao harness é comparável ou maior que a devida ao modelo. Pan et al. (2026) mediram outra coisa: efeito médio do harness sobre o sucesso dentro de ±2%, custo do Claude Code, em média, cerca de 2,0 vezes o do Pi. Como as fontes divergem sobre o sucesso, o projeto mede os dois."
     return sec("chart", "Sucesso: as fontes divergem", inner, notes)
 
 
@@ -218,7 +218,7 @@ def s_pendencia_custo() -> str:
 <div class="card card--hi reveal" style="grid-column:1/-1"><span class="card__k">O que H2 testa</span>Ning <em>et al.</em> (2026, p. 66) pedem «métricas que isolem componentes do <em>harness</em>». H2 testa se pesa mais a carga fixa ou a conversa.</div>
 </div>"""
     inner += source("Pan <em>et al.</em> (2026), blogue de pesquisa; Liu <em>et al.</em> (2026), arXiv:2609.20519, <em>preprint</em>; Ning <em>et al.</em> (2026), <em>preprint</em>. Projeto, §2 [69].")
-    notes = "<b>Primeira pendência [69].</b> Pan: o imposto pode começar na primeira requisição; nos sete modelos, o contexto inicial médio do Claude Code passa de dez vezes o do Pi, com 15,3 contra 15,4 turnos no Claude Fable 5. Liu (SoL-Pi): mudando só a execução das ações, a compactação, o tratamento das observações e a leitura delegada, de 44,7% a 49,0% menos tokens que o Pi, mantendo de 93,7% a 94,3% da pontuação dele. Ning (§5.2.7) pede métricas que isolem componentes; H2 responde a isso."
+    notes = "<b>Primeira pendência [69].</b> Pan: o imposto pode começar na primeira requisição; nos sete modelos, o contexto inicial médio do Claude Code passa de dez vezes o do Pi, com 15,3 contra 15,4 turnos no Claude Fable 5. Liu (SoL-Pi): mudando só a execução das ações, a compactação, o tratamento das observações e a leitura delegada, de 44,7% a 49,0% menos tokens que o Pi, mantendo de 93,7% a 94,3% da pontuação dele. Ning (p. 66) pede métricas que isolem componentes; H2 responde a isso."
     return sec("content", "Primeira pendência: o custo", inner, notes)
 
 
