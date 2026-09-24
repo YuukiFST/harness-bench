@@ -23,7 +23,7 @@ A **cell** is one `(arm, tier)` pair and holds *n* constructions.
 - **The specification** — one frozen document set, `layer2/spec/`, extracted from the reference build (§1.1) with agent help and the author's review, and pinned by SHA-256 over the tree. `spec.md` carries the product, the stack, the locks and the **interface contract**: everything an acceptance test touches from outside (HTTP routes, tRPC procedure names and input shapes, environment variables, port, seed and start commands). `features.json` carries the feature list, one entry per observable behaviour of the reference, each naming its unit. The acceptance tests and the reference code are **not** in it. The same bytes go to both arms.
 - **Units** — one per stage of the reference build, in the order the author built them, at least six (§5.4). *k* below is their number, fixed when the specification is frozen. Each unit becomes one prompt, byte-identical for both arms: "implement the features of unit *k* in `spec/features.json`, honouring `spec/spec.md`".
 - **The workspace** — one directory per construction, starting from the frozen initial tree: the specification, `package.json` and `.nvmrc` with the pinned toolchain, nothing else. The arm is invoked once per unit, as a fresh process, in that same directory; what it built for unit *k* is what unit *k+1* starts from. No conversation carries across units (the harness's session features are not part of what is measured); the code does. Nothing the author wrote enters the workspace after the start.
-- **Acceptance tests** — one Vitest suite per unit, written by the author before any run, black-box against the interface contract, stored outside the workspace. Every test of units 1..*k* must pass on the reference build at tag `unit-0k` before the specification is frozen. After the arm exits on unit *k* the runner copies the workspace to a scratch directory, copies in the suites of units 1..*k*, and runs them. Unit score = fraction of unit *k*'s tests passed; regression = fraction of units 1..*k−1*'s tests still passed; `concluded` unit = all of unit *k*'s tests pass; `concluded` construction = every test of every unit passes at the end.
+- **Acceptance tests** — one Vitest suite per unit, written by the author before any run, black-box against the interface contract, stored outside the workspace. Every test of units 1..*k* must pass on the reference build at tag `unit-NN` (*k* zero-padded to two digits, as in `unit-07` or `unit-12`) before the specification is frozen. After the arm exits on unit *k* the runner copies the workspace to a scratch directory, copies in the suites of units 1..*k*, and runs them. Unit score = fraction of unit *k*'s tests passed; regression = fraction of units 1..*k−1*'s tests still passed; `concluded` unit = all of unit *k*'s tests pass; `concluded` construction = every test of every unit passes at the end.
 - **Tiers** — primary `mimo-v2.5-free`, robustness `hy3-free`, both on `https://opencode.ai/zen/v1` (#35). Reported separately, never averaged.
 
 ### 1.1 From the reference build to the specification
@@ -48,7 +48,7 @@ This project drops the `passes` field of that format: the arm never marks its ow
 1. The author builds the reference and tags each stage end. A stage is a set of features that works end to end on its own.
 2. From the reference at the last tag, with agent help, the author writes `features.json` (every observable behaviour, each with its unit) and `spec.md` (product, stack, locks, interface contract). Neither file quotes reference code.
 3. The author writes the acceptance tests from `features.json`, at least one per feature, touching only what `spec.md` declares.
-4. **Oracle check.** For every unit *k*, the runner checks out the reference at `unit-0k` and runs the tests of units 1..*k*. Every test must pass. A test that fails there, or that needs an identifier `spec.md` does not declare, is a gap in the specification or in the test, and is fixed before freezing.
+4. **Oracle check.** For every unit *k*, the runner checks out the reference at `unit-NN` for that *k* and runs the tests of units 1..*k*. Every test must pass. A test that fails there, or that needs an identifier `spec.md` does not declare, is a gap in the specification or in the test, and is fixed before freezing.
 5. The tree is hashed and frozen. From here on nothing in it changes.
 
 ## 2. What is counted, and where
@@ -86,7 +86,7 @@ The harness's own counts (OpenCode `step_finish.part.tokens`, pi `usage`) are re
 - **Paired: tokens per unit** — `gw_total_tokens` of unit *k*, cell median over the *n* constructions; *k* pairs `(opencode, pi)` per tier, the basis of the test in §7.
 - **Always split:** input, cached input and output are reported as three figures next to every total. Cached input is not discounted in the token count (the count stays stable against cache state); it enters only the simulated cost of §6.
 - **Secondary: Succ/Mtok** (AHE, #2), per construction: `Σ unit fraction / (gw_total_tokens / 1e6)`; and per unit.
-- **For H2: fixed-load share** — `hb_fixed_share` per unit, and the decomposition of the between-arm difference in tokens into a fixed-load part and a conversation part, each part scaled by the arm's `hb_fixed_share` so both parts are expressed in `gw_total_tokens`, per unit and per construction.
+- **For H2: fixed-load share** — `hb_fixed_share` per unit, and the decomposition of the between-arm difference in tokens into a fixed-load part and a conversation part, where the fixed-load part is `hb_fixed_share × gw_input_tokens` (the fixed load is input only) and the conversation part is the rest of `gw_total_tokens`, output included, per unit and per construction.
 
 Reported alongside, never collapsed into a metric: `proxy_requests`, `proxy_steps`, `tool_invocations`, `side_call_requests`, `retry_requests`, `Σ inter_request_gap`, `Σ request_latency`.
 
@@ -164,7 +164,7 @@ Robustness tier: tokens and no dollars unless a published rate for `hy3` is foun
 
 Registered **per tier**, because harness effects invert in sign across models (arXiv:2510.11977).
 
-- **H1** — building Finn from the same specification, OpenCode and pi differ in tokens per construction by a practically relevant margin, and their final acceptance fractions do not. Refuted if the two arms' intervals of tokens per construction overlap and the paired test on tokens per unit does not reject, or if the cell medians of the final acceptance fraction differ.
+- **H1** — building Finn from the same specification, OpenCode and pi differ in tokens per construction by a practically relevant margin, and their final acceptance fractions do not. Refuted if the paired test on tokens per unit does not reject, or if the cell medians of the final acceptance fraction differ.
 - **H2** — the fixed load explains the larger part of that difference. Refuted if the conversation part (equivalently, the step count) explains the larger part. A null H2 is a reportable finding: OpenCode's 5.3x first-request payload (#41) recovered in fewer steps is a result about how little request size predicts.
 
 **Direction, registered separately:**
