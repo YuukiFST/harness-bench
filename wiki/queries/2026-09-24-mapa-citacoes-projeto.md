@@ -67,7 +67,7 @@ Resultado: 14 entradas, 14 citadas, nenhuma entrada sem citacao, nenhuma citacao
 
 ### Opencode (2026b), Zen — [[zen-opencode-2026]]
 
-- [79] "OpenCode Zen is an AI gateway"; modelos "free on OpenCode for a limited time". Os *endpoints* variam por modelo (responses, messages, chat/completions): os modelos escolhidos precisam usar chat/completions para passar pelo *proxy* de [76]. Teste de 2026-09-24: `hy3-free` "not supported" e o nivel gratuito so "from within OpenCode", entao [79] nao vale hoje para o braco Pi (ver `_review.md`).
+- [79] "OpenCode Zen is an AI gateway"; modelos "free on OpenCode for a limited time". Os *endpoints* variam por modelo (responses, messages, chat/completions): os modelos escolhidos precisam usar chat/completions para passar pelo *proxy* de [76]. Teste anonimo de 2026-09-24: `hy3-free` "not supported"; chamada sem cabecalho de cliente recusada ("from within OpenCode"), mas o Pi, que se identifica como cliente, usa o nivel gratuito (ver `_review.md`).
 
 ### Karpathy (2026), LLM Wiki — [[llm-wiki-karpathy-2026]]
 

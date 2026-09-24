@@ -10,11 +10,11 @@ The agent writes here what it cannot decide alone. Resolve an item by editing th
 - Regra de custo: [[harnessrank-2026]] (custo reportado, tokens sem *cache*) vs [[harnesstax-pan-2026]] e [[sol-pi-liu-2026]] (custo estimado por tabela de precos; SoL-Pi inclui leitura de *cache*). Decidir qual regra o *proxy* do projeto reporta como primaria. Ver `wiki/concepts/medicao-custo-proxy-vs-relato.md`, Contradictions.
 - Contradicao interna de [[sol-pi-liu-2026]]: resumo diz "comparable to Pi", corpo mostra 93,7% e 94,3% do *score* do Pi no EdgeBench e 15 vs 18 tarefas no Terminal-Bench 4, sem IC. A economia por hora ($8,75-$13,50; $4,36-$5,71) so aparece no resumo, sem derivacao. Ver `wiki/sources/sol-pi-liu-2026.md`, Contradictions.
 
-## [2026-09-24] probe | OpenCode Zen gratuito fechado para o Pi; hy3-free saiu
+## [2026-09-24] probe | Zen gratuito recusa chamada anonima; hy3-free fora da lista
 
-- Teste em 2026-09-24 contra `https://opencode.ai/zen/v1/chat/completions`, sem chave: `hy3-free` responde `{"type":"ModelError","message":"Model hy3-free is not supported"}` e sumiu de `/zen/v1/models`; `mimo-v2.5-free` responde `{"type":"FreeTierError","message":"Error from provider (Console): OpenCode's free tier can only be used from within OpenCode"}`.
-- Consequencia: o braco Pi nao pode usar o nivel gratuito do Zen, e o nivel de robustez perdeu o modelo. [76], [79], [91] (orcamento R$ 0,00) e `docs/spec/11-experimental-protocol.md` (Tiers) dependem disso. Nenhuma tentativa de contornar a restricao foi feita.
-- Opcoes para o autor: (a) chave paga no Zen ou em outro *gateway* compativel com OpenAI para os dois bracos, com orcamento maior que zero; (b) modelo local (Ollama, ja no plano de #8) servido aos dois bracos pelo *proxy*, mantendo R$ 0,00; (c) confirmar se a restricao vale tambem com conta autenticada. Ver #29.
+- Teste em 2026-09-24 com `curl` anonimo (sem chave, sem cabecalho de cliente) contra `https://opencode.ai/zen/v1/chat/completions`: `mimo-v2.5-free` responde `FreeTierError` "OpenCode's free tier can only be used from within OpenCode"; `hy3-free` responde `ModelError` "not supported" e nao aparece em `/zen/v1/models`.
+- Correcao do autor: o Pi usa os modelos gratuitos do Zen normalmente. O provedor embutido `opencode` do Pi envia `x-opencode-client: pi` e `x-opencode-session` (`docs/research/10-pi-measurement-surface.md:726`), e o Zen aceita. A conclusao anterior desta entrada ("o Pi nao pode usar o nivel gratuito") estava errada.
+- O que ainda precisa de verificacao, sem decidir por interpretacao: (1) o braco Pi passa por um provedor proprio apontado para o *proxy*, que `docs/research/10-pi-measurement-surface.md:730` manda nao chamar de `opencode`; se o Zen passou a exigir o cabecalho de cliente, o *proxy* precisa repassar o que o Pi envia, e a regra de :730 se inverte. Testar com o Pi real atras do *proxy*. (2) `hy3-free`: conferir no `/model` do Pi se ainda existe com outro id; se saiu, escolher outro modelo de robustez (`docs/research/11-second-free-model.md` nomeia `nemotron-3-ultra-free` como reserva).
 
 ## [2026-09-24] edit | Revisao do projeto contra fontes e apostilas (resolvido)
 

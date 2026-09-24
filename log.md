@@ -193,3 +193,8 @@ Auditoria slide a slide (17) com `CONTEXT.md`, `docs/spec/11` e o dump do docx c
 - `deck/` e `dist/apresentacao/` removidos; `AGENTS.md` e `tools/apresentacao_explainer/build.py` apontam para o deck vigente.
 - Repositorios Finn e harness-bench seguem privados ate ficarem prontos.
 - Achado novo: o Zen recusa `hy3-free` ("not supported") e restringe o nivel gratuito a clientes OpenCode ("free tier can only be used from within OpenCode"). O braco Pi fica sem modelo e [76], [79], [91] ficam falsos ate o autor escolher outro caminho. Registrado em `_review.md`.
+
+## [2026-09-24] edit | Correcao: o Pi usa o Zen gratuito
+
+- A entrada anterior dizia que o braco Pi ficava sem modelo. Errado: o teste foi um `curl` anonimo; o Pi, pelo provedor `opencode`, se identifica como cliente e usa os modelos gratuitos, como o autor confirmou. [76], [79] e o orcamento R$ 0,00 continuam validos.
+- Ficam para verificar: se o *proxy* precisa repassar o cabecalho de cliente do Pi, e o id atual do modelo de robustez (`hy3-free` fora da lista). `_review.md` e [[2026-09-24-mapa-citacoes-projeto]] corrigidos.
