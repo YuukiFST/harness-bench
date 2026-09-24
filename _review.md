@@ -9,3 +9,17 @@ The agent writes here what it cannot decide alone. Resolve an item by editing th
 - Portabilidade do *harness* entre modelos: [[agentic-harness-engineering-lin-2026]] ("often underperforms on another") vs [[sol-pi-liu-2026]] ("strong cross-model generalization", 1 modelo de transferencia, sem IC). Ver `wiki/concepts/especificidade-modelo-inversao.md`, Contradictions.
 - Regra de custo: [[harnessrank-2026]] (custo reportado, tokens sem *cache*) vs [[harnesstax-pan-2026]] e [[sol-pi-liu-2026]] (custo estimado por tabela de precos; SoL-Pi inclui leitura de *cache*). Decidir qual regra o *proxy* do projeto reporta como primaria. Ver `wiki/concepts/medicao-custo-proxy-vs-relato.md`, Contradictions.
 - Contradicao interna de [[sol-pi-liu-2026]]: resumo diz "comparable to Pi", corpo mostra 93,7% e 94,3% do *score* do Pi no EdgeBench e 15 vs 18 tarefas no Terminal-Bench 4, sem IC. A economia por hora ($8,75-$13,50; $4,36-$5,71) so aparece no resumo, sem derivacao. Ver `wiki/sources/sol-pi-liu-2026.md`, Contradictions.
+
+## [2026-09-24] probe | Zen gratuito recusa chamada anonima; hy3-free fora da lista
+
+- Teste em 2026-09-24 com `curl` anonimo (sem chave, sem cabecalho de cliente) contra `https://opencode.ai/zen/v1/chat/completions`: `mimo-v2.5-free` responde `FreeTierError` "OpenCode's free tier can only be used from within OpenCode"; `hy3-free` responde `ModelError` "not supported" e nao aparece em `/zen/v1/models`.
+- Correcao do autor: o Pi usa os modelos gratuitos do Zen normalmente. O provedor embutido `opencode` do Pi envia `x-opencode-client: pi` e `x-opencode-session` (`docs/research/10-pi-measurement-surface.md:726`), e o Zen aceita. A conclusao anterior desta entrada ("o Pi nao pode usar o nivel gratuito") estava errada.
+- O que ainda precisa de verificacao, sem decidir por interpretacao: (1) o braco Pi passa por um provedor proprio apontado para o *proxy*, que `docs/research/10-pi-measurement-surface.md:730` manda nao chamar de `opencode`; se o Zen passou a exigir o cabecalho de cliente, o *proxy* precisa repassar o que o Pi envia, e a regra de :730 se inverte. Testar com o Pi real atras do *proxy*. (2) `hy3-free`: conferir no `/model` do Pi se ainda existe com outro id; se saiu, escolher outro modelo de robustez (`docs/research/11-second-free-model.md` nomeia `nemotron-3-ultra-free` como reserva).
+
+## [2026-09-24] edit | Revisao do projeto contra fontes e apostilas (resolvido)
+
+- H1 [61]: a regra de sucesso passa a ser a da spec (medianas por celula da fracao final de testes aprovados), em `tools/docx_edits_2026-09-24f.py`.
+- Repositorios Finn e harness-bench: privados por decisao do autor ate ficarem prontos; as entradas ficam.
+- [76]: citacoes mantidas como identificacao dos bracos, sem novas entradas (tema e orcamento de paginas); os fatos estao nas documentacoes, ver [[2026-09-24-mapa-citacoes-projeto]].
+- Deck antigo `deck/` e `dist/apresentacao/` removidos (ficam no historico git); `AGENTS.md` aponta para `tools/apresentacao_explainer/`.
+- Slide 26 fica com as 14 referencias num slide: nao transborda.

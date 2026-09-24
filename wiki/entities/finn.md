@@ -1,11 +1,11 @@
 ---
 title: Finn
 type: entity
-summary: SaaS de financeiro por voz do autor; produto do experimento, construido do zero por OpenCode e pi da mesma especificacao
+summary: SaaS de financeiro por voz do autor; referencia construida pelo autor, depois reconstruida do zero por OpenCode e Pi
 tags: [finn, especificacao, saas, unidades, bracos]
 created: 2026-09-14
-updated: 2026-09-15
-sources: [wiki/sources/frontierharness-runta-2026.md, wiki/sources/helmsman-skill-yuukifst-2026.md]
+updated: 2026-09-24
+sources: [wiki/sources/frontierharness-runta-2026.md, wiki/sources/helmsman-skill-yuukifst-2026.md, wiki/sources/effective-harnesses-young-2025.md]
 ---
 
 # Finn
@@ -22,7 +22,7 @@ SaaS universal de financeiro por voz: a empresa cliente fala com o proprio finan
 
 ## No projeto
 
-Produto do experimento: os 9 *tickets* tecnicos (#14-#22) viram as 9 unidades de uma especificacao unica, escrita pelo autor e congelada; [[opencode]] e [[pi-coding-agent]] recebem os mesmos bytes e constroem o Finn do zero, unidade a unidade, num unico espaco de trabalho. Testes de aceitacao do autor por unidade, held-out, decidem o escore. Ver [[desenho-experimental-harness-fixo]]. Os dois bracos aparecem no FrontierHarness sobre o mesmo modelo (source: [[frontierharness-runta-2026]]).
+Produto do experimento. Desde 2026-09-24 o autor constroi primeiro um Finn de referencia, seguindo as *issues* #1-#22, ate ficar como quer, com o fim de cada etapa marcado por *tag* no git. Da referencia sai a especificacao congelada: `spec.md` (produto, pilha, travas, contrato de interface dos testes) e `features.json` (uma funcionalidade por entrada, com sua unidade, no formato de lista de funcionalidades de [[effective-harnesses-young-2025]], sem o campo `passes`). Cada etapa vira uma unidade, ao menos seis; as 9 unidades tiradas dos *tickets* #14-#22 (desenho de 2026-09-14) sairam. [[opencode]] e [[pi-coding-agent]] recebem os mesmos bytes e constroem o Finn do zero, unidade a unidade, num unico espaco de trabalho; o codigo da referencia nunca entra nele. Testes de aceitacao do autor por unidade, held-out, decidem o escore e precisam passar na referencia, na *tag* da unidade, antes do congelamento. Ver [[desenho-experimental-harness-fixo]]. Os dois bracos aparecem no FrontierHarness sobre o mesmo modelo (source: [[frontierharness-runta-2026]]).
 
 ## Contradictions
 

@@ -2,12 +2,12 @@
 
 Glossary for this experiment.
 Terms only: no implementation detail, no specification, no decisions.
-The decisions live in the tickets of [the map](https://github.com/YuukiFST/harness-bench/issues/1); the specifications live in `docs/spec/`; the product under construction is specified in the tickets of [Finn](https://github.com/YuukiFST/Finn/issues/1).
+The decisions live in the tickets of [the map](https://github.com/YuukiFST/harness-bench/issues/1); the specifications live in `docs/spec/`; the product's decisions live in the tickets of [Finn](https://github.com/YuukiFST/Finn/issues/1).
 
 ## Arm
 
 One harness under test, driven headlessly against a fixed model.
-There are exactly two: **OpenCode** and **pi**.
+There are exactly two: **OpenCode** and **Pi** (written "Pi" in prose, as in its own title; `pi` only as the CLI command).
 An arm must be pointable at an arbitrary OpenAI-compatible base URL without a wrapper hack, or it cannot traverse the measuring proxy and cannot be measured.
 This project authors no arm.
 
@@ -21,17 +21,23 @@ There are two: a **primary tier** and a **robustness tier**, the second existing
 The one piece of software both arms build: Finn, a multi-tenant voice-driven finance SaaS.
 It was decided before the experiment, in closed tickets, and those decisions do not change during it.
 
+## Reference build
+
+The Finn the author builds first, outside both arms, until it is the product the author wants, with the end of each stage tagged in git.
+It is where the specification and the acceptance tests come from, and the acceptance tests of each unit must pass on it at that unit's tag before anything is frozen.
+Its code never enters an arm's workspace.
+
 ## Specification
 
-The one document set both arms build from: the product, its stack and its locks, plus one file per unit, written by the author from the closed Finn tickets before any run and frozen by hash.
-Both arms receive the same bytes; the acceptance tests are not in it.
+The one document set both arms build from, extracted from the reference build before any run and frozen by hash: a text with the product, its stack, its locks and the interface the acceptance tests touch, and a feature list in JSON where every feature names its unit.
+Both arms receive the same bytes; the acceptance tests and the reference code are not in it.
 It exists so that the input is identical and the difference in tokens can be attributed to the harness rather than to what each arm was told.
 
 ## Unit
 
-One part of the specification handed to an arm as one prompt, byte-identical for both arms: one technical decision of the product, with its locks and its acceptance criteria.
-The nine technical tickets of Finn are the nine units, in dependency order.
-A unit is what the previous design called a ticket, and the design before that a task.
+One part of the specification handed to an arm as one prompt, byte-identical for both arms: the features of one stage of the reference build, in the order the author built them.
+There are as many units as stages, and at least six, the fewest at which a two-sided Wilcoxon signed-rank test can reach p < 0.05.
+A unit is what the previous design called a ticket (one of nine Finn tickets), and the design before that a task.
 
 ## Initial workspace
 

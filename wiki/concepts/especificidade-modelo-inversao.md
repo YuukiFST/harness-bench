@@ -23,7 +23,7 @@ Ressalva permanente do projeto: o efeito e especifico do modelo e pode inverter 
 
 ## Resposta do projeto
 
-Dois niveis (primario + robustez), mesmo gateway (source: [[zen-opencode-2026]]), relatados em separado, nunca medios. Se a ordenacao inverter, a inversao e o resultado. Conclusoes enunciadas por nivel. Objetivo (5): a ordenacao OpenCode vs pi se mantem ou inverte no segundo nivel.
+Dois niveis (primario + robustez), mesmo gateway (source: [[zen-opencode-2026]]), relatados em separado, nunca medios. Se a ordenacao inverter, a inversao e o resultado. Conclusoes enunciadas por nivel. Objetivo (5): a ordenacao OpenCode vs Pi se mantem ou inverte no segundo nivel.
 
 ## Contradictions
 

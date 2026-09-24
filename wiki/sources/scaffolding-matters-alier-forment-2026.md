@@ -33,8 +33,8 @@ Definicao (Secao 1.1, verbatim): "a software harness that the industry is callin
 
 ## Numeros (modelo/tarefa fixos, verificacao por estado do repositorio, ago 2026)
 
-- **20x**: mediana de input tokens por run concluida, mesma tarefa de 6 operacoes GitHub: pi 14.660 (4/4) a qwen-code 288.808 (7/8).
-- **5,0x a 28x** so no braco CLI, sem MCP anexado: pi 14.660 a Claude Code 410.797.
+- **20x**: mediana de input tokens por run concluida, mesma tarefa de 6 operacoes GitHub: Pi 14.660 (4/4) a qwen-code 288.808 (7/8).
+- **5,0x a 28x** so no braco CLI, sem MCP anexado: Pi 14.660 a Claude Code 410.797.
 - **139x** para o modelo local qwen3.6:27b fixo: Tau CLI 17.416 a Codex MCP 2.418.828 tokens.
 - **13 razoes MCP/CLI pareadas: 0,43x a 29x, mediana 0,93** — comparacao declarada inconclusiva.
 - **Custo da falha**: 12,9% do dinheiro em runs MCP nao comprou trabalho concluido vs 2,2% em CLI; frequencia de falha igual.
@@ -55,7 +55,7 @@ Custo condicionado a conclusao; conclusao reportada em separado; verificacao por
 
 - Justificativa: unica evidencia controlada de custo por tarefa concluida com modelo fixo (20x, 139x) — sustenta H1.
 - Material e metodo: as cinco regras (condicionar, separar, verificar, checar aderencia, repetir) viram protocolo do projeto.
-- H2: pi vs Tau (12% de diferenca, ambos 4/4) mostra que efeito minimalista sobrevive a reimplementacao independente — precedente do teste pi vs oh-my-pi.
+- H2: Pi vs Tau (12% de diferenca, ambos 4/4) mostra que efeito minimalista sobrevive a reimplementacao independente — precedente do teste Pi vs oh-my-pi.
 - Limitacoes: mesmas ressalvas de tarefa unica e atribuicao.
 
 ### Auditoria de conteudo 2026-09-11

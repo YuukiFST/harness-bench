@@ -26,7 +26,7 @@ Framework compativel com tarefas Harbor para avaliar agentes de codigo em *sandb
 
 ## Relevante ao projeto
 
-- Agentes hoje: nop, oracle, antigravity-sdk, claude-code, codex, cursor-cli, gemini-cli, **opencode**, **mini-swe-agent**. **Sem adaptador para pi nem oh-my-pi** — os dois (e o *harness* zero) sao escritos neste projeto.
+- Agentes hoje: nop, oracle, antigravity-sdk, claude-code, codex, cursor-cli, gemini-cli, **opencode**, **mini-swe-agent**. **Sem adaptador para Pi nem oh-my-pi** — os dois (e o *harness* zero) sao escritos neste projeto.
 - Este projeto usa **docker**; GPU da estacao irrelevante para resultados.
 - Trials em `jobs/<ts>/<trial_id>/`; datasets Harbor via download previo.
 

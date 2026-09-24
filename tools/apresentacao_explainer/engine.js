@@ -1,18 +1,31 @@
 // Motor de leitura do deck (padrão SlideEngine do visual-explainer, inline, sem asset externo).
-// Só navegação: barra de progresso, trilho lateral, contador, atalhos, sumário (O), ajuda (?),
-// notas do apresentador (N), tema (T), #slide-N e retomada por localStorage.
+// Desde 2026-09-23: palco fixo 1920×1080 escalado por inteiro (frontend-slides, AGENTS.md "Slides");
+// um slide ativo por vez via .active/.visible, sem scroll. Navegação: barra de progresso, trilho
+// lateral, atalhos, sumário (O), ajuda (?), notas (N), tema (T), tela cheia (F), #slide-N,
+// roda do mouse, toque e retomada por localStorage.
+var STAGE_W = 1920, STAGE_H = 1080;
+
 function SlideEngine() {
-  this.deck = document.querySelector('.deck');
-  this.slides = [].slice.call(document.querySelectorAll('.slide'));
-  this.current = 0;
+  this.stage = document.getElementById('deckStage');
+  this.slides = [].slice.call(this.stage.querySelectorAll('.slide'));
+  this.current = -1;
   this.total = this.slides.length;
   this.storeKey = ['harness-bench:apresentacao-explainer', location.pathname, document.title, this.total].join(':');
+  this.fitStage();
   this.buildChrome();
   this.bindEvents();
-  this.observe();
-  this.restore();
-  this.update();
+  this.show(this.initialIndex());
 }
+SlideEngine.prototype.fitStage = function () {
+  var stage = this.stage;
+  function fit() {
+    var k = Math.min(window.innerWidth / STAGE_W, window.innerHeight / STAGE_H);
+    var x = (window.innerWidth - STAGE_W * k) / 2, y = (window.innerHeight - STAGE_H * k) / 2;
+    stage.style.transform = 'translate(' + x + 'px,' + y + 'px) scale(' + k + ')';
+  }
+  fit();
+  window.addEventListener('resize', fit);
+};
 SlideEngine.prototype.titleOf = function (i) {
   var s = this.slides[i];
   var explicit = s.getAttribute('data-title');
@@ -30,15 +43,14 @@ SlideEngine.prototype.buildChrome = function () {
     var d = document.createElement('button'); d.type = 'button'; d.className = 'deck-dot'; d.title = title;
     d.setAttribute('aria-label', 'Ir ao slide ' + (i + 1) + ': ' + title);
     var label = document.createElement('span'); label.className = 'deck-dot-label'; label.textContent = (i + 1) + ' · ' + title; d.appendChild(label);
-    d.onclick = function () { self.goTo(i); }; dots.appendChild(d);
+    d.onclick = function () { self.show(i); }; dots.appendChild(d);
   });
   document.body.appendChild(dots); this.dots = [].slice.call(dots.children);
   var arrows = document.createElement('div'); arrows.className = 'deck-arrows';
   var prev = document.createElement('button'); prev.type = 'button'; prev.textContent = '←'; prev.setAttribute('aria-label', 'Slide anterior'); prev.onclick = function () { self.prev(); };
   var next = document.createElement('button'); next.type = 'button'; next.textContent = '→'; next.setAttribute('aria-label', 'Próximo slide'); next.onclick = function () { self.next(); };
   arrows.appendChild(prev); arrows.appendChild(next); document.body.appendChild(arrows);
-  var ctr = document.createElement('div'); ctr.className = 'deck-counter'; ctr.setAttribute('aria-live', 'polite'); document.body.appendChild(ctr); this.counter = ctr;
-  var hints = document.createElement('div'); hints.className = 'deck-hints'; hints.textContent = '← → navegam · N notas · O sumário · ? ajuda'; document.body.appendChild(hints); this.hints = hints;
+  var hints = document.createElement('div'); hints.className = 'deck-hints'; hints.textContent = '← → navegam · N notas · O sumário · T tema · ? ajuda'; document.body.appendChild(hints); this.hints = hints;
   this.hintTimer = setTimeout(function () { hints.classList.add('faded'); }, 6000);
   var theme = document.createElement('button'); theme.type = 'button'; theme.className = 'deck-theme'; theme.textContent = 'T'; theme.setAttribute('aria-label', 'Alternar tema claro/escuro'); theme.onclick = function () { self.toggleTheme(); }; document.body.appendChild(theme);
   var notes = document.createElement('aside'); notes.className = 'deck-notes'; notes.setAttribute('aria-label', 'Notas do apresentador'); document.body.appendChild(notes); this.notes = notes;
@@ -62,7 +74,7 @@ SlideEngine.prototype.renderOutline = function () {
     if (i === self.current) b.setAttribute('aria-current', 'true');
     var n = document.createElement('span'); n.className = 'deck-panel__number'; n.textContent = String(i + 1);
     var t = document.createElement('span'); t.textContent = self.titleOf(i);
-    b.appendChild(n); b.appendChild(t); b.onclick = function () { self.goTo(i); self.closeOverlay(); }; self.panel.appendChild(b);
+    b.appendChild(n); b.appendChild(t); b.onclick = function () { self.show(i); self.closeOverlay(); }; self.panel.appendChild(b);
   });
 };
 SlideEngine.prototype.renderHelp = function () {
@@ -95,72 +107,103 @@ SlideEngine.prototype.renderNotes = function () {
 SlideEngine.prototype.bindEvents = function () {
   var self = this;
   document.addEventListener('keydown', function (e) {
-    if (e.target.closest('.table-wrap,input,textarea,[contenteditable]')) return;
+    if (e.target.closest('input,textarea,[contenteditable]')) return;
+    // Atalhos do navegador (Ctrl+F, Ctrl+T, Cmd+N) passam direto.
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
     if (e.key === 'Escape' && self.overlayOpen()) { e.preventDefault(); self.closeOverlay(); return; }
     if (e.key === 'o' || e.key === 'O') { e.preventDefault(); self.overlayOpen() ? self.closeOverlay() : self.openOverlay('outline'); return; }
     if (e.key === '?') { e.preventDefault(); self.overlayOpen() ? self.closeOverlay() : self.openOverlay('help'); return; }
     if (e.key === 'n' || e.key === 'N') { e.preventDefault(); self.toggleNotes(); return; }
     if (e.key === 't' || e.key === 'T') { e.preventDefault(); self.toggleTheme(); return; }
-    if (e.key === 'f' || e.key === 'F') { e.preventDefault(); document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); return; }
+    if (e.key === 'f' || e.key === 'F') { e.preventDefault(); document.fullscreenElement ? document.exitFullscreen().catch(function () {}) : document.documentElement.requestFullscreen().catch(function () {}); return; }
     if (self.overlayOpen()) return;
     if (['ArrowDown', 'ArrowRight', ' ', 'PageDown'].indexOf(e.key) > -1) { e.preventDefault(); self.next(); }
     else if (['ArrowUp', 'ArrowLeft', 'PageUp'].indexOf(e.key) > -1) { e.preventDefault(); self.prev(); }
-    else if (e.key === 'Home') { e.preventDefault(); self.goTo(0); }
-    else if (e.key === 'End') { e.preventDefault(); self.goTo(self.total - 1); }
+    else if (e.key === 'Home') { e.preventDefault(); self.show(0); }
+    else if (e.key === 'End') { e.preventDefault(); self.show(self.total - 1); }
     self.fadeHints();
   });
-  window.addEventListener('hashchange', function () { var i = self.fromHash(); if (i !== null && i !== self.current) self.goTo(i); });
-  var tY;
-  this.deck.addEventListener('touchstart', function (e) { tY = e.touches[0].clientY; }, { passive: true });
-  this.deck.addEventListener('touchend', function (e) { var dy = tY - e.changedTouches[0].clientY; if (Math.abs(dy) > 50) { dy > 0 ? self.next() : self.prev(); } });
+  window.addEventListener('hashchange', function () { var i = self.fromHash(); if (i !== null && i !== self.current) self.show(i); });
+  // Roda: um passo por gesto; o intervalo evita que a inércia do trackpad pule vários slides.
+  var wheelLock = 0;
+  window.addEventListener('wheel', function (e) {
+    if (self.overlayOpen() || e.target.closest('.deck-notes,.deck-dots')) return;
+    var now = Date.now(); if (now < wheelLock || Math.abs(e.deltaY) < 12) return;
+    wheelLock = now + 650; e.deltaY > 0 ? self.next() : self.prev();
+  }, { passive: true });
+  var tX, tY;
+  window.addEventListener('touchstart', function (e) { tX = e.touches[0].clientX; tY = e.touches[0].clientY; }, { passive: true });
+  window.addEventListener('touchend', function (e) {
+    // Mesma exclusão da roda: rolar notas ou lista não troca de slide.
+    if (self.overlayOpen() || e.target.closest('.deck-notes,.deck-dots')) return;
+    var dx = tX - e.changedTouches[0].clientX, dy = tY - e.changedTouches[0].clientY;
+    var d = Math.abs(dx) > Math.abs(dy) ? dx : dy;
+    if (Math.abs(d) > 50) { d > 0 ? self.next() : self.prev(); }
+  });
 };
 SlideEngine.prototype.fromHash = function () { var m = /^#(?:slide-)?(\d+)$/.exec(location.hash); if (!m) return null; var i = (+m[1]) - 1; return i >= 0 && i < this.total ? i : null; };
-SlideEngine.prototype.restore = function () {
+SlideEngine.prototype.initialIndex = function () {
   var i = this.fromHash();
-  if (i === null) { try { var saved = localStorage.getItem(this.storeKey); if (saved !== null) { var j = parseInt(saved, 10); if (j > 0 && j < this.total) i = j; } } catch (e) { } }
-  if (i !== null && i > 0) { var self = this; this.current = i; setTimeout(function () { self.slides[i].scrollIntoView({ block: 'start' }); }, 60); }
+  if (i !== null) return i;
+  try { var saved = parseInt(localStorage.getItem(this.storeKey), 10); if (saved > 0 && saved < this.total) return saved; } catch (e) { }
+  return 0;
 };
-SlideEngine.prototype.observe = function () {
-  var self = this;
-  var obs = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) { if (entry.isIntersecting) { entry.target.classList.add('visible'); self.current = self.slides.indexOf(entry.target); self.update(); } });
-  }, { threshold: 0.5 });
-  this.slides.forEach(function (s) { obs.observe(s); });
+SlideEngine.prototype.show = function (i) {
+  i = Math.max(0, Math.min(i, this.total - 1));
+  if (i === this.current) return;
+  this.slides.forEach(function (s, j) { s.classList.toggle('active', j === i); s.classList.toggle('visible', j === i); s.setAttribute('aria-hidden', j === i ? 'false' : 'true'); });
+  this.current = i;
+  this.update();
 };
-SlideEngine.prototype.goTo = function (i) { i = Math.max(0, Math.min(i, this.total - 1)); this.slides[i].scrollIntoView({ behavior: 'smooth' }); };
-SlideEngine.prototype.next = function () { if (this.current < this.total - 1) this.goTo(this.current + 1); };
-SlideEngine.prototype.prev = function () { if (this.current > 0) this.goTo(this.current - 1); };
+SlideEngine.prototype.next = function () { this.show(this.current + 1); };
+SlideEngine.prototype.prev = function () { this.show(this.current - 1); };
 SlideEngine.prototype.update = function () {
-  var c = this.current, pct = Math.round((c + 1) / this.total * 100);
-  this.bar.style.width = pct + '%';
+  var c = this.current;
+  this.bar.style.width = ((c + 1) / this.total * 100) + '%';
   this.dots.forEach(function (d, i) { i === c ? d.setAttribute('aria-current', 'true') : d.removeAttribute('aria-current'); });
-  this.counter.textContent = (c + 1) + ' / ' + this.total + ' · ' + pct + '%';
   this.renderNotes();
   try { history.replaceState(null, '', '#slide-' + (c + 1)); localStorage.setItem(this.storeKey, String(c)); } catch (e) { }
 };
 SlideEngine.prototype.fadeHints = function () { clearTimeout(this.hintTimer); this.hints.classList.add('faded'); };
 
-// Verificação de entrega: com prefers-reduced-motion, marca todo slide cujo conteúdo estoura 100dvh.
+// Verificação de entrega: mede em px do palco 1920×1080 (divide pela escala atual; slides ocultos
+// mantêm layout, pois usam visibility).
+// Falha quando um bloco estoura o próprio slide, um cartão corta texto, ou dois blocos irmãos se sobrepõem.
 function checkSlideOverflow() {
   var failures = [];
   document.querySelectorAll('.slide').forEach(function (slide, index) {
-    var excess = Math.ceil(slide.scrollHeight - slide.clientHeight);
-    if (excess > 1) {
+    var problems = [];
+    var box = slide.getBoundingClientRect();
+    var k = box.width / STAGE_W;
+    slide.querySelectorAll('.slide__head,.slide__mid > *,.slide__source,.card,.pipeline__step,.refs,.gantt,.ledger,blockquote').forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if ((box.bottom - r.bottom) / k < 20 || (box.right - r.right) / k < 20) problems.push('fora do slide: ' + el.className);
+      if (el.scrollHeight - el.clientHeight > 1 && getComputedStyle(el).overflowY !== 'visible') problems.push('corte: ' + el.className);
+    });
+    var blocks = [].slice.call(slide.querySelectorAll('.slide__mid > *, .cards > .card'));
+    blocks.forEach(function (a, i) {
+      blocks.slice(i + 1).forEach(function (b) {
+        if (a.contains(b) || b.contains(a) || a.parentNode !== b.parentNode) return;
+        var p = a.getBoundingClientRect(), q = b.getBoundingClientRect();
+        if (p.left < q.right - 1 && q.left < p.right - 1 && p.top < q.bottom - 1 && q.top < p.bottom - 1) problems.push('sobreposição');
+      });
+    });
+    if (problems.length) {
       slide.setAttribute('data-slide-check', 'overflow');
-      slide.setAttribute('data-slide-check-label', 'ESTOURO — dividir ou reduzir (' + excess + 'px)');
-      failures.push('Slide ' + (index + 1) + ': estouro vertical ' + excess + 'px');
+      slide.setAttribute('data-slide-check-label', 'ESTOURO — ' + problems[0]);
+      failures.push('Slide ' + (index + 1) + ': ' + problems.join('; '));
     } else {
       slide.removeAttribute('data-slide-check');
       slide.removeAttribute('data-slide-check-label');
     }
   });
   if (failures.length) console.error('Verificação de entrega falhou. ' + failures.join(' | '));
-  else console.info('Verificação de entrega: nenhum slide estoura a tela.');
+  else console.info('Verificação de entrega: nenhum slide estoura o palco.');
   return failures;
 }
 window.checkSlideOverflow = checkSlideOverflow;
 
-new SlideEngine();
+window.deckEngine = new SlideEngine();
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  requestAnimationFrame(checkSlideOverflow);
+  document.fonts.ready.then(function () { requestAnimationFrame(checkSlideOverflow); });
 }
