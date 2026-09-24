@@ -320,6 +320,7 @@ html.theme-dark .slide::after { mix-blend-mode: screen; opacity: 0.18; }
 .title-decor .ring:nth-of-type(even) { animation-direction: reverse; animation-duration: 120s; }
 @keyframes ring-turn { to { transform: rotate(360deg); } }
 .slide--end .slide__display { font-size: 80px; max-width: 980px; }
+.slide--end .title-sub { max-width: 950px; text-wrap: balance; }
 .end-thanks { margin-top: 8px; font: italic 400 46px/1.2 var(--font-display); }
 .end-links { margin-top: 26px; font: 400 20px/1.6 var(--font-mono); color: var(--text-dim); }
 
@@ -811,12 +812,13 @@ figure.chart figcaption b { color: var(--text); font-weight: 500; }
 
 <div class="title-decor"><svg viewBox="0 0 520 520" aria-hidden="true"><circle class="ring" cx="260" cy="260" r="60" fill="none" stroke="var(--accent)" stroke-width="3" opacity="0.90"/><circle class="ring" cx="260" cy="260" r="110" fill="none" stroke="var(--accent)" stroke-width="1.5" opacity="0.74" stroke-dasharray="10 11"/><circle class="ring" cx="260" cy="260" r="160" fill="none" stroke="var(--accent)" stroke-width="1.5" opacity="0.58" stroke-dasharray="14 14"/><circle class="ring" cx="260" cy="260" r="210" fill="none" stroke="var(--accent)" stroke-width="1.5" opacity="0.42" stroke-dasharray="18 17"/><circle class="ring" cx="260" cy="260" r="250" fill="none" stroke="var(--accent)" stroke-width="1.5" opacity="0.26" stroke-dasharray="22 20"/><circle cx="260" cy="260" r="34" fill="var(--accent)"/><circle cx="260" cy="510" r="7" fill="var(--pi)"/><line x1="260" y1="294" x2="260" y2="503" stroke="var(--pi)" stroke-width="2" stroke-dasharray="3 6" opacity="0.8"/></svg></div>
 <div class="reveal">
-<p class="slide__label">Pergunta que o projeto testa</p>
-<h2 class="slide__display">Com o modelo fixo, o <em>harness</em> muda mais o custo do que o sucesso?</h2>
+<p class="slide__label">Por que isso importa</p>
+<h2 class="slide__display">Conhecer o modelo não basta: o <em>harness</em> tem grande influência no custo</h2>
+<p class="title-sub">No mercado atual, quem desenvolve com agentes precisa entender os dois: o modelo que gera e o <em>harness</em> que o envolve</p>
 <div class="title-rule"></div>
 <p class="end-links">github.com/YuukiFST/harness-bench (YuukiFST, 2026c)<br>github.com/YuukiFST/Finn (YuukiFST, 2026b)</p>
 </div>
-<div class="notes"><b>Fecho.</b> Retomar H1 [61] e o problema [48]: quanto a escolha do harness influencia custo e sucesso; H2 [62] pergunta quanto da diferença é carga fixa. Repositórios YuukiFST/Finn [159] e YuukiFST/harness-bench [160].</div>
+<div class="notes"><b>Fecho.</b> H1 [61] testa se, com o modelo fixo, o harness muda mais o custo do que o sucesso (problema [48]); quem paga por tokens paga também o imposto do harness [43]–[44]. Na prática: escolher o modelo sem olhar o harness é orçar pela metade. Repositórios YuukiFST/Finn [159] e YuukiFST/harness-bench [160].</div>
 <div class="folio-head" aria-hidden="true"><span>O <em>harness</em> no custo e no desempenho</span><span></span></div><div class="folio-num" aria-hidden="true">27<span>/ 27</span></div></section>
 
 </main>

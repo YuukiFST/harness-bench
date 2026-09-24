@@ -180,7 +180,7 @@ SLIDES = [
   [("Cadê as normas ABNT e os manuais de metodologia?", "A lista fica no tema do <em>harness</em>; as normas orientam a formatação e não são citadas.")],
   "pular se faltar tempo"),
  ("Fecho", "20 s", [
-   "A tela repete a pergunta de H1: com o modelo fixo, o <em>harness</em> muda mais o custo do que o sucesso? O projeto responde em tokens e em taxa de sucesso, e separa a parte da carga fixa. Tudo fica público nos dois repositórios."],
+    "A tela fecha com o recado prático: conhecer o modelo não basta, o <em>harness</em> tem grande influência no custo. No mercado atual, quem desenvolve com agentes precisa entender os dois: o modelo que gera e o <em>harness</em> que o envolve. O projeto testa isso em H1, com o modelo fixo, medindo tokens e taxa de sucesso e separando a parte da carga fixa. Tudo fica público nos dois repositórios."],
   [], ["github.com/YuukiFST/harness-bench (2026c) · github.com/YuukiFST/Finn (2026b) [160][159]."], [], ""),
 ]
 

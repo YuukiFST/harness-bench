@@ -453,12 +453,13 @@ def s_fecho() -> str:
     inner = f"""
 <div class="title-decor">{title_decor()}</div>
 <div class="reveal">
-<p class="slide__label">Pergunta que o projeto testa</p>
-<h2 class="slide__display">Com o modelo fixo, o <em>harness</em> muda mais o custo do que o sucesso?</h2>
+<p class="slide__label">Por que isso importa</p>
+<h2 class="slide__display">Conhecer o modelo não basta: o <em>harness</em> tem grande influência no custo</h2>
+<p class="title-sub">No mercado atual, quem desenvolve com agentes precisa entender os dois: o modelo que gera e o <em>harness</em> que o envolve</p>
 <div class="title-rule"></div>
 <p class="end-links">github.com/YuukiFST/harness-bench (YuukiFST, 2026c)<br>github.com/YuukiFST/Finn (YuukiFST, 2026b)</p>
 </div>"""
-    notes = "<b>Fecho.</b> Retomar H1 [61] e o problema [48]: quanto a escolha do harness influencia custo e sucesso; H2 [62] pergunta quanto da diferença é carga fixa. Repositórios YuukiFST/Finn [159] e YuukiFST/harness-bench [160]."
+    notes = "<b>Fecho.</b> H1 [61] testa se, com o modelo fixo, o harness muda mais o custo do que o sucesso (problema [48]); quem paga por tokens paga também o imposto do harness [43]–[44]. Na prática: escolher o modelo sem olhar o harness é orçar pela metade. Repositórios YuukiFST/Finn [159] e YuukiFST/harness-bench [160]."
     return sec("end", "Fecho", inner, notes)
 
 

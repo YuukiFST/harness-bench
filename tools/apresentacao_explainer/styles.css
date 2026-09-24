@@ -169,6 +169,7 @@ html.theme-dark .slide::after { mix-blend-mode: screen; opacity: 0.18; }
 .title-decor .ring:nth-of-type(even) { animation-direction: reverse; animation-duration: 120s; }
 @keyframes ring-turn { to { transform: rotate(360deg); } }
 .slide--end .slide__display { font-size: 80px; max-width: 980px; }
+.slide--end .title-sub { max-width: 950px; text-wrap: balance; }
 .end-thanks { margin-top: 8px; font: italic 400 46px/1.2 var(--font-display); }
 .end-links { margin-top: 26px; font: 400 20px/1.6 var(--font-mono); color: var(--text-dim); }
 
