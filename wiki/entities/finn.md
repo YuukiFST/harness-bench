@@ -4,13 +4,13 @@ type: entity
 summary: SaaS de financeiro por voz do autor; referencia construida pelo autor, depois reconstruida do zero por OpenCode e Pi
 tags: [finn, especificacao, saas, unidades, bracos]
 created: 2026-09-14
-updated: 2026-09-24
+updated: 2026-09-25
 sources: [wiki/sources/frontierharness-runta-2026.md, wiki/sources/helmsman-skill-yuukifst-2026.md, wiki/sources/effective-harnesses-young-2025.md]
 ---
 
 # Finn
 
-SaaS universal de financeiro por voz: a empresa cliente fala com o proprio financeiro por voz (WhatsApp, PWA, web, Android) e recebe lancamento, relatorio e aviso no celular. Repositorio `github.com/YuukiFST/Finn` (referencia YuukiFST, 2026b desde 2026-09-15; era 2026a). Especificado antes do experimento em 21 issues fechadas sob o mapa #1, mapeadas com a skill Helmsman do autor (source: [[helmsman-skill-yuukifst-2026]]): issues #2-#10 = decisoes do dono; #11-#22 = decisoes tecnicas com locks, das quais #11-#13 foram pesquisadas por subagentes.
+SaaS universal de financeiro por voz: a empresa cliente fala com o proprio financeiro por voz (WhatsApp, PWA, web, Android) e recebe lancamento, relatorio e aviso no celular. Repositorio `github.com/YuukiFST/Finn` (referencia YuukiFST, 2026b desde 2026-09-15; era 2026a). Especificado antes do experimento em 21 issues fechadas sob o mapa #1, mapeadas com a skill Helmsman do autor (source: [[helmsman-skill-yuukifst-2026]]): issues #2-#10 = decisoes do dono; #11-#22 = decisoes tecnicas com locks, das quais #11-#13 foram pesquisadas por subagentes. Em 2026-09-16 o mapa ganhou #23 (caminho mais simples, decisao do dono), #24 (Ollama e Whisper locais, pesquisa) e #25 (fatia vertical minima, decisao tecnica), todas "Part of #1" e fechadas: 24 *tickets* de decisao, nao 21 (conferido com `gh` em 2026-09-25).
 
 ## Decisoes fixas (issues #1-#22)
 

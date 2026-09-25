@@ -4,7 +4,7 @@ type: entity
 summary: Harness open-source; 47,2% no AHE e vazamento de chamada de titulo
 tags: [opencode, harness, bracos, vazamento]
 created: 2026-09-10
-updated: 2026-09-23
+updated: 2026-09-25
 sources: [wiki/sources/agentic-harness-engineering-lin-2026.md, wiki/sources/frontierharness-runta-2026.md, wiki/sources/zen-opencode-2026.md, wiki/sources/sol-pi-liu-2026.md]
 ---
 
@@ -14,7 +14,7 @@ sources: [wiki/sources/agentic-harness-engineering-lin-2026.md, wiki/sources/fro
 
 ## Evidencia
 
-- AHE Tabela 1: **47,2%** pass@1 (GPT-5.4, Terminal-Bench 2) — unico braco do projeto com numero publicado, em modelo de fronteira (source: [[agentic-harness-engineering-lin-2026]]).
+- AHE Tabela 1: **47,2%** pass@1 (Terminal-Bench 2; o artigo nao declara o modelo dessa linha, so o GPT-5.4 dos agentes do AHE) — unico braco do projeto com numero publicado, em modelo de fronteira (source: [[agentic-harness-engineering-lin-2026]]).
 - Camada 1: 29.997 bytes / 6.659 tokens (9 schemas) na primeira requisicao; + chamada auxiliar de 2.526 bytes/sessao nao auto-reportada.
 - Vazamentos (`docs/research/04`): titulo toda sessao (1 LLM call invisivel; mitigar `--title`); retries sem teto aparentemente perdidos; compactacao contada.
 - FrontierHarness: 50,0%/$3,24 (source: [[frontierharness-runta-2026]]).

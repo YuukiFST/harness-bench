@@ -198,3 +198,24 @@ Auditoria slide a slide (17) com `CONTEXT.md`, `docs/spec/11` e o dump do docx c
 
 - A entrada anterior dizia que o braco Pi ficava sem modelo. Errado: o teste foi um `curl` anonimo; o Pi, pelo provedor `opencode`, se identifica como cliente e usa os modelos gratuitos, como o autor confirmou. [76], [79] e o orcamento R$ 0,00 continuam validos.
 - Ficam para verificar: se o *proxy* precisa repassar o cabecalho de cliente do Pi, e o id atual do modelo de robustez (`hy3-free` fora da lista). `_review.md` e [[2026-09-24-mapa-citacoes-projeto]] corrigidos.
+
+## [2026-09-25] query | As referencias do projeto sao de fato usadas?
+
+- Texto de 9c0fe11 (edicao manual do autor). Fechamento mecanico: 14 entradas, 14 citadas, nenhuma citacao sem entrada.
+- Cada afirmacao conferida na obra: PDFs de `raw/sources/` com pagina pelo rodape, `raw/sources/*.md`, paginas publicas de Earendil, OpenCode e Zen baixadas em 2026-09-25, *issues* do Finn via `gh`, metadados na API do arXiv.
+- Nenhuma referencia a toa. Ressalvas de precisao em [68], [69], [76] e [77]; Finn privado; harness-bench agora publico. Pendencias em `_review.md`.
+- Pagina: [[2026-09-25-verificacao-referencias-projeto]]. [[2026-09-24-mapa-citacoes-projeto]] corrigido (Miller p. 8; harness-bench publico). [[finn]] ganha os *tickets* #23-#25.
+
+## [2026-09-25] edit | Correcoes das referencias e passada do humanizer no projeto
+
+- `tools/docx_edits_2026-09-25.py`: [44] "paga pagando" e oracao sem verbo; [68] Zhang "frequentemente"; [69] "o imposto do *harness*"; [76] codigo aberto citado (Opencode, 2026a; Pan *et al.*, 2026); [77] 24 *tickets*; [83] "comum aos dois".
+- `tools/docx_edits_2026-09-25b.py`: humanizer em [43]-[86] ([44] Finn em frase propria, [84] "testes aprovados"); tres cortes de viuva em [65], [74], [75] devolvem as tres linhas.
+- Word: 9 paginas, 6 REFERENCIAS na p. 8, linha 33, como em 9c0fe11. 14 entradas, 14 citadas.
+- Deck ainda com "21 *tickets*" e Zhang sem "frequentemente": pendencia em `_review.md`.
+
+## [2026-09-25] edit | GPT-5.4 fora de [68], Finn privado, deck e roteiro realinhados
+
+- `tools/docx_edits_2026-09-25.py` passa a tirar "sobre o GPT-5.4" de [68]: Lin *et al.* (2026) nao declara o modelo dos *harnesses* humanos da Tabela 1. Word: 9 paginas, 6 REFERENCIAS na p. 8, linha 33.
+- `AGENTS.md`: o repositorio do Finn fica privado por decisao do autor; nao e pendencia.
+- Deck (`tools/apresentacao_explainer/slides.py`, `content.py`, `charts.py`) e roteiro (`tools/roteiro_2026-09-25.py`) seguem o docx de 9c0fe11 e as correcoes do dia. O fecho do roteiro nao diz mais que os dois repositorios sao publicos.
+- Wiki: [[agentic-harness-engineering-lin-2026]], [[opencode]] e [[2026-09-24-mapa-citacoes-projeto]] sem "GPT-5.4 fixo" na Tabela 1.

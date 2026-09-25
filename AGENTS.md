@@ -64,6 +64,7 @@ This wiki is the knowledge base of the harness-bench research project (a *projet
 - Portuguese pages keep English technical terms (harness, scaffold, proxy, oracle) in italics as in `dist/projeto-de-pesquisa.docx`.
 - Glossary authority: `CONTEXT.md` for arm, tier, product, reference build, specification, unit, initial workspace, acceptance test, construction, cell, step, fixed load, concluded/unconcluded/tampered unit, discarded construction, pilot unit.
 - Finn's product decisions live in its issues; `wiki/entities/finn.md` summarises them. A Finn claim cites the issue number.
+- The Finn repository stays private, decided by the author on 2026-09-25: the author presents Finn and does not open it for anyone to use. Keep the YuukiFST (2026b) entry and its URL as they are, and do not flag the private repository as a pending item in reviews or `_review.md`.
 
 ## Slides (apresentação)
 

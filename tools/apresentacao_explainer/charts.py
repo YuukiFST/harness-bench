@@ -97,7 +97,7 @@ def harness_anatomy() -> str:
     out.append(f'<line class="s-other" x1="{cx}" y1="{cy+250}" x2="{cx}" y2="{py-44}" stroke-width="2" stroke-dasharray="4 6"/>')
     out.append(f'<rect x="{cx-280}" y="{py-44}" width="560" height="88" rx="12" fill="var(--pi-dim)" stroke="var(--pi)" stroke-width="1.5"/>')
     out.append(f'<text class="f-pi" x="{cx}" y="{py-8}" text-anchor="middle" font-size="21" font-weight="600">Proxy externo (instrumento)</text>')
-    out.append(f'<text class="dim" x="{cx}" y="{py+20}" text-anchor="middle" font-size="14">fora do <tspan font-style="italic">harness</tspan> · conta igual para os dois braços</text>')
+    out.append(f'<text class="dim" x="{cx}" y="{py+20}" text-anchor="middle" font-size="14">fora do <tspan font-style="italic">harness</tspan> · conta igual para os dois <tspan font-style="italic">coding agents</tspan></text>')
     out.append("</svg>")
     return "".join(out)
 
@@ -121,7 +121,7 @@ def layers_flow() -> str:
 
     out.append('<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10z" fill="var(--accent)"/></marker></defs>')
     out.append('<text class="f-pi" x="200" y="170" text-anchor="middle" font-size="15" font-weight="600">mesmo executor, prompt e especificação</text>')
-    box(40, 190, 320, 120, "Harness", ["OpenCode ou Pi, sem interface", "URL base OpenAI-compatível"])
+    box(40, 190, 320, 120, "Harness", ["OpenCode ou Pi", "versão fixada [76]"])
     arrow(360, 250, 556, 250, "requisição HTTP")
     out.append('<rect x="560" y="160" width="360" height="200" rx="12" fill="var(--pi-dim)" stroke="var(--pi)" stroke-width="2"/>')
     out.append('<text class="f-pi" x="740" y="210" text-anchor="middle" font-size="24" font-weight="600">Proxy reverso</text>')

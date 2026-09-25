@@ -4,7 +4,7 @@ type: query
 summary: 14 entradas, cada citacao ligada ao paragrafo do projeto e ao trecho verbatim da fonte que a sustenta
 tags: [auditoria, referencias, citacoes, nbr, projeto]
 created: 2026-09-24
-updated: 2026-09-24
+updated: 2026-09-25
 sources: [wiki/sources/harnesstax-pan-2026.md, wiki/sources/code-as-agent-harness-ning-2026.md, wiki/sources/agentic-harness-engineering-lin-2026.md, wiki/sources/stop-comparing-harness-zhang-2026.md, wiki/sources/sol-pi-liu-2026.md, wiki/sources/adding-error-bars-miller-2024.md, wiki/sources/effective-harnesses-young-2025.md, wiki/sources/pi-earendil-2026.md, wiki/sources/zen-opencode-2026.md, wiki/sources/llm-wiki-karpathy-2026.md, wiki/sources/helmsman-skill-yuukifst-2026.md, wiki/entities/opencode.md, wiki/entities/finn.md]
 ---
 
@@ -34,7 +34,7 @@ Resultado: 14 entradas, 14 citadas, nenhuma entrada sem citacao, nenhuma citacao
 ### Lin et al. (2026), Agentic harness engineering — [[agentic-harness-engineering-lin-2026]]
 
 - [66] citacao longa, p. 1 (§1; a pagina nao traz numero impresso, a numeracao impressa comeca em 2): "such progress relies not only on the underlying language model, but equally on the surrounding engineering components [...] collectively referred to as the agent's harness". Traducao fiel; os numeros de referencia entre colchetes foram omitidos.
-- [68] Tabela 1, p. 6: pass@1 no Terminal-Bench 2 (89 tarefas), GPT-5.4, *harnesses* humanos de 47,2% (OpenCode) a 71,9% (Codex).
+- [68] Tabela 1, p. 6: pass@1 no Terminal-Bench 2 (89 tarefas), *harnesses* humanos (o modelo nao e declarado na tabela; "sobre o GPT-5.4" saiu do projeto em 2026-09-25) de 47,2% (OpenCode) a 71,9% (Codex).
 - [71] Succ/Mtok, Apendice A, Eq. 2, p. 16: "the expected number of successes per million tokens". Ver [[succ-mtok]].
 
 ### Zhang et al. (2026), Stop comparing — [[stop-comparing-harness-zhang-2026]]
@@ -48,7 +48,7 @@ Resultado: 14 entradas, 14 citadas, nenhuma entrada sem citacao, nenhuma citacao
 
 ### Miller (2024), Adding error bars — [[adding-error-bars-miller-2024]]
 
-- [83] p. 7, §4.2: "reduce the variance with paired differences as long as the conditional means [...] are correlated", "We therefore recommend using the paired version". Miller nao diz que a dificuldade e a *maior* fonte de variacao, e usa erro padrao pareado, nao Wilcoxon. O texto agora diz so que o pareamento remove a dificuldade comum aos dois bracos.
+- [83] p. 8, §4.2 (a Eq. 7 fica na p. 7; correcao de 2026-09-25): "reduce the variance with paired differences as long as the conditional means [...] are correlated", "We therefore recommend using the paired version". Miller nao diz que a dificuldade e a *maior* fonte de variacao, e usa erro padrao pareado, nao Wilcoxon. O texto agora diz so que o pareamento remove a dificuldade comum aos dois bracos.
 
 ### Young (2025), Effective harnesses — [[effective-harnesses-young-2025]]
 
@@ -85,7 +85,7 @@ Resultado: 14 entradas, 14 citadas, nenhuma entrada sem citacao, nenhuma citacao
 ### YuukiFST (2026c), harness-bench
 
 - [74], [76] repositorio do projeto e onde as versoes serao registradas; objetivo 6 [57] promete publicar.
-- Repositorio privado em 2026-09-24, por decisao do autor, ate ficar pronto.
+- Repositorio privado em 2026-09-24, por decisao do autor, ate ficar pronto. Publico em 2026-09-25 (ver [[2026-09-25-verificacao-referencias-projeto]]).
 
 ## Afirmacoes sem citacao que ficam
 
