@@ -4,7 +4,7 @@ type: source
 summary: AHE evolui harnesses por observabilidade; 24,7 pp entre harnesses, Succ/Mtok no apendice
 tags: [harness, succ-mtok, pass-at-1, observabilidade, terminal-bench]
 created: 2026-09-10
-updated: 2026-09-11
+updated: 2026-09-25
 dated: 2026-05-18
 sources: []
 ---
@@ -42,7 +42,7 @@ Metodo: loop fechado AHE com tres pilares de observabilidade — (1) observabili
 
 | Achado | Modelo | *Harness* | Benchmark | n | Data |
 |---|---|---|---|---|---|
-| 47,2% / 62,9% / 71,9% pass@1 (OpenCode / Terminus-2 / Codex) = 24,7 pp de dispersao | GPT-5.4 fixo | 3 *harnesses* humanos | Terminal-Bench 2, 89 tarefas | k=2 | 2026 |
+| 47,2% / 62,9% / 71,9% pass@1 (OpenCode / Terminus-2 / Codex) = 24,7 pp de dispersao | modelo nao declarado na Tabela 1 (§4.1 fixa GPT-5.4 so para os agentes do AHE) | 3 *harnesses* humanos | Terminal-Bench 2, 89 tarefas | k=2 | 2026 |
 | 74,6%-75,6% acuracia empatada com 679/582/526/461 mil tokens por tarefa (~47% de variacao de custo) | mesmo modelo | ACE / TF-GRPO / NexAU0 / AHE | SWE-bench-verified, 500 tarefas | agregado | 2026 |
 | 69,7% -> 77,0% em 10 iteracoes AHE | GPT-5.4 high | evolucao AHE | Terminal-Bench 2 | campanha unica | 2026 |
 | +5,1 a +10,1 pp cross-family | 3 familias alternativas | *harness* congelado | Terminal-Bench 2 | transfer | 2026 |
@@ -61,7 +61,7 @@ Definida na Eq. (2), Apendice A: `pass@1 x 10^6 / media de tokens por execucao`.
 
 ## Uso no projeto
 
-- Justificativa: dispersao de 24,7 pp com modelo congelado (Tabela 1).
+- Justificativa: dispersao de 24,7 pp entre *harnesses* humanos (Tabela 1); o artigo nao diz que o modelo e o mesmo nas tres linhas.
 - Referencial: definicao operacional de *harness* e tese da alavanca de primeira classe.
 - Material e metodo: Succ/Mtok como metrica primaria; semente minima como precedente do *harness* zero; convencao de contagem do Apendice A.
 - Limitacoes: campanha unica sem variancia; efeito especifico do modelo.
@@ -69,7 +69,7 @@ Definida na Eq. (2), Apendice A: `pass@1 x 10^6 / media de tokens por execucao`.
 ### Auditoria de conteudo 2026-09-11
 
 - Citada em: §2 [49]-[50], [52], [55].
-- Afirmacao sustentada: definicao §1 verbatim; Tabela 1 (OpenCode 47,2% / Codex 71,9%, TB2, 89 tarefas, GPT-5.4); Succ/Mtok no Apendice A.
+- Afirmacao sustentada: definicao §1 verbatim; Tabela 1 (OpenCode 47,2% / Codex 71,9%, TB2, 89 tarefas; o artigo nao declara o modelo dos *harnesses* humanos, ver [[2026-09-25-verificacao-referencias-projeto]]); Succ/Mtok no Apendice A.
 - Veredito: CONCRETA; 24,7 pp e diferenca calculada da Tabela 1, nao frase do artigo. Detalhe em [[2026-09-11-auditoria-conteudo-referencias]].
 
 ## Contradictions
