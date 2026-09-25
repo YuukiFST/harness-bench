@@ -185,7 +185,7 @@ SLIDES = [
 
 GLOSS = [
  ("<em>harness</em>", "O software ao redor do modelo que monta o contexto, expõe as ferramentas e conduz a execução [43]: <em>system prompt</em>, ferramentas e <em>middleware</em> (Lin et al., 2026, p. 1). Converte um modelo sem estado em agente funcional (Ning et al., 2026, p. 7)."),
- ("imposto do <em>harness</em>", "O que quem paga por tokens paga a mais só pela escolha do <em>harness</em> (Pan et al., 2026) [44][69]."),
+ ("imposto do <em>harness</em>", "O que quem paga por tokens paga a mais só pela escolha do <em>harness</em> (Pan et al., 2026) [69]."),
  ("modelo de linguagem", "O núcleo sem estado. Fixo em cada nível; é a variável controlada."),
  ("<em>coding agent</em>", "Modelo de linguagem mais <em>harness</em> [43]. Aqui, o mesmo modelo em dois <em>harnesses</em> sob teste: OpenCode e Pi."),
  ("carga fixa", "O que o <em>harness</em> envia em toda requisição: <em>system prompt</em> e esquemas de ferramenta [62]. Medida sem tarefa na Camada 1 [75] e separada em cada requisição pelo <em>proxy</em> [80]."),

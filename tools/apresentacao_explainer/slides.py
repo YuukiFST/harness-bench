@@ -118,7 +118,7 @@ def s_justificativa() -> str:
 </div>
 </div>"""
     inner += source("Pan <em>et al.</em> (2026), HarnessTax, Universidade da Califórnia em Berkeley; publicação de blogue de pesquisa, não revisada por pares. Projeto, §1 [43]–[44].")
-    notes = "<b>Justificativa [43]–[44].</b> Um coding agent tem duas partes: o modelo de linguagem e o harness, o software ao redor dele que monta o contexto, expõe as ferramentas e conduz a execução [43]. Pan et al. (2026) avaliaram sete modelos em três harnesses e concluíram que a escolha do harness influencia notavelmente o custo; no SWE-bench Lite, o Claude Fable 5 resolve 97,8% no Claude Code e 96,7% no Pi, a US$ 1,33 contra US$ 0,67 por tentativa [43]. «Imposto do harness» é o termo dos autores, retomado em [69]."
+    notes = "<b>Justificativa [43]–[44].</b> Um coding agent tem duas partes: o modelo de linguagem e o harness, o software ao redor dele que monta o contexto, expõe as ferramentas e conduz a execução [43]. Pan et al. (2026) avaliaram sete modelos em três harnesses e concluíram que a escolha do harness influencia notavelmente o custo; no SWE-bench Lite, o Claude Fable 5 resolve 97,8% no Claude Code e 96,7% no Pi, a US$ 1,33 contra US$ 0,67 por tentativa [43]. «Imposto do harness» é o termo dos autores, usado em [69]."
     return sec("chart", "Justificativa: o imposto do harness", inner, notes)
 
 
