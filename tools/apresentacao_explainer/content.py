@@ -12,7 +12,7 @@ HARNESSTAX: list[tuple[str, float, float, str]] = [
     ("Pi", 96.7, 0.67, "pi"),
 ]
 
-# Lin et al. (2026), Tabela 1: harnesses escritos por humanos sobre o GPT-5.4, Terminal-Bench 2; projeto [68].
+# Lin et al. (2026), Tabela 1: harnesses escritos por humanos, Terminal-Bench 2; projeto [68].
 LIN_T1: list[tuple[str, float, str]] = [
     ("OpenCode", 47.2, "oc"),
     ("Codex", 71.9, "other"),
@@ -41,10 +41,10 @@ UNIT_LABELS: list[str] = ["U1", "U2", "U3", "U4", "U5", "U6", "…"]
 
 # Objetivos específicos [52]–[57].
 OBJECTIVES: list[tuple[str, str]] = [
-    ("<em>Proxy</em>", "conta requisições, tokens e latência por braço"),
+    ("<em>Proxy</em>", "conta requisições, tokens e latência por <em>coding agent</em>"),
     ("Finn de referência", "dele saem a especificação e os testes"),
     ("Finn nos dois <em>harnesses</em>", "mesmo modelo, <em>prompt</em> e espaço inicial"),
-    ("Segundo modelo", "a ordenação dos braços se mantém?"),
+    ("Segundo modelo", "a ordenação dos <em>coding agents</em> se mantém?"),
     ("Tokens relatados × medidos", "o relato de cada <em>harness</em> contra o <em>proxy</em>"),
     ("Publicar", "executor, <em>prompts</em>, testes, dados e scripts de análise"),
 ]

@@ -97,7 +97,7 @@ def harness_anatomy() -> str:
     out.append(f'<line class="s-other" x1="{cx}" y1="{cy+250}" x2="{cx}" y2="{py-44}" stroke-width="2" stroke-dasharray="4 6"/>')
     out.append(f'<rect x="{cx-280}" y="{py-44}" width="560" height="88" rx="12" fill="var(--pi-dim)" stroke="var(--pi)" stroke-width="1.5"/>')
     out.append(f'<text class="f-pi" x="{cx}" y="{py-8}" text-anchor="middle" font-size="21" font-weight="600">Proxy externo (instrumento)</text>')
-    out.append(f'<text class="dim" x="{cx}" y="{py+20}" text-anchor="middle" font-size="14">fora do <tspan font-style="italic">harness</tspan> · conta igual para os dois braços</text>')
+    out.append(f'<text class="dim" x="{cx}" y="{py+20}" text-anchor="middle" font-size="14">fora do <tspan font-style="italic">harness</tspan> · conta igual para os dois <tspan font-style="italic">coding agents</tspan></text>')
     out.append("</svg>")
     return "".join(out)
 
