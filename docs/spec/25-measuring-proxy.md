@@ -1,6 +1,7 @@
 # 25 — Specification of the measuring proxy
 
 Ticket #25.
+Status 2026-09-28: superseded in part by [harness-tally #43](https://github.com/YuukiFST/harness-tally/issues/43) (one session per build, arms pi and oh-my-pi, minimal proxy); the contract the runner builds against is [`26-harness-tally.md`](26-harness-tally.md).
 Question: how is the measuring proxy specified, built and validated?
 
 This is a **specification**, not an implementation: `harness-bench` itself is built under #17 and first exercised under #16.
