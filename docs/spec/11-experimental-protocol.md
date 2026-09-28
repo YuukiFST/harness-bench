@@ -1,6 +1,7 @@
 # 11 — The experimental protocol
 
 Ticket [#11](https://github.com/YuukiFST/harness-bench/issues/11).
+Status 2026-09-28: superseded in part by [harness-tally #43](https://github.com/YuukiFST/harness-tally/issues/43) (one session per build, arms pi and oh-my-pi, minimal proxy); the contract the runner builds against is [`26-harness-tally.md`](26-harness-tally.md).
 This is the protocol for **Layer 2**, the quota-bound outcome layer.
 Layer 1 has its own protocol and is already built ([#41](https://github.com/YuukiFST/harness-bench/issues/41), [`41-layer1-request-shape.md`](41-layer1-request-shape.md)); the two layers are reported separately and never combined into one number, but Layer 1 supplies the fixed load that H2 is tested on.
 
