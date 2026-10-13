@@ -219,3 +219,11 @@ Auditoria slide a slide (17) com `CONTEXT.md`, `docs/spec/11` e o dump do docx c
 - `AGENTS.md`: o repositorio do Finn fica privado por decisao do autor; nao e pendencia.
 - Deck (`tools/apresentacao_explainer/slides.py`, `content.py`, `charts.py`) e roteiro (`tools/roteiro_2026-09-25.py`) seguem o docx de 9c0fe11 e as correcoes do dia. O fecho do roteiro nao diz mais que os dois repositorios sao publicos.
 - Wiki: [[agentic-harness-engineering-lin-2026]], [[opencode]] e [[2026-09-24-mapa-citacoes-projeto]] sem "GPT-5.4 fixo" na Tabela 1.
+
+## [2026-10-13] edit | Projeto concluido; artigo cientifico gerado a partir dele
+
+- O projeto de pesquisa esta concluido e `dist/projeto-de-pesquisa.docx` fica congelado. A entrega da disciplina passa a ser o artigo, `dist/artigo-cientifico.docx`, gerado por `tools/build_artigo.py` (o texto vive no script).
+- Apostila do artigo copiada para `files/Aula Formatacao de artigos com modelos metodologia.pdf`. Formato seguido: A4, margens 3/3/2/2 cm, Times 12, 1,5, recuo 1,25 cm, titulo em caixa alta 14 pt com subtitulo minusculo, autores com nota de rodape, resumo e abstract em 10 pt simples (250 palavras), palavras-chave fora do titulo, referencias 12 pt simples com 6 pt antes e depois, numero de pagina embaixo a direita.
+- Introducao, referencial teorico e material e metodo copiados do projeto quase literalmente; orcamento e cronograma saem; limitacoes vao para as consideracoes finais. Resultados e discussao trazem a Camada 1 (`docs/spec/41-layer1-request-shape.md`, 2026-08-28: OpenCode 1.17.9 6.659 tokens e 29.997 bytes na primeira requisicao, Pi 0.80.10 1.228 tokens e 5.676 bytes, cl100k_base, tarefa probe); a Camada 2 ainda nao rodou.
+- Orcamento de paginas do autor: cerca de 7, no maximo 8, embora a apostila peca 15 a 20. Word: 8 paginas, referencias incluidas. 14 citacoes, 14 entradas.
+- `AGENTS.md` atualizado: secao "Article and project documents", apostila do artigo como regra, projeto congelado.
