@@ -55,7 +55,7 @@ FOOTNOTES = {
         "Zulmira Canavarros, 95 – CEP: 78005-200. faustoyuuki@gmail.com"),
     2: ("Professora orientadora – Departamento de Área de Informática – "
         "Instituto Federal de Educação, Ciência e Tecnologia de Mato Grosso – "
-        "Campus Cuiabá Cel. Octayde Jorge da Silva."),
+        "Campus Cuiabá Cel. Octayde Jorge da Silva. inara.ferrer@ifmt.edu.br"),
 }
 
 RESUMO = (
@@ -163,25 +163,37 @@ BODY = [
           "shell, e o middleware que controla contexto, execução e recuperação. Esse conjunto "
           "de componentes externos ao modelo e editáveis é chamado coletivamente de *harness* "
           "do agente. (Lin *et al.*, 2026, p. 1, tradução nossa)."),
-    ("p", "Só esse conjunto varia entre os *coding agents* deste experimento. O Pi envia "
-          "quatro ferramentas e um *system prompt* curto (Earendil, 2026), e o OpenCode envia "
-          "mais ferramentas, subagentes e permissões (Opencode, 2026a)."),
+    ("p", "Avaliar um agente é avaliar o *harness* e o modelo juntos (Grace *et al.*, 2026). "
+          "Por isso só esse conjunto varia entre os *coding agents* deste experimento. O Pi "
+          "envia quatro ferramentas e um *system prompt* curto (Earendil, 2026), e o OpenCode "
+          "envia mais ferramentas, subagentes e permissões (Opencode, 2026a)."),
     ("p", "Na Tabela 1 de Lin *et al.* (2026), *harnesses* escritos por humanos vão de 47,2% "
           "de aprovação no OpenCode a 71,9% no Codex, no Terminal-Bench 2. Zhang *et al.* "
           "(2026) sustentam que, em tarefas longas e entre modelos de fronteira comparáveis, a "
           "variação de desempenho devida ao *harness* é frequentemente comparável ou maior que "
           "a devida ao modelo. Pan *et al.* (2026) mediram outra coisa no SWE-bench Lite: o "
           "efeito médio do *harness* sobre a taxa de sucesso ficou dentro de ±2%, enquanto o "
-          "Claude Code custou, em média, cerca de 2,0 vezes o Pi. Como as fontes divergem sobre "
-          "o sucesso, este trabalho mede sucesso e custo juntos."),
+          "Claude Code custou, em média, cerca de 2,0 vezes o Pi."),
+    ("p", "No Terminal-Bench 2.0, com 89 tarefas e ao menos cinco execuções por par, o Gemini "
+          "2.5 Pro resolveu 32,6% das tarefas no Terminus 2 e 15,7% no OpenHands, mas os "
+          "autores concluem que o modelo costuma pesar mais que o *harness* (Merrill *et al.*, "
+          "2026). Entre o OpenCode e o Pi, o DeepSeek-AI (2026) obteve 85,0% e 86,1% no "
+          "Terminal-Bench v2.1 com o DeepSeek-V4.1-Flash, e Furgale *et al.* (2026), 52,8% e "
+          "75,3% no Terminal-Bench 2.0 com o GPT-5.5. Como as fontes divergem sobre o sucesso, este "
+          "trabalho mede sucesso e custo juntos."),
     ("p", "A primeira pendência é saber de onde vem a diferença de custo. Para Pan *et al.* "
           "(2026), o imposto do *harness* pode começar na primeira requisição: nos sete "
           "modelos, o contexto inicial médio do Claude Code passa de dez vezes o do Pi, e no "
           "Claude Fable 5 os turnos quase se igualam (15,3 contra 15,4). Liu *et al.* (2026) "
           "apontam o resto da conversa. Mudando só a execução das ações, a compactação de "
           "contexto, o tratamento das observações e a leitura delegada, cortaram de 44,7% a "
-          "49,0% dos tokens em relação ao Pi e mantiveram de 93,7% a 94,3% da pontuação dele. "
-          "Ning *et al.* (2026, p. 66, tradução nossa) pedem “métricas que isolem componentes "
+          "49,0% dos tokens em relação ao Pi e mantiveram de 93,7% a 94,3% da pontuação dele."),
+    ("p", "O gerenciamento de contexto, sozinho, também muda custo e sucesso com o modelo fixo. "
+          "No SWE-agent com o Qwen3-Coder 480B, mascarar observações antigas baixou o custo "
+          "por tarefa de US$ 1,29 para US$ 0,61 nas 500 tarefas do SWE-bench Verified "
+          "(Lindenbauer *et al.*, 2025). Com o Claude 4 Sonnet, o gerenciamento de contexto "
+          "elevou a resolução de 42,0% para 48,6% em 100 tarefas do SWE-Bench Pro (Wong "
+          "*et al.*, 2025). Ning *et al.* (2026, p. 66, tradução nossa) pedem “métricas que isolem componentes "
           "do *harness*”, e H2 testa se pesa mais a carga fixa ou a conversa."),
     ("p", "A segunda pendência é a instrumentação. Cada *harness* conta turnos e tokens do seu "
           "jeito, e Pan *et al.* (2026) registram que a definição de turno varia entre eles. "
@@ -280,7 +292,11 @@ BODY = [
           "A Camada 1 tem uma única tarefa curta, sem modelo real, e o número de passos de uma "
           "construção pode ser outro. Se os dois *coding agents* precisarem de números de "
           "passos parecidos, a carga fixa deve responder pela maior parte da diferença de "
-          "tokens. Se o Pi precisar de muito mais passos, a vantagem inicial pode se perder."),
+          "tokens. Se o Pi precisar de muito mais passos, a vantagem inicial pode se perder. "
+          "Furgale *et al.* (2026) registraram esse caso no SWE-bench Verified com o GPT-5.5 "
+          "(esforço xhigh). "
+          "O Pi 0.72.1 fez 66 chamadas e gastou 2,2 milhões de tokens por tarefa para 78,2% "
+          "de acerto, e o OpenCode 1.14.33, 1,3 milhão para 78,6%."),
 
     ("h", "5 CONSIDERAÇÕES FINAIS"),
     ("p", "Este trabalho partiu da constatação de que, com o mesmo modelo, o *harness* pode "
@@ -321,9 +337,19 @@ TABLE_ROWS = [
 ]
 
 REFERENCES = [
+    "DEEPSEEK-AI. **DeepSeek-V4.1-Flash**: pushing the limits of KV cache compression. "
+    "arXiv:2609.19969, 2026. *Preprint*, não revisado por pares. Disponível em: "
+    "https://arxiv.org/abs/2609.19969. Acesso em: 22 out. 2026.",
     "EARENDIL. **Pi, minimal and performant**. 2026. Publicação de blogue institucional. "
     "Disponível em: https://earendil.com/posts/pi-autoresearch-and-databricks/. Acesso em: "
     "28 ago. 2026.",
+    "FURGALE, Paul *et al.* **NVIDIA-labs OO Agents**: native Python object-oriented "
+    "agents. arXiv:2607.20709, 2026. *Preprint*, não revisado por pares. Disponível em: "
+    "https://arxiv.org/abs/2607.20709. Acesso em: 22 out. 2026.",
+    "GRACE, Mikaela *et al.* **Demystifying evals for AI agents**. 2026. Publicação de "
+    "blogue de engenharia (Anthropic), não revisada por pares. Disponível em: "
+    "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents. Acesso em: "
+    "22 out. 2026.",
     "KARPATHY, Andrej. **LLM Wiki**: a pattern for building personal knowledge bases using "
     "LLMs. 2026. Gist (GitHub). Disponível em: "
     "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f. Acesso em: 14 set. "
@@ -331,9 +357,18 @@ REFERENCES = [
     "LIN, Jiahang *et al.* **Agentic harness engineering**: observability-driven automatic "
     "evolution of coding-agent harnesses. arXiv:2604.25850, 2026. *Preprint*, não revisado "
     "por pares. Disponível em: https://arxiv.org/abs/2604.25850. Acesso em: 28 ago. 2026.",
+    "LINDENBAUER, Tobias *et al.* **The complexity trap**: simple observation masking is "
+    "as efficient as LLM summarization for agent context management. arXiv:2508.21433, "
+    "2025. *Preprint*, não revisado por pares. Disponível em: "
+    "https://arxiv.org/abs/2508.21433. Acesso em: 22 out. 2026.",
     "LIU, Haozhe *et al.* **SoL-Pi**: recursively scaling auto-research loops for efficient "
     "agent harness. arXiv:2609.20519, 2026. *Preprint*, não revisado por pares. Disponível "
     "em: https://arxiv.org/abs/2609.20519. Acesso em: 23 set. 2026.",
+    "MERRILL, Mike A. *et al.* Terminal-Bench: benchmarking agents on hard, realistic "
+    "tasks in command line interfaces. In: INTERNATIONAL CONFERENCE ON LEARNING "
+    "REPRESENTATIONS, 2026. **Proceedings** [...]. [*S. l.*: *s. n.*], 2026. Disponível em: "
+    "https://proceedings.iclr.cc/paper_files/paper/2026/hash/444a3737adaee10d86ad2ef5f74468e6-"
+    "Abstract-Conference.html. Acesso em: 22 out. 2026.",
     "MILLER, Evan. **Adding error bars to evals**: a statistical approach to language model "
     "evaluations. arXiv:2411.00640, 2024. *Preprint*, não revisado por pares. Disponível em: "
     "https://arxiv.org/abs/2411.00640. Acesso em: 28 ago. 2026.",
@@ -347,6 +382,9 @@ REFERENCES = [
     "PAN, Melissa Z. *et al.* **HarnessTax**: how much does the harness matter for coding "
     "agents? 2026. Publicação de blogue de pesquisa, não revisada por pares. Disponível em: "
     "https://harnesstax.github.io/. Acesso em: 23 set. 2026.",
+    "WONG, Sherman *et al.* **Confucius Code Agent**: scalable agent scaffolding for "
+    "real-world codebases. arXiv:2512.10398, 2025. *Preprint*, não revisado por pares. "
+    "Disponível em: https://arxiv.org/abs/2512.10398. Acesso em: 22 out. 2026.",
     "YOUNG, Justin. **Effective harnesses for long-running agents**. 2025. Publicação de "
     "blogue de engenharia (Anthropic), não revisada por pares. Disponível em: "
     "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents. "

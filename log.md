@@ -227,3 +227,12 @@ Auditoria slide a slide (17) com `CONTEXT.md`, `docs/spec/11` e o dump do docx c
 - Introducao, referencial teorico e material e metodo copiados do projeto quase literalmente; orcamento e cronograma saem; limitacoes vao para as consideracoes finais. Resultados e discussao trazem a Camada 1 (`docs/spec/41-layer1-request-shape.md`, 2026-08-28: OpenCode 1.17.9 6.659 tokens e 29.997 bytes na primeira requisicao, Pi 0.80.10 1.228 tokens e 5.676 bytes, cl100k_base, tarefa probe); a Camada 2 ainda nao rodou.
 - Orcamento de paginas do autor: cerca de 7, no maximo 8, embora a apostila peca 15 a 20. Word: 8 paginas, referencias incluidas. 14 citacoes, 14 entradas.
 - `AGENTS.md` atualizado: secao "Article and project documents", apostila do artigo como regra, projeto congelado.
+
+## [2026-10-22] edit | Seis fontes novas sobre o *harness* no artigo
+
+- Pedido do autor: mais artigos sobre *harness*, so de empresas e universidades de peso. Busca em cinco blocos (Anthropic/OpenAI/Google; Meta/NVIDIA/Microsoft/Amazon; universidades dos EUA; universidades europeias; laboratorios chineses), cada candidato conferido no texto primario (arXiv HTML, proceedings ICLR, blog oficial).
+- Entraram em `tools/build_artigo.py`: Grace *et al.* (2026, Anthropic) em [21], avaliar um agente e avaliar *harness* e modelo juntos; Merrill *et al.* (2026, Terminal-Bench, ICLR 2026) em [23], Gemini 2.5 Pro 32,6% no Terminus 2 vs 15,7% no OpenHands, 89 tarefas, >=5 execucoes; DeepSeek-AI (2026, DeepSeek-V4.1-Flash, Tabela 4) em [23], OpenCode 85,0 vs Pi 86,1 no Terminal-Bench v2.1, N=3; Furgale *et al.* (2026, NVIDIA, NOOA) em [23] e [79], Terminal-Bench 2.0 GPT-5.5 xhigh OpenCode 52,8 vs Pi 75,3, SWE-bench Verified Pi 0.72.1 66 chamadas e 2,2M tokens por tarefa (78,2%) vs OpenCode 1.14.33 1,3M (78,6%); Lindenbauer *et al.* (2025, TUM/JetBrains) em [25], mascaramento de observacoes US$ 1,29 -> US$ 0,61 por tarefa, Qwen3-Coder 480B, SWE-agent, 500 tarefas; Wong *et al.* (2025, Meta/Harvard) em [25], gerenciamento de contexto 42,0% -> 48,6%, Claude 4 Sonnet, 100 tarefas do SWE-Bench Pro.
+- A fonte nova do §4 entrou no paragrafo [79]; o §2 ganhou um paragrafo sobre gerenciamento de contexto (Lindenbauer, Wong), separado do paragrafo de Pan e Liu.
+- Nota de rodape 2: e-mail da orientadora (inara.ferrer@ifmt.edu.br); a titulacao ainda falta.
+- Orcamento: o autor permite, desde 2026-10-22, que fontes novas passem do limite de 8 paginas (`AGENTS.md`). Word: 9 paginas. 20 entradas, 20 citadas.
+- Sem paginas da wiki para as seis fontes ainda.
