@@ -236,3 +236,10 @@ Auditoria slide a slide (17) com `CONTEXT.md`, `docs/spec/11` e o dump do docx c
 - Nota de rodape 2: e-mail da orientadora (inara.ferrer@ifmt.edu.br); a titulacao ainda falta.
 - Orcamento: o autor permite, desde 2026-10-22, que fontes novas passem do limite de 8 paginas (`AGENTS.md`). Word: 9 paginas. 20 entradas, 20 citadas.
 - Sem paginas da wiki para as seis fontes ainda.
+
+## [2026-10-22] edit | Cinco preprints indicados pelo autor; so o HERMES entra
+
+- Indicados pelo autor e lidos no arXiv HTML: 2610.28380, 2610.14224, 2610.13075, 2609.35738, 2610.07832.
+- Entra Jin *et al.* (2026, HERMES; UIUC e Penn State, afiliacao impressa) em [22]: SWE-bench Verified, 500 tarefas, Tabela 1; mini-SWE-agent -> HERMES com GPT-5.6 Sol 96,20% -> 97,00% e US$ 1,15 -> US$ 1,80 por tarefa; com GPT-5 Mini 60,80% -> 80,20%. Os numeros da coluna de base seguem as configuracoes publicadas do leaderboard, nao uma reexecucao controlada.
+- Ficam fora, por tema (nenhum e sobre *harness* de agente de codificacao): OO-Harness (Li *et al.*, 2026, Google Cloud AI Research e UIUC; AutomationBench, Workspace-Bench, Toolathlon-GYM); Harness^2 (Xu *et al.*, 2026, Google Cloud AI Research e Northwestern; WorkBuddy-Bench, JobBench, LAB; usa o OpenCode como *harness* inicial com o Gemini 3.5 Flash); LongHarness (Huang *et al.*, 2026, Shanghai AI Lab, Fudan, PKU e outras; QA sobre corpora longos). Harness Learning (Zhang *et al.*, 2026; raciocinio e QA multi-hop) tambem nao imprime afiliacao; os agradecimentos citam clusters da CMU e de Johns Hopkins.
+- Word: 9 paginas. 21 entradas, 21 citadas.

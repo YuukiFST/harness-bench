@@ -173,7 +173,11 @@ BODY = [
           "variação de desempenho devida ao *harness* é frequentemente comparável ou maior que "
           "a devida ao modelo. Pan *et al.* (2026) mediram outra coisa no SWE-bench Lite: o "
           "efeito médio do *harness* sobre a taxa de sucesso ficou dentro de ±2%, enquanto o "
-          "Claude Code custou, em média, cerca de 2,0 vezes o Pi."),
+          "Claude Code custou, em média, cerca de 2,0 vezes o Pi. Em Jin *et al.* (2026), no "
+          "SWE-bench Verified de 500 tarefas, trocar o mini-SWE-agent pelo HERMES, com o "
+          "GPT-5.6 Sol, levou a resolução de 96,20% para 97,00% e o custo por tarefa de "
+          "US$ 1,15 para US$ 1,80. Com o GPT-5 Mini, a resolução subiu de 60,80% para "
+          "80,20%."),
     ("p", "No Terminal-Bench 2.0, com 89 tarefas e ao menos cinco execuções por par, o Gemini "
           "2.5 Pro resolveu 32,6% das tarefas no Terminus 2 e 15,7% no OpenHands, mas os "
           "autores concluem que o modelo costuma pesar mais que o *harness* (Merrill *et al.*, "
@@ -350,6 +354,9 @@ REFERENCES = [
     "blogue de engenharia (Anthropic), não revisada por pares. Disponível em: "
     "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents. Acesso em: "
     "22 out. 2026.",
+    "JIN, Haibo *et al.* **Harness engineering for software engineering via modular "
+    "executable dev-primitives**. arXiv:2610.07832, 2026. *Preprint*, não revisado por "
+    "pares. Disponível em: https://arxiv.org/abs/2610.07832. Acesso em: 22 out. 2026.",
     "KARPATHY, Andrej. **LLM Wiki**: a pattern for building personal knowledge bases using "
     "LLMs. 2026. Gist (GitHub). Disponível em: "
     "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f. Acesso em: 14 set. "
